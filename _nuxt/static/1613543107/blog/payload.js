@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/blog", {data:[{articles:[{slug:"타입스크립트-기본",description:"타입스크립트에서 기본적으로 사용하는 것들을 정리했습니다.",title:"타입스크립트 기본",img:"js.webp",author:"socratone"}]}],fetch:{},mutations:void 0});
