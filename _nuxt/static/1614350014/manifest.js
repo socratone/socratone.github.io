@@ -1,0 +1,1 @@
+__NUXT_JSONP__("manifest.js", {routes:["\u002F","\u002Fcategory","\u002Falgorithm-3-linked-list","\u002Falgorithm-2-array","\u002Falgorithm-1-big-o","\u002Fstart-docker","\u002Ftypescript-basics","\u002Fcategory\u002Falgorithm","\u002Fcategory\u002Ftypescript","\u002Fcategory\u002Fdocker"]})
