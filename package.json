@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/socratone/socratone.github.io#readme",
   "devDependencies": {
+    "fs-extra": "^10.0.0",
     "showdown": "^1.9.1"
   }
 }
