@@ -15,9 +15,16 @@
 .main-header__list {
   height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-size: 1.8rem;
+}
+
+.main-header__list > li {
+  margin-right: 20px;
+}
+
+.main-header__list > li:last-child {
+  margin-right: 0;
 }
 
 .main-header__link {
