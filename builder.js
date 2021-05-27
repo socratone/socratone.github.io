@@ -38,8 +38,6 @@ function findIndexHTML(tree) {
   recursion(tree);
 }
 
-// console.log('htmls:', htmls)
-
 // common html 파일 불러오기
 const head = fs.readFileSync(
   path.join(__dirname, 'src/common/head.html'),
@@ -50,17 +48,25 @@ const header = fs.readFileSync(
   'utf8'
 );
 
-// console.log('head:', head);
-// console.log('header:', header);
-
-// index.html 파일 텍스트 변환
+// index.html 파일에 common html 파일 적용 후 저장
 htmls.forEach((indexHTML) => {
   let htmlText = fs.readFileSync(indexHTML.path, 'utf8');
   htmlText = htmlText.replace('<!-- head -->', head);
   htmlText = htmlText.replace('<!-- header -->', header);
 
-  fs.writeFile(indexHTML.path, htmlText, function (err) {
+  fs.writeFileSync(indexHTML.path, htmlText, function (err) {
     if (err) return console.log(err);
   });
 });
+
+// build 폴더에서 루트로 이동
+tree.children.map(item => {
+  fse.move(item.path, __dirname, err => {
+    if (err) return console.error(err)
+    console.log('success!')
+  })
+})
+
+
+// build 폴더 삭제
 
