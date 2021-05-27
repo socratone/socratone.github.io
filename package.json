@@ -1,0 +1,23 @@
+{
+  "name": "socratone.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/socratone/socratone.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/socratone/socratone.github.io/issues"
+  },
+  "homepage": "https://github.com/socratone/socratone.github.io#readme",
+  "devDependencies": {
+    "showdown": "^1.9.1"
+  }
+}
