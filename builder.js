@@ -60,13 +60,10 @@ htmls.forEach((indexHTML) => {
 });
 
 // build 폴더에서 루트로 이동
-tree.children.map(item => {
-  fse.move(item.path, __dirname, err => {
-    if (err) return console.error(err)
-    console.log('success!')
-  })
-})
-
+tree.children.map((item) => {
+  fse.moveSync(item.path, path.join(__dirname, item.name), { overwrite: true });
+});
 
 // build 폴더 삭제
-
+fs.rmdirSync(path.join(__dirname, 'build'));
+fse.removeSync(path.join(__dirname, 'common'));
