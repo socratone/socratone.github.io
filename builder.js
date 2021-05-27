@@ -43,6 +43,7 @@ const head = fs.readFileSync(
   path.join(__dirname, 'src/common/head.html'),
   'utf8'
 );
+
 const header = fs.readFileSync(
   path.join(__dirname, 'src/common/header.html'),
   'utf8'
@@ -51,8 +52,8 @@ const header = fs.readFileSync(
 // index.html 파일에 common html 파일 적용 후 저장
 htmls.forEach((indexHTML) => {
   let htmlText = fs.readFileSync(indexHTML.path, 'utf8');
-  htmlText = htmlText.replace('<!-- head -->', head);
-  htmlText = htmlText.replace('<!-- header -->', header);
+  htmlText = htmlText.replace('<!-- head -->', head); // 해당 주석을 head로 대체
+  htmlText = htmlText.replace('<!-- header -->', header); // 해당 주석을 header로 대체
 
   fs.writeFileSync(indexHTML.path, htmlText, function (err) {
     if (err) return console.log(err);
@@ -64,6 +65,6 @@ tree.children.map((item) => {
   fse.moveSync(item.path, path.join(__dirname, item.name), { overwrite: true });
 });
 
-// build 폴더 삭제
-fs.rmdirSync(path.join(__dirname, 'build'));
-fse.removeSync(path.join(__dirname, 'common'));
+// build, common 폴더 삭제
+fs.rmdirSync(path.join(__dirname, 'build')); // 비어 있는 경우에만 삭제됨
+fse.removeSync(path.join(__dirname, 'common')); // 무조건 삭제됨
