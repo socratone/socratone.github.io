@@ -1,7 +1,7 @@
 .table {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(16, 30px);
+  grid-template-columns: repeat(auto-fit, 30px);
 }
 
 .color-cell {
