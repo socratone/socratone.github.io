@@ -52,23 +52,31 @@
     </header>
     <div class="main-header-bumper"></div>
     <main class="main-body">
-      <h1>Color Keywords</h1>
+      <h1>React TypeScript Types</h1>
 
-      <p>클립보드에 복사하고 싶은 색을 클릭하세요.</p>
+      <p>리액트 타입스크립트 개발시 자주 쓰는 타입을 정리합니다.</p>
 
-      <h2>회색 계열</h2>
-      <section id="grey-color-table" class="table"></section>
+      <h2>Children</h2>
 
-      <h2>붉은색 계열</h2>
-      <section id="red-color-table" class="table"></section>
+      <p>
+        children: <strong>React.ReactNode</strong>
+        <span class="text--green">// 모든 타입</span>
+      </p>
+      <p>
+        children: <strong>React.ReactChild</strong>
+        <span class="text--green">// 한 엘리먼트</span>
+      </p>
+      <p>
+        children: <strong>React.ReactChild[]</strong>
+        <span class="text--green">// 둘 이상의 엘리먼트</span>
+      </p>
 
-      <h2>푸른색 계열</h2>
-      <section id="blue-color-table" class="table"></section>
+      <h2>Event</h2>
+
+      <p>
+        event: <strong>React.MouseEvent&lt;HTMLButtonElement&gt;</strong>
+        <span class="text--green">// 버튼 이벤트</span>
+      </p>
     </main>
-
-    <script src="redColors.js"></script>
-    <script src="blueColors.js"></script>
-    <script src="greyColors.js"></script>
-    <script src="index.js"></script>
   </body>
 </html>
