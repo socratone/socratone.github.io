@@ -55,3 +55,7 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+strong {
+  font-weight: 600;
+}
