@@ -12,11 +12,22 @@
   max-width: 1000px;
 }
 
+.main-header__list-wrap {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .main-header__list {
   height: 100%;
   display: flex;
   align-items: center;
   font-size: 1.8rem;
+}
+
+.main-header__bars {
+  display: flex;
+  align-items: center;
 }
 
 .main-header__list > li {
