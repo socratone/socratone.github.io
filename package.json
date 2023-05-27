@@ -12,11 +12,17 @@
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "gray-matter": "^4.0.3",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "remark": "^14.0.3",
+    "remark-html": "^15.0.2",
     "typescript": "5.0.4"
   }
 }
