@@ -1,3 +1,5 @@
+import 'github-markdown-css';
+
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile, parseMarkdownToHtml } from 'utils/markdown';
@@ -41,7 +43,12 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
 
 // TODO: metadata 설정
 const Blog: NextPage<BlogProps> = ({ htmlContent }) => {
-  return <section dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+  return (
+    <section
+      className="markdown-body"
+      dangerouslySetInnerHTML={{ __html: htmlContent }}
+    />
+  );
 };
 
 export default Blog;
