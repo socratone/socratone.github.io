@@ -46,7 +46,6 @@ const Blog: NextPage<BlogProps> = ({ htmlContent }) => {
   return (
     <section
       className="markdown-body"
-      style={{ padding: '1rem' }}
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
