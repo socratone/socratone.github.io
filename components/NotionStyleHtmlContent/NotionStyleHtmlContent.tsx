@@ -35,6 +35,7 @@ const StyledBox = styled(Box)`
     font-weight: ${({ theme }) => theme.typography.mh3.fontWeight};
     padding: ${({ theme }) => theme.typography.mh3.padding};
     margin: ${({ theme }) => theme.typography.mh3.margin};
+    margin-top: 1rem; /* 16px */
   }
 
   p {
