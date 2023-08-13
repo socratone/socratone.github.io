@@ -12,7 +12,9 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Stack component="main">
-        <Typography>반가워요 👋, Frontend Developer 김기원입니다!</Typography>
+        <Typography color="text.primary">
+          반가워요 👋, Frontend Developer 김기원입니다!
+        </Typography>
       </Stack>
     </>
   );
