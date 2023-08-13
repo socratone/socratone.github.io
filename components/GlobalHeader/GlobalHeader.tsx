@@ -21,7 +21,7 @@ const GlobalHeader = () => {
       <Container>
         <Stack direction="row" spacing={2} height={GLOBAL_HEADER_HEIGHT}>
           <HeaderLink href="/">Home</HeaderLink>
-          <HeaderLink href="/blogs/regex">Regex</HeaderLink>
+          <HeaderLink href="/blogs">Blogs</HeaderLink>
         </Stack>
       </Container>
     </Box>
