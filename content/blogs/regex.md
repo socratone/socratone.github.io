@@ -128,12 +128,8 @@ thumbnail: 'regex'
 
 ## Tools
 
-### [Regex101.com](https://regex101.com/)
-
-정규표현식을 테스트해볼 수 있다.
+- [regex101.com](https://regex101.com/) - 정규표현식을 테스트해볼 수 있다.
 
 ## References
 
-### [https://ko.javascript.info/regexp-introduction](https://ko.javascript.info/regexp-introduction)
-
-패턴과 플래그
+- [ko.javascript.info/regexp-introduction](https://ko.javascript.info/regexp-introduction) - 패턴과 플래그
