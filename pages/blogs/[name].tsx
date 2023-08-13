@@ -1,12 +1,19 @@
+import Meta from 'components/Meta';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
+import { BlogThumbnail } from 'constants/blog';
+import { validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile, parseMarkdownToHtml } from 'utils/markdown';
 
+type Metadata = {
+  title: string;
+  description: string;
+  thumbnail: BlogThumbnail;
+};
+
 type BlogProps = {
-  metadata: {
-    [key: string]: any;
-  };
+  metadata: Metadata;
   htmlContent: string;
 };
 
@@ -31,18 +38,28 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
   const name = params?.name;
+
   if (typeof name !== 'string') {
     throw new Error('Invalid name.');
   }
+
   const { metadata, content } = parseMarkdownFile(`content/blogs/${name}.md`);
   const htmlContent = await parseMarkdownToHtml(content);
 
-  return { props: { metadata, htmlContent } };
+  validateMarkdownMetadata(metadata);
+  const validatedMetadata = metadata as Metadata;
+
+  return { props: { metadata: validatedMetadata, htmlContent } };
 };
 
-// TODO: metadata 설정
-const Blog: NextPage<BlogProps> = ({ htmlContent }) => {
-  return <NotionStyleHtmlContent html={htmlContent} />;
+const Blog: NextPage<BlogProps> = ({ metadata, htmlContent }) => {
+  return (
+    <>
+      {/* TODO: thumbnail에 따라 imageUrl 설정 */}
+      <Meta title={metadata.title} description={metadata.description} />
+      <NotionStyleHtmlContent html={htmlContent} />
+    </>
+  );
 };
 
 export default Blog;
