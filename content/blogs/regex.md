@@ -2,6 +2,7 @@
 title: '정규 표현식'
 description: '정규 표현식을 이용하면 별다른 알고리즘 없이도 문자를 손쉽게 다룰 수 있다.'
 thumbnail: 'regex'
+createdAt: '2022-08-28'
 ---
 
 # 정규 표현식

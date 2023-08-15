@@ -5,6 +5,7 @@ export type Metadata = {
   title: string;
   description: string;
   thumbnail: BlogThumbnail;
+  createdAt: string;
 };
 
 export const validateMarkdownMetadata = (metadata: any) => {
@@ -14,6 +15,13 @@ export const validateMarkdownMetadata = (metadata: any) => {
 
   if (typeof metadata.description !== 'string') {
     throw new Error('Invalid description.');
+  }
+
+  if (
+    typeof metadata.createdAt !== 'string' ||
+    new Date(metadata.createdAt).toString() === 'Invalid Date'
+  ) {
+    throw new Error('Invalid createdAt.');
   }
 
   if (!isStringInEnum(metadata.thumbnail, BlogThumbnail)) {

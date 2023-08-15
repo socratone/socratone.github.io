@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { BlogThumbnail } from 'constants/blog';
+import { Dayjs } from 'dayjs';
 import Link from 'next/link';
 
 import Thumbnail from './Thumbnail';
@@ -30,6 +31,7 @@ type BlogListItemProps = {
   title: string;
   description: string;
   thumbnail: BlogThumbnail;
+  createdAt: Dayjs;
   href: string;
 };
 
@@ -37,6 +39,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
   title,
   description,
   thumbnail,
+  createdAt,
   href,
 }) => {
   return (
@@ -56,6 +59,9 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
           <EllipsisTypography variant="body1" color="text.secondary">
             {description}
           </EllipsisTypography>
+          <Typography variant="body2" color="text.secondary">
+            {createdAt.format('YYYY.MM.DD')}
+          </Typography>
         </Stack>
       </StyledStack>
     </Link>
