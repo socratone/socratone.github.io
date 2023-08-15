@@ -9,7 +9,7 @@ type ThumbnailProps = {
 
 const REGEX_BLUE = '#2c5c97';
 const WHITE = '#fff';
-const THUMBNAIL_SIZE = '5rem'; // 80px
+const THUMBNAIL_SIZE = '6rem'; // 80px
 
 const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
   switch (type) {
