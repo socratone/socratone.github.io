@@ -6,6 +6,7 @@ import GlobalHeader from 'components/GlobalHeader/GlobalHeader';
 import Meta from 'components/Meta';
 import type { AppProps } from 'next/app';
 import { components } from 'theme/components';
+import { shadows } from 'theme/shadows';
 import { typography } from 'theme/typography';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
       theme={createTheme({
         components,
         typography,
+        shadows,
       })}
     >
       <Meta title="소크라톤" description="프론트엔드 개발자 소크라톤 페이지" />
