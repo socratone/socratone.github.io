@@ -12,8 +12,8 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({ children, href }) => {
     <Link href={href}>
       <Typography
         component={motion.p}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         color={(theme) => theme.palette.text.primary}
         sx={{
           cursor: 'pointer',
