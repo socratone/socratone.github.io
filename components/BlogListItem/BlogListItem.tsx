@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { BlogThumbnail } from 'constants/blog';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import Thumbnail from './Thumbnail';
