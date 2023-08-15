@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       <Meta title="소크라톤" description="프론트엔드 개발자 소크라톤 페이지" />
       <GlobalHeader />
-      <Container sx={{ py: 2 }}>
+      <Container component="main" sx={{ py: 2 }}>
         <Component {...pageProps} />
       </Container>
     </ThemeProvider>

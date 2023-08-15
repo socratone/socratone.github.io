@@ -12,13 +12,13 @@ const GlobalHeader = () => {
       sx={{
         position: 'sticky',
         top: 0,
-        zIndex: 10,
+        zIndex: (theme) => theme.zIndex.appBar,
         bgcolor: (theme) => theme.palette.background.default,
         borderBottom: 1,
         borderColor: (theme) => theme.palette.divider,
       }}
     >
-      <Container>
+      <Container component="nav">
         <Stack direction="row" spacing={2} height={GLOBAL_HEADER_HEIGHT}>
           <HeaderLink href="/">Home</HeaderLink>
           <HeaderLink href="/blogs">Blogs</HeaderLink>

@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 
 const Home = () => {
   return (
-    <Stack component="main">
+    <Stack>
       <Typography color="text.primary">
         반가워요 👋, Frontend Developer 김기원입니다!
       </Typography>
