@@ -7,6 +7,8 @@ createdAt: '2022-07-05'
 
 # Package.json
 
+package.json의 주요 key를 설명한다.
+
 ## name
 
 - package를 publish 할 때 중요
