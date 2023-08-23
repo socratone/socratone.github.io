@@ -64,13 +64,32 @@ const StyledBox = styled(Box)`
     color: dodgerblue;
   }
 
+  /* single line code */
+
   code {
     font-family: inherit;
+    font-size: 85%;
     color: #eb5757;
     background: rgba(135, 131, 120, 0.15);
     border-radius: 3px;
-    font-size: 85%;
     padding: 2.72px 5.44px;
+  }
+
+  /* multi line code */
+
+  pre {
+    padding: 34px 16px 32px 32px;
+    background: rgb(247, 246, 243);
+    overflow-x: auto;
+  }
+
+  pre > code {
+    font-family: inherit;
+    font-size: ${({ theme }) => theme.typography.mp.fontSize};
+    color: #690;
+    background: unset;
+    border-radius: unset;
+    padding: unset;
   }
 `;
 
