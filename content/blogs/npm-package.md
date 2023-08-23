@@ -83,9 +83,8 @@ package.json의 주요 key를 설명한다.
 
 ## scripts
 
-- 배포되는 등의 cycle에서 실행되는 스크립트 설정
-
-https://docs.npmjs.com/cli/v9/using-npm/scripts
+- 배포되는 등의 cycle에서 실행되는 스크립트 설정\
+  [https://docs.npmjs.com/cli/v9/using-npm/scripts](https://docs.npmjs.com/cli/v9/using-npm/scripts)
 
 - pre\*와 post\* 스크립트를 정의할 수 있음
 
@@ -101,8 +100,8 @@ https://docs.npmjs.com/cli/v9/using-npm/scripts
 
 ## dependencies
 
-- 버전 표시 방법
-  https://docs.npmjs.com/cli/v9/configuring-npm/package-json#dependencies
+- 버전 표시 방법\
+  [https://docs.npmjs.com/cli/v9/configuring-npm/package-json#dependencies](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#dependencies)
 
 ## devDependencies
 
