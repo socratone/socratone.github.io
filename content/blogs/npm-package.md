@@ -2,7 +2,7 @@
 title: 'package.json'
 description: 'package.json의 주요 key를 설명한다.'
 thumbnail: 'npm'
-createdAt: '2022-07-05'
+createdAt: '2023-07-05'
 ---
 
 # Package.json
@@ -87,7 +87,7 @@ package.json의 주요 key를 설명한다.
 
 https://docs.npmjs.com/cli/v9/using-npm/scripts
 
-- pre*와 post* 스크립트를 정의할 수 있음
+- pre\*와 post\* 스크립트를 정의할 수 있음
 
 ```jsx
 {
