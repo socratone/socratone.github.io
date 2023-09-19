@@ -60,6 +60,10 @@ const StyledBox = styled(Box)`
     padding-left: 1.375rem; /* 22px */
   }
 
+  li {
+    line-height: 1.8;
+  }
+
   a {
     color: dodgerblue;
   }
