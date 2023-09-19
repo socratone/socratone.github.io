@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { BlogThumbnail } from 'constants/blog';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import linuxImage from 'public/images/blog/linux.webp';
 import npmImage from 'public/images/blog/npm.webp';
 import { popUpContainer, popUpItem } from 'utils/animation';
 
@@ -88,6 +89,37 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
               }}
             >
               <Image src={npmImage} alt="npm" fill />
+            </Box>
+          </Box>
+        </Box>
+      );
+
+    case BlogThumbnail.Linux:
+      return (
+        <Box
+          width={THUMBNAIL_SIZE}
+          height={THUMBNAIL_SIZE}
+          fontSize={THUMBNAIL_SIZE}
+        >
+          <Box
+            component={motion.div}
+            {...popUpContainer}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+            paddingX={0.5}
+          >
+            <Box
+              component={motion.div}
+              {...popUpItem}
+              width="100%"
+              position="relative"
+              sx={{
+                aspectRatio: '370 / 157',
+              }}
+            >
+              <Image src={linuxImage} alt="npm" fill />
             </Box>
           </Box>
         </Box>
