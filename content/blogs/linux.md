@@ -295,3 +295,7 @@ createdAt: '2022-08-29'
 
 - `curl https://api.cloudflare.com/client/v4/ | json_pp`
 - response json의 indent가 정렬되어 나옴
+
+## References
+
+- [explainshell.com](https://explainshell.com/)
