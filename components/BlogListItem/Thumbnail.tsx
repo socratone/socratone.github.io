@@ -34,11 +34,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
             color={WHITE}
             fontSize="0.33em"
             display="flex"
+            fontFamily="Merriweather"
           >
             <Typography
               component={motion.span}
               {...popUpItem}
               fontSize="inherit"
+              fontFamily="inherit"
               sx={{ display: 'block' }}
             >
               R
@@ -47,6 +49,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
               component={motion.span}
               {...popUpItem}
               fontSize="inherit"
+              fontFamily="inherit"
               sx={{ display: 'block' }}
             >
               e
@@ -55,6 +58,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
               component={motion.span}
               {...popUpItem}
               fontSize="inherit"
+              fontFamily="inherit"
               sx={{ display: 'block' }}
             >
               g
