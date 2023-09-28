@@ -1,8 +1,11 @@
 import { styled } from '@mui/material';
 import Box from '@mui/material/Box';
+import { ElementType } from 'react';
 
 type NotionStyleHtmlContentProps = {
-  html: string;
+  html?: string;
+  component?: ElementType<any>;
+  children?: React.ReactNode;
 };
 
 const StyledBox = styled(Box)`
@@ -99,9 +102,16 @@ const StyledBox = styled(Box)`
 
 const NotionStyleHtmlContent: React.FC<NotionStyleHtmlContentProps> = ({
   html,
+  component,
+  children,
 }) => {
   return (
-    <StyledBox component="article" dangerouslySetInnerHTML={{ __html: html }} />
+    <StyledBox
+      component={component}
+      dangerouslySetInnerHTML={html ? { __html: html } : undefined}
+    >
+      {children}
+    </StyledBox>
   );
 };
 
