@@ -13,7 +13,11 @@ const Resume = () => {
     <Box>
       <Box mb={2}>
         <NotionStyleHtmlContent>
-          <h1>정리하는 FE 개발자 김기원입니다 🤗</h1>
+          <h1>
+            정리하는 FE 개발자 김기원입니다{' '}
+            {/* puppeteer로 pdf 변환시 font-weight에 따라 이모지를 못 불러오는 이슈가 있다. */}
+            <span style={{ fontWeight: 400 }}>🤗</span>
+          </h1>
         </NotionStyleHtmlContent>
       </Box>
       <Stack direction="row" gap={3} flexWrap="wrap">
@@ -61,7 +65,9 @@ const Resume = () => {
       <Divider sx={{ my: 3 }} />
 
       <NotionStyleHtmlContent>
-        <h1>💻 경력</h1>
+        <h1>
+          <span style={{ fontWeight: 400 }}>💻</span> 경력
+        </h1>
 
         <h2>엘리스 2022.6~</h2>
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
@@ -254,7 +260,9 @@ const Resume = () => {
 
         <Divider sx={{ mt: 3 }} />
 
-        <h2>🧸 포트폴리오</h2>
+        <h2>
+          <span style={{ fontWeight: 400 }}>🧸</span> 포트폴리오
+        </h2>
 
         <h2>
           <a href="https://staywith.kr" target="_blank">
@@ -297,13 +305,17 @@ const Resume = () => {
           <li>@tonejs/midi를 이용하여 미디 파일 읽기</li>
         </ul>
 
-        <h2>⚒️ 주요 기술</h2>
+        <h2>
+          <span style={{ fontWeight: 400 }}>⚒️</span> 주요 기술
+        </h2>
         <p>
           <code>React</code>, <code>Typescript</code>, <code>NextJS</code>,{' '}
           <code>Redux</code>, <code>Material UI</code>, <code>Contentful</code>
         </p>
 
-        <h2>📷 기타 역량</h2>
+        <h2>
+          <span style={{ fontWeight: 400 }}>📷</span> 기타 역량
+        </h2>
         <ul>
           <li>
             애프터 이펙트를 이용한{' '}
@@ -314,8 +326,11 @@ const Resume = () => {
           </li>
           <li>대중음악 작곡 팀에 있었던 경험으로 음향 전문 지식 보유</li>
           <li>
-            <a href="https://youtu.be/v8EFh3Z3qsg" target="_blank">
-              러블리즈 류수영의 ‘사이는’ 편곡 참여
+            <a
+              href="https://www.youtube.com/watch?v=v8EFh4Z3qsg"
+              target="_blank"
+            >
+              러블리즈 류수정의 ‘사이는’ 편곡 참여
             </a>
           </li>
         </ul>
