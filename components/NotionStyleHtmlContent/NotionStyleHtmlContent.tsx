@@ -68,7 +68,7 @@ const StyledBox = styled(Box)`
   }
 
   a {
-    color: dodgerblue;
+    color: #1e90ff;
   }
 
   /* single line code */
