@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import Image from 'next/image';
-import profileImage from 'public/images/resume/profile.jpeg';
+import profileImage from 'public/images/resume/profile.webp';
 
 const Resume = () => {
   return (

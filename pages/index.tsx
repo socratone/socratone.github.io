@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import GlobalHeader from 'components/GlobalHeader';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import florenceImage from 'public/images/home/florence.jpg';
-import profileImage from 'public/images/resume/profile.jpeg';
+import florenceImage from 'public/images/home/florence.webp';
+import profileImage from 'public/images/resume/profile.webp';
 
 const Home = () => {
   return (
