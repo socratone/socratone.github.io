@@ -49,7 +49,7 @@ const Resume = () => {
                 thinkforthink.tistory.com
               </a>
               <br />
-              📞 연락처 :
+              📞 연락처 : {process.env.NEXT_PUBLIC_PHONE}
             </p>
           </NotionStyleHtmlContent>
         </Box>
