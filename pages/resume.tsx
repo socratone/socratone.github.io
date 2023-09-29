@@ -308,10 +308,7 @@ const Resume = () => {
         <h2>
           <span style={{ fontWeight: 400 }}>⚒️</span> 주요 기술
         </h2>
-        <p>
-          <code>React</code>, <code>Typescript</code>, <code>NextJS</code>,{' '}
-          <code>Redux</code>, <code>Material UI</code>, <code>Contentful</code>
-        </p>
+        <p>React, Typescript, NextJS, Redux, Material UI, Contentful</p>
 
         <h2>
           <span style={{ fontWeight: 400 }}>📷</span> 기타 역량
