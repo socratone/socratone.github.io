@@ -1,3 +1,4 @@
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -79,6 +80,15 @@ const Home = () => {
             Socratone
           </Typography>
         </Stack>
+        <ArrowBackIosIcon
+          sx={{
+            color: (theme) => theme.palette.common.white,
+            position: 'absolute',
+            bottom: 32,
+            left: '50%',
+            transform: 'translateX(-50%) rotate(-90deg)',
+          }}
+        />
       </Box>
 
       {/* profile section */}
@@ -106,6 +116,7 @@ const Home = () => {
             FRONTEND 개발자 김기원이라고 합니다.
           </Typography>
           <Typography
+            component="div"
             variant="body1"
             color="text.secondary"
             textAlign="center"
