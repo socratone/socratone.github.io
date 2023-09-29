@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 type HeaderLinkProps = {
@@ -11,9 +10,6 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({ children, href }) => {
   return (
     <Link href={href}>
       <Typography
-        component={motion.p}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
         color={(theme) => theme.palette.text.primary}
         sx={{
           cursor: 'pointer',
