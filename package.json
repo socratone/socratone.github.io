@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node ./scripts/move-files.mjs",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "resume-pdf": "node ./scripts/resume-pdf.js"
+    "resume-pdf": "next build && node ./scripts/resume-pdf.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
