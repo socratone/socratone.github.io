@@ -141,7 +141,8 @@ const Home = () => {
             sx={{ textWrap: 'balance' }}
           >
             <Typography>
-              저는 어떻게 사는 게 올바른 삶인지 궁금해 하고 철학을 좋아합니다.
+              저는 어떻게 사는 게 올바른 일인지 궁금해 하고 인문학에 관심이
+              많습니다.
             </Typography>
             <Typography>
               제가 만든 앱이 사람들에게 도움이 되길 바라는 마음으로 하루하루를
@@ -157,7 +158,7 @@ const Home = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            maxWidth={394}
+            maxWidth={300}
             mx="auto"
             sx={{
               aspectRatio: '1 / 1',
