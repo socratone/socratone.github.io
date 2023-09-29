@@ -1,13 +1,138 @@
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import GlobalHeader from 'components/GlobalHeader';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import florenceImage from 'public/images/home/florence.jpg';
+import profileImage from 'public/images/resume/profile.jpeg';
 
 const Home = () => {
   return (
-    <Stack>
-      <Typography color="text.primary">
-        반가워요 👋, Frontend Developer 김기원입니다!
-      </Typography>
-    </Stack>
+    <>
+      {/* main hero section */}
+
+      <Box
+        component={motion.main}
+        height="100vh"
+        position="relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        overflow="hidden"
+      >
+        <Box>
+          <GlobalHeader items={[{ label: 'Blogs', href: '/blogs' }]} />
+        </Box>
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          component={motion.div}
+          animate={{
+            scale: [1, 1.05],
+          }}
+          transition={{
+            repeatType: 'reverse',
+            duration: 5,
+            ease: 'easeInOut',
+            times: [0, 1],
+            repeat: Infinity,
+          }}
+        >
+          <Image
+            alt="florence"
+            src={florenceImage}
+            fill
+            style={{ objectFit: 'cover' }}
+          />
+        </Box>
+        <Stack
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          justifyContent="center"
+          alignItems="center"
+          gap={0.5}
+          px={2}
+        >
+          <Typography
+            component="h1"
+            variant="h3"
+            color={(theme) => theme.palette.common.white}
+            textAlign="center"
+            textTransform="uppercase"
+          >
+            Frontend Developer
+          </Typography>
+          <Typography
+            component="p"
+            variant="h5"
+            color={(theme) => theme.palette.common.white}
+            textAlign="center"
+          >
+            Socratone
+          </Typography>
+        </Stack>
+      </Box>
+
+      {/* profile section */}
+
+      <Box component="section">
+        <Container sx={{ py: 8 }}>
+          <Typography
+            variant="h6"
+            fontWeight={500}
+            color={(theme) => theme.palette.primary.main}
+            textAlign="center"
+            mb={1}
+          >
+            안녕하세요,
+          </Typography>
+          <Typography
+            component="h2"
+            color="text.primary"
+            variant="h4"
+            fontWeight={600}
+            textAlign="center"
+            mb={4}
+          >
+            FRONTEND 개발자 김기원이라고 합니다.
+          </Typography>
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            textAlign="center"
+            mb={4}
+            lineHeight={1.8}
+            sx={{ whiteSpace: 'pre-line' }}
+          >
+            {`저는 어떻게 사는 게 올바른 삶인지 궁금해 하고 철학을 좋아합니다.
+            제가 만든 앱이 사람들에게 도움이 되길 바라며 하루하루를 노력하며 살아갑니다.
+            이 공간 또한 누군가에게 작은 도움이 있길 바라겠습니다.`}
+          </Typography>
+          <Box
+            component={motion.div}
+            position="relative"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            maxWidth={394}
+            mx="auto"
+            sx={{
+              aspectRatio: '1 / 1',
+            }}
+          >
+            <Image alt="profile" src={profileImage} fill />
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 };
 

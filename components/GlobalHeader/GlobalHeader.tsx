@@ -8,7 +8,15 @@ import Link from 'next/link';
 import { GLOBAL_HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
 
-const GlobalHeader = () => {
+type GlobalHeaderProps = {
+  items: {
+    href: string;
+    label: string;
+  }[];
+  borderBottom?: true;
+};
+
+const GlobalHeader: React.FC<GlobalHeaderProps> = ({ items, borderBottom }) => {
   return (
     <Box
       component="header"
@@ -16,20 +24,22 @@ const GlobalHeader = () => {
         position: 'sticky',
         top: 0,
         zIndex: (theme) => theme.zIndex.appBar,
-        bgcolor: (theme) => theme.palette.background.default,
-        borderBottom: 1,
+        borderBottom: borderBottom ? 1 : 0,
         borderColor: (theme) => theme.palette.divider,
       }}
     >
       <Container component="nav">
         <Stack direction="row" justifyContent="space-between">
           <Stack direction="row" spacing={2} height={GLOBAL_HEADER_HEIGHT}>
-            <HeaderLink href="/">Home</HeaderLink>
-            <HeaderLink href="/blogs">Blogs</HeaderLink>
+            {items.map((item) => (
+              <HeaderLink key={item.href} href={item.href}>
+                {item.label}
+              </HeaderLink>
+            ))}
           </Stack>
           <Stack direction="row" alignItems="center">
             <Link href="https://github.com/socratone" target="_blank">
-              <IconButton sx={{ mr: -1 }}>
+              <IconButton color="inherit" sx={{ mr: -1 }}>
                 <GitHubIcon />
               </IconButton>
             </Link>
