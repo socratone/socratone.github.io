@@ -5,6 +5,7 @@ import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
 
+/** resume-pdf script를 돌렸을 때에만 phone이 있다. */
 const phone = process.env.NEXT_PUBLIC_PHONE;
 
 const Resume = () => {
