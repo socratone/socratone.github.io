@@ -1,4 +1,4 @@
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import SouthIcon from '@mui/icons-material/South';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -80,15 +80,31 @@ const Home = () => {
             Socratone
           </Typography>
         </Stack>
-        <ArrowBackIosIcon
+        <Box
           sx={{
-            color: (theme) => theme.palette.common.white,
             position: 'absolute',
             bottom: 32,
             left: '50%',
-            transform: 'translateX(-50%) rotate(-90deg)',
+            transform: 'translateX(-50%)',
           }}
-        />
+        >
+          <SouthIcon
+            component={motion.svg}
+            animate={{
+              translateY: [0, 8],
+            }}
+            transition={{
+              repeatType: 'reverse',
+              duration: 0.8,
+              ease: 'easeInOut',
+              times: [0, 1],
+              repeat: Infinity,
+            }}
+            sx={{
+              color: (theme) => theme.palette.common.white,
+            }}
+          />
+        </Box>
       </Box>
 
       {/* profile section */}
