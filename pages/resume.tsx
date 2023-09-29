@@ -56,7 +56,7 @@ const Resume = () => {
                 thinkforthink.tistory.com
               </a>
               <br />
-              📞 연락처 : {phone}
+              📞 연락처 : {phone ? phone : '비공개'}
             </p>
           </NotionStyleHtmlContent>
         </Box>
