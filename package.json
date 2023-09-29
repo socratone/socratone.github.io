@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "resume-pdf": "next build && node ./scripts/resume-pdf.js"
+    "resume-pdf": "env-cmd -f .env.resume next build && node ./scripts/resume-pdf.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
@@ -34,6 +34,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "puppeteer": "^21.3.6"
   }
 }

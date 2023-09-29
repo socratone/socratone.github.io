@@ -3,7 +3,9 @@ import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import Image from 'next/image';
-import profileImage from 'public/images/resume/profile.jpeg';
+import profileImage from 'public/images/resume/profile.webp';
+
+const phone = process.env.NEXT_PUBLIC_PHONE;
 
 const Resume = () => {
   return (
@@ -16,7 +18,7 @@ const Resume = () => {
       <Stack direction="row" gap={3} flexWrap="wrap">
         <Image
           alt="profile"
-          src={profileImage}
+          src={phone ? './images/resume/profile.webp' : profileImage}
           width={290}
           height={290}
           style={{
@@ -49,7 +51,7 @@ const Resume = () => {
                 thinkforthink.tistory.com
               </a>
               <br />
-              📞 연락처 : {process.env.NEXT_PUBLIC_PHONE}
+              📞 연락처 : {phone}
             </p>
           </NotionStyleHtmlContent>
         </Box>

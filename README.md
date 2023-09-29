@@ -10,7 +10,7 @@
 
 ## Environment
 
-### .env
+### .env.resume
 
 ```
 NEXT_PUBLIC_PHONE="????"
