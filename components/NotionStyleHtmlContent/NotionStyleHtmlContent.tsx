@@ -68,7 +68,12 @@ const StyledBox = styled(Box)`
   }
 
   a {
-    color: #1e90ff;
+    color: #73716e;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #c6c6c4;
+    text-underline-offset: 4px;
   }
 
   /* single line code */
