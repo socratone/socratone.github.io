@@ -1,3 +1,4 @@
+import { Typography, TypographyProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
@@ -7,6 +8,16 @@ import profileImage from 'public/images/resume/profile.webp';
 
 /** resume-pdf script를 돌렸을 때에만 phone이 있다. */
 const phone = process.env.NEXT_PUBLIC_PHONE;
+
+const DateRangeTypography: React.FC<Pick<TypographyProps, 'children'>> = ({
+  children,
+}) => {
+  return (
+    <Typography component="span" variant="body1" color="text.secondary">
+      {children}
+    </Typography>
+  );
+};
 
 const Resume = () => {
   return (
@@ -69,7 +80,9 @@ const Resume = () => {
           <span style={{ fontWeight: 400 }}>💻</span> 경력
         </h1>
 
-        <h2>엘리스 2022.6~</h2>
+        <h2>
+          엘리스 <DateRangeTypography>2022.6 ~ 재직 중</DateRangeTypography>
+        </h2>
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
 
         <h3>LXP(Learning Experience Platform) 유저 대시보드</h3>
@@ -186,7 +199,9 @@ const Resume = () => {
 
         <Divider sx={{ mt: 3 }} />
 
-        <h2>짐티 2021.3~2022.5</h2>
+        <h2>
+          짐티 <DateRangeTypography>2021.3 ~ 2022.5</DateRangeTypography>
+        </h2>
         <p>개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스</p>
 
         <h3>
@@ -243,7 +258,10 @@ const Resume = () => {
 
         <Divider sx={{ mt: 3 }} />
 
-        <h2>아이포트폴리오 인턴 2020.9~11</h2>
+        <h2>
+          아이포트폴리오 인턴{' '}
+          <DateRangeTypography>2020.9 ~ 11</DateRangeTypography>
+        </h2>
 
         <h3>리딩앤의 영어 전자책 웹 앱</h3>
         <p>
@@ -268,7 +286,7 @@ const Resume = () => {
           <a href="https://staywith.kr" target="_blank">
             Staywith.kr
           </a>{' '}
-          2023
+          <DateRangeTypography>2023</DateRangeTypography>
         </h2>
         <p>가톨릭 묵상 기도 나눔 SNS</p>
         <p>
@@ -292,7 +310,7 @@ const Resume = () => {
           <a href="https://finger-organist.netlify.app/" target="_blank">
             Finger Organist
           </a>{' '}
-          2020
+          <DateRangeTypography>2020</DateRangeTypography>
         </h2>
         <p>
           <a href="https://thinkforthink.tistory.com/214" target="_blank">
