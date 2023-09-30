@@ -12,7 +12,14 @@ const puppeteer = require('puppeteer');
   });
 
   // Create a PDF of the local page
-  await page.pdf({ path: 'resume.pdf', format: 'A4' });
+  await page.pdf({
+    path: 'resume.pdf',
+    format: 'A4',
+    margin: {
+      top: 10,
+      bottom: 10,
+    },
+  });
 
   await browser.close();
 })();
