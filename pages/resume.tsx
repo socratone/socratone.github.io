@@ -1,7 +1,9 @@
-import { Typography, TypographyProps } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { TypographyProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
@@ -288,12 +290,12 @@ const Resume = () => {
           </a>{' '}
           <DateRangeTypography>2023</DateRangeTypography>
         </h2>
-        <p>가톨릭 묵상 기도 나눔 SNS</p>
-        <p>
+        <Stack direction="row" alignItems="center" gap={0.5}>
           <a href="https://github.com/socratone/stay-with" target="_blank">
-            Github Link
+            <GitHubIcon />
           </a>
-        </p>
+          <p>가톨릭 묵상 기도 나눔 SNS</p>
+        </Stack>
         <ul>
           <li>Material UI Color 토큰을 이용한 다크/라이트 모드 전환</li>
           <li>
