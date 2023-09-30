@@ -276,11 +276,11 @@ const Resume = () => {
           </li>
         </ul>
 
-        <Divider sx={{ mt: 3 }} />
+        <Divider sx={{ my: 3 }} />
 
-        <h2>
+        <h1>
           <span style={{ fontWeight: 400 }}>🧸</span> 포트폴리오
-        </h2>
+        </h1>
 
         <h2>
           <a href="https://staywith.kr" target="_blank">
@@ -323,14 +323,18 @@ const Resume = () => {
           <li>@tonejs/midi를 이용하여 미디 파일 읽기</li>
         </ul>
 
-        <h2>
+        <Divider sx={{ my: 3 }} />
+
+        <h1>
           <span style={{ fontWeight: 400 }}>⚒️</span> 주요 기술
-        </h2>
+        </h1>
         <p>React, Typescript, NextJS, Redux, Material UI, Contentful</p>
 
-        <h2>
+        <Divider sx={{ my: 3 }} />
+
+        <h1>
           <span style={{ fontWeight: 400 }}>📷</span> 기타 역량
-        </h2>
+        </h1>
         <ul>
           <li>
             애프터 이펙트를 이용한{' '}
