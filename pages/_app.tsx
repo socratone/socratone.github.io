@@ -12,7 +12,7 @@ import { shadows } from 'theme/shadows';
 import { typography } from 'theme/typography';
 
 const NONE_GLOBAL_HEADER_PATHNAMES = ['/', '/resume'];
-const NONE_CONTAINER_PATHNAMES = ['/'];
+const NONE_CONTAINER_PATHNAMES = ['/', '/resume'];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
