@@ -1,7 +1,9 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Container, TypographyProps } from '@mui/material';
+import { TypographyProps } from '@mui/material';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
@@ -20,6 +22,22 @@ const SkillImage: React.FC<{ skills: string[] }> = ({ skills }) => {
       src={`https://skillicons.dev/icons?i=${skills.join(',')}`}
       style={{ height: 24 }}
     />
+  );
+};
+
+const StackHeading2: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
+    <Stack
+      component="h2"
+      direction="row"
+      justifyContent="space-between"
+      alignItems="center"
+      gap={0.5}
+    >
+      {children}
+    </Stack>
   );
 };
 
@@ -104,9 +122,9 @@ const Resume = () => {
           <span style={{ fontWeight: 400 }}>💻</span> 경력
         </h1>
 
-        <h2>
+        <StackHeading2>
           엘리스 <DateRangeTypography>2022.6 ~ 재직 중</DateRangeTypography>
-        </h2>
+        </StackHeading2>
         {/* TODO: 내용 수정 */}
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
         <div>
@@ -229,9 +247,9 @@ const Resume = () => {
 
         <Divider sx={{ mt: 3 }} />
 
-        <h2>
+        <StackHeading2>
           짐티 <DateRangeTypography>2021.3 ~ 2022.5</DateRangeTypography>
-        </h2>
+        </StackHeading2>
         <p>개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스</p>
         <div>
           <SkillImage
@@ -301,10 +319,10 @@ const Resume = () => {
 
         <Divider sx={{ mt: 3 }} />
 
-        <h2>
-          아이포트폴리오 인턴{' '}
+        <StackHeading2>
+          아이포트폴리오 인턴
           <DateRangeTypography>2020.9 ~ 11</DateRangeTypography>
-        </h2>
+        </StackHeading2>
 
         <h3>리딩앤의 영어 전자책 웹 앱</h3>
         <p>
@@ -329,18 +347,37 @@ const Resume = () => {
           <span style={{ fontWeight: 400 }}>🧸</span> 포트폴리오
         </h1>
 
-        <h2>
-          <a href="https://staywith.kr" target="_blank">
-            Staywith.kr
-          </a>{' '}
+        <StackHeading2>
+          <Stack direction="row">
+            <a href="https://staywith.kr" target="_blank">
+              Staywith.kr
+            </a>
+            <IconButton
+              href="https://github.com/socratone/stay-with"
+              target="_blank"
+              sx={{ my: -1 }}
+            >
+              <GitHubIcon />
+            </IconButton>
+          </Stack>
           <DateRangeTypography>2023</DateRangeTypography>
-        </h2>
+        </StackHeading2>
         <Stack direction="row" alignItems="center" gap={0.5}>
-          <a href="https://github.com/socratone/stay-with" target="_blank">
-            <GitHubIcon />
-          </a>
           <p>가톨릭 묵상 기도 나눔 SNS</p>
         </Stack>
+        <div>
+          <SkillImage
+            skills={[
+              'ts',
+              'nextjs',
+              'redux',
+              'materialui',
+              'nodejs',
+              'mongodb',
+            ]}
+          />
+        </div>
+
         <ul>
           <li>Material UI Color 토큰을 이용한 다크/라이트 모드 전환</li>
           <li>
@@ -353,12 +390,12 @@ const Resume = () => {
           <li>Dev Server Mock 데이터 생성을 위한 CLI</li>
         </ul>
 
-        <h2>
+        <StackHeading2>
           <a href="https://finger-organist.netlify.app/" target="_blank">
             Finger Organist
-          </a>{' '}
+          </a>
           <DateRangeTypography>2020</DateRangeTypography>
-        </h2>
+        </StackHeading2>
         <p>
           <a href="https://thinkforthink.tistory.com/214" target="_blank">
             오르간 연주를 할 수 없어도 클릭만으로 가톨릭 성가를 연주할 수 있는
@@ -373,13 +410,14 @@ const Resume = () => {
         <Divider sx={{ my: 3 }} />
 
         <h1>
-          <span style={{ fontWeight: 400 }}>⚒️</span> 주요 기술
+          <span style={{ fontWeight: 400 }}>⚒️</span> 기술
         </h1>
         <ul>
           <li>
-            React, NextJS, Typescript, Redux, Recoil, Material UI, Emotion,
-            react-hook-form, @tanstack/react-query
+            주요 기술: Javascript, Typescript, React, NextJS, Redux, Recoil,
+            React-hook-form, React-query, Material UI, Emotion, NodeJS, HTML/CSS
           </li>
+          <li>사용해본 기술: GraphQL, RxJS, React-native, Expo, MongoDB</li>
         </ul>
 
         <Divider sx={{ my: 3 }} />
