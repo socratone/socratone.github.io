@@ -57,8 +57,7 @@ const Resume = () => {
       <Box mb={2}>
         <NotionStyleHtmlContent>
           <h1>
-            {/* TODO: 내용 수정 */}
-            정리하는 FE 개발자 김기원입니다{' '}
+            FRONTEND 개발자 김기원입니다{' '}
             {/* puppeteer로 pdf 변환시 font-weight에 따라 이모지를 못 불러오는 이슈가 있다. */}
             <span style={{ fontWeight: 400 }}>🤗</span>
           </h1>
@@ -80,13 +79,12 @@ const Resume = () => {
               PROFILE
             </Typography>
             <p style={{ textAlign: 'justify' }}>
-              {/* TODO: 내용 수정 */}
               아름다운 UI와 애니메이션 구현을 좋아합니다. 무엇보다도 가독성 있는
               코드를 우선시 합니다. 재사용 가능한 컴포넌트 구현에 능숙하고
               디자인 감각과 CSS에 대한 이해도가 높아 빠른 속도로 UI 개발이
               가능합니다. 어려운 문제로 회귀하지 않도록 깃허브(예제 코드)와
-              블로그에 기록하고 정리하는 습관이 있습니다. 코딩과 Udemy 개발 강의
-              보는 것이 취미입니다.
+              블로그에 기록하고 정리하는 습관이 있습니다. 코딩이 취미이고 새로운
+              기술 습득을 위해 Udemy 강의를 즐겨봅니다.
             </p>
             <Typography variant="h6" fontWeight={600}>
               CONTACT
@@ -123,9 +121,11 @@ const Resume = () => {
         </h1>
 
         <StackHeading2>
-          엘리스 <DateRangeTypography>2022.6 ~ 재직 중</DateRangeTypography>
+          <a href="https://elice.io" target="_blank">
+            엘리스
+          </a>
+          <DateRangeTypography>2022.6 ~ 재직 중</DateRangeTypography>
         </StackHeading2>
-        {/* TODO: 내용 수정 */}
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
         <div>
           <SkillImage
@@ -222,7 +222,8 @@ const Resume = () => {
             반영되도록 개발
           </li>
           <li>
-            Framer를 이용 스크롤 애니메이션 유틸화 → 전사 랜딩 페이지에 활용됨
+            Framer를 이용 스크롤 애니메이션 유틸 개발 → 전사 랜딩 페이지에
+            활용됨
           </li>
         </ul>
 
@@ -320,7 +321,9 @@ const Resume = () => {
         <Divider sx={{ mt: 3 }} />
 
         <StackHeading2>
-          아이포트폴리오 인턴
+          <a href="https://iportfolio.co.kr" target="_blank">
+            아이포트폴리오
+          </a>
           <DateRangeTypography>2020.9 ~ 11</DateRangeTypography>
         </StackHeading2>
 
@@ -330,7 +333,7 @@ const Resume = () => {
           유지보수
         </p>
         <div>
-          <SkillImage skills={['js', 'jquery']} />
+          <SkillImage skills={['js', 'jquery', 'php']} />
         </div>
 
         <ul>
@@ -387,7 +390,6 @@ const Resume = () => {
           <li>사용자가 모바일에서 쉽게 접근할 수 있도록 PWA 적용</li>
           <li>Mongodb와 Atlas를 이용하여 Database 설계/구축</li>
           <li>Kakao 로그인과 JWT Token을 이용한 로그인 구현</li>
-          <li>Dev Server Mock 데이터 생성을 위한 CLI</li>
         </ul>
 
         <Divider sx={{ my: 3 }} />
@@ -395,13 +397,15 @@ const Resume = () => {
         <h1>
           <span style={{ fontWeight: 400 }}>⚒️</span> 기술
         </h1>
-        <ul>
-          <li>
-            주요 기술: Javascript, Typescript, React, NextJS, Redux, Recoil,
-            React-hook-form, React-query, Material UI, Emotion, NodeJS, HTML/CSS
-          </li>
-          <li>사용해본 기술: GraphQL, RxJS, React-native, Expo, MongoDB</li>
-        </ul>
+
+        <h2>주요 기술</h2>
+        <p>
+          Typescript, React, NextJS, Redux, Recoil, React-hook-form,
+          React-query, Material UI, Emotion, NodeJS
+        </p>
+
+        <h2>사용해본 기술</h2>
+        <p>GraphQL, RxJS, React-native, Expo, MongoDB</p>
 
         <Divider sx={{ my: 3 }} />
 
@@ -416,7 +420,6 @@ const Resume = () => {
             </a>{' '}
             → 구독자 2.5만명 이상 달성
           </li>
-          <li>대중음악 작곡 팀에 있었던 경험으로 음향 전문 지식 보유</li>
           <li>
             <a
               href="https://www.youtube.com/watch?v=v8EFh4Z3qsg"
