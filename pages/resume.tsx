@@ -7,9 +7,21 @@ import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
+import React from 'react';
 
 /** resume-pdf script를 돌렸을 때에만 phone이 있다. */
 const phone = process.env.NEXT_PUBLIC_PHONE;
+
+const SkillImage: React.FC<{ skills: string[] }> = ({ skills }) => {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      alt={skills.join(', ')}
+      src={`https://skillicons.dev/icons?i=${skills.join(',')}`}
+      style={{ height: 24 }}
+    />
+  );
+};
 
 const DateRangeTypography: React.FC<Pick<TypographyProps, 'children'>> = ({
   children,
@@ -27,6 +39,7 @@ const Resume = () => {
       <Box mb={2}>
         <NotionStyleHtmlContent>
           <h1>
+            {/* TODO: 내용 수정 */}
             정리하는 FE 개발자 김기원입니다{' '}
             {/* puppeteer로 pdf 변환시 font-weight에 따라 이모지를 못 불러오는 이슈가 있다. */}
             <span style={{ fontWeight: 400 }}>🤗</span>
@@ -49,6 +62,7 @@ const Resume = () => {
               PROFILE
             </Typography>
             <p>
+              {/* TODO: 내용 수정 */}
               아름다운 UI와 애니메이션 구현을 좋아합니다. 무엇보다도 가독성 있는
               코드를 우선시 합니다. 재사용 가능한 컴포넌트 구현에 능숙하고
               디자인 감각과 CSS에 대한 이해도가 높아 빠른 속도로 UI 개발이
@@ -93,7 +107,13 @@ const Resume = () => {
         <h2>
           엘리스 <DateRangeTypography>2022.6 ~ 재직 중</DateRangeTypography>
         </h2>
+        {/* TODO: 내용 수정 */}
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
+        <div>
+          <SkillImage
+            skills={['ts', 'react', 'nextjs', 'redux', 'materialui', 'emotion']}
+          />
+        </div>
 
         <h3>LXP(Learning Experience Platform) 유저 대시보드</h3>
         <p>
@@ -213,6 +233,19 @@ const Resume = () => {
           짐티 <DateRangeTypography>2021.3 ~ 2022.5</DateRangeTypography>
         </h2>
         <p>개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스</p>
+        <div>
+          <SkillImage
+            skills={[
+              'ts',
+              'react',
+              'nextjs',
+              'redux',
+              'materialui',
+              'styledcomponents',
+              'aws',
+            ]}
+          />
+        </div>
 
         <h3>
           <a href="https://golf-admin.tlabstudio.com/signin" target="_blank">
@@ -278,6 +311,10 @@ const Resume = () => {
           영어 발음을 녹음하고 발음 분석 엔진을 바탕으로 점수를 매겨주는 앱
           유지보수
         </p>
+        <div>
+          <SkillImage skills={['js', 'jquery']} />
+        </div>
+
         <ul>
           <li>
             <a href="https://thinkforthink.tistory.com/371" target="_blank">
