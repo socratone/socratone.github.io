@@ -37,40 +37,48 @@ const Resume = () => {
         <Image
           alt="profile"
           src={phone ? './images/resume/profile.webp' : profileImage}
-          width={290}
-          height={290}
+          width={300}
+          height={300}
           style={{
             borderRadius: '50%',
           }}
         />
         <Box flexGrow={1} flexBasis={400}>
           <NotionStyleHtmlContent>
-            <ul>
-              <li>🌸 아름다운 UI와 애니메이션 구현을 좋아합니다.</li>
-              <li>🔎 무엇보다도 가독성 있는 코드를 우선시 합니다.</li>
-              <li>
-                🔥 재사용 가능한 컴포넌트 구현에 능숙하고 디자인 감각과 CSS에
-                대한 이해도가 높아 빠른 속도로 UI 개발이 가능합니다.
-              </li>
-              <li>
-                ✏️ 어려운 문제로 회귀하지 않도록 깃허브(예제 코드)와 블로그에
-                기록하고 정리하는 습관이 있습니다.
-              </li>
-              <li>📚 코딩과 Udemy 개발 강의 보는 것이 취미입니다. </li>
-            </ul>
+            <Typography variant="h6" fontWeight={600}>
+              PROFILE
+            </Typography>
             <p>
-              🌱 깃허브 :{' '}
-              <a href="https://github.com/socratone" target="_blank">
-                github.com/socratone
-              </a>
-              <br />
-              ✍️ 블로그 :{' '}
-              <a href="http://thinkforthink.tistory.com/" target="_blank">
-                thinkforthink.tistory.com
-              </a>
-              <br />
-              📞 연락처 : {phone ? phone : '비공개'}
+              아름다운 UI와 애니메이션 구현을 좋아합니다. 무엇보다도 가독성 있는
+              코드를 우선시 합니다. 재사용 가능한 컴포넌트 구현에 능숙하고
+              디자인 감각과 CSS에 대한 이해도가 높아 빠른 속도로 UI 개발이
+              가능합니다. 어려운 문제로 회귀하지 않도록 깃허브(예제 코드)와
+              블로그에 기록하고 정리하는 습관이 있습니다. 코딩과 Udemy 개발 강의
+              보는 것이 취미입니다.
             </p>
+            <Typography variant="h6" fontWeight={600}>
+              CONTACT
+            </Typography>
+            <ul>
+              <li>
+                🌱 깃허브{' '}
+                <a href="https://github.com/socratone" target="_blank">
+                  github.com/socratone
+                </a>
+              </li>
+              <li>
+                ✍️ 블로그{' '}
+                <a href="http://thinkforthink.tistory.com/" target="_blank">
+                  thinkforthink.tistory.com
+                </a>
+              </li>
+              <li>
+                📮 이메일 <span>gim2origin@gmail.com</span>
+              </li>
+              <li>
+                📞 연락처 <span>{phone ? phone : '비공개'}</span>
+              </li>
+            </ul>
           </NotionStyleHtmlContent>
         </Box>
       </Stack>
