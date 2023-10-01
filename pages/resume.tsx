@@ -61,7 +61,7 @@ const Resume = () => {
             <Typography variant="h6" fontWeight={600}>
               PROFILE
             </Typography>
-            <p>
+            <p style={{ textAlign: 'justify' }}>
               {/* TODO: 내용 수정 */}
               아름다운 UI와 애니메이션 구현을 좋아합니다. 무엇보다도 가독성 있는
               코드를 우선시 합니다. 재사용 가능한 컴포넌트 구현에 능숙하고
