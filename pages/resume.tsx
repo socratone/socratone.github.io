@@ -75,6 +75,12 @@ const Resume = () => {
             </Typography>
             <ul>
               <li>
+                📞 연락처 <span>{phone ? phone : '비공개'}</span>
+              </li>
+              <li>
+                📮 이메일 <span>gim2origin@gmail.com</span>
+              </li>
+              <li>
                 🌱 깃허브{' '}
                 <a href="https://github.com/socratone" target="_blank">
                   github.com/socratone
@@ -85,12 +91,6 @@ const Resume = () => {
                 <a href="http://thinkforthink.tistory.com/" target="_blank">
                   thinkforthink.tistory.com
                 </a>
-              </li>
-              <li>
-                📮 이메일 <span>gim2origin@gmail.com</span>
-              </li>
-              <li>
-                📞 연락처 <span>{phone ? phone : '비공개'}</span>
               </li>
             </ul>
           </NotionStyleHtmlContent>
@@ -375,7 +375,12 @@ const Resume = () => {
         <h1>
           <span style={{ fontWeight: 400 }}>⚒️</span> 주요 기술
         </h1>
-        <p>React, Typescript, NextJS, Redux, Material UI, Contentful</p>
+        <ul>
+          <li>
+            React, NextJS, Typescript, Redux, Recoil, Material UI, Emotion,
+            react-hook-form, @tanstack/react-query
+          </li>
+        </ul>
 
         <Divider sx={{ my: 3 }} />
 
