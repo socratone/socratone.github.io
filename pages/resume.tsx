@@ -390,23 +390,6 @@ const Resume = () => {
           <li>Dev Server Mock 데이터 생성을 위한 CLI</li>
         </ul>
 
-        <StackHeading2>
-          <a href="https://finger-organist.netlify.app/" target="_blank">
-            Finger Organist
-          </a>
-          <DateRangeTypography>2020</DateRangeTypography>
-        </StackHeading2>
-        <p>
-          <a href="https://thinkforthink.tistory.com/214" target="_blank">
-            오르간 연주를 할 수 없어도 클릭만으로 가톨릭 성가를 연주할 수 있는
-            앱
-          </a>
-        </p>
-        <ul>
-          <li>Web Audio API를 이용하여 클릭 노이즈 제거</li>
-          <li>@tonejs/midi를 이용하여 미디 파일 읽기</li>
-        </ul>
-
         <Divider sx={{ my: 3 }} />
 
         <h1>
