@@ -3454,6 +3454,11 @@ socks@^2.7.1:
     ip "^2.0.0"
     smart-buffer "^4.2.0"
 
+socratone-utils@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/socratone-utils/-/socratone-utils-0.0.5.tgz#01736073edbf638be87c7e77a3171f5e8394c269"
+  integrity sha512-Ylr6vUkJeYCAgdcENGet0moqgdLSyKY1jFiRmBxbBhqZ70huXlADGqQt4OT6buHx2JSgZ/JP8LbbBRu51eiTlw==
+
 source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
