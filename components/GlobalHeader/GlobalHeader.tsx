@@ -13,10 +13,15 @@ type GlobalHeaderProps = {
     href: string;
     label: string;
   }[];
+  backgroundColor?: string;
   borderBottom?: true;
 };
 
-const GlobalHeader: React.FC<GlobalHeaderProps> = ({ items, borderBottom }) => {
+const GlobalHeader: React.FC<GlobalHeaderProps> = ({
+  items,
+  backgroundColor,
+  borderBottom,
+}) => {
   return (
     <Box
       component="header"
@@ -24,6 +29,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({ items, borderBottom }) => {
         position: 'sticky',
         top: 0,
         zIndex: (theme) => theme.zIndex.appBar,
+        bgcolor: backgroundColor,
         borderBottom: borderBottom ? 1 : 0,
         borderColor: (theme) => theme.palette.divider,
       }}

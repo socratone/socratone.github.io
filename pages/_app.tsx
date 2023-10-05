@@ -1,6 +1,6 @@
 import 'styles/globals.css';
 
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider, useTheme } from '@mui/material';
 import Container from '@mui/material/Container';
 import GlobalHeader from 'components/GlobalHeader';
 import Meta from 'components/Meta';
@@ -16,6 +16,7 @@ const NONE_CONTAINER_PATHNAMES = ['/', '/resume'];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+  const theme = useTheme();
 
   const isGlobalHeader = !NONE_GLOBAL_HEADER_PATHNAMES.some(
     (pathname) => pathname === router.pathname
@@ -43,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
             },
             { label: 'Blogs', href: '/blogs' },
           ]}
+          backgroundColor={theme.palette.background.default}
           borderBottom
         />
       ) : null}
