@@ -1,5 +1,5 @@
 import { BlogThumbnail } from 'constants/blog';
-import { isStringInEnum } from 'utils/enum';
+import { isStringInEnum } from 'socratone-utils';
 
 export type Metadata = {
   title: string;
