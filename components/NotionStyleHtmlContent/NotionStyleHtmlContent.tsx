@@ -102,6 +102,7 @@ const StyledBox = styled(Box)`
     background: unset;
     border-radius: unset;
     padding: unset;
+    line-height: 1.5;
   }
 `;
 
