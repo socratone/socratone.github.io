@@ -44,11 +44,17 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
 };
 
 const CONTAINER_PADDING_TOP = 16;
+const CATEGORY_WIDTH = 240;
+const GAP = 16;
 
 const Blogs: NextPage<BlogsProps> = ({ blogs }) => {
   return (
-    <Stack direction="row" gap={2}>
-      <Box width={240} flexShrink={0}>
+    <Stack direction="row" gap={`${GAP}px`}>
+      <Box
+        width={CATEGORY_WIDTH}
+        flexShrink={0}
+        display={{ xs: 'none', md: 'none', lg: 'block' }}
+      >
         <Stack
           position="sticky"
           top={GLOBAL_HEADER_HEIGHT + CONTAINER_PADDING_TOP}
@@ -58,7 +64,15 @@ const Blogs: NextPage<BlogsProps> = ({ blogs }) => {
           </Link>
         </Stack>
       </Box>
-      <Stack gap={2} flexGrow={1}>
+      <Stack
+        gap={6}
+        flexGrow={1}
+        maxWidth={{
+          xs: '100%',
+          md: '100%',
+          lg: `calc(100% - ${CATEGORY_WIDTH + GAP}px)`,
+        }}
+      >
         {blogs.map((blog) => (
           <BlogListItem
             key={blog.name}
@@ -67,6 +81,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs }) => {
             thumbnail={blog.thumbnail}
             createdAt={dayjs(blog.createdAt)}
             href={`/blogs/${blog.name}`}
+            category="all"
           />
         ))}
       </Stack>

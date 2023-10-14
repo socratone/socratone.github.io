@@ -1,10 +1,14 @@
-import { styled } from '@mui/material';
+import { Chip, styled } from '@mui/material';
 import Box from '@mui/material/Box';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import Typography, { TypographyTypeMap } from '@mui/material/Typography';
 import { BlogThumbnail } from 'constants/blog';
 import { Dayjs } from 'dayjs';
+import Image from 'next/image';
 import Link from 'next/link';
+import profileImage from 'public/images/resume/profile.webp';
+import { capitalize } from 'socratone-utils';
 
 import Thumbnail from './Thumbnail';
 
@@ -12,19 +16,28 @@ const StyledStack = styled(Stack)`
   cursor: pointer;
   transition: background 150ms ease-out, border 150ms ease-out,
     transform 150ms ease-out;
-  border-color: ${({ theme }) => theme.palette.divider};
-  overflow: hidden;
 
   :hover {
     transform: translate3d(0, -3px, 0);
-    box-shadow: ${({ theme }) => theme.shadows[1]};
   }
 `;
 
-const EllipsisTypography = styled(Typography)`
+const EllipsisTypography: OverridableComponent<TypographyTypeMap> = styled(
+  Typography
+)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+const EllipsisLineTypography = styled<
+  OverridableComponent<TypographyTypeMap<{ line: number }>>
+>(Typography)`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: ${({ line }) => line};
+  -webkit-box-orient: vertical;
 `;
 
 type BlogListItemProps = {
@@ -33,6 +46,7 @@ type BlogListItemProps = {
   thumbnail: BlogThumbnail;
   createdAt: Dayjs;
   href: string;
+  category: string;
 };
 
 const BlogListItem: React.FC<BlogListItemProps> = ({
@@ -41,28 +55,54 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
   thumbnail,
   createdAt,
   href,
+  category,
 }) => {
   return (
     <Link href={href}>
-      <StyledStack direction="row" gap={2} border={1} borderRadius={1}>
-        <Box>
-          <Thumbnail type={thumbnail} />
-        </Box>
-        <Stack justifyContent="center" overflow="hidden" pr={1}>
+      <StyledStack direction="row" justifyContent="space-between" gap={2}>
+        <Stack flexGrow={1} justifyContent="center" overflow="hidden" pr={1}>
+          <Stack direction="row" alignItems="center" gap={0.5} mb={0.75}>
+            <Image
+              alt="profile"
+              src={profileImage}
+              width={20}
+              height={20}
+              style={{
+                borderRadius: '50%',
+              }}
+            />
+            <Typography variant="caption" fontWeight={600}>
+              Socratone
+            </Typography>
+          </Stack>
           <EllipsisTypography
-            variant="body1"
+            component="h2"
+            fontSize="1.25rem"
             color="text.primary"
-            fontWeight={600}
+            fontWeight={700}
+            mb={0.25}
           >
             {title}
           </EllipsisTypography>
-          <EllipsisTypography variant="body1" color="text.secondary">
+          <EllipsisLineTypography
+            line={2}
+            variant="body1"
+            color="text.secondary"
+            lineHeight="20px"
+            mb={0.5}
+          >
             {description}
-          </EllipsisTypography>
-          <Typography variant="body2" color="text.secondary">
-            {createdAt.format('YYYY.MM.DD')}
-          </Typography>
+          </EllipsisLineTypography>
+          <Stack direction="row" alignItems="center" gap={1}>
+            <Typography variant="caption" color="text.secondary">
+              {createdAt.format('YYYY.MM.DD')}
+            </Typography>
+            <Chip label={capitalize(category)} size="small" />
+          </Stack>
         </Stack>
+        <Box display="flex" alignItems="center">
+          <Thumbnail type={thumbnail} />
+        </Box>
       </StyledStack>
     </Link>
   );
