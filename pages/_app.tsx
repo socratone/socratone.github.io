@@ -6,6 +6,7 @@ import GlobalHeader from 'components/GlobalHeader';
 import Meta from 'components/Meta';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { breakpoints } from 'theme/breakpoints';
 import { components } from 'theme/components';
 import { lightPalette } from 'theme/palette';
 import { shadows } from 'theme/shadows';
@@ -32,6 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
         palette: lightPalette,
         typography,
         shadows,
+        breakpoints,
       })}
     >
       <Meta title="소크라톤" description="프론트엔드 개발자 소크라톤 페이지" />
