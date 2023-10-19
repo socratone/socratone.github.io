@@ -1,7 +1,7 @@
 ---
 title: '머신러닝'
 description: '머신러닝'
-thumbnail: 'linux'
+thumbnail: 'machine-learning'
 createdAt: '2023-10-18'
 ---
 

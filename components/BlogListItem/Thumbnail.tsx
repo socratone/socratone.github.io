@@ -73,6 +73,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
           <ThumbnailImage src={linuxImage} width={370} height={157} />
         </ThumbnailContainer>
       );
+
+    case BlogThumbnail.MachineLearning:
+      return (
+        <ThumbnailContainer padding={0.5}>
+          <Typography fontSize="4rem">🤖</Typography>
+        </ThumbnailContainer>
+      );
   }
 };
 
