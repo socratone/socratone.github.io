@@ -98,7 +98,7 @@ const StyledBox = styled(Box)`
   pre > code {
     font-family: inherit;
     font-size: ${({ theme }) => theme.typography.mp.fontSize};
-    color: #690;
+    color: #000;
     background: unset;
     border-radius: unset;
     padding: unset;

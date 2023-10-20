@@ -1,9 +1,17 @@
+// color code style
+// https://highlightjs.org/examples
+import 'highlight.js/styles/vs2015.min.css';
+
 import Meta from 'components/Meta';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { getFileNames } from 'utils/file';
-import { parseMarkdownFile, parseMarkdownToHtml } from 'utils/markdown';
+import {
+  addCodeColorToHtml,
+  parseMarkdownFile,
+  parseMarkdownToHtml,
+} from 'utils/markdown';
 
 type BlogProps = {
   metadata: Metadata;
@@ -38,9 +46,12 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
 
   const { metadata, content } = parseMarkdownFile(`content/blogs/${name}.md`);
   const htmlContent = await parseMarkdownToHtml(content);
+  const coloredHtmlContent = addCodeColorToHtml(htmlContent);
   const validatedMetadata = validateMarkdownMetadata(metadata);
 
-  return { props: { metadata: validatedMetadata, htmlContent } };
+  return {
+    props: { metadata: validatedMetadata, htmlContent: coloredHtmlContent },
+  };
 };
 
 const Blog: NextPage<BlogProps> = ({ metadata, htmlContent }) => {
