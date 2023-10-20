@@ -26,7 +26,7 @@ package.json의 주요 key를 설명한다.
 
 - project의 홈페이지
 
-```jsx
+```
 "homepage": "https://github.com/owner/project#readme"
 ```
 
@@ -34,7 +34,7 @@ package.json의 주요 key를 설명한다.
 
 - 버그를 리포트할 이슈 페이지 링크와 이메일
 
-```jsx
+```
 {
   "url" : "https://github.com/owner/project/issues",
   "email" : "project@hostname.com"
@@ -60,7 +60,7 @@ package.json의 주요 key를 설명한다.
 
 - 코드가 있는 위치
 
-```jsx
+```
 {
   "repository": {
     "type": "git",
@@ -71,7 +71,7 @@ package.json의 주요 key를 설명한다.
 
 - package의 package.json이 루트에 있지 않은 경우 (mono repo 등) directory로 지정할 수 있다.
 
-```jsx
+```
 {
   "repository": {
     "type": "git",
@@ -88,7 +88,7 @@ package.json의 주요 key를 설명한다.
 
 - pre\*와 post\* 스크립트를 정의할 수 있음
 
-```jsx
+```
 {
   "scripts": {
     "precompress": "{{ executes BEFORE the `compress` script }}",
@@ -124,7 +124,7 @@ package.json의 주요 key를 설명한다.
 - package 버전을 고정
 - 자식까지도 고정할 수 있음
 
-```jsx
+```
 {
   "overrides": {
     "foo": {
@@ -137,7 +137,7 @@ package.json의 주요 key를 설명한다.
 
 - bar의 foo만 1.0.0으로 재정의
 
-```jsx
+```
 {
   "overrides": {
     "bar": {
