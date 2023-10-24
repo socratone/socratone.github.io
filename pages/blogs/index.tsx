@@ -40,6 +40,14 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
     };
   });
 
+  blogs.sort((a, b) => {
+    const first = dayjs(a.createdAt);
+    const second = dayjs(b.createdAt);
+    if (first.isAfter(second)) return -1;
+    else if (first.isBefore(second)) return 1;
+    return 0;
+  });
+
   return { props: { blogs } };
 };
 
