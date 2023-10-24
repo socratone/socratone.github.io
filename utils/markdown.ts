@@ -9,8 +9,13 @@ import path from 'path';
 type Language = 'language-javascript' | 'language-python';
 
 export const parseMarkdownToHtml = async (markdown: string) => {
-  // repaceAll은 code에서 `'`가 escape처리 된 것을 복원한다.
-  return marked.parse(markdown).replaceAll('&#39;', `'`);
+  return (
+    marked
+      .parse(markdown)
+      // escape처리 된 것을 복원한다.
+      .replaceAll('&#39;', `'`)
+      .replaceAll('&quot;', `"`)
+  );
 };
 
 export const parseMarkdownFile = (fileName: string) => {
@@ -44,9 +49,9 @@ const getCodeOpenTagIndex = (html: string, codeOpenTagText: string) => {
   return html.indexOf(codeOpenTagText);
 };
 
-const getCodeCloseTagIndex = (html: string) => {
-  const index = html.indexOf('</code>');
-  return index === -1 ? Infinity : index;
+const getCodeCloseTagIndex = (html: string, codeOpenTagIndex: number) => {
+  const index = html.substring(codeOpenTagIndex).indexOf('</code>');
+  return index === -1 ? Infinity : index + codeOpenTagIndex;
 };
 
 const addColorTagToCode = (code: string, language: Language) => {
@@ -85,7 +90,7 @@ export const addCodeColorToHtml = (html: string) => {
     const classText = getClassText(codeOpenTagText);
 
     const codeOpenTagIndex = getCodeOpenTagIndex(rest, codeOpenTagText);
-    const codeCloseTagIndex = getCodeCloseTagIndex(rest);
+    const codeCloseTagIndex = getCodeCloseTagIndex(rest, codeOpenTagIndex);
 
     const innerText = rest.substring(
       codeOpenTagIndex + codeOpenTagText.length,
