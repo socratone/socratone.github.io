@@ -7,6 +7,8 @@ createdAt: '2023-10-18'
 
 # 머신 러닝
 
+코랩을 이용하면 브라우저에서 파이썬 코드를 돌려 머신 러닝을 테스트해볼 수 있다.
+
 ## Data Preprocessing (데이터 전처리)
 
 ### 1. Importing the libraries
