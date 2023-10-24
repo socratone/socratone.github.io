@@ -8,7 +8,6 @@ import { Dayjs } from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import profileImage from 'public/images/resume/profile.webp';
-import { capitalize } from 'socratone-utils';
 
 import Thumbnail from './Thumbnail';
 
@@ -46,7 +45,7 @@ type BlogListItemProps = {
   thumbnail: BlogThumbnail;
   createdAt: Dayjs;
   href: string;
-  category: string;
+  tag: string;
 };
 
 const BlogListItem: React.FC<BlogListItemProps> = ({
@@ -55,7 +54,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
   thumbnail,
   createdAt,
   href,
-  category,
+  tag,
 }) => {
   return (
     <Link href={href}>
@@ -97,7 +96,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
             <Typography variant="caption" color="text.secondary">
               {createdAt.format('YYYY.MM.DD')}
             </Typography>
-            <Chip label={capitalize(category)} size="small" />
+            <Chip label={tag} size="small" />
           </Stack>
         </Stack>
         <Box display="flex" alignItems="center">

@@ -2,6 +2,7 @@
 title: 'package.json'
 description: 'package.json의 주요 key를 설명한다.'
 thumbnail: 'npm'
+tag: 'npm'
 createdAt: '2023-07-05'
 ---
 

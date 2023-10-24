@@ -5,3 +5,10 @@ export enum BlogThumbnail {
   Browser = 'browser',
   MachineLearning = 'machine-learning',
 }
+
+export enum BlogTag {
+  Regex = 'regex',
+  Npm = 'npm',
+  Linux = 'linux',
+  MachineLearning = 'machine-learning',
+}

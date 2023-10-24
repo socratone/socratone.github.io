@@ -2,6 +2,7 @@
 title: '정규 표현식'
 description: '정규 표현식을 이용하면 별다른 알고리즘 없이도 특정 패턴의 문자를 찾거나 수정할 수 있다.'
 thumbnail: 'regex'
+tag: 'regex'
 createdAt: '2022-08-28'
 ---
 

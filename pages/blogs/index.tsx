@@ -3,22 +3,18 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import BlogListItem from 'components/BlogListItem';
 import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
-import { BlogThumbnail } from 'constants/blog';
 import dayjs from 'dayjs';
-import { validateMarkdownMetadata } from 'helpers/markdown';
+import { parseBlogTagForLabel } from 'helpers/blog';
+import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
 
 type BlogsProps = {
-  blogs: {
+  blogs: ({
     name: string;
-    title: string;
-    description: string;
-    thumbnail: BlogThumbnail;
-    createdAt: string;
-  }[];
+  } & Metadata)[];
 };
 
 export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
@@ -33,10 +29,7 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
 
     return {
       name,
-      title: validatedMetadata.title,
-      description: validatedMetadata.description,
-      thumbnail: validatedMetadata.thumbnail,
-      createdAt: validatedMetadata.createdAt,
+      ...validatedMetadata,
     };
   });
 
@@ -89,7 +82,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs }) => {
             thumbnail={blog.thumbnail}
             createdAt={dayjs(blog.createdAt)}
             href={`/blogs/${blog.name}`}
-            category="all"
+            tag={parseBlogTagForLabel(blog.tag)}
           />
         ))}
       </Stack>

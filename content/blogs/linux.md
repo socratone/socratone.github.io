@@ -2,6 +2,7 @@
 title: '리눅스 명령어'
 description: '리눅스에서 많이 사용하는 명령어를 정리한다.'
 thumbnail: 'linux'
+tag: 'linux'
 createdAt: '2022-08-29'
 ---
 

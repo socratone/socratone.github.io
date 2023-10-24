@@ -2,6 +2,7 @@
 title: 'Yalc 사용 방법'
 description: 'yalc를 이용하면 npm에 publish 하지 않고도 local에서 라이브러리를 수정해 확인할 수 있다.'
 thumbnail: 'npm'
+tag: 'npm'
 createdAt: '2023-06-27'
 ---
 

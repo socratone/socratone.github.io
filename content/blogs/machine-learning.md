@@ -2,6 +2,7 @@
 title: '머신러닝'
 description: '머신러닝 기초를 다룬다.'
 thumbnail: 'machine-learning'
+tag: 'machine-learning'
 createdAt: '2023-10-18'
 ---
 
