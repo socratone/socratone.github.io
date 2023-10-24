@@ -1,6 +1,6 @@
 // color code style
 // https://highlightjs.org/examples
-import 'highlight.js/styles/vs2015.min.css';
+import 'highlight.js/styles/atom-one-light.css';
 
 import Meta from 'components/Meta';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
