@@ -2,11 +2,12 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
+import json from 'highlight.js/lib/languages/json';
 import python from 'highlight.js/lib/languages/python';
 import { marked } from 'marked';
 import path from 'path';
 
-type Language = 'language-javascript' | 'language-python';
+type Language = 'language-javascript' | 'language-json' | 'language-python';
 
 export const parseMarkdownToHtml = async (markdown: string) => {
   return (
@@ -58,6 +59,10 @@ const addColorTagToCode = (code: string, language: Language) => {
   switch (language) {
     case 'language-javascript':
       hljs.registerLanguage(language, javascript);
+      break;
+
+    case 'language-json':
+      hljs.registerLanguage(language, json);
       break;
 
     case 'language-python':
