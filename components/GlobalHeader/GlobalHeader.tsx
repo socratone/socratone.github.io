@@ -1,14 +1,17 @@
+import styled from '@emotion/styled';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
+import React from 'react';
 
 import { GLOBAL_HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
 
 type GlobalHeaderProps = {
+  logo?: React.ReactNode;
   items: {
     href: string;
     label: string;
@@ -17,7 +20,13 @@ type GlobalHeaderProps = {
   borderBottom?: true;
 };
 
+const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
+
 const GlobalHeader: React.FC<GlobalHeaderProps> = ({
+  logo,
   items,
   backgroundColor,
   borderBottom,
@@ -35,7 +44,8 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       }}
     >
       <Container component="nav">
-        <Stack direction="row" justifyContent="space-between">
+        <Stack direction="row" gap={1.5}>
+          {logo ? <StyledLink href="/">{logo}</StyledLink> : null}
           <Stack direction="row" spacing={2} height={GLOBAL_HEADER_HEIGHT}>
             {items.map((item) => (
               <HeaderLink key={item.href} href={item.href}>
@@ -43,7 +53,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
               </HeaderLink>
             ))}
           </Stack>
-          <Stack direction="row" alignItems="center">
+          <Stack direction="row" alignItems="center" ml="auto">
             <Link href="https://github.com/socratone" target="_blank">
               <IconButton color="inherit" sx={{ mr: -1 }}>
                 <GitHubIcon />
