@@ -13,5 +13,8 @@ export const parseBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Regex:
       return 'Regex';
+
+    case BlogTag.Docker:
+      return 'Docker';
   }
 };

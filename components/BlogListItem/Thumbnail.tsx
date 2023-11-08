@@ -46,6 +46,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
           <Typography fontSize="4rem">🤖</Typography>
         </ThumbnailContainer>
       );
+
+    case BlogThumbnail.Docker:
+      return (
+        <ThumbnailContainer>
+          <Typography fontSize="4rem">🐳</Typography>
+        </ThumbnailContainer>
+      );
   }
 };
 

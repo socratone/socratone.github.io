@@ -4,6 +4,7 @@ export enum BlogThumbnail {
   Linux = 'linux',
   Browser = 'browser',
   MachineLearning = 'machine-learning',
+  Docker = 'docker',
 }
 
 export enum BlogTag {
@@ -11,4 +12,5 @@ export enum BlogTag {
   Npm = 'npm',
   Linux = 'linux',
   MachineLearning = 'machine-learning',
+  Docker = 'docker',
 }
