@@ -26,25 +26,27 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
     return fileName.substring(0, fileName.length - 3);
   });
 
-  const blogs = fileNamesWithoutExtension
-    .map((name) => {
-      const { metadata } = parseMarkdownFile(`content/blogs/${name}.md`);
-      const validatedMetadata = validateMarkdownMetadata(metadata);
+  const blogs = fileNamesWithoutExtension.map((name) => {
+    const { metadata } = parseMarkdownFile(`content/blogs/${name}.md`);
+    const validatedMetadata = validateMarkdownMetadata(metadata);
 
-      return {
-        name,
-        ...validatedMetadata,
-      };
-    })
-    .toSorted((a, b) => {
-      const first = dayjs(a.createdAt);
-      const second = dayjs(b.createdAt);
-      if (first.isAfter(second)) return -1;
-      else if (first.isBefore(second)) return 1;
-      return 0;
-    });
+    return {
+      name,
+      ...validatedMetadata,
+    };
+  });
 
-  const tags = [...new Set(blogs.map((blog) => blog.tag))].toSorted();
+  blogs.sort((a, b) => {
+    const first = dayjs(a.createdAt);
+    const second = dayjs(b.createdAt);
+    if (first.isAfter(second)) return -1;
+    else if (first.isBefore(second)) return 1;
+    return 0;
+  });
+
+  const tags = [...new Set(blogs.map((blog) => blog.tag))];
+
+  tags.sort();
 
   return { props: { blogs, tags } };
 };
