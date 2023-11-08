@@ -70,7 +70,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
                 borderRadius: '50%',
               }}
             />
-            <Typography variant="caption" fontWeight={600}>
+            <Typography variant="caption" fontWeight={600} color="text.primary">
               Socratone
             </Typography>
           </Stack>
