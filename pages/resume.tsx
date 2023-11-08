@@ -166,11 +166,11 @@ const Resume = () => {
         </ul>
 
         <h3>LXP 기관 출석부</h3>
-        <p>기관 출석부 admin 개발</p>
+        <p>출석부를 생성하고 학생의 출석을 관리할 수 있는 Admin 개발</p>
         <ul>
           <li>
-            Filter와 Page의 Search Query를 State와 동기화하여 History Back 구현
-            → UX 개선
+            Filter와 Page의 Search Query를 State와 동기화하여 URL 입력만으로
+            필터링된 페이지에 바로 접근할 수 있도록 구현
           </li>
         </ul>
 
