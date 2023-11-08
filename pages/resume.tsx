@@ -53,7 +53,7 @@ const DateRangeTypography: React.FC<Pick<TypographyProps, 'children'>> = ({
 
 const Resume = () => {
   return (
-    <Container maxWidth="md" sx={{ py: 3 }}>
+    <Container maxWidth="lg" sx={{ py: 3 }}>
       <Box mb={2}>
         <NotionStyleHtmlContent>
           <h1>
