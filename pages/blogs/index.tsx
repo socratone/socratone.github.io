@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import BlogListItem from 'components/BlogListItem';
@@ -54,13 +55,30 @@ export const getStaticProps: GetStaticProps<BlogsProps> = async () => {
 const CONTAINER_PADDING_TOP = 16;
 const CATEGORY_WIDTH = 240;
 const GAP = 16;
+const COUNT_PER_PAGE = 5;
 
 const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
   const router = useRouter();
   const tagQuery = router.query.tag;
+  const pageQuery = router.query.page;
+
+  const page = pageQuery ? Number(pageQuery) : 1;
+  /** tag로 필터링된 모든 blogs */
   const filteredBlogs = tagQuery
     ? blogs.filter((blog) => blog.tag === tagQuery)
     : blogs;
+  const pageCount = Math.ceil(filteredBlogs.length / COUNT_PER_PAGE);
+  const pageFirstBlogIndex = (page - 1) * COUNT_PER_PAGE;
+  /** 현재 페이지의 blogs */
+  const pagedBlogs = filteredBlogs.slice(
+    pageFirstBlogIndex,
+    pageFirstBlogIndex + COUNT_PER_PAGE
+  );
+
+  const handlePageChange = (_: unknown, page: number) => {
+    const tag = tagQuery ? `tag=${tagQuery}&` : '';
+    router.push(`/blogs?${tag}page=${page}`);
+  };
 
   return (
     <Stack direction="row" gap={`${GAP}px`}>
@@ -98,7 +116,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
           lg: `calc(100% - ${CATEGORY_WIDTH + GAP}px)`,
         }}
       >
-        {filteredBlogs.map((blog) => (
+        {pagedBlogs.map((blog) => (
           <BlogListItem
             key={blog.name}
             title={blog.title}
@@ -109,6 +127,15 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
             tag={parseBlogTagForLabel(blog.tag)}
           />
         ))}
+        {pageCount > 1 ? (
+          <Box display="flex" justifyContent="center">
+            <Pagination
+              page={page}
+              count={pageCount}
+              onChange={handlePageChange}
+            />
+          </Box>
+        ) : null}
       </Stack>
     </Stack>
   );
