@@ -44,9 +44,9 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       }}
     >
       <Container component="nav">
-        <Stack direction="row" gap={1.5}>
+        <Stack direction="row" gap={1}>
           {logo ? <StyledLink href="/">{logo}</StyledLink> : null}
-          <Stack direction="row" spacing={2} height={GLOBAL_HEADER_HEIGHT}>
+          <Stack direction="row" gap={2} height={GLOBAL_HEADER_HEIGHT}>
             {items.map((item) => (
               <HeaderLink key={item.href} href={item.href}>
                 {item.label}
