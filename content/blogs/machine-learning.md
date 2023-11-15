@@ -81,3 +81,14 @@ from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 y = le.fit_transform(y)
 ```
+
+### 5. Splitting the dataset into the Training set and Test set
+
+training 세트와 test 세트 둘로 나눈다.
+
+```python
+from sklearn.model_selection import train_test_split
+
+# test 세트를 20%로 한다.
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2)
+```
