@@ -16,5 +16,8 @@ export const parseBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Docker:
       return 'Docker';
+
+    case BlogTag.NextJs:
+      return 'NextJS';
   }
 };
