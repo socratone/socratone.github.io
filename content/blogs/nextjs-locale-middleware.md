@@ -1,6 +1,6 @@
 ---
 title: 'NextJS를 이용해서 나라별로 다른 페이지를 보여주는 방법'
-description: 'NextJS의 locale 설정을 다룬다.'
+description: 'NextJS의 middleware와 locale을 이용한다.'
 thumbnail: 'nextjs'
 tag: 'nextjs'
 createdAt: '2023-11-16'
