@@ -3,6 +3,7 @@ import { BlogThumbnail } from 'constants/blog';
 import linuxImage from 'public/images/blog/linux.webp';
 import npmImage from 'public/images/blog/npm.webp';
 
+import NextJsIcon from './NextJsIcon';
 import ThumbnailContainer from './ThumbnailContainer';
 import ThumbnailImage from './ThumbnailImage';
 
@@ -57,7 +58,9 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
     case BlogThumbnail.NextJs:
       return (
         <ThumbnailContainer>
-          <Typography fontSize="4rem">▲</Typography>
+          <Typography fontSize="4rem">
+            <NextJsIcon />
+          </Typography>
         </ThumbnailContainer>
       );
   }
