@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import { BlogThumbnail } from 'constants/blog';
 import linuxImage from 'public/images/blog/linux.webp';
 import npmImage from 'public/images/blog/npm.webp';
+import pythonImage from 'public/images/blog/python.webp';
 
 import NextJsIcon from './NextJsIcon';
 import ThumbnailContainer from './ThumbnailContainer';
@@ -61,6 +62,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
           <Typography fontSize="4rem">
             <NextJsIcon />
           </Typography>
+        </ThumbnailContainer>
+      );
+
+    case BlogThumbnail.Python:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={pythonImage} width={300} height={303} />
         </ThumbnailContainer>
       );
   }

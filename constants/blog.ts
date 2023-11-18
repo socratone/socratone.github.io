@@ -6,6 +6,7 @@ export enum BlogThumbnail {
   MachineLearning = 'machine-learning',
   Docker = 'docker',
   NextJs = 'nextjs',
+  Python = 'python',
 }
 
 export enum BlogTag {
@@ -15,4 +16,5 @@ export enum BlogTag {
   MachineLearning = 'machine-learning',
   Docker = 'docker',
   NextJs = 'nextjs',
+  Python = 'python',
 }
