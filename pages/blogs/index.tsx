@@ -123,7 +123,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
       gap={`${GAP}px`}
     >
       {/* mobile & tablet */}
-      <Box position="relative">
+      <Box position="relative" display={{ xs: 'flex', md: 'flex', lg: 'none' }}>
         <Box
           mx={-3}
           px={3}
@@ -134,11 +134,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
             ...rightGradientSx,
           }}
         >
-          <Stack
-            direction="row"
-            gap={1}
-            display={{ xs: 'flex', md: 'flex', lg: 'none' }}
-          >
+          <Stack direction="row" gap={1}>
             {tags.map((tag, index, array) => {
               const isSelected = router.query.tag === tag;
               const isLast = index === array.length - 1;
