@@ -1,4 +1,6 @@
+import { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -57,6 +59,41 @@ const CATEGORY_WIDTH = 240;
 const GAP = 16;
 const COUNT_PER_PAGE = 5;
 
+const hiddenScrollSx: SxProps = {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+  msOverflowStyle: 'none' /* IE and Edge */,
+  scrollbarWidth: 'none' /* Firefox */,
+};
+
+const leftGradientSx: SxProps = {
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: '-24px',
+    height: '100%',
+    width: '24px',
+    background:
+      'linear-gradient(-90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)',
+  },
+};
+
+const rightGradientSx: SxProps = {
+  '&::after': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    right: '-24px',
+    height: '100%',
+    width: '24px',
+    background:
+      'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)',
+  },
+};
+
 const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
   const router = useRouter();
   const tagQuery = router.query.tag;
@@ -81,7 +118,54 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
   };
 
   return (
-    <Stack direction="row" gap={`${GAP}px`}>
+    <Stack
+      direction={{ xs: 'column', md: 'column', lg: 'row' }}
+      gap={`${GAP}px`}
+    >
+      {/* mobile & tablet */}
+      <Box position="relative">
+        <Box
+          mx={-3}
+          px={3}
+          overflow="auto"
+          sx={{
+            ...hiddenScrollSx,
+            ...leftGradientSx,
+            ...rightGradientSx,
+          }}
+        >
+          <Stack
+            direction="row"
+            gap={1}
+            display={{ xs: 'flex', md: 'flex', lg: 'none' }}
+          >
+            {tags.map((tag, index, array) => {
+              const isSelected = router.query.tag === tag;
+              const isLast = index === array.length - 1;
+
+              return (
+                <Link
+                  key={tag}
+                  href={isSelected ? '/blogs' : `/blogs?tag=${tag}`}
+                >
+                  <Chip
+                    label={parseBlogTagForLabel(tag)}
+                    color={isSelected ? 'primary' : 'default'}
+                    sx={{
+                      paddingY: 2,
+                      cursor: 'pointer',
+                      /** last item right margin */
+                      mr: isLast ? 3 : undefined,
+                    }}
+                  />
+                </Link>
+              );
+            })}
+          </Stack>
+        </Box>
+      </Box>
+
+      {/* desktop */}
       <Box
         width={CATEGORY_WIDTH}
         flexShrink={0}
@@ -107,6 +191,8 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
           ))}
         </Stack>
       </Box>
+
+      {/* list */}
       <Stack
         gap={6}
         flexGrow={1}
