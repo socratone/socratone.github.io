@@ -14,6 +14,7 @@ const StyledBox = styled(Box)`
 
   font-family: ${({ theme }) => theme.typography.fontFamily};
   color: ${({ theme }) => theme.palette.text.primary};
+  word-break: break-all;
 
   h1 {
     font-size: ${({ theme }) => theme.typography.mh1.fontSize};
