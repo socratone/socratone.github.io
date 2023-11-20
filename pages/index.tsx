@@ -153,6 +153,7 @@ const Home = () => {
             alt="florence"
             src={florenceImage}
             fill
+            quality={1}
             style={{ objectFit: 'cover' }}
           />
         </Box>
