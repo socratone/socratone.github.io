@@ -19,5 +19,8 @@ export const parseBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.NextJs:
       return 'NextJS';
+
+    case BlogTag.Python:
+      return 'Python';
   }
 };
