@@ -14,6 +14,9 @@ const SECTION_COLOR = '#ffe2c1';
 
 const UDEMY_COURSES: { thumbnail: string }[] = [
   {
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/1187016_51b3.jpg',
+  },
+  {
     thumbnail: 'https://img-c.udemycdn.com/course/480x270/5399658_d5e0_3.jpg',
   },
   {
