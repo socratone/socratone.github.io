@@ -55,8 +55,10 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           </Stack>
           <Stack direction="row" alignItems="center" ml="auto">
             <Link href="https://github.com/socratone" target="_blank">
-              <IconButton color="inherit" sx={{ mr: -1 }}>
-                <GitHubIcon />
+              <IconButton sx={{ mr: -1 }}>
+                <GitHubIcon
+                  sx={{ color: (theme) => theme.palette.text.primary }}
+                />
               </IconButton>
             </Link>
           </Stack>
