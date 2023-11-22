@@ -45,7 +45,7 @@ Creating a Pipfile for this project...
 Launching subshell in virtual environment...
 ```
 
-vscode에서 어떤 python interpreter를 사용할 것인지 설정해야 한다.\
+visual studio code에서 어떤 python interpreter를 사용할 것인지 설정해야 한다.\
 `cmd + shift + p`를 누르고 `Python: Select Interpreter`를 선택한 다음 위에서 언급한 `tfda3j2t` 버전을 선택한다.\
 그러고 python 파일 위의 `실행` 버튼을 누르면 설정한 경로의 python을 실행하는 것을 볼 수 있다.
 
