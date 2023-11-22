@@ -1,12 +1,14 @@
 ---
-title: 'pipenv를 이용한 python 개발환경 설정'
-description: 'pipenv is a Python virtualenv management tool that supports a multitude of systems and nicely bridges the gaps between pip, python and virtualenv.'
+title: 'pipenv를 이용한 python 개발환경 설정 (작성중)'
+description: 'pipenv를 이용하면 nodejs의 package.json처럼 라이브러리를 관리할 수 있다.'
 thumbnail: 'python'
 tag: 'python'
 createdAt: '2023-11-19'
 ---
 
 # pipenv를 이용한 python 개발환경 설정
+
+pipenv를 이용하면 nodejs의 package.json처럼 라이브러리를 관리할 수 있다.
 
 ## 1. pipenv를 설치한다.
 
