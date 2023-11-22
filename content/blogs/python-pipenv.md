@@ -8,9 +8,11 @@ createdAt: '2023-11-19'
 
 # pipenv를 이용한 python 개발환경 설정
 
-pipenv를 이용하면 nodejs의 package.json처럼 라이브러리를 관리할 수 있다.
+pipenv를 이용하면 nodejs의 `package.json`처럼 라이브러리를 관리할 수 있다.
 
-## 1. pipenv를 설치한다.
+## 1. pipenv 설치
+
+pipenv를 설치한다.
 
 ```
 sudo -H pip install -U pipenv
@@ -19,15 +21,15 @@ sudo -H pip install -U pipenv
 https://stackoverflow.com/questions/46391721/pipenv-command-not-found
 https://pipenv.pypa.io/en/latest/#install-pipenv-today
 
-## 2. 가상환경을 생성한다.
+## 2. 가상환경을 생성
 
-프로젝트 폴더 위치에서 실행한다.
+가상 환경을 생성하기 위해 아래 명령어를 프로젝트 폴더에서 실행한다.
 
 ```
 pipenv shell
 ```
 
-node의 `package.json`과 비슷한 `Pipfile`이 생성된다.
+nodejs의 `package.json`과 비슷한 `Pipfile`이 생성된다.
 
 터미널에 아래와 같은 내용이 표시된다.\
 여기서 Virtualenv location 경로에 포함된 `tfda3j2t`을 잘 기억해야 한다.
@@ -49,10 +51,16 @@ vscode에서 어떤 python interpreter를 사용할 것인지 설정해야 한�
 
 <img alt="Run python file" src="/images/blog/python-pipenv/run-python-file.webp" width="278">
 
-## 3. langchain 설치
+## 3. Third party package 설치
+
+langchain을 설치하고 싶다면 다음 명령어를 입력한다.
 
 ```
 pipenv install langchain
 ```
 
 `Pipfile`의 packages 리스트에 `langchain이` 추가된다.
+
+## References
+
+- https://realpython.com/pipenv-guide/
