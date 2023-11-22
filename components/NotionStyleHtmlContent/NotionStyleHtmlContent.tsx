@@ -77,6 +77,12 @@ const StyledBox = styled(Box)`
     text-underline-offset: 4px;
   }
 
+  img {
+    display: block;
+    margin-top: 0.25rem; /* 4px */
+    margin-bottom: 0.25rem; /* 4px */
+  }
+
   /* single line code */
 
   code {
