@@ -1,5 +1,5 @@
 ---
-title: 'pipenv를 이용한 python 개발환경 설정 (작성중)'
+title: 'pipenv를 이용한 python 개발환경 설정'
 description: 'pipenv를 이용하면 nodejs의 package.json처럼 라이브러리를 관리할 수 있다.'
 thumbnail: 'python'
 tag: 'python'
@@ -21,7 +21,7 @@ sudo -H pip install -U pipenv
 https://stackoverflow.com/questions/46391721/pipenv-command-not-found
 https://pipenv.pypa.io/en/latest/#install-pipenv-today
 
-## 2. 가상환경을 생성
+## 2. 가상환경 생성
 
 가상 환경을 생성하기 위해 아래 명령어를 프로젝트 폴더에서 실행한다.
 
@@ -59,8 +59,18 @@ langchain을 설치하고 싶다면 다음 명령어를 입력한다.
 pipenv install langchain
 ```
 
-`Pipfile`의 packages 리스트에 `langchain이` 추가된다.
+`Pipfile`의 packages 리스트에 `langchain이` 추가된다.\
+.py 파일에서 langchain을 불러오면 정상 작동하는 것을 확인할 수 있다.
+
+## 4. 가상환경 삭제
+
+만약 가상환경을 삭제하고 싶다면 다음 명령어를 입력한다.
+
+```
+pipenv --rm
+```
 
 ## References
 
 - https://realpython.com/pipenv-guide/
+- https://www.daleseo.com/python-pipenv/
