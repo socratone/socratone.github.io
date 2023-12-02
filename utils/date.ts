@@ -7,5 +7,5 @@ export const convertMonthsToYearsAndMonths = (months: number) => {
   } else if (years > 0) {
     return `${years}년`;
   }
-  return `${remainingMonths}월`;
+  return `${remainingMonths}개월`;
 };

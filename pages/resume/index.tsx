@@ -7,9 +7,11 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
+import dayjs, { Dayjs } from 'dayjs';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
 import React from 'react';
+import { convertMonthsToYearsAndMonths } from 'utils/date';
 
 /** resume-pdf script를 돌렸을 때에만 phone이 있다. */
 const phone = process.env.NEXT_PUBLIC_PHONE;
@@ -48,6 +50,24 @@ const DateRangeTypography: React.FC<Pick<TypographyProps, 'children'>> = ({
     <Typography component="span" variant="body1" color="text.secondary">
       {children}
     </Typography>
+  );
+};
+
+type DateRangeTextProps = {
+  start: Dayjs;
+  end: Dayjs | 'now';
+};
+
+const DateRangeText: React.FC<DateRangeTextProps> = ({ start, end }) => {
+  const convertedEnd = end === 'now' ? dayjs() : end;
+  const months = convertedEnd.diff(start, 'month');
+
+  return (
+    <>
+      {start.format('YYYY.M')} ~{' '}
+      {end === 'now' ? '재직 중' : convertedEnd.format('YYYY.M')} (
+      {convertMonthsToYearsAndMonths(months + 1)})
+    </>
   );
 };
 
@@ -124,7 +144,9 @@ const Resume = () => {
           <a href="https://elice.io" target="_blank">
             엘리스
           </a>
-          <DateRangeTypography>2022.6 ~ 재직 중</DateRangeTypography>
+          <DateRangeTypography>
+            <DateRangeText start={dayjs('2022-6')} end="now" />
+          </DateRangeTypography>
         </StackHeading2>
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
         <div>
@@ -249,7 +271,10 @@ const Resume = () => {
         <Divider sx={{ mt: 3 }} />
 
         <StackHeading2>
-          짐티 <DateRangeTypography>2021.3 ~ 2022.5</DateRangeTypography>
+          짐티{' '}
+          <DateRangeTypography>
+            <DateRangeText start={dayjs('2021-3')} end={dayjs('2022-5')} />
+          </DateRangeTypography>
         </StackHeading2>
         <p>개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스</p>
         <div>
@@ -324,7 +349,9 @@ const Resume = () => {
           <a href="https://iportfolio.co.kr" target="_blank">
             아이포트폴리오
           </a>
-          <DateRangeTypography>2020.9 ~ 11</DateRangeTypography>
+          <DateRangeTypography>
+            <DateRangeText start={dayjs('2020-9')} end={dayjs('2020-11')} />
+          </DateRangeTypography>
         </StackHeading2>
 
         <h3>리딩앤의 영어 전자책 웹 앱</h3>
