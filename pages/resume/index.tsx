@@ -15,6 +15,7 @@ import { Career } from 'feature/resume/types';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
 import React from 'react';
+import { convertMonthsToYearsAndMonths } from 'utils/date';
 
 const Resume = () => {
   const elice = CAREERS.find((career) => career.company === 'elice') as Career;
@@ -22,6 +23,15 @@ const Resume = () => {
   const iportfolio = CAREERS.find(
     (career) => career.company === 'iportfolio'
   ) as Career;
+
+  const totalCareerDuration = (() => {
+    let result = 0;
+    CAREERS.forEach((career) => {
+      const months = career.end.diff(career.start, 'month');
+      result += months + 1;
+    });
+    return '총 ' + convertMonthsToYearsAndMonths(result);
+  })();
 
   return (
     <Container maxWidth="lg" sx={{ py: 3 }}>
@@ -87,9 +97,17 @@ const Resume = () => {
       <Divider sx={{ my: 3 }} />
 
       <NotionStyleHtmlContent>
-        <h1>
-          <span style={{ fontWeight: 400 }}>💻</span> 경력
-        </h1>
+        <Stack
+          component="h1"
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <span>
+            <span style={{ fontWeight: 400 }}>💻</span> 경력
+          </span>
+          <DateRangeTypography>{totalCareerDuration}</DateRangeTypography>
+        </Stack>
 
         <StackHeading2>
           <a href="https://elice.io" target="_blank">
