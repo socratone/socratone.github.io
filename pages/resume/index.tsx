@@ -9,7 +9,7 @@ import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CAREERS, phone } from 'feature/resume/constants';
 import DateRangeText from 'feature/resume/DateRangeText';
 import DateRangeTypography from 'feature/resume/DateRangeTypography';
-import SkillImage from 'feature/resume/SkillImage';
+import SkillTag from 'feature/resume/SkillTag';
 import StackHeading2 from 'feature/resume/StackHeading2';
 import { Career } from 'feature/resume/types';
 import Image from 'next/image';
@@ -118,11 +118,14 @@ const Resume = () => {
           </DateRangeTypography>
         </StackHeading2>
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
-        <div>
-          <SkillImage
-            skills={['ts', 'react', 'nextjs', 'redux', 'materialui', 'emotion']}
-          />
-        </div>
+        <Stack direction="row" gap={0.5} flexWrap="wrap">
+          <SkillTag logo="typescript" label="typescript" />
+          <SkillTag logo="react" label="react" />
+          <SkillTag logo="nextdotjs" label="nextjs" logoColor="black" />
+          <SkillTag logo="redux" label="redux" logoColor="#764abc" />
+          <SkillTag logo="mui" label="material ui" />
+          <SkillTag logo="styledcomponents" label="styled_components" />
+        </Stack>
 
         <h3>LXP(Learning Experience Platform) 유저 대시보드</h3>
         <p>
@@ -246,19 +249,15 @@ const Resume = () => {
           </DateRangeTypography>
         </StackHeading2>
         <p>개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스</p>
-        <div>
-          <SkillImage
-            skills={[
-              'ts',
-              'react',
-              'nextjs',
-              'redux',
-              'materialui',
-              'styledcomponents',
-              'aws',
-            ]}
-          />
-        </div>
+        <Stack direction="row" gap={0.5} flexWrap="wrap">
+          <SkillTag logo="typescript" label="typescript" />
+          <SkillTag logo="react" label="react" />
+          <SkillTag logo="nextdotjs" label="nextjs" logoColor="black" />
+          <SkillTag logo="redux" label="redux" logoColor="#764abc" />
+          <SkillTag logo="mui" label="material ui" />
+          <SkillTag logo="styledcomponents" label="styled_components" />
+          <SkillTag logo="amazonaws" label="aws" logoColor="#f79628" />
+        </Stack>
 
         <h3>
           <a href="https://golf-admin.tlabstudio.com" target="_blank">
@@ -328,9 +327,11 @@ const Resume = () => {
           영어 발음을 녹음하고 발음 분석 엔진을 바탕으로 점수를 매겨주는 앱
           유지보수
         </p>
-        <div>
-          <SkillImage skills={['js', 'jquery', 'php']} />
-        </div>
+        <Stack direction="row" gap={0.5}>
+          <SkillTag logo="javascript" label="javascript" />
+          <SkillTag logo="jquery" label="jquery" logoColor="#0f66a9" />
+          <SkillTag logo="php" label="php" />
+        </Stack>
 
         <ul>
           <li>
@@ -364,18 +365,14 @@ const Resume = () => {
         <Stack direction="row" alignItems="center" gap={0.5}>
           <p>가톨릭 묵상 기도 나눔 SNS</p>
         </Stack>
-        <div>
-          <SkillImage
-            skills={[
-              'ts',
-              'nextjs',
-              'redux',
-              'materialui',
-              'nodejs',
-              'mongodb',
-            ]}
-          />
-        </div>
+        <Stack direction="row" gap={0.5} flexWrap="wrap">
+          <SkillTag logo="typescript" label="typescript" />
+          <SkillTag logo="nextdotjs" label="nextjs" logoColor="black" />
+          <SkillTag logo="redux" label="redux" logoColor="#764abc" />
+          <SkillTag logo="mui" label="material ui" />
+          <SkillTag logo="nodedotjs" label="nodejs" />
+          <SkillTag logo="mongodb" label="mongodb" />
+        </Stack>
 
         <ul>
           <li>Material UI Color 토큰을 이용한 다크/라이트 모드 전환</li>
