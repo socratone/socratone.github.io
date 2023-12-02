@@ -14,6 +14,9 @@ const StyledImage = styled.img`
   margin: 0 !important;
 `;
 
+/**
+ * https://img.shields.io
+ */
 const SkillTag: React.FC<SkillTagProps> = ({ label, logo, logoColor }) => {
   const query = queryString.stringify({ logo, logoColor });
 
