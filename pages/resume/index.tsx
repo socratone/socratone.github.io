@@ -1,5 +1,4 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { TypographyProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
@@ -7,71 +6,23 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
-import dayjs, { Dayjs } from 'dayjs';
+import { CAREERS, phone } from 'feature/resume/constants';
+import DateRangeText from 'feature/resume/DateRangeText';
+import DateRangeTypography from 'feature/resume/DateRangeTypography';
+import SkillImage from 'feature/resume/SkillImage';
+import StackHeading2 from 'feature/resume/StackHeading2';
+import { Career } from 'feature/resume/types';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
 import React from 'react';
-import { convertMonthsToYearsAndMonths } from 'utils/date';
-
-/** resume-pdf script를 돌렸을 때에만 phone이 있다. */
-const phone = process.env.NEXT_PUBLIC_PHONE;
-
-const SkillImage: React.FC<{ skills: string[] }> = ({ skills }) => {
-  return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      alt={skills.join(', ')}
-      src={`https://skillicons.dev/icons?i=${skills.join(',')}`}
-      style={{ height: 24 }}
-    />
-  );
-};
-
-const StackHeading2: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  return (
-    <Stack
-      component="h2"
-      direction="row"
-      justifyContent="space-between"
-      alignItems="center"
-      gap={0.5}
-    >
-      {children}
-    </Stack>
-  );
-};
-
-const DateRangeTypography: React.FC<Pick<TypographyProps, 'children'>> = ({
-  children,
-}) => {
-  return (
-    <Typography component="span" variant="body1" color="text.secondary">
-      {children}
-    </Typography>
-  );
-};
-
-type DateRangeTextProps = {
-  start: Dayjs;
-  end: Dayjs | 'now';
-};
-
-const DateRangeText: React.FC<DateRangeTextProps> = ({ start, end }) => {
-  const convertedEnd = end === 'now' ? dayjs() : end;
-  const months = convertedEnd.diff(start, 'month');
-
-  return (
-    <>
-      {start.format('YYYY.M')} ~{' '}
-      {end === 'now' ? '재직 중' : convertedEnd.format('YYYY.M')} (
-      {convertMonthsToYearsAndMonths(months + 1)})
-    </>
-  );
-};
 
 const Resume = () => {
+  const elice = CAREERS.find((career) => career.company === 'elice') as Career;
+  const gymt = CAREERS.find((career) => career.company === 'gymt') as Career;
+  const iportfolio = CAREERS.find(
+    (career) => career.company === 'iportfolio'
+  ) as Career;
+
   return (
     <Container maxWidth="lg" sx={{ py: 3 }}>
       <Box mb={2}>
@@ -145,7 +96,7 @@ const Resume = () => {
             엘리스
           </a>
           <DateRangeTypography>
-            <DateRangeText start={dayjs('2022-6')} end="now" />
+            <DateRangeText start={elice.start} end={elice.end} />
           </DateRangeTypography>
         </StackHeading2>
         <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
@@ -273,7 +224,7 @@ const Resume = () => {
         <StackHeading2>
           짐티{' '}
           <DateRangeTypography>
-            <DateRangeText start={dayjs('2021-3')} end={dayjs('2022-5')} />
+            <DateRangeText start={gymt.start} end={gymt.end} />
           </DateRangeTypography>
         </StackHeading2>
         <p>개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스</p>
@@ -350,7 +301,7 @@ const Resume = () => {
             아이포트폴리오
           </a>
           <DateRangeTypography>
-            <DateRangeText start={dayjs('2020-9')} end={dayjs('2020-11')} />
+            <DateRangeText start={iportfolio.start} end={iportfolio.end} />
           </DateRangeTypography>
         </StackHeading2>
 
