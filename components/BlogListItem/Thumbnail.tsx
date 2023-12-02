@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import { BlogThumbnail } from 'constants/blog';
+import dockerImage from 'public/images/blog/docker.webp';
 import linuxImage from 'public/images/blog/linux.webp';
 import npmImage from 'public/images/blog/npm.webp';
 import pythonImage from 'public/images/blog/python.webp';
@@ -52,7 +53,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
     case BlogThumbnail.Docker:
       return (
         <ThumbnailContainer>
-          <Typography fontSize="4rem">🐳</Typography>
+          <ThumbnailImage src={dockerImage} width={300} height={172} />
         </ThumbnailContainer>
       );
 
