@@ -267,7 +267,7 @@ const Resume = () => {
         </div>
 
         <h3>
-          <a href="https://golf-admin.tlabstudio.com/signin" target="_blank">
+          <a href="https://golf-admin.tlabstudio.com" target="_blank">
             Tlab Golf Admin
           </a>
         </h3>
