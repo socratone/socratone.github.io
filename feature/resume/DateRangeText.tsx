@@ -12,8 +12,8 @@ const DateRangeText: React.FC<DateRangeTextProps> = ({ start, end }) => {
 
   return (
     <>
-      {start.format('YYYY.M')} ~ {isEmployed ? '재직 중' : end.format('YYYY.M')}{' '}
-      ({convertMonthsToYearsAndMonths(months + 1)})
+      {start.format('YYYY.M')} ~ {isEmployed ? '재직 중' : end.format('YYYY.M')}
+      {'\n'}({convertMonthsToYearsAndMonths(months + 1)})
     </>
   );
 };
