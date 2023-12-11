@@ -8,7 +8,12 @@ const DateRangeTypography: React.FC<DateRangeTypographyProps> = ({
   children,
 }) => {
   return (
-    <Typography component="span" variant="body1" color="text.secondary">
+    <Typography
+      component="span"
+      variant="body1"
+      color="text.secondary"
+      whiteSpace="pre-line"
+    >
       {children}
     </Typography>
   );
