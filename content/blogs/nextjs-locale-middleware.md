@@ -88,7 +88,7 @@ const nextConfig = {
 
 function parseCountryToLocale(country?: string) {
   switch (country) {
-    case 'KO':
+    case 'KR':
       return 'ko';
 
     case 'EN':
