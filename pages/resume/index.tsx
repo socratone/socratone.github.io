@@ -1,15 +1,15 @@
+import CreateIcon from '@mui/icons-material/Create';
+import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import PhoneIcon from '@mui/icons-material/Phone';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CAREERS, phone } from 'feature/resume/constants';
 import DateRangeTypography from 'feature/resume/DateRangeTypography';
-import SkillTag from 'feature/resume/SkillTag';
-import StackHeading3 from 'feature/resume/StackHeading3';
 import { Career } from 'feature/resume/types';
 import WorkExperienceSection from 'feature/resume/WorkExperienceSection';
 import Image from 'next/image';
@@ -221,66 +221,84 @@ const Resume = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 3 }}>
-      <Box mb={2}>
-        <NotionStyleHtmlContent>
-          <h1>
-            FRONTEND 개발자 김기원입니다{' '}
-            {/* puppeteer로 pdf 변환시 font-weight에 따라 이모지를 못 불러오는 이슈가 있다. */}
-            <span style={{ fontWeight: 400 }}>🤗</span>
-          </h1>
-        </NotionStyleHtmlContent>
-      </Box>
-      <Stack direction="row" gap={3} flexWrap="wrap">
-        <Image
-          alt="profile"
-          src={phone ? './images/resume/profile.webp' : profileImage}
-          width={300}
-          height={300}
-          style={{
-            borderRadius: '50%',
-          }}
-        />
-        <Box flexGrow={1} flexBasis={400}>
-          <NotionStyleHtmlContent>
-            <Typography variant="h6" fontWeight={600}>
+      <NotionStyleHtmlContent>
+        <Box display="grid" gridTemplateColumns="250px 1fr">
+          <Stack alignItems="center" gap={2}>
+            <Box mb={2}>
+              <Image
+                alt="profile"
+                src={phone ? './images/resume/profile.webp' : profileImage}
+                width={180}
+                height={180}
+                style={{
+                  borderRadius: '50%',
+                }}
+              />
+            </Box>
+            <Stack alignItems="center" gap={0.5}>
+              <IconButton size="small" sx={{ backgroundColor: 'whitesmoke' }}>
+                <PhoneIcon />
+              </IconButton>
+              <Typography variant="mp">{phone ? phone : '비공개'}</Typography>
+            </Stack>
+            <Stack alignItems="center" gap={0.5}>
+              <IconButton size="small" sx={{ backgroundColor: 'whitesmoke' }}>
+                <EmailIcon />
+              </IconButton>
+              <Typography variant="mp">gim2origin@gmail.com</Typography>
+            </Stack>
+          </Stack>
+          <Stack>
+            <Stack direction="row" justifyContent="space-between">
+              <Typography variant="mh1">김기원</Typography>
+            </Stack>
+            <Typography fontWeight={500}>FRONTEND DEVELOPER</Typography>
+            <Stack direction="row" gap={1}>
+              <Stack direction="row" alignItems="center" gap={0.5}>
+                <GitHubIcon />
+                <Typography variant="mp">
+                  <a href="https://github.com/socratone" target="_blank">
+                    github.com/socratone
+                  </a>
+                </Typography>
+              </Stack>
+              <Stack direction="row" alignItems="center">
+                <CreateIcon />
+                <Typography variant="mp">
+                  <a href="http://thinkforthink.tistory.com/" target="_blank">
+                    thinkforthink.tistory.com
+                  </a>
+                </Typography>
+              </Stack>
+            </Stack>
+            <Typography variant="mh3" fontWeight={600} mt={2}>
               PROFILE
             </Typography>
-            <p style={{ textAlign: 'justify' }}>
+            <Typography variant="mp" sx={{ textAlign: 'justify' }}>
               아름다운 UI와 애니메이션 구현을 좋아합니다. 무엇보다도 가독성 있는
               코드를 우선시 합니다. 재사용 가능한 컴포넌트 구현에 능숙하고
               디자인 감각과 CSS에 대한 이해도가 높아 빠른 속도로 UI 개발이
               가능합니다. 어려운 문제로 회귀하지 않도록 깃허브(예제 코드)와
               블로그에 기록하고 정리하는 습관이 있습니다. 코딩이 취미이고 새로운
               기술 습득을 위해 Udemy 강의를 즐겨봅니다.
-            </p>
-            <Typography variant="h6" fontWeight={600}>
-              CONTACT
             </Typography>
-            <ul>
-              <li>
-                📞 연락처 <span>{phone ? phone : '비공개'}</span>
-              </li>
-              <li>
-                📮 이메일 <span>gim2origin@gmail.com</span>
-              </li>
-              <li>
-                🌱 깃허브{' '}
-                <a href="https://github.com/socratone" target="_blank">
-                  github.com/socratone
-                </a>
-              </li>
-              <li>
-                ✍️ 블로그{' '}
-                <a href="http://thinkforthink.tistory.com/" target="_blank">
-                  thinkforthink.tistory.com
-                </a>
-              </li>
-            </ul>
-          </NotionStyleHtmlContent>
+            <Typography variant="mh3" fontWeight={600} mt={2}>
+              SKILL
+            </Typography>
+            <Typography>
+              Typescript, React, NextJS, Redux, Recoil, React-hook-form,
+              React-query, Material UI, Emotion, NodeJS
+            </Typography>
+            <Typography fontWeight={600} mt={1}>
+              사용해본 기술
+            </Typography>
+            <Typography>GraphQL, RxJS, React-native, Expo, MongoDB</Typography>
+          </Stack>
         </Box>
-      </Stack>
+      </NotionStyleHtmlContent>
 
-      <Divider sx={{ my: 3 }} />
+      {/* divider */}
+      <Box sx={{ py: 2 }} />
 
       <WorkExperienceSection
         title="WORK EXPERIENCE"
@@ -288,12 +306,22 @@ const Resume = () => {
         companies={companies}
       />
 
-      <Divider sx={{ my: 3 }} />
+      {/* divider */}
+      <Box sx={{ py: 2 }} />
 
       <NotionStyleHtmlContent>
-        <Typography variant="mh2">PORTFOLIO</Typography>
+        <Typography variant="mh2" mb={1.5}>
+          PORTFOLIO
+        </Typography>
 
-        <StackHeading3>
+        <Typography
+          variant="mh3"
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
           <Stack direction="row">
             <a href="https://staywith.kr" target="_blank">
               Staywith.kr
@@ -307,17 +335,9 @@ const Resume = () => {
             </IconButton>
           </Stack>
           <DateRangeTypography>2023</DateRangeTypography>
-        </StackHeading3>
+        </Typography>
         <Stack direction="row" alignItems="center" gap={0.5}>
           <p>가톨릭 묵상 기도 나눔 SNS</p>
-        </Stack>
-        <Stack direction="row" gap={0.5} flexWrap="wrap">
-          <SkillTag logo="typescript" label="typescript" />
-          <SkillTag logo="nextdotjs" label="nextjs" logoColor="black" />
-          <SkillTag logo="redux" label="redux" logoColor="#764abc" />
-          <SkillTag logo="mui" label="material ui" />
-          <SkillTag logo="nodedotjs" label="nodejs" />
-          <SkillTag logo="mongodb" label="mongodb" />
         </Stack>
 
         <ul>
@@ -331,20 +351,8 @@ const Resume = () => {
           <li>Kakao 로그인과 JWT Token을 이용한 로그인 구현</li>
         </ul>
 
-        <Divider sx={{ my: 3 }} />
-
-        <Typography variant="mh2">SKILL</Typography>
-
-        <h3>주요 기술</h3>
-        <p>
-          Typescript, React, NextJS, Redux, Recoil, React-hook-form,
-          React-query, Material UI, Emotion, NodeJS
-        </p>
-
-        <h3>사용해본 기술</h3>
-        <p>GraphQL, RxJS, React-native, Expo, MongoDB</p>
-
-        <Divider sx={{ my: 3 }} />
+        {/* divider */}
+        <Box sx={{ py: 2 }} />
 
         <Typography variant="mh2">ETC</Typography>
         <ul>
