@@ -1,11 +1,11 @@
 import Stack from '@mui/material/Stack';
 
-type StackHeading2Props = { children: React.ReactNode };
+type StackHeading3Props = { children: React.ReactNode };
 
-const StackHeading2: React.FC<StackHeading2Props> = ({ children }) => {
+const StackHeading3: React.FC<StackHeading3Props> = ({ children }) => {
   return (
     <Stack
-      component="h2"
+      component="h3"
       direction="row"
       justifyContent="space-between"
       alignItems="center"
@@ -16,4 +16,4 @@ const StackHeading2: React.FC<StackHeading2Props> = ({ children }) => {
   );
 };
 
-export default StackHeading2;
+export default StackHeading3;
