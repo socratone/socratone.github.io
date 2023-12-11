@@ -7,11 +7,11 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CAREERS, phone } from 'feature/resume/constants';
-import DateRangeText from 'feature/resume/DateRangeText';
 import DateRangeTypography from 'feature/resume/DateRangeTypography';
 import SkillTag from 'feature/resume/SkillTag';
-import StackHeading2 from 'feature/resume/StackHeading2';
+import StackHeading3 from 'feature/resume/StackHeading3';
 import { Career } from 'feature/resume/types';
+import WorkExperienceSection from 'feature/resume/WorkExperienceSection';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
 import React from 'react';
@@ -32,6 +32,192 @@ const Resume = () => {
     });
     return '총 ' + convertMonthsToYearsAndMonths(result);
   })();
+
+  const companies = [
+    {
+      title: (
+        <a href="https://elice.io" target="_blank">
+          엘리스
+        </a>
+      ),
+      description:
+        '코딩 실습과 교육 콘텐츠를 제공하는 플랫폼\n프론트엔드 Landing 스쿼드 리드',
+      start: elice.start,
+      end: elice.end,
+      experiences: [
+        {
+          title: 'LXP(Learning Experience Platform) 유저 대시보드',
+          description:
+            'B2C 서비스로 확장하기 위해 사용자가 수강한 과목 등 교육 정보를 한 눈에 보여줄 수 있는 대시보드 개발',
+          list: [
+            'Legacy API와 코드를 분석하여 새로운 대시보드 페이지로 비즈니스 로직 마이그레이션',
+            'Tanstack Query의 Caching과 Intersection Observer를 활용하여 각 Section에서 과도하게 요청하는 API Request 성능 개선',
+            'Schedule 뷰 구현 요구사항에 빠르게 대응하기 위해 react-big-calendar를 이용하여 Custom Style 캘린더 개발',
+          ],
+        },
+        {
+          title: 'LXP 통합검색',
+          description:
+            '사용자가 검색어를 입력하여 손쉽게 교육 자료에 접근할 수 있는 기능 개발',
+          list: [
+            '재사용 가능한 훅, 컴포넌트 설계로 잦은 요구사항 변경에 발빠르게 대처',
+            'Tanstack Query를 이용한 Optimistic Update로 UX 개선',
+            'Cursor를 이용한 Infinite 스크롤 구현',
+          ],
+        },
+        {
+          title: 'LXP 기관 출석부',
+          description:
+            '출석부를 생성하고 학생의 출석을 관리할 수 있는 Admin 개발',
+          list: [
+            'Filter와 Page의 Search Query를 State와 동기화하여 URL 입력만으로 필터링된 페이지에 바로 접근할 수 있도록 구현',
+          ],
+        },
+        {
+          title: (
+            <a href="https://elice.io" target="_blank">
+              Elice.io
+            </a>
+          ),
+          description: 'Contentful과 Material UI를 이용하여 엘리스 포털 리뉴얼',
+          list: [
+            <>
+              엘리스 홈{' '}
+              <a href="https://elice.io" target="_blank">
+                루트 페이지
+              </a>{' '}
+              개발
+            </>,
+            <>
+              <a href="https://elice.io/contact" target="_blank">
+                도입문의 페이지
+              </a>{' '}
+              개발
+            </>,
+            '제품 소개 페이지 Headless CMS 설계/개발 → 관리자 리소스만으로 페이지 업데이트 가능',
+          ],
+        },
+        {
+          title: (
+            <a href="https://coderland.io" target="_blank">
+              Coderland.io
+            </a>
+          ),
+          description: (
+            <>
+              <a href="https://www.contentful.com" target="_blank">
+                Contentful
+              </a>
+              을 이용하여 모든 페이지를 Headless CMS로 개발
+            </>
+          ),
+          list: [
+            'Page, Section, Component로 나눠 확장성 있는 Data Model 설계',
+            'NextJS의 Cach All Segments([…slugs])와 Page 모델을 이용하여 모든 Path를 동적으로 생성',
+            'NextJS의 ISR을 이용하여 별도의 배포 없이 Content 수정시 자동 반영되도록 개발',
+            'Framer를 이용 스크롤 애니메이션 유틸 개발 → 전사 랜딩 페이지에 활용됨',
+          ],
+        },
+        {
+          title: (
+            <a
+              href="https://ai-eduhackathon.elice.io/courses/74917/info"
+              target="_blank"
+            >
+              LXP 과목 소개 페이지 리뉴얼
+            </a>
+          ),
+          description: '기존 Legacy 과목 소개 페이지의 v2 개발',
+          list: [
+            'Admin이 설정한 입력값에 따라 10가지 Type의 섹션을 생성/수정 가능하도록 개발',
+            '파편화되어 있던 11개 Case의 과목 Enroll Action 로직 리팩토링, 정리',
+          ],
+        },
+      ],
+    },
+    {
+      title: '짐티',
+      description:
+        '개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스',
+      start: gymt.start,
+      end: gymt.end,
+      experiences: [
+        {
+          title: (
+            <a href="https://golf-admin.tlabstudio.com" target="_blank">
+              Tlab Golf Admin
+            </a>
+          ),
+          description:
+            '티랩 골프 예약 서비스를 관리하는 어드민 Frontend 전담 개발',
+          list: ['일정 CRUD 가능한 주간 달력 구현'],
+        },
+        {
+          title: (
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gymt.tlabstudio"
+              target="_blank"
+            >
+              Tlab Golf 모바일 앱
+            </a>
+          ),
+          description: '티랩 골프 사용자를 위한 모바일 앱 개발',
+          list: [
+            '팀원 주도 React Native, Expo 학습',
+            <>
+              <a href="https://thinkforthink.tistory.com/373" target="_blank">
+                프로젝트 컨벤션 조율
+              </a>
+            </>,
+          ],
+        },
+        {
+          title: (
+            <a href="https://tlabstudio.com" target="_blank">
+              Tlab 홈페이지 리뉴얼
+            </a>
+          ),
+          description: '티랩 서비스 소개를 위한 데스크톱 홈페이지 개발',
+          list: [
+            'NextJS를 이용하여 S3, CloudFront에 Static HTML 업로드',
+            '별도의 라이브러리 없이 썸네일 슬라이드, 메뉴 버튼 등 애니메이션 구현',
+          ],
+        },
+        {
+          title: 'Boost Box',
+          description:
+            '공간 및 서비스 이용을 관리할 수 있는 운영 관리 솔루션 플랫폼',
+          list: [
+            <>
+              <a href="https://thinkforthink.tistory.com/372" target="_blank">
+                인증
+              </a>
+              , 회원가입, 초기 설정 프로세스 구현
+            </>,
+          ],
+        },
+      ],
+    },
+    {
+      title: '아이포트폴리오',
+      experiences: [
+        {
+          title: '리딩앤의 영어 전자책 웹 앱',
+          description:
+            '영어 발음을 녹음하고 발음 분석 엔진을 바탕으로 점수를 매겨주는 앱 유지보수',
+          list: [
+            <>
+              <a href="https://thinkforthink.tistory.com/371" target="_blank">
+                Callback 함수를 Promise로 전환하여 코드 가독성 향상
+              </a>
+            </>,
+          ],
+        },
+      ],
+      start: iportfolio.start,
+      end: iportfolio.end,
+    },
+  ];
 
   return (
     <Container maxWidth="lg" sx={{ py: 3 }}>
@@ -96,258 +282,18 @@ const Resume = () => {
 
       <Divider sx={{ my: 3 }} />
 
+      <WorkExperienceSection
+        title="WORK EXPERIENCE"
+        totalCareerDuration={totalCareerDuration}
+        companies={companies}
+      />
+
+      <Divider sx={{ my: 3 }} />
+
       <NotionStyleHtmlContent>
-        <Stack
-          component="h1"
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <span>
-            <span style={{ fontWeight: 400 }}>💻</span> 경력
-          </span>
-          <DateRangeTypography>{totalCareerDuration}</DateRangeTypography>
-        </Stack>
+        <Typography variant="mh2">PORTFOLIO</Typography>
 
-        <StackHeading2>
-          <a href="https://elice.io" target="_blank">
-            엘리스
-          </a>
-          <DateRangeTypography>
-            <DateRangeText start={elice.start} end={elice.end} />
-          </DateRangeTypography>
-        </StackHeading2>
-        <p>코딩 실습과 교육 콘텐츠를 제공하는 플랫폼</p>
-        <Stack direction="row" gap={0.5} flexWrap="wrap">
-          <SkillTag logo="typescript" label="typescript" />
-          <SkillTag logo="react" label="react" />
-          <SkillTag logo="nextdotjs" label="nextjs" logoColor="black" />
-          <SkillTag logo="redux" label="redux" logoColor="#764abc" />
-          <SkillTag logo="mui" label="material ui" />
-          <SkillTag logo="styledcomponents" label="styled_components" />
-        </Stack>
-
-        <h3>LXP(Learning Experience Platform) 유저 대시보드</h3>
-        <p>
-          B2C 서비스로 확장하기 위해 사용자가 수강한 과목 등 교육 정보를 한 눈에
-          보여줄 수 있는 대시보드 개발
-        </p>
-        <ul>
-          <li>
-            Legacy API와 코드를 분석하여 새로운 대시보드 페이지로 비즈니스 로직
-            마이그레이션
-          </li>
-          <li>
-            Tanstack Query의 Caching과 Intersection Observer를 활용하여 각
-            Section에서 과도하게 요청하는 API Request 성능 개선
-          </li>
-          <li>
-            Schedule 뷰 구현 요구사항에 빠르게 대응하기 위해
-            react-big-calendar를 이용하여 Custom Style 캘린더 개발
-          </li>
-        </ul>
-
-        <h3>LXP 통합검색</h3>
-        <p>
-          사용자가 검색어를 입력하여 손쉽게 교육 자료에 접근할 수 있는 기능 개발
-        </p>
-        <ul>
-          <li>
-            재사용 가능한 훅, 컴포넌트 설계로 잦은 요구사항 변경에 발빠르게 대처
-          </li>
-          <li>Tanstack Query를 이용한 Optimistic Update로 UX 개선</li>
-          <li>Cursor를 이용한 Infinite 스크롤 구현</li>
-        </ul>
-
-        <h3>LXP 기관 출석부</h3>
-        <p>출석부를 생성하고 학생의 출석을 관리할 수 있는 Admin 개발</p>
-        <ul>
-          <li>
-            Filter와 Page의 Search Query를 State와 동기화하여 URL 입력만으로
-            필터링된 페이지에 바로 접근할 수 있도록 구현
-          </li>
-        </ul>
-
-        <h3>
-          <a href="https://elice.io" target="_blank">
-            Elice.io
-          </a>
-        </h3>
-        <p>Contentful과 Material UI를 이용하여 엘리스 포털 리뉴얼</p>
-        <ul>
-          <li>
-            엘리스 홈{' '}
-            <a href="https://elice.io" target="_blank">
-              루트 페이지
-            </a>{' '}
-            개발
-          </li>
-          <li>
-            <a href="https://elice.io/contact" target="_blank">
-              도입문의 페이지
-            </a>{' '}
-            개발
-          </li>
-          <li>
-            제품 소개 페이지 CMS 설계/개발 → 관리자 리소스만으로 페이지 업데이트
-            가능
-          </li>
-        </ul>
-
-        <h3>
-          <a href="https://coderland.io" target="_blank">
-            Coderland.io
-          </a>
-        </h3>
-        <p>
-          <a href="https://www.contentful.com" target="_blank">
-            Contentful
-          </a>
-          을 이용하여 모든 페이지를 CMS로 개발
-        </p>
-        <ul>
-          <li>Page, Section, Component로 나눠 확장성 있는 Data Model 설계</li>
-          <li>
-            NextJS의 Cach All Segments([…slugs])와 Page 모델을 이용하여 모든
-            Path를 동적으로 생성
-          </li>
-          <li>
-            NextJS의 ISR을 이용하여 별도의 배포 없이 Content 수정시 자동
-            반영되도록 개발
-          </li>
-          <li>
-            Framer를 이용 스크롤 애니메이션 유틸 개발 → 전사 랜딩 페이지에
-            활용됨
-          </li>
-        </ul>
-
-        <h3>
-          <a
-            href="https://ai-eduhackathon.elice.io/courses/74917/info"
-            target="_blank"
-          >
-            LXP 과목 소개 페이지 리뉴얼
-          </a>
-        </h3>
-        <p>기존 Legacy 과목 소개 페이지의 v2 개발</p>
-        <ul>
-          <li>
-            Admin이 CMS로 설정한 데이터 설정에 따라 10가지 Type의 섹션을
-            생성/수정 가능하도록 개발
-          </li>
-          <li>
-            파편화되어 있던 11개 Case의 과목 Enroll Action 로직 리팩토링, 정리
-          </li>
-        </ul>
-
-        <Divider sx={{ mt: 3 }} />
-
-        <StackHeading2>
-          짐티{' '}
-          <DateRangeTypography>
-            <DateRangeText start={gymt.start} end={gymt.end} />
-          </DateRangeTypography>
-        </StackHeading2>
-        <p>개인 맞춤형 트레이닝 서비스와 공간을 제공하는 피트니스 서비스</p>
-        <Stack direction="row" gap={0.5} flexWrap="wrap">
-          <SkillTag logo="typescript" label="typescript" />
-          <SkillTag logo="react" label="react" />
-          <SkillTag logo="nextdotjs" label="nextjs" logoColor="black" />
-          <SkillTag logo="redux" label="redux" logoColor="#764abc" />
-          <SkillTag logo="mui" label="material ui" />
-          <SkillTag logo="styledcomponents" label="styled_components" />
-          <SkillTag logo="amazonaws" label="aws" logoColor="#f79628" />
-        </Stack>
-
-        <h3>
-          <a href="https://golf-admin.tlabstudio.com" target="_blank">
-            Tlab Golf Admin
-          </a>
-        </h3>
-        <p>티랩 골프 예약 서비스를 관리하는 어드민 Frontend 전담 개발</p>
-        <ul>
-          <li>일정 CRUD 가능한 주간 달력 구현</li>
-        </ul>
-
-        <h3>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.gymt.tlabstudio"
-            target="_blank"
-          >
-            Tlab Golf 모바일 앱
-          </a>
-        </h3>
-        <p>티랩 골프 사용자를 위한 모바일 앱 개발</p>
-        <ul>
-          <li>팀원 주도 React Native, Expo 학습</li>
-          <li>
-            <a href="https://thinkforthink.tistory.com/373" target="_blank">
-              프로젝트 컨벤션 조율
-            </a>
-          </li>
-        </ul>
-
-        <h3>
-          <a href="https://tlabstudio.com" target="_blank">
-            Tlab 홈페이지 리뉴얼
-          </a>
-        </h3>
-        <p>티랩 서비스 소개를 위한 데스크톱 홈페이지 개발</p>
-        <ul>
-          <li>NextJS를 이용하여 S3, CloudFront에 Static HTML 업로드</li>
-          <li>
-            별도의 라이브러리 없이 썸네일 슬라이드, 메뉴 버튼 등 애니메이션 구현
-          </li>
-        </ul>
-
-        <h3>Boost Box</h3>
-        <p>공간 및 서비스 이용을 관리할 수 있는 운영 관리 솔루션 플랫폼</p>
-        <ul>
-          <li>
-            <a href="https://thinkforthink.tistory.com/372" target="_blank">
-              인증
-            </a>
-            , 회원가입, 초기 설정 프로세스 구현
-          </li>
-        </ul>
-
-        <Divider sx={{ mt: 3 }} />
-
-        <StackHeading2>
-          <a href="https://iportfolio.co.kr" target="_blank">
-            아이포트폴리오
-          </a>
-          <DateRangeTypography>
-            <DateRangeText start={iportfolio.start} end={iportfolio.end} />
-          </DateRangeTypography>
-        </StackHeading2>
-
-        <h3>리딩앤의 영어 전자책 웹 앱</h3>
-        <p>
-          영어 발음을 녹음하고 발음 분석 엔진을 바탕으로 점수를 매겨주는 앱
-          유지보수
-        </p>
-        <Stack direction="row" gap={0.5}>
-          <SkillTag logo="javascript" label="javascript" />
-          <SkillTag logo="jquery" label="jquery" logoColor="#0f66a9" />
-          <SkillTag logo="php" label="php" />
-        </Stack>
-
-        <ul>
-          <li>
-            <a href="https://thinkforthink.tistory.com/371" target="_blank">
-              Callback 함수를 Promise로 전환하여 코드 가독성 향상
-            </a>
-          </li>
-        </ul>
-
-        <Divider sx={{ my: 3 }} />
-
-        <h1>
-          <span style={{ fontWeight: 400 }}>🧸</span> 포트폴리오
-        </h1>
-
-        <StackHeading2>
+        <StackHeading3>
           <Stack direction="row">
             <a href="https://staywith.kr" target="_blank">
               Staywith.kr
@@ -361,7 +307,7 @@ const Resume = () => {
             </IconButton>
           </Stack>
           <DateRangeTypography>2023</DateRangeTypography>
-        </StackHeading2>
+        </StackHeading3>
         <Stack direction="row" alignItems="center" gap={0.5}>
           <p>가톨릭 묵상 기도 나눔 SNS</p>
         </Stack>
@@ -387,24 +333,20 @@ const Resume = () => {
 
         <Divider sx={{ my: 3 }} />
 
-        <h1>
-          <span style={{ fontWeight: 400 }}>⚒️</span> 기술
-        </h1>
+        <Typography variant="mh2">SKILL</Typography>
 
-        <h2>주요 기술</h2>
+        <h3>주요 기술</h3>
         <p>
           Typescript, React, NextJS, Redux, Recoil, React-hook-form,
           React-query, Material UI, Emotion, NodeJS
         </p>
 
-        <h2>사용해본 기술</h2>
+        <h3>사용해본 기술</h3>
         <p>GraphQL, RxJS, React-native, Expo, MongoDB</p>
 
         <Divider sx={{ my: 3 }} />
 
-        <h1>
-          <span style={{ fontWeight: 400 }}>📷</span> 기타 역량
-        </h1>
+        <Typography variant="mh2">ETC</Typography>
         <ul>
           <li>
             애프터 이펙트를 이용한{' '}
