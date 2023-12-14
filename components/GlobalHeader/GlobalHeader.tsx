@@ -9,6 +9,7 @@ import React from 'react';
 
 import { GLOBAL_HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
+import useIsScrollTop from './hooks/useIsScrollTop';
 
 type GlobalHeaderProps = {
   logo?: React.ReactNode;
@@ -31,6 +32,8 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   backgroundColor,
   borderBottom,
 }) => {
+  const { isScrollTop } = useIsScrollTop();
+
   return (
     <Box
       component="header"
@@ -39,7 +42,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         top: 0,
         zIndex: (theme) => theme.zIndex.appBar,
         bgcolor: backgroundColor,
-        borderBottom: borderBottom ? 1 : 0,
+        borderBottom: borderBottom && !isScrollTop ? 1 : 0,
         borderColor: (theme) => theme.palette.divider,
       }}
     >
