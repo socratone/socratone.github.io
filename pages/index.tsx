@@ -1,13 +1,10 @@
 import styled from '@emotion/styled';
-import SouthIcon from '@mui/icons-material/South';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import GlobalHeader from 'components/GlobalHeader';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import florenceImage from 'public/images/home/florence.webp';
 import profileImage from 'public/images/resume/profile.webp';
 
 const SECTION_COLOR = '#ffe2c1';
@@ -121,101 +118,6 @@ const StyledSectionTriangleBottomEdge = styled(Box)`
 const Home = () => {
   return (
     <>
-      {/* Main hero section */}
-      <Box
-        component={motion.main}
-        height="100vh"
-        position="relative"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        overflow="hidden"
-      >
-        <Box>
-          <GlobalHeader items={[{ label: 'Blogs', href: '/blogs' }]} />
-        </Box>
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          width="100%"
-          height="100%"
-          component={motion.div}
-          animate={{
-            scale: [1, 1.05],
-          }}
-          transition={{
-            repeatType: 'reverse',
-            duration: 5,
-            ease: 'easeInOut',
-            times: [0, 1],
-            repeat: Infinity,
-          }}
-        >
-          <Image
-            alt="florence"
-            src={florenceImage}
-            fill
-            quality={1}
-            style={{ objectFit: 'cover' }}
-          />
-        </Box>
-        <Stack
-          position="absolute"
-          top={0}
-          left={0}
-          width="100%"
-          height="100%"
-          justifyContent="center"
-          alignItems="center"
-          gap={0.5}
-          px={2}
-        >
-          <Typography
-            component="h1"
-            variant="h3"
-            color={(theme) => theme.palette.common.white}
-            textAlign="center"
-            textTransform="uppercase"
-          >
-            Frontend Developer
-          </Typography>
-          <Typography
-            component="p"
-            variant="h5"
-            color={(theme) => theme.palette.common.white}
-            textAlign="center"
-          >
-            Socratone
-          </Typography>
-        </Stack>
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 32,
-            left: '50%',
-            transform: 'translateX(-50%)',
-          }}
-        >
-          <SouthIcon
-            component={motion.svg}
-            animate={{
-              translateY: [0, 8],
-            }}
-            transition={{
-              repeatType: 'reverse',
-              duration: 0.8,
-              ease: 'easeInOut',
-              times: [0, 1],
-              repeat: Infinity,
-            }}
-            sx={{
-              color: (theme) => theme.palette.common.white,
-            }}
-          />
-        </Box>
-      </Box>
-
       {/* Profile section */}
 
       <Container component="section" sx={{ py: 8 }}>
