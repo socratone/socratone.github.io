@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import { BlogThumbnail } from 'constants/blog';
+import chromeImage from 'public/images/blog/chrome.webp';
 import dockerImage from 'public/images/blog/docker.webp';
 import linuxImage from 'public/images/blog/linux.webp';
 import npmImage from 'public/images/blog/npm.webp';
@@ -39,7 +40,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
     case BlogThumbnail.Browser:
       return (
         <ThumbnailContainer>
-          <Typography fontSize="4rem">🌎</Typography>
+          <ThumbnailImage src={chromeImage} width={300} height={300} />
         </ThumbnailContainer>
       );
 

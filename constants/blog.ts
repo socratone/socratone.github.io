@@ -13,6 +13,7 @@ export enum BlogTag {
   Regex = 'regex',
   Npm = 'npm',
   Linux = 'linux',
+  Browser = 'browser',
   MachineLearning = 'machine-learning',
   Docker = 'docker',
   NextJs = 'nextjs',

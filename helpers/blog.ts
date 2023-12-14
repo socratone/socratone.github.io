@@ -22,5 +22,8 @@ export const parseBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Python:
       return 'Python';
+
+    case BlogTag.Browser:
+      return 'Browser';
   }
 };
