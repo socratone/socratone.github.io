@@ -6,4 +6,5 @@ export const lightPalette: PaletteOptions = {
     main: '#ff9e40',
     contrastText: '#fff',
   },
+  divider: '#f4f4f4',
 };
