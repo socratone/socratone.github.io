@@ -57,6 +57,10 @@ https://pagespeed.web.dev
 
 크롬 이외의 브라우저에서도 측정하기 위해서 쓴다.
 
+### 5. Performance Insight
+
+크롬 개발자 도구에 새로 나온 기능
+
 ## 속도 개선 방법
 
 ### 1. LCP
@@ -69,6 +73,7 @@ https://pagespeed.web.dev
 - CDN을 이용해서 근거리에서 받는다.
 - CSR보다 SSR을 이용하면 HTML에 바로 접근할 수 있다.
 - 외부 리소스를 이용하는 경우 `<link rel="preload">`를 이용할 수 있다.
+  - `<link rel="preload" as="image" media="(max-width: 1200px)" href=" ...`
 - `<img fetchpriority="high">`를 이용해서 우선적으로 다운로드 할 수 있다.
 - 바로 보이는 이미지가 아닌 경우 `<img loading="lazy">`를 이용해서 첫 로딩 리소스를 줄일 수 있다.
 - `<script>`에 `async`나 `defer`를 붙여 blocking을 없앤다.
@@ -96,10 +101,6 @@ https://pagespeed.web.dev
 - 요즘 브라우저에는 기본적으로 bfcache가 적용되는데 뒤로가기와 앞으로 가기를 할 때에 이로 인한 캐싱이 잘 적용되는지 확인한다.
 - `aspect-ratio`를 쓴다.
 - 레이아웃 시프트가 덜 일어나도록 `min-height`를 쓴다.
-
-## 속도 개선 실제 예
-
-TODO:
 
 ## References
 
