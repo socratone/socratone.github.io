@@ -1,13 +1,9 @@
-import styled from '@emotion/styled';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
-
-const SECTION_COLOR = '#ffe2c1';
 
 const UDEMY_COURSES: { thumbnail: string }[] = [
   {
@@ -105,16 +101,6 @@ const UDEMY_COURSES: { thumbnail: string }[] = [
   },
 ];
 
-const StyledSectionTriangleTopEdge = styled(Box)`
-  clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
-  height: 30px;
-`;
-
-const StyledSectionTriangleBottomEdge = styled(Box)`
-  clip-path: polygon(0 100%, 100% 0%, 0 0, 0% 100%);
-  height: 30px;
-`;
-
 const Home = () => {
   return (
     <>
@@ -163,11 +149,7 @@ const Home = () => {
           </Typography>
         </Typography>
         <Box
-          component={motion.div}
           position="relative"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
           maxWidth={300}
           mx="auto"
           sx={{
@@ -177,34 +159,6 @@ const Home = () => {
           <Image alt="profile" src={profileImage} fill />
         </Box>
       </Container>
-
-      {/* Studying section */}
-
-      <StyledSectionTriangleTopEdge bgcolor={SECTION_COLOR} />
-      <Box component="section" bgcolor={SECTION_COLOR} sx={{ py: 4 }}>
-        <Typography
-          component="h2"
-          color="text.primary"
-          fontSize="1.8rem"
-          fontWeight={600}
-          textAlign="center"
-          mb={2}
-          sx={{ wordBreak: 'keep-all' }}
-        >
-          📚 Studying
-        </Typography>
-
-        <Typography textAlign="center" color="text.secondary">
-          Langchain
-        </Typography>
-        <Typography textAlign="center" color="text.secondary">
-          Machine Learning
-        </Typography>
-        <Typography textAlign="center" color="text.secondary">
-          Python
-        </Typography>
-      </Box>
-      <StyledSectionTriangleBottomEdge bgcolor={SECTION_COLOR} />
 
       {/* Udemy section */}
 
