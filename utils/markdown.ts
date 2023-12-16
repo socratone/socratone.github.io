@@ -61,6 +61,8 @@ const getCodeCloseTagIndex = (html: string, codeOpenTagIndex: number) => {
 };
 
 const addColorTagToCode = (code: string, language: Language) => {
+  let editedCode = code;
+
   switch (language) {
     case 'language-javascript':
       hljs.registerLanguage(language, javascript);
@@ -76,13 +78,14 @@ const addColorTagToCode = (code: string, language: Language) => {
 
     case 'language-sql':
       hljs.registerLanguage(language, sql);
+      editedCode = code.replaceAll('&lt;', `<`).replaceAll('&gt;', `>`);
       break;
 
     default:
       throw new Error(`${language} language is not supported.`);
   }
 
-  const highlightedCode = hljs.highlight(code, {
+  const highlightedCode = hljs.highlight(editedCode, {
     language,
   }).value;
 
