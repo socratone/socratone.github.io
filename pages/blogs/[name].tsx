@@ -2,16 +2,22 @@
 // https://highlightjs.org/examples
 import 'highlight.js/styles/atom-one-light.css';
 
+import { SxProps } from '@mui/material';
+import { Theme } from '@mui/system';
 import Meta from 'components/Meta';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { useEffect } from 'react';
 import { getFileNames } from 'utils/file';
 import {
-  addCodeColorToHtml,
-  parseMarkdownFile,
-  parseMarkdownToHtml,
-} from 'utils/markdown';
+  addColorToCode,
+  addCopyButtonEvents,
+  addCopyButtonToCode,
+  CODE_COPY_BUTTON_CLASS,
+  removeCopyButtonEvents,
+} from 'utils/html-code';
+import { parseMarkdownFile, parseMarkdownToHtml } from 'utils/markdown';
 
 type BlogProps = {
   metadata: Metadata;
@@ -46,20 +52,46 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
 
   const { metadata, content } = parseMarkdownFile(`content/blogs/${name}.md`);
   const htmlContent = await parseMarkdownToHtml(content);
-  const coloredHtmlContent = addCodeColorToHtml(htmlContent);
+  const coloredHtmlContent = addColorToCode(htmlContent);
+  const codeWithButton = addCopyButtonToCode(coloredHtmlContent);
   const validatedMetadata = validateMarkdownMetadata(metadata);
 
   return {
-    props: { metadata: validatedMetadata, htmlContent: coloredHtmlContent },
+    props: { metadata: validatedMetadata, htmlContent: codeWithButton },
   };
 };
 
+const copyButtonSx: SxProps<Theme> = {
+  [`.${CODE_COPY_BUTTON_CLASS}`]: {
+    border: 0,
+    cursor: 'pointer',
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: 0.5,
+    borderRadius: 1.5,
+    bgcolor: 'transparent',
+    position: 'absolute',
+    right: 16,
+    top: 16,
+    ':hover': {
+      bgcolor: '#ffbf3d',
+    },
+  },
+};
+
 const Blog: NextPage<BlogProps> = ({ metadata, htmlContent }) => {
+  useEffect(() => {
+    addCopyButtonEvents();
+    return () => {
+      removeCopyButtonEvents();
+    };
+  }, []);
+
   return (
     <>
       {/* TODO: thumbnail에 따라 imageUrl 설정 */}
       <Meta title={metadata.title} description={metadata.description} />
-      <NotionStyleHtmlContent html={htmlContent} />
+      <NotionStyleHtmlContent html={htmlContent} sx={copyButtonSx} />
     </>
   );
 };

@@ -1,6 +1,6 @@
-import { addCodeColorToHtml } from './markdown';
+import { addColorToCode } from './html-code';
 
-describe('addCodeColorToHtml', () => {
+describe('addColorToCode', () => {
   test('class가 없는 code를 써도 정상 작동해야 한다. 뒤따라 나오는 class 있는 code에 영향을 주면 안 된다.', () => {
     const html = `<p><code>나이</code>나</p>
   <pre><code class="language-python">from sklearn.compose import ColumnTransformer
@@ -12,7 +12,7 @@ describe('addCodeColorToHtml', () => {
   <span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> OneHotEncoder
   </code></pre>`;
 
-    expect(addCodeColorToHtml(html)).toBe(result);
+    expect(addColorToCode(html)).toBe(result);
   });
 
   describe('sql', () => {
@@ -23,7 +23,7 @@ describe('addCodeColorToHtml', () => {
       const result = `<pre><code class="language-sql"><span class="hljs-keyword">create</span> database <span class="hljs-operator">&lt;</span>이름<span class="hljs-operator">&gt;</span>;
       </code></pre>`;
 
-      expect(addCodeColorToHtml(html)).toBe(result);
+      expect(addColorToCode(html)).toBe(result);
     });
   });
 });
