@@ -131,22 +131,26 @@ const copyCode: EventListener = (event) => {
     event.currentTarget as any;
   const codeElement = buttonElement?.parentElement ?? undefined;
   const text = codeElement?.textContent ?? '';
-  copyToClipboard(text).then(() => {
-    const copyIconElement =
-      buttonElement?.firstElementChild as SVGElement | null;
-    const copyIconWithCheckElement =
-      buttonElement?.lastElementChild as SVGElement | null;
+  copyToClipboard(text)
+    .then(() => {
+      const copyIconElement =
+        buttonElement?.firstElementChild as SVGElement | null;
+      const copyIconWithCheckElement =
+        buttonElement?.lastElementChild as SVGElement | null;
 
-    if (copyIconElement && copyIconWithCheckElement) {
-      copyIconElement.style.display = DISPLAY_NONE;
-      copyIconWithCheckElement.style.display = DISPLAY_BLOCK;
+      if (copyIconElement && copyIconWithCheckElement) {
+        copyIconElement.style.display = DISPLAY_NONE;
+        copyIconWithCheckElement.style.display = DISPLAY_BLOCK;
 
-      setTimeout(() => {
-        copyIconElement.style.display = DISPLAY_BLOCK;
-        copyIconWithCheckElement.style.display = DISPLAY_NONE;
-      }, 2000);
-    }
-  });
+        setTimeout(() => {
+          copyIconElement.style.display = DISPLAY_BLOCK;
+          copyIconWithCheckElement.style.display = DISPLAY_NONE;
+        }, 2000);
+      }
+    })
+    .catch(() => {
+      alert('현재 버전에서 지원하지 않는 기능입니다.');
+    });
 };
 
 export const addCopyButtonEvents = () => {
