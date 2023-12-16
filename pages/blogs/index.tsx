@@ -127,6 +127,9 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
         <Box
           mx={-3}
           px={3}
+          /** 사용자의 스크롤 영역을 넓힌다. */
+          py={1}
+          my={-1}
           overflow="auto"
           sx={{
             ...hiddenScrollSx,
