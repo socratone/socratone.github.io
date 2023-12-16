@@ -4,10 +4,15 @@ import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
 import python from 'highlight.js/lib/languages/python';
+import sql from 'highlight.js/lib/languages/sql';
 import { marked } from 'marked';
 import path from 'path';
 
-type Language = 'language-javascript' | 'language-json' | 'language-python';
+type Language =
+  | 'language-javascript'
+  | 'language-json'
+  | 'language-python'
+  | 'language-sql';
 
 export const parseMarkdownToHtml = async (markdown: string) => {
   return (
@@ -69,6 +74,10 @@ const addColorTagToCode = (code: string, language: Language) => {
       hljs.registerLanguage(language, python);
       break;
 
+    case 'language-sql':
+      hljs.registerLanguage(language, sql);
+      break;
+
     default:
       throw new Error(`${language} language is not supported.`);
   }
@@ -88,6 +97,7 @@ export const addCodeColorToHtml = (html: string) => {
   while (rest.length > 0) {
     const codeOpenTagText = getCodeOpenTagText(rest);
 
+    /** <code class="...">가 없으면 종료 */
     if (!codeOpenTagText) {
       return result + rest;
     }
