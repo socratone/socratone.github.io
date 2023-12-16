@@ -93,7 +93,7 @@ const StyledBox = styled(Box)`
   /* multi line code */
 
   pre {
-    padding: 34px 16px 32px 32px;
+    padding: 16px;
     background: rgb(247, 246, 243);
     overflow-x: auto;
   }
