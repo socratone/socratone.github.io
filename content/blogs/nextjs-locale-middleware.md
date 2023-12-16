@@ -91,7 +91,7 @@ function parseCountryToLocale(country?: string) {
     case 'KR':
       return 'ko';
 
-    case 'EN':
+    case 'US':
     default:
       return 'en';
   }
