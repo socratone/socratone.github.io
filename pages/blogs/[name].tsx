@@ -6,6 +6,7 @@ import { SxProps } from '@mui/material';
 import { Theme } from '@mui/system';
 import Meta from 'components/Meta';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
+import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
 import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useEffect } from 'react';
@@ -69,7 +70,7 @@ const copyButtonSx: SxProps<Theme> = {
     alignItems: 'center',
     padding: 0.5,
     borderRadius: 1.5,
-    bgcolor: 'transparent',
+    bgcolor: CODE_BACKGROUND_COLOR,
     position: 'absolute',
     right: 16,
     top: 16,

@@ -2,6 +2,8 @@ import { styled, SxProps, Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import { ElementType } from 'react';
 
+import { CODE_BACKGROUND_COLOR } from './constants';
+
 type NotionStyleHtmlContentProps = {
   html?: string;
   component?: ElementType<any>;
@@ -95,7 +97,7 @@ const StyledBox = styled(Box)`
 
   pre {
     padding: 16px;
-    background: rgb(247, 246, 243);
+    background: ${CODE_BACKGROUND_COLOR};
     overflow-x: auto;
     position: relative; /* for copy button */
   }
