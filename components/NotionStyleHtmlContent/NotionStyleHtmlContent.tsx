@@ -1,10 +1,11 @@
-import { styled } from '@mui/material';
+import { styled, SxProps, Theme } from '@mui/material';
 import Box from '@mui/material/Box';
 import { ElementType } from 'react';
 
 type NotionStyleHtmlContentProps = {
   html?: string;
   component?: ElementType<any>;
+  sx?: SxProps<Theme>;
   children?: React.ReactNode;
 };
 
@@ -96,6 +97,7 @@ const StyledBox = styled(Box)`
     padding: 16px;
     background: rgb(247, 246, 243);
     overflow-x: auto;
+    position: relative; /* for copy button */
   }
 
   pre > code {
@@ -112,12 +114,14 @@ const StyledBox = styled(Box)`
 const NotionStyleHtmlContent: React.FC<NotionStyleHtmlContentProps> = ({
   html,
   component,
+  sx,
   children,
 }) => {
   return (
     <StyledBox
       component={component}
       dangerouslySetInnerHTML={html ? { __html: html } : undefined}
+      sx={sx}
     >
       {children}
     </StyledBox>
