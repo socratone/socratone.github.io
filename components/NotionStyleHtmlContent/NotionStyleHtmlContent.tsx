@@ -100,6 +100,7 @@ const StyledBox = styled(Box)`
     background: ${CODE_BACKGROUND_COLOR};
     overflow-x: auto;
     position: relative; /* for copy button */
+    border-radius: 12px;
   }
 
   pre > code {
