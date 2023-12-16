@@ -58,7 +58,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
           </Stack>
           <Stack direction="row" alignItems="center" ml="auto">
             <Link href="https://github.com/socratone" target="_blank">
-              <IconButton sx={{ mr: -1 }}>
+              <IconButton aria-label="Github" sx={{ mr: -1 }}>
                 <GitHubIcon
                   sx={{ color: (theme) => theme.palette.text.primary }}
                 />
