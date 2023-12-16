@@ -194,13 +194,15 @@ export const addCopyButtonToCode = (html: string) => {
       preCloseTagIndex
     );
 
-    const codeWithButton =
+    const preWithButton =
+      '<div class="code-wrapper">' +
       preOpenTagText +
       innerText +
+      PRE_CLOSE_TAG +
       `<button class="${CODE_COPY_BUTTON_CLASS}">${copyIcon}${copyIconWithCheck}</button>` +
-      PRE_CLOSE_TAG;
+      '</div>';
 
-    result += rest.substring(0, preOpenTagIndex) + codeWithButton;
+    result += rest.substring(0, preOpenTagIndex) + preWithButton;
     rest = rest.substring(preCloseTagIndex + PRE_CLOSE_TAG.length);
   }
 

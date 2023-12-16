@@ -95,12 +95,19 @@ const StyledBox = styled(Box)`
 
   /* multi line code */
 
+  /* pre를 감싸는 div에 이 class를 꼭 넣어줘야 한다. */
+  .code-wrapper {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
   pre {
     padding: 16px;
     background: ${CODE_BACKGROUND_COLOR};
     overflow-x: auto;
-    position: relative; /* for copy button */
     border-radius: 12px;
+    margin: 0;
   }
 
   pre > code {
