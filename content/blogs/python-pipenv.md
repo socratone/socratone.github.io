@@ -59,7 +59,7 @@ langchain을 설치하고 싶다면 다음 명령어를 입력한다.
 pipenv install langchain
 ```
 
-`Pipfile`의 packages 리스트에 `langchain이` 추가된다.\
+`Pipfile`의 packages 리스트에 `langchain`이 추가된다.\
 .py 파일에서 langchain을 불러오면 정상 작동하는 것을 확인할 수 있다.
 
 ## 4. 가상환경 삭제
