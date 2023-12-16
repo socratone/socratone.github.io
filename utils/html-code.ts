@@ -14,6 +14,8 @@ export const CODE_COPY_BUTTON_CLASS = 'code-copy-button';
 
 const DISPLAY_BLOCK = 'block';
 const DISPLAY_NONE = 'none';
+const PRE_CLOSE_TAG = '</pre>';
+const CODE_CLOSE_TAG = '</code>';
 
 const getClassText = (text: string) => {
   const pattern = /class="([^"]*)"/;
@@ -36,8 +38,22 @@ const getCodeOpenTagIndex = (html: string, codeOpenTagText: string) => {
 };
 
 const getCodeCloseTagIndex = (html: string, codeOpenTagIndex: number) => {
-  const index = html.substring(codeOpenTagIndex).indexOf('</code>');
+  const index = html.substring(codeOpenTagIndex).indexOf(CODE_CLOSE_TAG);
   return index === -1 ? Infinity : index + codeOpenTagIndex;
+};
+
+const getPreOpenTagText = (html: string) => {
+  const found = html.match(/<pre>/);
+  return found ? found[0] : null;
+};
+
+const getPreOpenTagIndex = (html: string, preOpenTagText: string) => {
+  return html.indexOf(preOpenTagText);
+};
+
+const getPreCloseTagIndex = (html: string, preOpenTagIndex: number) => {
+  const index = html.substring(preOpenTagIndex).indexOf(PRE_CLOSE_TAG);
+  return index === -1 ? Infinity : index + preOpenTagIndex;
 };
 
 const addColorTag = (code: string, language: Language) => {
@@ -97,7 +113,7 @@ export const addColorToCode = (html: string) => {
 
     const coloredInnerText = addColorTag(innerText, classText as Language);
 
-    const coloredCode = codeOpenTagText + coloredInnerText + '</code>';
+    const coloredCode = codeOpenTagText + coloredInnerText + CODE_CLOSE_TAG;
 
     result += rest.substring(0, codeOpenTagIndex) + coloredCode;
     rest = rest.substring(codeCloseTagIndex + 7);
@@ -163,29 +179,29 @@ export const addCopyButtonToCode = (html: string) => {
   let result = '';
 
   while (rest.length > 0) {
-    const codeOpenTagText = getCodeOpenTagText(rest);
+    const preOpenTagText = getPreOpenTagText(rest);
 
-    /** <code class="...">가 없으면 종료 */
-    if (!codeOpenTagText) {
+    /** <pre>가 없으면 종료 */
+    if (!preOpenTagText) {
       return result + rest;
     }
 
-    const codeOpenTagIndex = getCodeOpenTagIndex(rest, codeOpenTagText);
-    const codeCloseTagIndex = getCodeCloseTagIndex(rest, codeOpenTagIndex);
+    const preOpenTagIndex = getPreOpenTagIndex(rest, preOpenTagText);
+    const preCloseTagIndex = getPreCloseTagIndex(rest, preOpenTagIndex);
 
     const innerText = rest.substring(
-      codeOpenTagIndex + codeOpenTagText.length,
-      codeCloseTagIndex
+      preOpenTagIndex + preOpenTagText.length,
+      preCloseTagIndex
     );
 
     const codeWithButton =
-      codeOpenTagText +
+      preOpenTagText +
       innerText +
       `<button class="${CODE_COPY_BUTTON_CLASS}">${copyIcon}${copyIconWithCheck}</button>` +
-      '</code>';
+      PRE_CLOSE_TAG;
 
-    result += rest.substring(0, codeOpenTagIndex) + codeWithButton;
-    rest = rest.substring(codeCloseTagIndex + 7);
+    result += rest.substring(0, preOpenTagIndex) + codeWithButton;
+    rest = rest.substring(preCloseTagIndex + PRE_CLOSE_TAG.length);
   }
 
   return result;
