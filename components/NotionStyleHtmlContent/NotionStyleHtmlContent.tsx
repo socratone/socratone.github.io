@@ -73,7 +73,7 @@ const StyledBox = styled(Box)`
     text-decoration-style: solid;
     text-decoration-thickness: 1px;
     text-decoration-color: #c6c6c4;
-    text-underline-offset: 4px;
+    text-underline-offset: 0.25rem; /* 4px */
   }
 
   img {
@@ -89,7 +89,7 @@ const StyledBox = styled(Box)`
     font-size: 85%;
     color: #eb5757;
     background: rgba(135, 131, 120, 0.15);
-    border-radius: 3px;
+    border-radius: 0.188rem; /* 3px */
     padding: 2.72px 5.44px;
   }
 
@@ -97,16 +97,16 @@ const StyledBox = styled(Box)`
 
   /* pre를 감싸는 div에 이 class를 꼭 넣어줘야 한다. */
   .code-wrapper {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 0.5rem; /* 8px */
+    margin-bottom: 0.5rem; /* 8px */
     position: relative;
   }
 
   pre {
-    padding: 16px;
+    padding: 1rem; /* 16px */
     background: ${CODE_BACKGROUND_COLOR};
     overflow-x: auto;
-    border-radius: 12px;
+    border-radius: 0.75rem; /* 12px */
     margin: 0;
   }
 
@@ -118,6 +118,7 @@ const StyledBox = styled(Box)`
     border-radius: unset;
     padding: unset;
     line-height: 1.5;
+    padding-right: 1.75rem; /* 28px, 버튼으로 가려지는 부분 bumper */
   }
 `;
 
