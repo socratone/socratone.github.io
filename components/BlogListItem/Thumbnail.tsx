@@ -3,6 +3,7 @@ import { BlogThumbnail } from 'constants/blog';
 import chromeImage from 'public/images/blog/chrome.webp';
 import dockerImage from 'public/images/blog/docker.webp';
 import linuxImage from 'public/images/blog/linux.webp';
+import mysqlImage from 'public/images/blog/mysql.webp';
 import npmImage from 'public/images/blog/npm.webp';
 import pythonImage from 'public/images/blog/python.webp';
 
@@ -71,6 +72,12 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
       return (
         <ThumbnailContainer>
           <ThumbnailImage src={pythonImage} width={300} height={303} />
+        </ThumbnailContainer>
+      );
+    case BlogThumbnail.Sql:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={mysqlImage} width={300} height={155} />
         </ThumbnailContainer>
       );
   }

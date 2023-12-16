@@ -7,6 +7,7 @@ export enum BlogThumbnail {
   Docker = 'docker',
   NextJs = 'nextjs',
   Python = 'python',
+  Sql = 'sql',
 }
 
 export enum BlogTag {
@@ -18,4 +19,5 @@ export enum BlogTag {
   Docker = 'docker',
   NextJs = 'nextjs',
   Python = 'python',
+  Sql = 'sql',
 }

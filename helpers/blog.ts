@@ -25,5 +25,8 @@ export const parseBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Browser:
       return 'Browser';
+
+    case BlogTag.Sql:
+      return 'SQL';
   }
 };
