@@ -93,6 +93,27 @@ const copyButtonSx: SxProps<Theme> = {
   },
 };
 
+/** 최상단에 위치한 블로그 제목의 위쪽 여백을 없앤다. */
+const firstHeadingSx = {
+  'h1:first-of-type': {
+    mt: 0,
+    pt: 0,
+  },
+};
+
+const textEllipsisSx = {
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+};
+
+/** 콘텐츠가 넘어가는 것을 막는다. */
+const preventOverflowSx = {
+  overflowX: 'auto',
+  maxWidth: '100%',
+  width: '100%',
+};
+
 const MAIN_TOP_PADDING = 16;
 const LEVEL_OFFSET_RATIO = 1.8;
 
@@ -114,28 +135,34 @@ const Blog: NextPage<BlogProps> = ({
       <Meta title={metadata.title} description={metadata.description} />
       <Box
         display="grid"
-        gridTemplateColumns={{ xs: '1fr', md: '1fr', lg: '1fr 225px' }}
-        gap={3}
+        /** 리스트 페이지의 레이아웃과 통일감을 주도록, 240에서 padding 값 2를 뺀다. */
+        gridTemplateColumns={{ xs: '1fr', md: '1fr', lg: '238px 1fr' }}
+        gap={2}
       >
-        <NotionStyleHtmlContent html={htmlContent} sx={copyButtonSx} />
-
         {/* Table of contents */}
-        <Box>
-          <Box
-            position="sticky"
-            top={GLOBAL_HEADER_HEIGHT + MAIN_TOP_PADDING}
-            py={0.5}
-          >
+        {/* 데스크톱 viewport에서만 보인다. */}
+        <Box display={{ xs: 'none', md: 'none', lg: 'block' }}>
+          <Box position="sticky" top={GLOBAL_HEADER_HEIGHT + MAIN_TOP_PADDING}>
             {tableOfContents.map((item) => (
               <Typography
-                color="text.secondary"
                 key={item.text}
-                ml={(item.level - 1) * LEVEL_OFFSET_RATIO}
+                color="text.secondary"
+                ml={item.level * LEVEL_OFFSET_RATIO}
+                sx={textEllipsisSx}
               >
                 {item.text}
               </Typography>
             ))}
           </Box>
+        </Box>
+        <Box sx={preventOverflowSx}>
+          <NotionStyleHtmlContent
+            html={htmlContent}
+            sx={{
+              ...copyButtonSx,
+              ...firstHeadingSx,
+            }}
+          />
         </Box>
       </Box>
     </>

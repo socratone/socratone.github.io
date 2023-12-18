@@ -46,7 +46,7 @@ export const generateTableOfContents = (html: string) => {
 
   headingElements.forEach((element) => {
     const text = element.textContent?.trim() ?? '';
-    const level = parseInt(element.tagName.substring(1));
+    const level = parseInt(element.tagName.substring(1)) - 2; // h2가 제일 높은 level인 0
     results.push({ level, text });
   });
 
