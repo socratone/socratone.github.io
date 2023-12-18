@@ -20,22 +20,22 @@ JOIN을 이용해서 id로 연결된 둘 이상의 테이블을 결합해서 보
 
 ## 1:N
 
-고객과 고객의 주문 데이터를 각각 `customers`와 `orders`라는 테이블에 저장한다고 하자.
+고객과 고객의 주문 데이터를 각각 `customers`와 `orders`라는 테이블에 저장한다고 하자.\
 고객 한 명은 여러 주문을 할 수 있고 하나의 주문은 하나의 고객에만 연결될 수 있기 때문에 고객과 주문은 1:N 관계가 된다.
 
 테이블과 칼럼을 아래와 같은 구조로 정의할 수 있다.
 
 - customers
-  - customer_id
+  - id
   - name
   - email
 - orders
-  - order_id
+  - id
   - order_date
   - price
   - customer_id
 
-위처럼 정의하려면 아래와 같이 코드를 입력한다.
+위처럼 정의하려면 아래 코드를 입력한다.
 
 ```sql
 CREATE TABLE customers (
@@ -113,3 +113,56 @@ GROUP BY name;
 오른쪽 테이블을 기준으로 결합한다는 점말고는 LEFT JOIN과 동일하다.
 
 ## N:N
+
+영화와 각 영화에 대한 리뷰, 리뷰를 남긴 사람을 각각 `movies`와 `reviews`, `reviewers`라는 테이블에 저장한다고 하자.\
+영화에는 여러 사람의 리뷰가 달릴 수 있고 한 사람은 여러 영화에 리뷰를 달 수 있다.\
+그러므로 영화와 리뷰어는 N:N 관계가 되고 둘 사이를 리뷰가 연결해주는 꼴이 된다.
+
+테이블과 칼럼을 아래와 같은 구조로 정의할 수 있다.
+
+- movies
+  - id
+  - title
+  - genre
+- reviewers
+  - id
+  - name
+- reviews
+  - id
+  - rating
+  - movie_id
+  - reviewer_id
+
+위처럼 정의하려면 아래 코드를 입력한다.
+
+```sql
+CREATE TABLE movies (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(100),
+  genre VARCHAR(100)
+);
+
+CREATE TABLE reviewers (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE reviews (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  rating INT,
+  movie_id INT,
+  reviewer_id INT,
+  -- 경우에 따라서 ON DELETE CASCADE를 안 넣어도 된다.
+  FOREIGN KEY (moview_id) REFERENCES moview (id),
+  FOREIGN KEY (reviewer_id) REFERENCES reviewers (id)
+);
+```
+
+movie의 평균을 보여주려면 아래 코드를 입력한다.
+
+```sql
+SELECT title, ROUND(AVG(rating), 2) AS avg_rating
+FROM movies JOIN reviews ON movies.id = reviews.movies_id
+GROUP BY title
+ORDER BY avg_rating;
+```
