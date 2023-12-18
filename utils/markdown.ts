@@ -33,7 +33,7 @@ export const generateTableOfContents = (html: string) => {
 
   const results: TableOfContents = [];
 
-  ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].forEach((headingTag) => {
+  ['h2', 'h3', 'h4', 'h5', 'h6'].forEach((headingTag) => {
     const elements: NodeListOf<HTMLHeadingElement> =
       document.querySelectorAll(headingTag);
     elements.forEach((element) => {
