@@ -23,7 +23,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.9.0",
-    "markdown-it": "^14.0.0",
+    "jsdom": "^23.0.1",
     "marked": "^9.1.2",
     "next": "^14.0.4",
     "next-seo": "^6.1.0",
