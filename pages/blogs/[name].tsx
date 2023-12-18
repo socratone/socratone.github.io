@@ -2,8 +2,10 @@
 // https://highlightjs.org/examples
 import 'highlight.js/styles/atom-one-light.css';
 
-import { SxProps } from '@mui/material';
+import { SxProps, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
 import { Theme } from '@mui/system';
+import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
 import Meta from 'components/Meta';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
@@ -18,11 +20,17 @@ import {
   CODE_COPY_BUTTON_CLASS,
   removeCopyButtonEvents,
 } from 'utils/html-code';
-import { parseMarkdownFile, parseMarkdownToHtml } from 'utils/markdown';
+import {
+  generateTableOfContents,
+  parseMarkdownFile,
+  parseMarkdownToHtml,
+  TableOfContents,
+} from 'utils/markdown';
 
 type BlogProps = {
   metadata: Metadata;
   htmlContent: string;
+  tableOfContents: TableOfContents;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -53,12 +61,17 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
 
   const { metadata, content } = parseMarkdownFile(`content/blogs/${name}.md`);
   const htmlContent = await parseMarkdownToHtml(content);
+  const tableOfContents = generateTableOfContents(htmlContent);
   const coloredHtmlContent = addColorToCode(htmlContent);
   const codeWithButton = addCopyButtonToCode(coloredHtmlContent);
   const validatedMetadata = validateMarkdownMetadata(metadata);
 
   return {
-    props: { metadata: validatedMetadata, htmlContent: codeWithButton },
+    props: {
+      metadata: validatedMetadata,
+      htmlContent: codeWithButton,
+      tableOfContents,
+    },
   };
 };
 
@@ -80,7 +93,14 @@ const copyButtonSx: SxProps<Theme> = {
   },
 };
 
-const Blog: NextPage<BlogProps> = ({ metadata, htmlContent }) => {
+const MAIN_TOP_PADDING = 16;
+const LEVEL_OFFSET_RATIO = 1.8;
+
+const Blog: NextPage<BlogProps> = ({
+  metadata,
+  htmlContent,
+  tableOfContents,
+}) => {
   useEffect(() => {
     addCopyButtonEvents();
     return () => {
@@ -92,7 +112,32 @@ const Blog: NextPage<BlogProps> = ({ metadata, htmlContent }) => {
     <>
       {/* TODO: thumbnail에 따라 imageUrl 설정 */}
       <Meta title={metadata.title} description={metadata.description} />
-      <NotionStyleHtmlContent html={htmlContent} sx={copyButtonSx} />
+      <Box
+        display="grid"
+        gridTemplateColumns={{ xs: '1fr', md: '1fr', lg: '1fr 225px' }}
+        gap={3}
+      >
+        <NotionStyleHtmlContent html={htmlContent} sx={copyButtonSx} />
+
+        {/* Table of contents */}
+        <Box>
+          <Box
+            position="sticky"
+            top={GLOBAL_HEADER_HEIGHT + MAIN_TOP_PADDING}
+            py={0.5}
+          >
+            {tableOfContents.map((item) => (
+              <Typography
+                color="text.secondary"
+                key={item.text}
+                ml={(item.level - 1) * LEVEL_OFFSET_RATIO}
+              >
+                {item.text}
+              </Typography>
+            ))}
+          </Box>
+        </Box>
+      </Box>
     </>
   );
 };
