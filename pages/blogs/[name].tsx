@@ -19,9 +19,11 @@ import {
   addCopyButtonEvents,
   addCopyButtonToCode,
   CODE_COPY_BUTTON_CLASS,
+  convertHeadingContentToId,
   removeCopyButtonEvents,
 } from 'utils/html-code';
 import {
+  addHashLinkToHeading,
   generateTableOfContents,
   parseMarkdownFile,
   parseMarkdownToHtml,
@@ -63,7 +65,8 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ params }) => {
   const { metadata, content } = parseMarkdownFile(`content/blogs/${name}.md`);
   const htmlContent = await parseMarkdownToHtml(content);
   const tableOfContents = generateTableOfContents(htmlContent);
-  const coloredHtmlContent = addColorToCode(htmlContent);
+  const contentWithLinkedHeading = addHashLinkToHeading(htmlContent);
+  const coloredHtmlContent = addColorToCode(contentWithLinkedHeading);
   const codeWithButton = addCopyButtonToCode(coloredHtmlContent);
   const validatedMetadata = validateMarkdownMetadata(metadata);
 
@@ -132,10 +135,6 @@ const Blog: NextPage<BlogProps> = ({
     };
   }, []);
 
-  const convertToHash = (text: string) => {
-    return '#' + text.split(' ').join('_');
-  };
-
   return (
     <>
       {/* TODO: thumbnail에 따라 imageUrl 설정 */}
@@ -152,7 +151,7 @@ const Blog: NextPage<BlogProps> = ({
           <Box position="sticky" top={GLOBAL_HEADER_HEIGHT + MAIN_TOP_PADDING}>
             {tableOfContents.map((item) => (
               <Typography
-                href={router.asPath + convertToHash(item.text)}
+                href={'#' + convertHeadingContentToId(item.text)}
                 key={item.text}
                 component="a"
                 color="text.secondary"
@@ -170,6 +169,10 @@ const Blog: NextPage<BlogProps> = ({
             sx={{
               ...copyButtonSx,
               ...firstHeadingSx,
+              /** heading scroll offset */
+              'h2:target, h3:target, h4:target, h5:target, h6:target': {
+                scrollMarginTop: GLOBAL_HEADER_HEIGHT,
+              },
             }}
           />
         </Box>
