@@ -4,6 +4,10 @@ import { JSDOM } from 'jsdom';
 import { marked } from 'marked';
 import path from 'path';
 
+import { convertHeadingContentToId } from './html-code';
+
+/** server side only */
+
 export const parseMarkdownToHtml = async (markdown: string) => {
   return (
     marked
@@ -51,4 +55,20 @@ export const generateTableOfContents = (html: string) => {
   });
 
   return results;
+};
+
+export const addHashLinkToHeading = (html: string) => {
+  const { window } = new JSDOM(html);
+  const document = window.document;
+
+  ['h2', 'h3', 'h4', 'h5', 'h6'].forEach((headingTag) => {
+    const elements: NodeListOf<HTMLHeadingElement> =
+      document.querySelectorAll(headingTag);
+    elements.forEach((element) => {
+      if (element.textContent)
+        element.id = convertHeadingContentToId(element.textContent);
+    });
+  });
+
+  return document.documentElement.outerHTML;
 };
