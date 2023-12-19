@@ -11,7 +11,6 @@ import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
 import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { getFileNames } from 'utils/file';
 import {
@@ -105,6 +104,24 @@ const firstHeadingSx = {
   },
 };
 
+const headingScrollOffsetSx = {
+  '.heading:target': {
+    scrollMarginTop: GLOBAL_HEADER_HEIGHT,
+  },
+};
+
+const headingAnchorSx = {
+  '.heading-anchor': {
+    visibility: 'hidden',
+    textDecoration: 'none',
+  },
+  '.heading:hover': {
+    '.heading-anchor': {
+      visibility: 'visible',
+    },
+  },
+};
+
 const textEllipsisSx = {
   textOverflow: 'ellipsis',
   overflow: 'hidden',
@@ -126,8 +143,6 @@ const Blog: NextPage<BlogProps> = ({
   htmlContent,
   tableOfContents,
 }) => {
-  const router = useRouter();
-
   useEffect(() => {
     addCopyButtonEvents();
     return () => {
@@ -169,10 +184,8 @@ const Blog: NextPage<BlogProps> = ({
             sx={{
               ...copyButtonSx,
               ...firstHeadingSx,
-              /** heading scroll offset */
-              'h2:target, h3:target, h4:target, h5:target, h6:target': {
-                scrollMarginTop: GLOBAL_HEADER_HEIGHT,
-              },
+              ...headingAnchorSx,
+              ...headingScrollOffsetSx,
             }}
           />
         </Box>

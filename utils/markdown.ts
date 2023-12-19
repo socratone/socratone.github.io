@@ -65,8 +65,15 @@ export const addHashLinkToHeading = (html: string) => {
     const elements: NodeListOf<HTMLHeadingElement> =
       document.querySelectorAll(headingTag);
     elements.forEach((element) => {
-      if (element.textContent)
-        element.id = convertHeadingContentToId(element.textContent);
+      element.classList.add('heading');
+      if (element.textContent) {
+        const id = convertHeadingContentToId(element.textContent);
+        element.id = id;
+        element.insertAdjacentHTML(
+          'beforeend',
+          `<a href="#${id}" class="heading-anchor"> 🔗</a>`
+        );
+      }
     });
   });
 
