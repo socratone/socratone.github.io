@@ -212,3 +212,7 @@ export const addCopyButtonToCode = (html: string) => {
 
   return result;
 };
+
+export const convertHeadingContentToId = (text: string) => {
+  return text.split(' ').join('_');
+};
