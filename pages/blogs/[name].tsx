@@ -11,6 +11,7 @@ import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
 import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { getFileNames } from 'utils/file';
 import {
@@ -122,12 +123,18 @@ const Blog: NextPage<BlogProps> = ({
   htmlContent,
   tableOfContents,
 }) => {
+  const router = useRouter();
+
   useEffect(() => {
     addCopyButtonEvents();
     return () => {
       removeCopyButtonEvents();
     };
   }, []);
+
+  const convertToHash = (text: string) => {
+    return '#' + text.split(' ').join('_');
+  };
 
   return (
     <>
@@ -145,10 +152,12 @@ const Blog: NextPage<BlogProps> = ({
           <Box position="sticky" top={GLOBAL_HEADER_HEIGHT + MAIN_TOP_PADDING}>
             {tableOfContents.map((item) => (
               <Typography
+                href={router.asPath + convertToHash(item.text)}
                 key={item.text}
+                component="a"
                 color="text.secondary"
                 ml={item.level * LEVEL_OFFSET_RATIO}
-                sx={textEllipsisSx}
+                sx={{ ...textEllipsisSx, display: 'block', cursor: 'pointer' }}
               >
                 {item.text}
               </Typography>
