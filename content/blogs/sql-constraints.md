@@ -12,7 +12,7 @@ createdAt: '2023-12-20'
 
 ## `UNIQUE`
 
-`UINQUE`를 넣으면 column에 중복된 값을 넣을 수 없음 (에러 발생)
+`UNIQUE`를 넣으면 column에 중복된 값을 넣을 수 없음 (에러 발생)
 
 ```sql
 -- 'phone' 칼럼은 unique한 값이 보장됨
