@@ -1,6 +1,6 @@
 ---
 title: 'SQL ALTER TABLE'
-description: 'ALTER TABLE을 이용해서 테이블의 속성을 변경하는 방법에 대해서 다룬다.'
+description: 'ALTER TABLE을 이용해서 테이블의 속성을 변경하는 방법에 대해 다룬다.'
 thumbnail: 'sql'
 tag: 'sql'
 createdAt: '2023-12-21'
@@ -8,7 +8,7 @@ createdAt: '2023-12-21'
 
 # SQL ALTER TABLE
 
-ALTER TABLE을 이용해서 테이블의 속성을 변경하는 방법에 대해서 다룬다.
+ALTER TABLE을 이용해서 테이블의 속성을 변경하는 방법에 대해 다룬다.
 
 ## 테이블에 새로운 칼럼 추가
 
