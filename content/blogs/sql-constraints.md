@@ -12,10 +12,10 @@ createdAt: '2023-12-20'
 
 ## `UNIQUE`
 
-- `UINQUE`를 넣으면 column에 중복된 값을 넣을 수 없음 (에러 발생)
+`UINQUE`를 넣으면 column에 중복된 값을 넣을 수 없음 (에러 발생)
 
 ```sql
--- phone 칼럼은 unique한 값이 보장됨
+-- 'phone' 칼럼은 unique한 값이 보장됨
 CREATE TABLE users (
   phone VARCHAR(15) NOT NULL UNIQUE
 );
@@ -23,7 +23,7 @@ CREATE TABLE users (
 
 ## `CHECK`
 
-- `CHECK`를 이용해서 넣을 수 있는 값의 조건을 설정할 수 있음
+`CHECK`를 이용해서 넣을 수 있는 값의 조건을 설정할 수 있음
 
 ```sql
 CREATE TABLE users (
@@ -33,7 +33,7 @@ CREATE TABLE users (
 
 ## `CONSTRAINT`
 
-- 아래에 별도의 `CONSTRAINT`를 넣어서 조건이 불일치할 경우 에러 메시지를 보여줄 수 있음
+아래에 별도의 `CONSTRAINT`를 넣어서 조건이 불일치할 경우 에러 메시지를 보여줄 수 있음
 
 ```sql
 -- 에러 발생시 'age_not_negative'를 표시
@@ -43,7 +43,7 @@ CREATE TABLE users (
 );
 ```
 
-- 두 column을 묶어서 검사할 수도 있음
+두 column을 묶어서 검사할 수도 있음
 
 ```sql
 -- 'name'과 'address'를 봤을 때 unique해야 함
