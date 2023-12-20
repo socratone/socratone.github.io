@@ -3,7 +3,7 @@ title: 'SQL 제약 조건 (Constraints)'
 description: '입력할 수 있는 데이터에 제약 조건을 넣을 수 있다.'
 thumbnail: 'sql'
 tag: 'sql'
-createdAt: '2023-12-21'
+createdAt: '2023-12-20'
 ---
 
 # SQL 제약 조건 (Constraints)
