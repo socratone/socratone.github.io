@@ -76,7 +76,7 @@ select database();
 ```sql
 CREATE TABLE cats (
   name VARCHAR(100),
-  age  INT
+  age INT
 );
 ```
 
