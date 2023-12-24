@@ -1,6 +1,6 @@
 import 'styles/globals.css';
 
-import { createTheme, ThemeProvider, useTheme } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
 import Container from '@mui/material/Container';
 import GlobalHeader from 'components/GlobalHeader';
 import Meta from 'components/Meta';
@@ -8,6 +8,7 @@ import type { AppProps } from 'next/app';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import logoImage from 'public/images/logo.png';
+import { useMemo } from 'react';
 import { breakpoints } from 'theme/breakpoints';
 import { components } from 'theme/components';
 import { lightPalette } from 'theme/palette';
@@ -19,7 +20,6 @@ const NONE_CONTAINER_PATHNAMES = ['/', '/resume'];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const theme = useTheme();
 
   const isGlobalHeader = !NONE_GLOBAL_HEADER_PATHNAMES.some(
     (pathname) => pathname === router.pathname
@@ -28,16 +28,20 @@ export default function App({ Component, pageProps }: AppProps) {
     (pathname) => pathname === router.pathname
   );
 
-  return (
-    <ThemeProvider
-      theme={createTheme({
+  const theme = useMemo(
+    () =>
+      createTheme({
         components,
         palette: lightPalette,
         typography,
         shadows,
         breakpoints,
-      })}
-    >
+      }),
+    []
+  );
+
+  return (
+    <ThemeProvider theme={theme}>
       <Meta title="소크라톤" description="프론트엔드 개발자 소크라톤 페이지" />
       {isGlobalHeader ? (
         <GlobalHeader
