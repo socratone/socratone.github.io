@@ -16,7 +16,7 @@ import { shadows } from 'theme/shadows';
 import { typography } from 'theme/typography';
 
 const NONE_GLOBAL_HEADER_PATHNAMES = ['/resume'];
-const NONE_CONTAINER_PATHNAMES = ['/', '/resume'];
+const NONE_CONTAINER_PATHNAME_PATTERNS = ['^/$', '^/resume', '^/blogs/.+'];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -24,9 +24,11 @@ export default function App({ Component, pageProps }: AppProps) {
   const isGlobalHeader = !NONE_GLOBAL_HEADER_PATHNAMES.some(
     (pathname) => pathname === router.pathname
   );
-  const isContainer = !NONE_CONTAINER_PATHNAMES.some(
-    (pathname) => pathname === router.pathname
-  );
+
+  const isContainer = !NONE_CONTAINER_PATHNAME_PATTERNS.some((pattern) => {
+    const regex = new RegExp(pattern);
+    return regex.test(router.pathname);
+  });
 
   const theme = useMemo(
     () =>

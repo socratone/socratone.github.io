@@ -2,7 +2,7 @@
 // https://highlightjs.org/examples
 import 'highlight.js/styles/atom-one-light.css';
 
-import { SxProps, Typography } from '@mui/material';
+import { Container, SxProps, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import { Theme } from '@mui/system';
 import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
@@ -135,7 +135,7 @@ const preventOverflowSx = {
   width: '100%',
 };
 
-const MAIN_TOP_PADDING = 16;
+const VERTICAL_CONTENT_PADDING = 2;
 const LEVEL_OFFSET_RATIO = 1.8;
 
 const Blog: NextPage<BlogProps> = ({
@@ -154,42 +154,55 @@ const Blog: NextPage<BlogProps> = ({
     <>
       {/* TODO: thumbnail에 따라 imageUrl 설정 */}
       <Meta title={metadata.title} description={metadata.description} />
-      <Box
-        display="grid"
-        /** 리스트 페이지의 레이아웃과 통일감을 주도록, 240에서 padding 값 2를 뺀다. */
-        gridTemplateColumns={{ xs: '1fr', md: '1fr', lg: '238px 1fr' }}
-        gap={2}
-      >
-        {/* Table of contents */}
-        {/* 데스크톱 viewport에서만 보인다. */}
-        <Box display={{ xs: 'none', md: 'none', lg: 'block' }}>
-          <Box position="sticky" top={GLOBAL_HEADER_HEIGHT + MAIN_TOP_PADDING}>
-            {tableOfContents.map((item) => (
-              <Typography
-                href={'#' + convertHeadingContentToId(item.text)}
-                key={item.text}
-                component="a"
-                color="text.secondary"
-                ml={item.level * LEVEL_OFFSET_RATIO}
-                sx={{ ...textEllipsisSx, display: 'block', cursor: 'pointer' }}
-              >
-                {item.text}
-              </Typography>
-            ))}
+
+      <Container>
+        <Box
+          display="grid"
+          /** 리스트 페이지의 레이아웃과 통일감을 주도록, 240에서 padding 값 2를 뺀다. */
+          gridTemplateColumns={{ xs: '1fr', md: '1fr', lg: '238px 1fr' }}
+          gap={2}
+        >
+          {/* Table of contents */}
+          {/* 데스크톱 viewport에서만 보인다. */}
+          <Box
+            display={{ xs: 'none', md: 'none', lg: 'block' }}
+            position="sticky"
+            top={GLOBAL_HEADER_HEIGHT}
+            height={`calc(100vh - ${GLOBAL_HEADER_HEIGHT}px)`}
+            sx={{ overflowY: 'auto' }}
+          >
+            <Box py={VERTICAL_CONTENT_PADDING}>
+              {tableOfContents.map((item) => (
+                <Typography
+                  href={'#' + convertHeadingContentToId(item.text)}
+                  key={item.text}
+                  component="a"
+                  color="text.secondary"
+                  ml={item.level * LEVEL_OFFSET_RATIO}
+                  sx={{
+                    ...textEllipsisSx,
+                    display: 'block',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {item.text}
+                </Typography>
+              ))}
+            </Box>
+          </Box>
+          <Box py={VERTICAL_CONTENT_PADDING} sx={preventOverflowSx}>
+            <NotionStyleHtmlContent
+              html={htmlContent}
+              sx={{
+                ...copyButtonSx,
+                ...firstHeadingSx,
+                ...headingAnchorSx,
+                ...headingScrollOffsetSx,
+              }}
+            />
           </Box>
         </Box>
-        <Box sx={preventOverflowSx}>
-          <NotionStyleHtmlContent
-            html={htmlContent}
-            sx={{
-              ...copyButtonSx,
-              ...firstHeadingSx,
-              ...headingAnchorSx,
-              ...headingScrollOffsetSx,
-            }}
-          />
-        </Box>
-      </Box>
+      </Container>
     </>
   );
 };
