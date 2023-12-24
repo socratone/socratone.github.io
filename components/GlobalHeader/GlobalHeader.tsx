@@ -47,7 +47,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       }}
     >
       <Container component="nav">
-        <Stack direction="row" gap={1}>
+        <Stack direction="row">
           {logo ? <StyledLink href="/">{logo}</StyledLink> : null}
           <Stack direction="row" gap={2} height={GLOBAL_HEADER_HEIGHT}>
             {items.map((item) => (

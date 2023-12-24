@@ -1,6 +1,7 @@
 import 'styles/globals.css';
 
 import { createTheme, ThemeProvider } from '@mui/material';
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import GlobalHeader from 'components/GlobalHeader';
 import Meta from 'components/Meta';
@@ -47,7 +48,17 @@ export default function App({ Component, pageProps }: AppProps) {
       <Meta title="소크라톤" description="프론트엔드 개발자 소크라톤 페이지" />
       {isGlobalHeader ? (
         <GlobalHeader
-          logo={<Image src={logoImage} alt="s" width={25} height={25} />}
+          logo={
+            <Box
+              px={1}
+              ml={-1}
+              height="100%"
+              display="flex"
+              alignItems="center"
+            >
+              <Image src={logoImage} alt="s" width={25} height={25} />
+            </Box>
+          }
           items={[{ label: 'Blogs', href: '/blogs' }]}
           backgroundColor={theme.palette.background.default}
           borderBottom
