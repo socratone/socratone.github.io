@@ -53,10 +53,14 @@ const StyledBox = styled(Box)`
     margin: ${({ theme }) => theme.typography.mp.margin};
   }
 
+  > ul,
+  > ol {
+    padding: ${({ theme }) => theme.typography.mp.padding};
+    margin: ${({ theme }) => theme.typography.mp.margin};
+  }
+
   ul,
   ol {
-    margin: ${({ theme }) => theme.typography.mp.margin};
-    padding: ${({ theme }) => theme.typography.mp.padding};
     font-size: ${({ theme }) => theme.typography.mp.fontSize};
     line-height: ${({ theme }) => theme.typography.mp.lineHeight};
     font-weight: ${({ theme }) => theme.typography.mp.fontWeight};
