@@ -30,7 +30,7 @@ module.exports = {
 };
 ```
 
-build시 mode를 `development`로 하면 `bundle.js`의 주석을 보고 어떤 모듈이 포함되어 있는지를 확인할 수 있다.
+build시 mode를 `development`로 하면 build된 `bundle.js`의 주석을 보고 어떤 모듈이 포함되어 있는지를 확인할 수 있다.
 
 아래 명령어를 입력해서 build하면
 
@@ -38,7 +38,7 @@ build시 mode를 `development`로 하면 `bundle.js`의 주석을 보고 어떤 
 npx webpack --config webpack.config.js --mode development
 ```
 
-다음과 같이 포함된 모듈이 무엇인지 알 수 있는 주석을 볼 수 있다.
+다음과 같이 `bundle.js`에 어떤 게 포함되어 있는지 주석을 통해 알 수 있다.
 
 ```javascript
 // bundle.js
@@ -93,7 +93,7 @@ https://github.com/socratone/webpack-example/tree/main/css-loader
 
 ## SASS Loader
 
-sass를 쓴다면 `sass-loader`를 앞에 넣어주면 된다.
+sass를 쓴다면 `sass-loader`를 앞에 넣어주면 된다.\
 `rules`에 두 가지를 넣어서 `.css`와 `.scss`를 불러올 수 있다.
 
 ```javascript
@@ -393,9 +393,13 @@ module.exports = {
 
 ### Optimization을 하지 않았을 때
 
+`first.bundle.js`와 `second.bundle.js` 각각에 lodash 라이브러리 코드가 포함된다.
+
 <img alt="Webpack no optimization" src="/images/blog/webpack/no-optimization.webp">
 
 ### Optimization을 했을 때
+
+`first.bundle.js`, `second.bundle.js`와 분리된 `vendors-node_modules_lodash_lodash_js.bundle.js`가 따로 생성된다.
 
 <img alt="Webpack optimization" src="/images/blog/webpack/optimization.webp">
 
