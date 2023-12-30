@@ -77,5 +77,6 @@ export const addHashLinkToHeading = (html: string) => {
     });
   });
 
-  return document.documentElement.outerHTML;
+  /** 깨지는 문자 복원 */
+  return document.documentElement.outerHTML.replaceAll('&gt;', '>');
 };
