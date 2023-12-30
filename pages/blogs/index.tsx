@@ -173,21 +173,29 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
         <Stack
           position="sticky"
           top={GLOBAL_HEADER_HEIGHT + CONTAINER_PADDING_TOP}
-          gap={1}
         >
           <Link href="/blogs">
-            <Typography>전체보기</Typography>
+            <Typography
+              color={router.query.tag ? 'text.secondary' : 'text.primary'}
+              fontWeight={router.query.tag ? undefined : 500}
+            >
+              전체보기
+            </Typography>
           </Link>
-          {tags.map((tag) => (
-            <Link key={tag} href={`/blogs?tag=${tag}`}>
-              <Typography
-                color="text.primary"
-                sx={{ textTransform: 'capitalize' }}
-              >
-                {parseBlogTagForLabel(tag)}
-              </Typography>
-            </Link>
-          ))}
+          {tags.map((tag) => {
+            const isSelected = router.query.tag === tag;
+
+            return (
+              <Link key={tag} href={`/blogs?tag=${tag}`}>
+                <Typography
+                  color={isSelected ? 'text.primary' : 'text.secondary'}
+                  fontWeight={isSelected ? 500 : undefined}
+                >
+                  {parseBlogTagForLabel(tag)}
+                </Typography>
+              </Link>
+            );
+          })}
         </Stack>
       </Box>
 
