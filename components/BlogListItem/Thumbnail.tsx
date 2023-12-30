@@ -6,6 +6,7 @@ import linuxImage from 'public/images/blog/linux.webp';
 import mysqlImage from 'public/images/blog/mysql.webp';
 import npmImage from 'public/images/blog/npm.webp';
 import pythonImage from 'public/images/blog/python.webp';
+import webpackImage from 'public/images/blog/webpack.webp';
 
 import NextJsIcon from './NextJsIcon';
 import ThumbnailContainer from './ThumbnailContainer';
@@ -78,6 +79,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
       return (
         <ThumbnailContainer>
           <ThumbnailImage src={mysqlImage} width={300} height={155} />
+        </ThumbnailContainer>
+      );
+
+    case BlogThumbnail.Webpack:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={webpackImage} width={300} height={339} />
         </ThumbnailContainer>
       );
   }

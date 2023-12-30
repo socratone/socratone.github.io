@@ -28,5 +28,8 @@ export const parseBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Sql:
       return 'SQL';
+
+    case BlogTag.Webpack:
+      return 'Webpack';
   }
 };

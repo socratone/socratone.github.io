@@ -8,6 +8,7 @@ export enum BlogThumbnail {
   NextJs = 'nextjs',
   Python = 'python',
   Sql = 'sql',
+  Webpack = 'webpack',
 }
 
 export enum BlogTag {
@@ -20,4 +21,5 @@ export enum BlogTag {
   NextJs = 'nextjs',
   Python = 'python',
   Sql = 'sql',
+  Webpack = 'webpack',
 }
