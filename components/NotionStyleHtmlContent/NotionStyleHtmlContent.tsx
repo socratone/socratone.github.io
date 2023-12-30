@@ -53,6 +53,7 @@ const StyledBox = styled(Box)`
     margin: ${({ theme }) => theme.typography.mp.margin};
   }
 
+  /* 최상위 list에만 여백을 넣어야 한다. */
   > ul,
   > ol {
     padding: ${({ theme }) => theme.typography.mp.padding};
