@@ -69,7 +69,9 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </Container>
       ) : (
-        <Component {...pageProps} />
+        <Box component="main">
+          <Component {...pageProps} />
+        </Box>
       )}
     </ThemeProvider>
   );
