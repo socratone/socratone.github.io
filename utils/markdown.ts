@@ -78,5 +78,7 @@ export const addHashLinkToHeading = (html: string) => {
   });
 
   /** 깨지는 문자 복원 */
-  return document.documentElement.outerHTML.replaceAll('&gt;', '>');
+  return document.documentElement.outerHTML
+    .replaceAll('&gt;', '>')
+    .replaceAll('&lt;', '<');
 };
