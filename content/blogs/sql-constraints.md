@@ -48,9 +48,9 @@ CREATE TABLE users (
 ```sql
 -- 'name'과 'address'를 봤을 때 unique해야 함
 CREATE TABLE companies (
-    name VARCHAR(255) NOT NULL,
-    address VARCHAR(255) NOT NULL,
-    CONSTRAINT duplicate_name_address UNIQUE (name, address)
+  name VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  CONSTRAINT duplicate_name_address UNIQUE (name, address)
 );
 
 -- 'sale_price'는 'purchase_price' 이상이어야 함
