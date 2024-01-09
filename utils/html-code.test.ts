@@ -26,4 +26,14 @@ describe('addColorToCode', () => {
       expect(addColorToCode(html)).toBe(result);
     });
   });
+
+  describe('javascript', () => {
+    test(`<code> 내 '<'과 '>'을 나타내는 '&lt;'과 '&gt;'이 유지되어야 한다.`, () => {
+      const html = `<pre><code class="language-javascript">&lt;html&gt;</code></pre>`;
+
+      const result = `<pre><code class="language-javascript">&lt;html&gt;</code></pre>`;
+
+      expect(addColorToCode(html)).toBe(result);
+    });
+  });
 });

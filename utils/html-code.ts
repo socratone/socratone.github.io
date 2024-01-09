@@ -62,6 +62,7 @@ const addColorTag = (code: string, language: Language) => {
   switch (language) {
     case 'language-javascript':
       hljs.registerLanguage(language, javascript);
+      editedCode = code.replaceAll('&lt;', `<`).replaceAll('&gt;', `>`);
       break;
 
     case 'language-json':
