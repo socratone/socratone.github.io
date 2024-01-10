@@ -56,12 +56,8 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ contents }) => {
 
   const handleClick = (contentId: string) => {
     setSelectedContentId(contentId);
-
-    /** 중첩 방지 */
+    // TODO: 언제 다시 설정하면 될까?
     unobserve();
-    setTimeout(() => {
-      observe();
-    }, 0);
   };
 
   return (
