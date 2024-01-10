@@ -29,13 +29,13 @@ export const parseMarkdownFile = (fileName: string) => {
   };
 };
 
-export type TableOfContents = { level: number; text: string }[];
+export type TableOfContent = { level: number; text: string };
 
 export const generateTableOfContents = (html: string) => {
   const { window } = new JSDOM(html);
   const document = window.document;
 
-  const results: TableOfContents = [];
+  const results: TableOfContent[] = [];
 
   ['h2', 'h3', 'h4', 'h5', 'h6'].forEach((headingTag) => {
     const elements: NodeListOf<HTMLHeadingElement> =

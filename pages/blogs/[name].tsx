@@ -2,13 +2,15 @@
 // https://highlightjs.org/examples
 import 'highlight.js/styles/atom-one-light.css';
 
-import { Container, SxProps, Typography } from '@mui/material';
+import { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import { Theme } from '@mui/system';
 import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
 import Meta from 'components/Meta';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
+import TableOfContents from 'components/TableOfContents';
 import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useEffect } from 'react';
@@ -18,7 +20,6 @@ import {
   addCopyButtonEvents,
   addCopyButtonToCode,
   CODE_COPY_BUTTON_CLASS,
-  convertHeadingContentToId,
   removeCopyButtonEvents,
 } from 'utils/html-code';
 import {
@@ -26,13 +27,13 @@ import {
   generateTableOfContents,
   parseMarkdownFile,
   parseMarkdownToHtml,
-  TableOfContents,
+  TableOfContent,
 } from 'utils/markdown';
 
 type BlogProps = {
   metadata: Metadata;
   htmlContent: string;
-  tableOfContents: TableOfContents;
+  tableOfContents: TableOfContent[];
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -122,12 +123,6 @@ const headingAnchorSx = {
   },
 };
 
-const textEllipsisSx = {
-  textOverflow: 'ellipsis',
-  overflow: 'hidden',
-  whiteSpace: 'nowrap',
-};
-
 /** 콘텐츠가 넘어가는 것을 막는다. */
 const preventOverflowSx = {
   overflowX: 'auto',
@@ -136,7 +131,6 @@ const preventOverflowSx = {
 };
 
 const VERTICAL_CONTENT_PADDING = 2;
-const LEVEL_OFFSET_RATIO = 1.8;
 
 const Blog: NextPage<BlogProps> = ({
   metadata,
@@ -172,22 +166,7 @@ const Blog: NextPage<BlogProps> = ({
             sx={{ overflowY: 'auto' }}
           >
             <Box py={VERTICAL_CONTENT_PADDING}>
-              {tableOfContents.map((item) => (
-                <Typography
-                  href={'#' + convertHeadingContentToId(item.text)}
-                  key={item.text}
-                  component="a"
-                  color="text.secondary"
-                  ml={item.level * LEVEL_OFFSET_RATIO}
-                  sx={{
-                    ...textEllipsisSx,
-                    display: 'block',
-                    cursor: 'pointer',
-                  }}
-                >
-                  {item.text}
-                </Typography>
-              ))}
+              <TableOfContents contents={tableOfContents} />
             </Box>
           </Box>
           <Box py={VERTICAL_CONTENT_PADDING} sx={preventOverflowSx}>
