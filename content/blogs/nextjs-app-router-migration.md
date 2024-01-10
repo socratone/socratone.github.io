@@ -108,7 +108,8 @@ https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#
 
 ## fetch
 
-ISR을 위해 아래처럼 revalidate 옵션을 넣을 수 있다.
+browser의 fetch api를 확장시킨 함수로 사용시 별다른 옵션을 넣지 않으면 cache가 적용된다.\
+ISR을 위해 아래처럼 `revalidate` 옵션을 넣을 수 있다.
 
 ```javascript
 async function getPosts() {
@@ -121,7 +122,21 @@ async function getPosts() {
 
 https://nextjs.org/docs/app/api-reference/functions/fetch
 
-(🚧 TODO: fetch 상세 스펙, cache 활용법)
+### cache
+
+`fetch`를 사용하는 경우 자동으로 memoized 되지만 graphql 등 fetch를 사용할 수 없는 경우 `React.cache`를 이용한다.
+
+https://nextjs.org/docs/app/building-your-application/caching#react-cache-function
+
+```javascript
+import { cache } from 'react';
+import db from '@/lib/db';
+
+export const getItem = cache(async (id: string) => {
+  const item = await db.item.findUnique({ id });
+  return item;
+});
+```
 
 ## metadata
 
