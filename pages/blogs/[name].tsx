@@ -166,6 +166,7 @@ const Blog: NextPage<BlogProps> = ({
             sx={{ overflowY: 'auto' }}
           >
             <Box py={VERTICAL_CONTENT_PADDING}>
+              {/* TODO: 성능을 위해 모바일인 경우에 렌더링 안 되게 하기 */}
               <TableOfContents contents={tableOfContents} />
             </Box>
           </Box>

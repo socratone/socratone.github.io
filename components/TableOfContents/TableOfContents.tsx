@@ -46,17 +46,29 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ contents }) => {
     observerRef.current = null;
   };
 
-  /** Initialize */
   useEffect(() => {
-    observe();
+    /** Initialize */
+    if (!observerRef.current) {
+      observe();
+    }
+
+    /** content 클릭시 해제되므로 스크롤을 다시 움직이면 재설정한다. */
+    const handleScroll = () => {
+      if (!observerRef.current) {
+        observe();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
       unobserve();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const handleClick = (contentId: string) => {
     setSelectedContentId(contentId);
-    // TODO: 언제 다시 설정하면 될까?
     unobserve();
   };
 
