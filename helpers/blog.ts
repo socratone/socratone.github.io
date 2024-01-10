@@ -1,6 +1,6 @@
 import { BlogTag } from 'constants/blog';
 
-export const parseBlogTagForLabel = (tag: BlogTag) => {
+export const convertBlogTagForLabel = (tag: BlogTag) => {
   switch (tag) {
     case BlogTag.Linux:
       return 'Linux';

@@ -8,7 +8,7 @@ import BlogListItem from 'components/BlogListItem';
 import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
 import { BlogTag } from 'constants/blog';
 import dayjs from 'dayjs';
-import { parseBlogTagForLabel } from 'helpers/blog';
+import { convertBlogTagForLabel } from 'helpers/blog';
 import { Metadata, validateMarkdownMetadata } from 'helpers/markdown';
 import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
@@ -148,7 +148,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
                   href={isSelected ? '/blogs' : `/blogs?tag=${tag}`}
                 >
                   <Chip
-                    label={parseBlogTagForLabel(tag)}
+                    label={convertBlogTagForLabel(tag)}
                     color={isSelected ? 'primary' : 'default'}
                     sx={{
                       paddingY: 2,
@@ -191,7 +191,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
                   color={isSelected ? 'text.primary' : 'text.secondary'}
                   fontWeight={isSelected ? 500 : undefined}
                 >
-                  {parseBlogTagForLabel(tag)}
+                  {convertBlogTagForLabel(tag)}
                 </Typography>
               </Link>
             );
@@ -217,7 +217,7 @@ const Blogs: NextPage<BlogsProps> = ({ blogs, tags }) => {
             thumbnail={blog.thumbnail}
             createdAt={dayjs(blog.createdAt)}
             href={`/blogs/${blog.name}`}
-            tag={parseBlogTagForLabel(blog.tag)}
+            tag={convertBlogTagForLabel(blog.tag)}
           />
         ))}
         {pageCount > 1 ? (
