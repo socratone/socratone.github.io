@@ -125,7 +125,7 @@ https://nextjs.org/docs/app/api-reference/functions/fetch
 
 ## metadata
 
-`next/head`를 이용한 방법 대신 각 페이지 마다 데이터를 받아서 metadata를 설정할 수 있게 되었다.\
+`next/head`를 이용한 방법 대신 각 페이지마다 데이터를 받아서 metadata를 설정할 수 있게 되었다.\
 `next-seo` 같은 라이브러리를 안 써도 된다.
 
 https://nextjs.org/docs/app/api-reference/functions/generate-metadata
@@ -152,4 +152,24 @@ export default function ExampleClientComponent() {
 }
 ```
 
-locale 관련 값도 사라졌다.
+### Search Params 변경 방법
+
+[`URLSearchParams`](https://developer.mozilla.org/ko/docs/Web/API/URLSearchParams)을 이용해서 아래처럼 `params.set`이나 `params.delete` 등으로 search params를 업데이트 할 수 있다.
+
+```javascript
+export default function ExampleClientComponent() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const handlePageChange = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('page', page);
+    params.delete('tag');
+    const newParams = params.toString();
+    router.push(pathname + '?' + newParams);
+  };
+
+  // ...
+}
+```
