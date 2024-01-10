@@ -91,11 +91,11 @@ const StyledBox = styled(Box)`
 
   code {
     font-family: inherit;
-    font-size: 85%;
+    font-size: 90%;
     color: #eb5757;
     background: rgba(135, 131, 120, 0.15);
     border-radius: 0.188rem; /* 3px */
-    padding: 2.72px 5.44px;
+    padding: 1.92px 5.44px;
   }
 
   /* multi line code */
