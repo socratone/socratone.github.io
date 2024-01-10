@@ -22,4 +22,5 @@ export enum BlogTag {
   Python = 'python',
   Sql = 'sql',
   Webpack = 'webpack',
+  BrowserApi = 'browser-api',
 }

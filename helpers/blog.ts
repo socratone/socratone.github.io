@@ -31,5 +31,8 @@ export const convertBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Webpack:
       return 'Webpack';
+
+    case BlogTag.BrowserApi:
+      return 'Browser API';
   }
 };
