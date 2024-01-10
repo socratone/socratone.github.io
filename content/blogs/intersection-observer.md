@@ -10,7 +10,7 @@ createdAt: '2024-01-10'
 
 `IntersectionObserver`를 이용하면 element가 viewport에 보이는지 안 보이는지에 따라 이벤트를 동작하도록 할 수 있다.
 
-## 단독 Element
+## 단독 Element 관찰
 
 ```javascript
 const observer = new IntersectionObserver(
@@ -36,7 +36,7 @@ observer.observe(target);
 
 https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API
 
-## 여러 Element
+## 여러 Element 관찰
 
 ```javascript
 // IntersectionObserver 등록
