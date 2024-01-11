@@ -48,9 +48,9 @@ export default function RootLayout({
 `/pages`는 클라이언트 컴포넌트였지만 `/app`에 있는 페이지들은 기본적으로 서버 컴포넌트다.\
 여전히 `getServerSideProps`와 같이 서버 코드가 돌아가야할 부분과 클라이언트 코드가 돌아가야할 부분이 구분돼야 하기 때문에 마이그레이션시 아래와 같이 나누는 것을 권장한다.
 
-- `/app/home-page.tsx`
-  - 서버 컴포넌트
 - `/app/page.tsx`
+  - 서버 컴포넌트
+- `/app/home-page.tsx`
   - 클라이언트 컴포넌트
   - `'use client'`를 제일 위에 명시
 
