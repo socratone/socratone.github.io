@@ -1,6 +1,6 @@
 ---
 title: '글로벌 사이트에 표준 URL을 설정하는 방법'
-description: ''
+description: '검색엔진이 둘 중 하나를 표준 url로 지정해서 하나가 등록되지 않게 되는 문제가 발생할 수 있다. 이를 해결하기 위해 웹페이지의 html에 어떤 것들을 설정해야 하는지 정리하겠다.'
 thumbnail: 'browser'
 tag: 'browser'
 createdAt: '2024-01-11'
