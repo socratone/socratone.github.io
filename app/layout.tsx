@@ -35,6 +35,7 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>{children}</Providers>
+        {/* https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-tag-manager */}
         {isProduction ? <GoogleTagManager gtmId="GTM-K9X3KL2C" /> : null}
       </body>
     </html>
