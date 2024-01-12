@@ -1,3 +1,5 @@
+'use client';
+
 import CreateIcon from '@mui/icons-material/Create';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -17,16 +19,16 @@ import profileImage from 'public/images/resume/profile.webp';
 import React from 'react';
 import { convertMonthsToYearsAndMonths } from 'utils/date';
 
-const Resume = () => {
-  const elice = CAREERS.find((career) => career.company === 'elice') as Career;
-  const gymt = CAREERS.find((career) => career.company === 'gymt') as Career;
+const Page = () => {
+  const elice = CAREERS.find(career => career.company === 'elice') as Career;
+  const gymt = CAREERS.find(career => career.company === 'gymt') as Career;
   const iportfolio = CAREERS.find(
-    (career) => career.company === 'iportfolio'
+    career => career.company === 'iportfolio'
   ) as Career;
 
   const totalCareerDuration = (() => {
     let result = 0;
-    CAREERS.forEach((career) => {
+    CAREERS.forEach(career => {
       const months = career.end.diff(career.start, 'month');
       result += months + 1;
     });
@@ -377,4 +379,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default Page;

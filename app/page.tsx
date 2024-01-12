@@ -1,3 +1,5 @@
+'use client';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -101,7 +103,7 @@ const UDEMY_COURSES: { thumbnail: string }[] = [
   },
 ];
 
-const Home = () => {
+const Page = () => {
   return (
     <>
       {/* Profile section */}
@@ -110,7 +112,7 @@ const Home = () => {
         <Typography
           variant="h6"
           fontWeight={500}
-          color={(theme) => theme.palette.primary.main}
+          color={theme => theme.palette.primary.main}
           textAlign="center"
           mb={1}
         >
@@ -176,7 +178,7 @@ const Home = () => {
         </Typography>
 
         <Stack direction="row" flexWrap="wrap" justifyContent="center">
-          {UDEMY_COURSES.map((course) => (
+          {UDEMY_COURSES.map(course => (
             <Image
               key={course.thumbnail}
               src={course.thumbnail}
@@ -191,4 +193,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Page;

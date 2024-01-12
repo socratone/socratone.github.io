@@ -1,3 +1,5 @@
+'use client';
+
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { TypographyProps } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -7,21 +9,12 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
-import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
 import React from 'react';
 
 /** resume-pdf script를 돌렸을 때에만 phone이 있다. */
 const phone = process.env.NEXT_PUBLIC_PHONE;
-
-/** archive된 resume는 production build시 포함시키지 않는다. dev에서만 보인다. */
-export const getStaticProps: GetStaticProps = async () => {
-  if (process.env.NODE_ENV === 'production') return { notFound: true };
-  return {
-    props: {},
-  };
-};
 
 const SkillImage: React.FC<{ skills: string[] }> = ({ skills }) => {
   return (
@@ -60,7 +53,10 @@ const DateRangeTypography: React.FC<Pick<TypographyProps, 'children'>> = ({
   );
 };
 
-const Resume = () => {
+const Page = () => {
+  /** archive된 resume는 production build시 포함시키지 않는다. dev에서만 보인다. */
+  if (process.env.NODE_ENV === 'production') return null;
+
   return (
     <Container maxWidth="lg" sx={{ py: 3 }}>
       <Box mb={2}>
@@ -443,4 +439,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default Page;
