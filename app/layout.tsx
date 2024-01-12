@@ -1,3 +1,5 @@
+import { GoogleTagManager } from '@next/third-parties/google';
+import { isProduction } from 'helpers/env';
 import { Metadata } from 'next';
 
 import Providers from './providers';
@@ -33,6 +35,7 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>{children}</Providers>
+        {isProduction ? <GoogleTagManager gtmId="GTM-K9X3KL2C" /> : null}
       </body>
     </html>
   );
