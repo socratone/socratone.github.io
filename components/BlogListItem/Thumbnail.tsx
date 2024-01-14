@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import { BlogThumbnail } from 'constants/blog';
+import apacheImage from 'public/images/blog/apache.webp';
 import chromeImage from 'public/images/blog/chrome.webp';
 import dockerImage from 'public/images/blog/docker.webp';
 import linuxImage from 'public/images/blog/linux.webp';
@@ -63,7 +64,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
     case BlogThumbnail.NextJs:
       return (
         <ThumbnailContainer>
-          <Typography fontSize="4rem">
+          <Typography fontSize="4rem" display="flex" alignItems="center">
             <NextJsIcon />
           </Typography>
         </ThumbnailContainer>
@@ -86,6 +87,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
       return (
         <ThumbnailContainer>
           <ThumbnailImage src={webpackImage} width={300} height={339} />
+        </ThumbnailContainer>
+      );
+
+    case BlogThumbnail.Apache:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={apacheImage} width={300} height={300} />
         </ThumbnailContainer>
       );
   }
