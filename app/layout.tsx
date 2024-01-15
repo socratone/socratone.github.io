@@ -1,4 +1,5 @@
 import { GoogleTagManager } from '@next/third-parties/google';
+import GoogleAnalytics from 'components/GoogleAnalytics';
 import { isProduction } from 'helpers/env';
 import { Metadata } from 'next';
 
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {isProduction ? <GoogleAnalytics /> : null}
         {/* pretendard font */}
         <link
           rel="stylesheet"
