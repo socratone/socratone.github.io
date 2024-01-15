@@ -2,10 +2,10 @@
 // https://highlightjs.org/examples
 import 'highlight.js/styles/atom-one-light.css';
 
+import { getBlogPaths } from 'helpers/blog';
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import { Metadata } from 'next';
 import { cache } from 'react';
-import { getFileNames } from 'utils/file';
 import { addColorToCode, addCopyButtonToCode } from 'utils/html-code';
 import {
   addHashLinkToHeading,
@@ -23,17 +23,7 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  const fileNames = getFileNames('content/blogs');
-  const fileNamesWithoutExtension = fileNames.map(fileName => {
-    return fileName.substring(0, fileName.length - 3);
-  });
-  const paths = fileNamesWithoutExtension.map(fileName => {
-    return {
-      name: fileName,
-    };
-  });
-
-  return paths;
+  return getBlogPaths();
 }
 
 const getMarkdownData = cache(async (name: string) => {
