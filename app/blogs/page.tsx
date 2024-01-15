@@ -1,10 +1,19 @@
+import { BASE_URL } from 'constants/url';
 import dayjs from 'dayjs';
 import { validateMarkdownMetadata } from 'helpers/markdown';
+import { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
 
 import BlogsPage from './blogs-page';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: '/blogs',
+  },
+};
 
 const getBlogs = cache(async () => {
   const fileNames = getFileNames('content/blogs');

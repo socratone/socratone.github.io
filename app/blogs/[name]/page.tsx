@@ -2,8 +2,8 @@
 // https://highlightjs.org/examples
 import 'highlight.js/styles/atom-one-light.css';
 
-import { getBlogPaths } from 'helpers/blog';
 import { validateMarkdownMetadata } from 'helpers/markdown';
+import { getBlogPaths } from 'helpers/path';
 import { Metadata } from 'next';
 import { cache } from 'react';
 import { addColorToCode, addCopyButtonToCode } from 'utils/html-code';
@@ -21,6 +21,21 @@ type PageProps = {
     name: string;
   };
 };
+
+export async function generateMetadata({
+  params: { name },
+}: PageProps): Promise<Metadata> {
+  const { metadata } = await getMarkdownData(name);
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return getBlogPaths();
@@ -45,21 +60,6 @@ const getMarkdownData = cache(async (name: string) => {
     tableOfContents,
   };
 });
-
-export async function generateMetadata({
-  params: { name },
-}: PageProps): Promise<Metadata> {
-  const { metadata } = await getMarkdownData(name);
-
-  return {
-    title: metadata.title,
-    description: metadata.description,
-    openGraph: {
-      title: metadata.title,
-      description: metadata.description,
-    },
-  };
-}
 
 const Page = async ({ params: { name } }: PageProps) => {
   const { htmlContent, tableOfContents } = await getMarkdownData(name);
