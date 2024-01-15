@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
 import { BlogThumbnail } from 'constants/blog';
 import apacheImage from 'public/images/blog/apache.webp';
+import awsImage from 'public/images/blog/aws.webp';
 import chromeImage from 'public/images/blog/chrome.webp';
 import dockerImage from 'public/images/blog/docker.webp';
 import linuxImage from 'public/images/blog/linux.webp';
@@ -94,6 +95,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
       return (
         <ThumbnailContainer>
           <ThumbnailImage src={apacheImage} width={300} height={300} />
+        </ThumbnailContainer>
+      );
+
+    case BlogThumbnail.Aws:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={awsImage} width={300} height={180} />
         </ThumbnailContainer>
       );
   }

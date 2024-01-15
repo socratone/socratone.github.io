@@ -10,6 +10,7 @@ export enum BlogThumbnail {
   Sql = 'sql',
   Webpack = 'webpack',
   Apache = 'apache',
+  Aws = 'aws',
 }
 
 export enum BlogTag {
@@ -25,4 +26,5 @@ export enum BlogTag {
   Webpack = 'webpack',
   BrowserApi = 'browser-api',
   Apache = 'apache',
+  Aws = 'aws',
 }
