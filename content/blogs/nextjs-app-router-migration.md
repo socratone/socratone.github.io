@@ -84,7 +84,7 @@ export default async function Dashboard() {
 
   return (
     <ul>
-      {projects.map((project) => (
+      {projects.map(project => (
         <li key={project.id}>{project.name}</li>
       ))}
     </ul>
@@ -188,3 +188,19 @@ export default function ExampleClientComponent() {
   // ...
 }
 ```
+
+### Entire page deopted into client-side rendering 에러
+
+`useSearchParams`를 잘못 쓰면 생기는 에러로 빌드할 때 터미널에서 warning으로 보여준다.
+
+https://nextjs.org/docs/messages/deopted-into-client-rendering
+
+`useSearchParams`를 쓰는 컴포넌트를 아래처럼 `<Suspense>`로 감싸줘야 한다.
+
+```javascript
+<Suspense fallback={<Fallback />}>
+  <ComponentWithSearchParams />
+</Suspense>
+```
+
+페이지의 모든 내용이 client side에서 렌더링 되면 SEO에 좋지 않기 때문에 `useSearchParams`를 쓸 때 유의해야 한다.
