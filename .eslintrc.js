@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['next/core-web-vitals'],
+  extends: ['next/core-web-vitals', 'eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   /**
    * '@typescript-eslint/parser' tells ESLint to use the @typescript-eslint/parser package you installed to parse your source files.
    * This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
