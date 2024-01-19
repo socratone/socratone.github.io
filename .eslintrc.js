@@ -37,8 +37,6 @@ module.exports = {
     'no-var': 'error',
     /* https://eslint.org/docs/latest/rules/prefer-const */
     'prefer-const': 'error',
-    /* https://eslint.org/docs/latest/rules/prefer-template */
-    'prefer-template': 'error',
     /* https://eslint.org/docs/latest/rules/yoda */
     yoda: 'error',
 
