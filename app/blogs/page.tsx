@@ -1,7 +1,7 @@
 import { BASE_URL } from 'constants/url';
 import dayjs from 'dayjs';
 import { validateMarkdownMetadata } from 'helpers/markdown';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';

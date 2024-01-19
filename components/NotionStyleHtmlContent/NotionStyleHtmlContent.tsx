@@ -1,6 +1,7 @@
-import { styled, SxProps, Theme } from '@mui/material';
+import type { SxProps, Theme } from '@mui/material';
+import { styled } from '@mui/material';
 import Box from '@mui/material/Box';
-import { ElementType } from 'react';
+import type { ElementType } from 'react';
 
 import { CODE_BACKGROUND_COLOR } from './constants';
 

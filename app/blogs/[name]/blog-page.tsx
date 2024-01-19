@@ -1,25 +1,27 @@
 'use client';
 
-// color code style
-// https://highlightjs.org/examples
+/*
+ * color code style
+ * https://highlightjs.org/examples
+ */
 import 'highlight.js/styles/atom-one-light.css';
 
-import { SxProps } from '@mui/material';
+import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { Theme } from '@mui/system';
+import type { Theme } from '@mui/system';
 import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
 import TableOfContents from 'components/TableOfContents';
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useEffect } from 'react';
 import {
   addCopyButtonEvents,
   CODE_COPY_BUTTON_CLASS,
   removeCopyButtonEvents,
 } from 'utils/html-code';
-import { TableOfContent } from 'utils/markdown';
+import type { TableOfContent } from 'utils/markdown';
 
 type BlogPageProps = {
   htmlContent: string;

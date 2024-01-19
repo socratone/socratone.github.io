@@ -1,10 +1,11 @@
 import { Chip, styled } from '@mui/material';
 import Box from '@mui/material/Box';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
+import type { OverridableComponent } from '@mui/material/OverridableComponent';
 import Stack from '@mui/material/Stack';
-import Typography, { TypographyTypeMap } from '@mui/material/Typography';
-import { BlogThumbnail } from 'constants/blog';
-import { Dayjs } from 'dayjs';
+import type { TypographyTypeMap } from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
+import type { BlogThumbnail } from 'constants/blog';
+import type { Dayjs } from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import profileImage from 'public/images/resume/profile.webp';

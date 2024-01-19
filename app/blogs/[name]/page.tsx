@@ -1,10 +1,12 @@
-// color code style
-// https://highlightjs.org/examples
+/*
+ * color code style
+ * https://highlightjs.org/examples
+ */
 import 'highlight.js/styles/atom-one-light.css';
 
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import { getBlogPaths } from 'helpers/path';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { cache } from 'react';
 import { addColorToCode, addCopyButtonToCode } from 'utils/html-code';
 import {

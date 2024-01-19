@@ -1,4 +1,4 @@
-import { PaletteOptions } from '@mui/material';
+import type { PaletteOptions } from '@mui/material';
 import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
 
 export const lightPalette: PaletteOptions = {

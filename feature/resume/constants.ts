@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { Career } from './types';
+import type { Career } from './types';
 
 /** resume-pdf script를 돌렸을 때에만 phone이 있다. */
 export const phone = process.env.NEXT_PUBLIC_PHONE;

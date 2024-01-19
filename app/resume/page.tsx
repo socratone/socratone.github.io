@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CAREERS, phone } from 'feature/resume/constants';
 import DateRangeTypography from 'feature/resume/DateRangeTypography';
-import { Career } from 'feature/resume/types';
+import type { Career } from 'feature/resume/types';
 import WorkExperienceSection from 'feature/resume/WorkExperienceSection';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';

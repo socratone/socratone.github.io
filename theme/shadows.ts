@@ -1,4 +1,4 @@
-import { Shadows } from '@mui/material';
+import type { Shadows } from '@mui/material';
 
 const PRIMARY_SHADOW = 'rgb(0 0 0 / 8%) 0 3px 10px 0';
 

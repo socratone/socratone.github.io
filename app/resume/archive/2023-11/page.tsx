@@ -1,7 +1,7 @@
 'use client';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { TypographyProps } from '@mui/material';
+import type { TypographyProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';

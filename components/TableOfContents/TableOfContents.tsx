@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 import { useEffect, useRef, useState } from 'react';
 import { convertHeadingContentToId } from 'utils/html-code';
-import { TableOfContent } from 'utils/markdown';
+import type { TableOfContent } from 'utils/markdown';
 
 type TableOfContentsProps = {
   contents: TableOfContent[];

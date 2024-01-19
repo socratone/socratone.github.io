@@ -1,7 +1,9 @@
 import nextJest from 'next/jest.js';
 
-// Setting up Jest (with the Rust Compiler)
-// https://nextjs.org/docs/pages/building-your-application/optimizing/testing#setting-up-jest-with-the-rust-compiler
+/*
+ * Setting up Jest (with the Rust Compiler)
+ * https://nextjs.org/docs/pages/building-your-application/optimizing/testing#setting-up-jest-with-the-rust-compiler
+ */
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment

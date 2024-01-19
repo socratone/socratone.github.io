@@ -1,6 +1,6 @@
 'use client';
 
-import { SxProps } from '@mui/material';
+import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Pagination from '@mui/material/Pagination';
@@ -8,18 +8,18 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import BlogListItem from 'components/BlogListItem';
 import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
-import { BlogTag } from 'constants/blog';
+import type { BlogTag } from 'constants/blog';
 import dayjs from 'dayjs';
 import { convertBlogTagForLabel } from 'helpers/blog';
-import { Metadata } from 'helpers/markdown';
-import { NextPage } from 'next';
+import type { Metadata } from 'helpers/markdown';
+import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 type PageProps = {
-  blogs: ({
+  blogs: (Metadata & {
     name: string;
-  } & Metadata)[];
+  })[];
   tags: BlogTag[];
 };
 

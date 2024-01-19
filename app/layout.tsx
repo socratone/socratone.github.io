@@ -1,7 +1,7 @@
 import { GoogleTagManager } from '@next/third-parties/google';
 import GoogleAnalytics from 'components/GoogleAnalytics';
 import { isProduction } from 'helpers/env';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import Providers from './providers';
 
@@ -19,8 +19,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
+  /*
+   * Layouts must accept a children prop.
+   * This will be populated with nested layouts or pages
+   */
   children,
 }: {
   children: React.ReactNode;

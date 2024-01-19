@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
-import { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import DateRangeText from 'feature/resume/DateRangeText';
 import DateRangeTypography from 'feature/resume/DateRangeTypography';
 import React from 'react';
