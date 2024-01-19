@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "resume-pdf": "env-cmd -f .env.resume next build && node ./scripts/resume-pdf.js",
+    "sitemap": "node ./scripts/sitemap.js",
     "test": "jest"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "puppeteer": "^21.3.6",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "xmlbuilder": "^15.1.1"
   }
 }
