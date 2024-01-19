@@ -56,6 +56,8 @@ module.exports = {
     '@typescript-eslint/array-type': 'error',
     /** https://typescript-eslint.io/rules/consistent-type-imports */
     '@typescript-eslint/consistent-type-imports': 'error',
+    /** https://typescript-eslint.io/rules/no-explicit-any */
+    "@typescript-eslint/no-explicit-any": "warn",
     /** https://typescript-eslint.io/rules/no-import-type-side-effects */
     '@typescript-eslint/no-import-type-side-effects': 'error',
     /** https://typescript-eslint.io/rules/no-inferrable-types */
