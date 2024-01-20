@@ -68,6 +68,7 @@ const rightGradientSx: SxProps = {
 
 const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
   const router = useRouter();
+
   const [tagParam, setTagParam] = useState<string | null>(null);
   const [pageParam, setPageParam] = useState<string | null>(null);
 
