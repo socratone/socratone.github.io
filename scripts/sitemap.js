@@ -1,9 +1,26 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
 const builder = require('xmlbuilder');
 
 const BASE_URL = 'https://socratone.github.io';
+
+/** 첫 번째 arg를 불러온다. */
+const getOutPathArgument = () => {
+  let outPath = null;
+
+  /** node something.js 뒤에 추가적으로 입력된 string을 가져온다. */
+  process.argv.forEach((value, index) => {
+    if (index === 2) {
+      outPath = value;
+    }
+  });
+
+  if (!outPath) {
+    throw new Error('Out path is not defined.');
+  }
+
+  return outPath;
+};
 
 const getFilesInFolder = folderPath => {
   return fs.readdirSync(folderPath);
@@ -41,7 +58,7 @@ const getCurrentDate = () => {
   return formattedDate;
 };
 
-const createSiteMapXml = urls => {
+const createSiteMapXml = (urls, outPath) => {
   const currentDate = getCurrentDate();
 
   const root = builder.create({
@@ -62,7 +79,7 @@ const createSiteMapXml = urls => {
 
   const xml = root.end({ pretty: true });
 
-  const filePath = '/public/sitemap.xml';
+  const filePath = `${outPath}/sitemap.xml`;
   const fullPath = path.join(process.cwd(), filePath);
 
   fs.writeFileSync(fullPath, xml, 'utf-8');
@@ -76,7 +93,9 @@ const getAdditionalUrls = () => {
 const main = () => {
   const urls = [...getBlogUrls(), ...getAdditionalUrls()];
 
-  createSiteMapXml(urls);
+  const outPath = getOutPathArgument();
+  createSiteMapXml(urls, outPath);
+  console.log('sitemap.xml was created.');
 };
 
 main();

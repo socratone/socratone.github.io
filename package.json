@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "resume-pdf": "env-cmd -f .env.resume next build && node ./scripts/resume-pdf.js",
-    "sitemap": "node ./scripts/sitemap.js",
+    "sitemap": "node ./scripts/sitemap.js ./out",
     "test": "jest"
   },
   "dependencies": {
