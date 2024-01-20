@@ -1,10 +1,10 @@
 {
-  // eslint에 따라 auto fix
+  // Run Code Actions for the editor on save.
   "editor.codeActionsOnSave": {
-    "source.fixAll": false,
-    "source.fixAll.eslint": true,
-    "source.fixAll.tslint": false,
-    "source.fixAll.stylelint": false
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.tslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "editor.formatOnSave": true,
   "files.insertFinalNewline": true
