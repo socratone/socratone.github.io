@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import profileImage from 'public/images/resume/profile.webp';
 
-const UDEMY_COURSES: { thumbnail: string }[] = [
+const udemyCourses: { thumbnail: string }[] = [
   {
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1187016_51b3.jpg',
   },
@@ -178,7 +178,7 @@ const Page = () => {
         </Typography>
 
         <Stack direction="row" flexWrap="wrap" justifyContent="center">
-          {UDEMY_COURSES.map(course => (
+          {udemyCourses.map(course => (
             <Image
               key={course.thumbnail}
               src={course.thumbnail}
