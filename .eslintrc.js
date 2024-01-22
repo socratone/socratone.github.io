@@ -1,5 +1,22 @@
+/**
+ * The following dependencies are required.
+ *
+ * devDependencies : {
+ *   "@typescript-eslint/eslint-plugin": "^6.19.0",
+ *   "@typescript-eslint/parser": "^6.19.0",
+ *   "eslint": "^8",
+ *   "eslint-config-next": "^14.0.4",
+ *   "eslint-plugin-simple-import-sort": "^10.0.0",
+ *   "typescript": "5.0.4",
+ * }
+ */
+
 module.exports = {
-  extends: ['next/core-web-vitals', 'eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: [
+    'next/core-web-vitals',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   /**
    * '@typescript-eslint/parser' tells ESLint to use the @typescript-eslint/parser package you installed to parse your source files.
    * This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScript.
@@ -55,7 +72,7 @@ module.exports = {
     /** https://typescript-eslint.io/rules/consistent-type-imports */
     '@typescript-eslint/consistent-type-imports': 'error',
     /** https://typescript-eslint.io/rules/no-explicit-any */
-    "@typescript-eslint/no-explicit-any": "warn",
+    '@typescript-eslint/no-explicit-any': 'warn',
     /** https://typescript-eslint.io/rules/no-import-type-side-effects */
     '@typescript-eslint/no-import-type-side-effects': 'error',
     /** https://typescript-eslint.io/rules/no-inferrable-types */
