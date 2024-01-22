@@ -18,6 +18,12 @@
     "plugins": [
       {
         "name": "next"
+      },
+      {
+        "name": "@styled/typescript-styled-plugin",
+        "lint": {
+          "validProperties": ["container"]
+        }
       }
     ]
   },
