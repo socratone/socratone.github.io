@@ -109,6 +109,7 @@ const Page = () => {
 
       <Container component="section" sx={{ py: 8 }}>
         <Typography
+          component="p"
           variant="h6"
           fontWeight={500}
           color={theme => theme.palette.primary.main}
@@ -118,7 +119,7 @@ const Page = () => {
           안녕하세요,
         </Typography>
         <Typography
-          component="h2"
+          component="h1"
           color="text.primary"
           variant="h4"
           fontWeight={600}
