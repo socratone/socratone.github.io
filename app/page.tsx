@@ -5,7 +5,6 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-import profileImage from 'public/images/resume/profile.webp';
 
 const udemyCourses: { thumbnail: string }[] = [
   {
@@ -152,13 +151,17 @@ const Page = () => {
         </Typography>
         <Box
           position="relative"
-          maxWidth={300}
+          maxWidth={230}
           mx="auto"
           sx={{
             aspectRatio: '1 / 1',
           }}
         >
-          <Image alt="profile" src={profileImage} fill />
+          <Image
+            alt="Socratone"
+            src="https://avatars.githubusercontent.com/u/59814215"
+            fill
+          />
         </Box>
       </Container>
 
