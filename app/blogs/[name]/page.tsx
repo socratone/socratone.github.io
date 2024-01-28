@@ -35,6 +35,9 @@ export async function generateMetadata({
     openGraph: {
       title: metadata.title,
       description: metadata.description,
+      type: 'website',
+      siteName: 'Socratone',
+      images: '/images/resume/profile.webp',
     },
   };
 }
