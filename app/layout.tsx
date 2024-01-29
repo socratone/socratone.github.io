@@ -31,10 +31,14 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         {isProduction ? <GoogleAnalytics /> : null}
+
         {/* pretendard font */}
+        {/* https://github.com/orioncactus/pretendard */}
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css"
+          as="style"
+          crossOrigin=""
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
       </head>
       <body>
