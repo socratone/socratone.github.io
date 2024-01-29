@@ -1,15 +1,15 @@
 import { Typography } from '@mui/material';
 import { BlogThumbnail } from 'constants/blog';
-import apacheImage from 'public/images/blog/apache.webp';
-import awsImage from 'public/images/blog/aws.webp';
-import chromeImage from 'public/images/blog/chrome.webp';
-import dockerImage from 'public/images/blog/docker.webp';
-import linuxImage from 'public/images/blog/linux.webp';
-import mysqlImage from 'public/images/blog/mysql.webp';
-import npmImage from 'public/images/blog/npm.webp';
-import pythonImage from 'public/images/blog/python.webp';
-import webpackImage from 'public/images/blog/webpack.webp';
 
+import apacheImage from './images/apache.webp';
+import awsImage from './images/aws.webp';
+import chromeImage from './images/chrome.webp';
+import dockerImage from './images/docker.webp';
+import linuxImage from './images/linux.webp';
+import mysqlImage from './images/mysql.webp';
+import npmImage from './images/npm.webp';
+import pythonImage from './images/python.webp';
+import webpackImage from './images/webpack.webp';
 import NextJsIcon from './NextJsIcon';
 import ThumbnailContainer from './ThumbnailContainer';
 import ThumbnailImage from './ThumbnailImage';
