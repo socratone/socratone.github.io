@@ -8,8 +8,8 @@ import type { BlogThumbnail } from 'constants/blog';
 import type { Dayjs } from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import profileImage from 'public/images/resume/profile.webp';
 
+import profileImage from './profile-40x40.webp';
 import Thumbnail from './Thumbnail';
 
 const StyledStack = styled(Stack)`
