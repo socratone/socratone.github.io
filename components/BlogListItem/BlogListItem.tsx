@@ -9,7 +9,7 @@ import type { Dayjs } from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import profileImage from './profile-40x40.webp';
+import profileImage from './images/profile-40x40.webp';
 import Thumbnail from './Thumbnail';
 
 const StyledStack = styled(Stack)`
