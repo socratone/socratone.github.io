@@ -2,7 +2,7 @@
 
 import 'styles/globals.css';
 
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
@@ -52,6 +52,7 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
     // https://mui.com/material-ui/guides/nextjs/#app-router
     <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         {isGlobalHeader ? (
           <GlobalHeader
             logo={
