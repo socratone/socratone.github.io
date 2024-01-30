@@ -5,6 +5,7 @@ import 'styles/globals.css';
 import { createTheme, ThemeProvider } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import GlobalHeader from 'components/GlobalHeader';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -48,33 +49,36 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
   );
 
   return (
-    <ThemeProvider theme={theme}>
-      {isGlobalHeader ? (
-        <GlobalHeader
-          logo={
-            <Box
-              px={1}
-              ml={-1}
-              height="100%"
-              display="flex"
-              alignItems="center"
-            >
-              <Image src={logoImage} alt="s" width={25} height={25} />
-            </Box>
-          }
-          items={[{ label: 'Blogs', href: '/blogs' }]}
-          backgroundColor={theme.palette.background.default}
-          borderBottom
-        />
-      ) : null}
-      {isContainer ? (
-        <Container component="main" sx={{ py: 2 }}>
-          {children}
-        </Container>
-      ) : (
-        <Box component="main">{children}</Box>
-      )}
-    </ThemeProvider>
+    // https://mui.com/material-ui/guides/nextjs/#app-router
+    <AppRouterCacheProvider>
+      <ThemeProvider theme={theme}>
+        {isGlobalHeader ? (
+          <GlobalHeader
+            logo={
+              <Box
+                px={1}
+                ml={-1}
+                height="100%"
+                display="flex"
+                alignItems="center"
+              >
+                <Image src={logoImage} alt="s" width={25} height={25} />
+              </Box>
+            }
+            items={[{ label: 'Blogs', href: '/blogs' }]}
+            backgroundColor={theme.palette.background.default}
+            borderBottom
+          />
+        ) : null}
+        {isContainer ? (
+          <Container component="main" sx={{ py: 2 }}>
+            {children}
+          </Container>
+        ) : (
+          <Box component="main">{children}</Box>
+        )}
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 };
 
