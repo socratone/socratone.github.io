@@ -17,7 +17,6 @@ type GlobalHeaderProps = {
     href: string;
     label: string;
   }[];
-  backgroundColor?: string;
   borderBottom?: true;
 };
 
@@ -29,7 +28,6 @@ const StyledLink = styled(Link)`
 const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   logo,
   items,
-  backgroundColor,
   borderBottom,
 }) => {
   const { isScrollTop } = useIsScrollTop();
@@ -40,17 +38,19 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       sx={{
         position: 'sticky',
         top: 0,
-        zIndex: (theme) => theme.zIndex.appBar,
-        bgcolor: backgroundColor,
+        zIndex: theme => theme.zIndex.appBar,
+        /** 반투명 */
+        bgcolor: 'hsla(0, 0%, 100%, .8)',
+        backdropFilter: 'saturate(180%) blur(5px)',
         borderBottom: borderBottom && !isScrollTop ? 1 : 0,
-        borderColor: (theme) => theme.palette.divider,
+        borderColor: theme => theme.palette.divider,
       }}
     >
       <Container component="nav">
         <Stack direction="row">
           {logo ? <StyledLink href="/">{logo}</StyledLink> : null}
           <Stack direction="row" gap={2} height={GLOBAL_HEADER_HEIGHT}>
-            {items.map((item) => (
+            {items.map(item => (
               <HeaderLink key={item.href} href={item.href}>
                 {item.label}
               </HeaderLink>
@@ -60,7 +60,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
             <Link href="https://github.com/socratone" target="_blank">
               <IconButton aria-label="Github" sx={{ mr: -1 }}>
                 <GitHubIcon
-                  sx={{ color: (theme) => theme.palette.text.primary }}
+                  sx={{ color: theme => theme.palette.text.primary }}
                 />
               </IconButton>
             </Link>

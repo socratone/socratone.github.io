@@ -67,7 +67,6 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
               </Box>
             }
             items={[{ label: 'Blogs', href: '/blogs' }]}
-            backgroundColor={theme.palette.background.default}
             borderBottom
           />
         ) : null}
