@@ -95,7 +95,6 @@ const main = () => {
 
   const outPath = getOutPathArgument();
   createSiteMapXml(urls, outPath);
-  console.log('sitemap.xml was created.');
 };
 
 main();
