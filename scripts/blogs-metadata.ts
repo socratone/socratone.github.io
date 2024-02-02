@@ -2,7 +2,7 @@ import { getBlogPaths } from '../helpers/path';
 import path from 'path';
 import fs from 'fs';
 import { parseMarkdownFile } from '../utils/markdown';
-import { getFirstArgumentInNodeCli } from 'utils/node';
+import { getFirstArgumentInNodeCli } from '../utils/node';
 
 const main = async () => {
   const data: any = [];
