@@ -21,9 +21,7 @@ const useIsScrollTop = () => {
     };
   }, []);
 
-  return {
-    isScrollTop,
-  };
+  return isScrollTop;
 };
 
 export default useIsScrollTop;

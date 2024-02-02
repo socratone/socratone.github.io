@@ -134,7 +134,7 @@ const copyToClipboard = (text: string) => {
   return navigator.clipboard.writeText(text);
 };
 
-const copyCode: EventListener = (event) => {
+const copyCode: EventListener = event => {
   const buttonElement: HTMLButtonElement | undefined =
     event.currentTarget as any;
   const codeElement = buttonElement?.parentElement ?? undefined;
@@ -163,14 +163,14 @@ const copyCode: EventListener = (event) => {
 
 export const addCopyButtonEvents = () => {
   const buttons = document.querySelectorAll(`.${CODE_COPY_BUTTON_CLASS}`);
-  buttons.forEach((button) => {
+  buttons.forEach(button => {
     button.addEventListener('click', copyCode);
   });
 };
 
 export const removeCopyButtonEvents = () => {
   const buttons = document.querySelectorAll(`.${CODE_COPY_BUTTON_CLASS}`);
-  buttons.forEach((button) => {
+  buttons.forEach(button => {
     button.removeEventListener('click', copyCode);
   });
 };
