@@ -1,7 +1,7 @@
-const path = require('path');
-const puppeteer = require('puppeteer');
+import path from 'path';
+import puppeteer from 'puppeteer';
 
-(async () => {
+const main = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -21,4 +21,6 @@ const puppeteer = require('puppeteer');
   });
 
   await browser.close();
-})();
+};
+
+main();

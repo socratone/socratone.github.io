@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "blogs-metadata": "ts-node --project tsconfig.node.json ./scripts/blogs-metadata.ts ./generated",
-    "resume-pdf": "env-cmd -f .env.resume next build && node ./scripts/resume-pdf.js",
+    "resume-pdf": "env-cmd -f .env.resume next build && ts-node --project tsconfig.node.json ./scripts/resume-pdf.ts",
     "sitemap": "ts-node --project tsconfig.node.json ./scripts/sitemap.ts ./out",
     "test": "jest"
   },
