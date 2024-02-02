@@ -9,7 +9,7 @@
     "lint": "next lint",
     "blogs-metadata": "ts-node --project tsconfig.node.json ./scripts/blogs-metadata.ts ./generated",
     "resume-pdf": "env-cmd -f .env.resume next build && node ./scripts/resume-pdf.js",
-    "sitemap": "node ./scripts/sitemap.js ./out",
+    "sitemap": "ts-node --project tsconfig.node.json ./scripts/sitemap.ts ./out",
     "test": "jest"
   },
   "dependencies": {
