@@ -1,28 +1,12 @@
-const fs = require('fs');
-const path = require('path');
-const builder = require('xmlbuilder');
+import { getFirstArgumentInNodeCli } from '../utils/node';
+
+import fs from 'fs';
+import path from 'path';
+import builder from 'xmlbuilder';
 
 const BASE_URL = 'https://socratone.github.io';
 
-/** 첫 번째 arg를 불러온다. */
-const getOutPathArgument = () => {
-  let outPath = null;
-
-  /** node something.js 뒤에 추가적으로 입력된 string을 가져온다. */
-  process.argv.forEach((value, index) => {
-    if (index === 2) {
-      outPath = value;
-    }
-  });
-
-  if (!outPath) {
-    throw new Error('Out path is not defined.');
-  }
-
-  return outPath;
-};
-
-const getFilesInFolder = folderPath => {
+const getFilesInFolder = (folderPath: string) => {
   return fs.readdirSync(folderPath);
 };
 
@@ -41,7 +25,7 @@ const getBlogUrls = () => {
 };
 
 const getCurrentDate = () => {
-  const addZero = num => {
+  const addZero = (num: number) => {
     return num < 10 ? '0' + num : num;
   };
 
@@ -58,7 +42,7 @@ const getCurrentDate = () => {
   return formattedDate;
 };
 
-const createSiteMapXml = (urls, outPath) => {
+const createSiteMapXml = (urls: string[], outPath: string) => {
   const currentDate = getCurrentDate();
 
   const root = builder.create({
@@ -93,9 +77,8 @@ const getAdditionalUrls = () => {
 const main = () => {
   const urls = [...getBlogUrls(), ...getAdditionalUrls()];
 
-  const outPath = getOutPathArgument();
+  const outPath = getFirstArgumentInNodeCli();
   createSiteMapXml(urls, outPath);
-  console.log('sitemap.xml was created.');
 };
 
 main();

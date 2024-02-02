@@ -7,7 +7,7 @@ import { CODE_BACKGROUND_COLOR } from './constants';
 
 type NotionStyleHtmlContentProps = {
   html?: string;
-  component?: ElementType<any>;
+  component?: ElementType;
   sx?: SxProps<Theme>;
   children?: React.ReactNode;
 };

@@ -1,4 +1,4 @@
-import { getFileNames } from 'utils/file';
+import { getFileNames } from '../utils/file';
 
 export const getBlogPaths = async () => {
   const fileNames = getFileNames('content/blogs');
