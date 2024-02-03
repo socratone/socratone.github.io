@@ -16,6 +16,16 @@ createdAt: '2023-11-09'
 
 생성한 모든 이미지 보기
 
+### `docker build <Dockerfile 위치>`
+
+Dockerfile에서 설정한 대로 이미지를 빌드하는 명령어
+
+- `-t` 또는 `--tag`
+  - 태그 옵션을 넣어서 이름으로 구분할 수 있다.
+  - `docker build -t <태그이름> .`
+
+https://docs.docker.com/engine/reference/commandline/image_build/
+
 ### `docker ps`
 
 실행 중인 콘테이너 보기
@@ -26,20 +36,24 @@ createdAt: '2023-11-09'
 
 콘테이너 실행하기
 
-- `-d` 옵션을 붙이면 백그라운드에서 실행돼서 터미널을 계속 쓸 수 있다.
-- `--name` 옵션을 붙이면 콘테이너에 특정이름을 명명할 수 있다.
-- `-rm` 옵션을 붙이면 콘테이너를 멈출 때 콘테이너가 삭제된다.
+- `-p` 또는 `--publish`
+  - `docker run -p 80:3000`
+  - 80 포트로 접근하면 3000 포트로 연결된다.
+  - `http://localhost:80`으로 접근했을 때 콘테이너 내부에서 3000 포트로 실행 중인 서버가 있다면 여기로 요청이 간다.
+- `-d`
+  - 백그라운드에서 실행돼서 터미널을 계속 쓸 수 있다.
+- `--name`
+  - 옵션을 붙이면 콘테이너에 특정이름을 명명할 수 있다.
+- `-rm`
+  - 콘테이너를 멈출 때 자동으로 콘테이너를 삭제한다.
+
+https://docs.docker.com/engine/reference/commandline/container_run/
 
 ### `docker logs <콘테이너아이디>`
 
 로그를 보여준다.
 
 - `-f` 옵션을 붙이면 서버를 실행한 것처럼 터미널이 log를 왓칭하는 상태로 변한다.
-
-### `docker run -d -p 80:3000 -—name <콘테이너이름> <이미지이름>`
-
-80포트로 접근할 수 있는 콘테이너를 실행한다.\
-모든 콘테이너는 3000 포트로 연결된다.
 
 ### `docker exec`
 
