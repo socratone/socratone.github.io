@@ -1,19 +1,21 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 const useOpenShortcutListener = (callback: () => void) => {
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'k' && event.metaKey) {
-      callback();
-    }
-  };
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'k' && event.metaKey) {
+        callback();
+      }
+    },
+    [callback]
+  );
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [handleKeyDown]);
 };
 
 export default useOpenShortcutListener;

@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
-import React, { lazy, useState } from 'react';
+import React, { lazy, useCallback, useState } from 'react';
 
 import { GLOBAL_HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
@@ -38,17 +38,20 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
 
   const [searchDialogOpen, setSearchDialogOpen] = useState(false);
 
-  useOpenShortcutListener(() => {
+  const handleOpenShortcut = useCallback(() => {
     setSearchDialogOpen(true);
-  });
+  }, []);
+
+  useOpenShortcutListener(handleOpenShortcut);
 
   const handleSearchButtonClick = () => {
     setSearchDialogOpen(true);
   };
 
-  const handleSearchClose = () => {
+  /** 'useEnterKeyListener'의 useEffect dependency */
+  const handleSearchClose = useCallback(() => {
     setSearchDialogOpen(false);
-  };
+  }, []);
 
   return (
     <>

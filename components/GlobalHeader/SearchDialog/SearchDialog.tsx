@@ -85,6 +85,7 @@ const SearchDialog: React.FC<SearchDialogProps> = ({ open, onClose }) => {
         />
         <Divider />
         <SearchResultList
+          enabled={open}
           searchValue={debouncedValue}
           searched={debouncedValue.length !== 0}
           items={list}
