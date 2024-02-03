@@ -36,8 +36,6 @@ module.exports = {
   rules: {
     /** https://eslint.org/docs/latest/rules/eqeqeq */
     eqeqeq: ['error', 'always'],
-    /* https://eslint.org/docs/latest/rules/multiline-comment-style */
-    'multiline-comment-style': ['error', 'starred-block'],
     /* https://eslint.org/docs/latest/rules/no-console */
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     /* https://eslint.org/docs/latest/rules/no-lonely-if */
