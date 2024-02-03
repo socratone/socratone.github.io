@@ -162,6 +162,7 @@ const Page = () => {
             alt="Socratone"
             src="https://avatars.githubusercontent.com/u/59814215"
             fill
+            priority
           />
         </Box>
       </Container>
