@@ -63,7 +63,7 @@ const SearchDialog: React.FC<SearchDialogProps> = ({ open, onClose }) => {
         elevation: 1,
       }}
     >
-      <DialogContent sx={{ padding: 0 }}>
+      <DialogContent sx={{ padding: 0, minHeight: 265 }}>
         <InputBase
           inputRef={input => input && input.focus()}
           type="text"
