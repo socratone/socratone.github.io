@@ -43,7 +43,7 @@ https://docs.docker.com/engine/reference/commandline/image_build/
 - `-d`
   - 백그라운드에서 실행돼서 터미널을 계속 쓸 수 있다.
 - `--name`
-  - 옵션을 붙이면 콘테이너에 특정이름을 명명할 수 있다.
+  - 콘테이너에 이름을 붙일 수 있다.
 - `-rm`
   - 콘테이너를 멈출 때 자동으로 콘테이너를 삭제한다.
 
