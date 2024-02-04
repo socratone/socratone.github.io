@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 import React, { lazy, useCallback, useState } from 'react';
 
-import { GLOBAL_HEADER_HEIGHT } from './constants';
+import { HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
 import useIsScrollTop from './hooks/useIsScrollTop';
 import useOpenShortcutListener from './hooks/useOpenShortcutListener';
@@ -15,7 +15,7 @@ import SearchButton from './SearchDialog/SearchButton';
 
 const SearchDialog = lazy(() => import('./SearchDialog/SearchDialog'));
 
-type GlobalHeaderProps = {
+type HeaderProps = {
   logo?: React.ReactNode;
   items: {
     href: string;
@@ -29,11 +29,7 @@ const StyledLink = styled(Link)`
   align-items: center;
 `;
 
-const GlobalHeader: React.FC<GlobalHeaderProps> = ({
-  logo,
-  items,
-  borderBottom,
-}) => {
+const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
   const isScrollTop = useIsScrollTop();
 
   const [searchDialogOpen, setSearchDialogOpen] = useState(false);
@@ -73,7 +69,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
         <Container component="nav">
           <Stack direction="row">
             {logo ? <StyledLink href="/">{logo}</StyledLink> : null}
-            <Stack direction="row" gap={2} height={GLOBAL_HEADER_HEIGHT}>
+            <Stack direction="row" gap={2} height={HEADER_HEIGHT}>
               {items.map(item => (
                 <HeaderLink key={item.href} href={item.href}>
                   {item.label}
@@ -97,4 +93,4 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   );
 };
 
-export default GlobalHeader;
+export default Header;

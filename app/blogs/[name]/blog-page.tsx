@@ -10,7 +10,7 @@ import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import type { Theme } from '@mui/system';
-import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
+import { HEADER_HEIGHT } from 'components/Header/constants';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
 import { CODE_BACKGROUND_COLOR } from 'components/NotionStyleHtmlContent/constants';
 import TableOfContents from 'components/TableOfContents';
@@ -56,7 +56,7 @@ const firstHeadingSx = {
 
 const headingScrollOffsetSx = {
   '.heading:target': {
-    scrollMarginTop: GLOBAL_HEADER_HEIGHT,
+    scrollMarginTop: HEADER_HEIGHT,
   },
 };
 
@@ -106,8 +106,8 @@ const BlogPage: NextPage<BlogPageProps> = ({
           <Box
             display={{ xs: 'none', md: 'none', lg: 'block' }}
             position="sticky"
-            top={GLOBAL_HEADER_HEIGHT}
-            height={`calc(100vh - ${GLOBAL_HEADER_HEIGHT}px)`}
+            top={HEADER_HEIGHT}
+            height={`calc(100vh - ${HEADER_HEIGHT}px)`}
             sx={{ overflowY: 'auto' }}
           >
             <Box py={VERTICAL_CONTENT_PADDING}>

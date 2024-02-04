@@ -7,7 +7,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import BlogListItem from 'components/BlogListItem';
-import { GLOBAL_HEADER_HEIGHT } from 'components/GlobalHeader/constants';
+import { HEADER_HEIGHT } from 'components/Header/constants';
 import RouteChangeListener from 'components/RouteChangeListener';
 import type { BlogTag } from 'constants/blog';
 import dayjs from 'dayjs';
@@ -159,10 +159,7 @@ const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
           flexShrink={0}
           display={{ xs: 'none', md: 'none', lg: 'block' }}
         >
-          <Stack
-            position="sticky"
-            top={GLOBAL_HEADER_HEIGHT + CONTAINER_PADDING_TOP}
-          >
+          <Stack position="sticky" top={HEADER_HEIGHT + CONTAINER_PADDING_TOP}>
             <Link href="/blogs">
               <Typography
                 color={tagParam ? 'text.secondary' : 'text.primary'}

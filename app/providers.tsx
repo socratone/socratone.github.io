@@ -6,7 +6,7 @@ import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import GlobalHeader from 'components/GlobalHeader';
+import Header from 'components/Header';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import logoImage from 'public/images/logo.png';
@@ -27,7 +27,7 @@ const NONE_CONTAINER_PATHNAME_PATTERNS = ['^/$', '^/resume', '^/blogs/.+'];
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
   const pathname = usePathname();
 
-  const isGlobalHeader = !NONE_GLOBAL_HEADER_PATHNAMES.some(
+  const isHeader = !NONE_GLOBAL_HEADER_PATHNAMES.some(
     name => name === pathname
   );
 
@@ -53,8 +53,8 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
     <AppRouterCacheProvider>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {isGlobalHeader ? (
-          <GlobalHeader
+        {isHeader ? (
+          <Header
             logo={
               <Box
                 px={1}
