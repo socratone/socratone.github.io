@@ -1,9 +1,10 @@
-'use client';
-
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { HOME_DESCRIPTION, HOME_IMAGES, HOME_TITLE } from 'constants/seo';
+import { BASE_URL } from 'constants/url';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 const udemyCourses: { thumbnail: string }[] = [
@@ -101,6 +102,23 @@ const udemyCourses: { thumbnail: string }[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/480x270/1908196_f5b8_3.jpg',
   },
 ];
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    openGraph: {
+      title: HOME_TITLE,
+      description: HOME_DESCRIPTION,
+      type: 'website',
+      siteName: 'Socratone',
+      images: HOME_IMAGES,
+    },
+    alternates: {
+      canonical: BASE_URL,
+    },
+  };
+}
 
 const Page = () => {
   return (
