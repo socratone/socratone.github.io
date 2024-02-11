@@ -14,7 +14,6 @@ import { parseMarkdownFile } from 'utils/markdown';
 import BlogsPage from './blogs-page';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
   title: BLOGS_TITLE,
   description: BLOGS_DESCRIPTION,
   openGraph: {
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
     images: HOME_IMAGES,
   },
   alternates: {
-    canonical: '/blogs',
+    canonical: `${BASE_URL}/blogs`,
   },
 };
 

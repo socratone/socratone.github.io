@@ -4,7 +4,7 @@
  */
 import 'highlight.js/styles/atom-one-light.css';
 
-import { BASE_URL } from 'constants/seo';
+import { BASE_URL, HOME_IMAGES } from 'constants/seo';
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import { getBlogPaths } from 'helpers/path';
 import type { Metadata } from 'next';
@@ -31,7 +31,6 @@ export async function generateMetadata({
   const { metadata } = await getMarkdownData(name);
 
   return {
-    metadataBase: new URL(BASE_URL),
     title: metadata.title,
     description: metadata.description,
     openGraph: {
@@ -39,10 +38,10 @@ export async function generateMetadata({
       description: metadata.description,
       type: 'website',
       siteName: 'Socratone',
-      images: '/images/resume/profile.webp',
+      images: HOME_IMAGES,
     },
     alternates: {
-      canonical: `/blogs/${name}`,
+      canonical: `${BASE_URL}/blogs/${name}`,
     },
   };
 }
