@@ -12,7 +12,7 @@ export const HOME_DESCRIPTION = '프론트엔드 개발자 김기원 페이지�
  * - Image size should be 1200 X 630 pixels (px).
  * @see https://support.wix.com/en/article/wix-editor-recommended-ogimage-size
  */
-export const HOME_IMAGES = `${BASE_URL}/images/resume/profile.webp`;
+export const HOME_IMAGES = `${BASE_URL}/images/og.png`;
 
 /** Blogs page */
 
