@@ -1,6 +1,7 @@
 yarn.lock
 **.md
 **.css
+**.json
 /public/**
 /scripts/**
 **.d.ts

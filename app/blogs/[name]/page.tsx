@@ -4,6 +4,7 @@
  */
 import 'highlight.js/styles/atom-one-light.css';
 
+import { BASE_URL, HOME_IMAGES } from 'constants/seo';
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import { getBlogPaths } from 'helpers/path';
 import type { Metadata } from 'next';
@@ -37,7 +38,10 @@ export async function generateMetadata({
       description: metadata.description,
       type: 'website',
       siteName: 'Socratone',
-      images: '/images/resume/profile.webp',
+      images: HOME_IMAGES,
+    },
+    alternates: {
+      canonical: `${BASE_URL}/blogs/${name}`,
     },
   };
 }

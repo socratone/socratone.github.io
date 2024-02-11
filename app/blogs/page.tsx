@@ -1,4 +1,9 @@
-import { BASE_URL } from 'constants/url';
+import {
+  BASE_URL,
+  BLOGS_DESCRIPTION,
+  BLOGS_TITLE,
+  HOME_IMAGES,
+} from 'constants/seo';
 import dayjs from 'dayjs';
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';
@@ -9,9 +14,17 @@ import { parseMarkdownFile } from 'utils/markdown';
 import BlogsPage from './blogs-page';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  title: BLOGS_TITLE,
+  description: BLOGS_DESCRIPTION,
+  openGraph: {
+    title: BLOGS_TITLE,
+    description: BLOGS_DESCRIPTION,
+    type: 'website',
+    siteName: 'Socratone',
+    images: HOME_IMAGES,
+  },
   alternates: {
-    canonical: '/blogs',
+    canonical: `${BASE_URL}/blogs`,
   },
 };
 

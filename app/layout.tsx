@@ -1,20 +1,21 @@
 import { GoogleTagManager } from '@next/third-parties/google';
 import GoogleAnalytics from 'components/GoogleAnalytics';
+import { HOME_DESCRIPTION, HOME_IMAGES, HOME_TITLE } from 'constants/seo';
 import { isProduction } from 'helpers/env';
 import type { Metadata } from 'next';
 
 import Providers from './providers';
 
+/** Default metadata */
 export const metadata: Metadata = {
-  metadataBase: new URL('https://socratone.github.io'),
-  title: '소크라톤',
-  description: '프론트엔드 개발자 소크라톤 페이지',
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
   openGraph: {
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     type: 'website',
-    title: '소크라톤',
-    description: '프론트엔드 개발자 소크라톤 페이지',
     siteName: 'Socratone',
-    images: '/images/resume/profile.webp',
+    images: HOME_IMAGES,
   },
 };
 
