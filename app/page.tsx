@@ -2,8 +2,12 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { HOME_DESCRIPTION, HOME_IMAGES, HOME_TITLE } from 'constants/seo';
-import { BASE_URL } from 'constants/url';
+import {
+  BASE_URL,
+  HOME_DESCRIPTION,
+  HOME_IMAGES,
+  HOME_TITLE,
+} from 'constants/seo';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 

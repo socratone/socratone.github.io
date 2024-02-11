@@ -1,4 +1,4 @@
-import { BASE_URL } from 'constants/url';
+import { BASE_URL } from 'constants/seo';
 import dayjs from 'dayjs';
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';

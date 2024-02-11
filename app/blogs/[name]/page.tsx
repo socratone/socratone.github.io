@@ -4,7 +4,7 @@
  */
 import 'highlight.js/styles/atom-one-light.css';
 
-import { BASE_URL } from 'constants/url';
+import { BASE_URL } from 'constants/seo';
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import { getBlogPaths } from 'helpers/path';
 import type { Metadata } from 'next';
