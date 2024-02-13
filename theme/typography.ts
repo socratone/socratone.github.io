@@ -18,7 +18,7 @@ export const typography: TypographyOptions = {
   mh1: {
     fontSize: '1.875rem', // 30px
     lineHeight: 1.3,
-    fontWeight: 600,
+    fontWeight: 700,
     padding: '3px 2px',
     margin: '1px 0',
   },
