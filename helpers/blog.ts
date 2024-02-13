@@ -40,5 +40,8 @@ export const convertBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Aws:
       return 'AWS';
+
+    case BlogTag.Git:
+      return 'Git';
   }
 };

@@ -5,6 +5,7 @@ import apacheImage from './images/apache.webp';
 import awsImage from './images/aws.webp';
 import chromeImage from './images/chrome.webp';
 import dockerImage from './images/docker.webp';
+import gitImage from './images/git.webp';
 import linuxImage from './images/linux.webp';
 import mysqlImage from './images/mysql.webp';
 import npmImage from './images/npm.webp';
@@ -102,6 +103,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
       return (
         <ThumbnailContainer>
           <ThumbnailImage src={awsImage} width={300} height={180} />
+        </ThumbnailContainer>
+      );
+
+    case BlogThumbnail.Git:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={gitImage} width={88} height={88} />
         </ThumbnailContainer>
       );
   }

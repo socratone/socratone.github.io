@@ -11,6 +11,7 @@ export enum BlogThumbnail {
   Webpack = 'webpack',
   Apache = 'apache',
   Aws = 'aws',
+  Git = 'git',
 }
 
 export enum BlogTag {
@@ -27,4 +28,5 @@ export enum BlogTag {
   BrowserApi = 'browser-api',
   Apache = 'apache',
   Aws = 'aws',
+  Git = 'git',
 }
