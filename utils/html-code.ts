@@ -4,13 +4,15 @@ import json from 'highlight.js/lib/languages/json';
 import python from 'highlight.js/lib/languages/python';
 import sql from 'highlight.js/lib/languages/sql';
 import xml from 'highlight.js/lib/languages/xml';
+import yaml from 'highlight.js/lib/languages/yaml';
 
 type Language =
   | 'language-javascript'
   | 'language-json'
   | 'language-python'
   | 'language-sql'
-  | 'language-xml';
+  | 'language-xml'
+  | 'language-yaml';
 
 export const CODE_COPY_BUTTON_CLASS = 'code-copy-button';
 
@@ -82,6 +84,11 @@ const addColorTag = (code: string, language: Language) => {
 
     case 'language-xml':
       hljs.registerLanguage(language, xml);
+      editedCode = code.replaceAll('&lt;', `<`).replaceAll('&gt;', `>`);
+      break;
+
+    case 'language-yaml':
+      hljs.registerLanguage(language, yaml);
       editedCode = code.replaceAll('&lt;', `<`).replaceAll('&gt;', `>`);
       break;
 
