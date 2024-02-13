@@ -3,7 +3,8 @@ export const BASE_URL = 'https://socratone.github.io';
 /** Home page */
 
 export const HOME_TITLE = '김기원 프론트엔드 개발자';
-export const HOME_DESCRIPTION = '프론트엔드 개발자 김기원 페이지입니다.';
+export const HOME_DESCRIPTION =
+  '저는 어떻게 사는 게 올바른 일인지 궁금해 하고 인문학에 관심이 많습니다. 제가 만든 앱이 사람들에게 도움이 되길 바라는 마음으로 하루하루를 노력하며 지냅니다. 이 공간 또한 누군가에게 작은 보탬이라도 될 수 있으면 좋겠습니다.';
 
 /**
  * og:image:
