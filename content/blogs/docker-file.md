@@ -9,7 +9,7 @@ createdAt: '2024-02-17'
 # Dockerfile 설정 방법
 
 Dockerfile 설정을 통해 콘테이너에서 이용할 이미지를 정의할 수 있다.\
-`docker build` 명령어를 입력하면 이에 따라 이미지를 생성할 수 있다.\
+`docker build` 명령어를 입력하면 이에 따라 이미지가 생성된다.\
 Dockerfile의 문법과 예제를 통해 어떻게 사용하는지 이해해보자.
 
 ## 문법
