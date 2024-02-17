@@ -97,3 +97,8 @@ EXPOSE 80
 
 CMD ["node", "server.js"]
 ```
+
+- `COPY . /app`만을 사용하면 코드 한 줄만 바뀌어도 빌드할 때 캐싱을 하지 못하기 때문에
+- package.json은 앞쪽에 따로 복사하고 `npm install`을 실행한 뒤 `COPY . /app`을 넣는다.
+- 빌드할 때마다 node_modules를 다운 받도록 하지 않기 위해서다.
+- Dockerfile에서 자주 바뀌지 않는 것들을 위로, 자주 바뀌는 것들을 아래로 둬야 캐싱 등이 돼서 효율적이다.
