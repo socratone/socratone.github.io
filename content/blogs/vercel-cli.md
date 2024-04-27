@@ -1,12 +1,12 @@
 ---
-title: 'Vercel CLI 사용 방법'
+title: 'NextJS 프로젝트에서 Vercel CLI 사용 방법'
 description: 'vercel cli를 이용해서 vercel project를 배포하는 방법에 대해서 다룬다.'
 thumbnail: 'nextjs'
 tag: 'nextjs'
 createdAt: '2024-04-27'
 ---
 
-# Nextjs 프로젝트에서 Vercel CLI 사용 방법
+# NextJS 프로젝트에서 Vercel CLI 사용 방법
 
 vercel cli를 이용해서 vercel project를 배포하는 방법에 대해서 다룬다.\
 이를 이용해서 github이나 gitlab의 cicd에서 배포를 자동화 할 수 있다.
