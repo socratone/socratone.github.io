@@ -12,6 +12,7 @@ export enum BlogThumbnail {
   Apache = 'apache',
   Aws = 'aws',
   Git = 'git',
+  Typescript = 'typescript',
 }
 
 export enum BlogTag {
@@ -29,4 +30,5 @@ export enum BlogTag {
   Apache = 'apache',
   Aws = 'aws',
   Git = 'git',
+  Typescript = 'typescript',
 }
