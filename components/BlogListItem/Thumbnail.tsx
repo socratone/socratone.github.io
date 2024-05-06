@@ -10,6 +10,7 @@ import linuxImage from './images/linux.webp';
 import mysqlImage from './images/mysql.webp';
 import npmImage from './images/npm.webp';
 import pythonImage from './images/python.webp';
+import typescriptImage from './images/typescript.webp';
 import webpackImage from './images/webpack.webp';
 import NextJsIcon from './NextJsIcon';
 import ThumbnailContainer from './ThumbnailContainer';
@@ -110,6 +111,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
       return (
         <ThumbnailContainer>
           <ThumbnailImage src={gitImage} width={88} height={88} />
+        </ThumbnailContainer>
+      );
+
+    case BlogThumbnail.Typescript:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={typescriptImage} width={300} height={300} />
         </ThumbnailContainer>
       );
   }
