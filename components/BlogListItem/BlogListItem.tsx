@@ -12,13 +12,23 @@ import Link from 'next/link';
 import profileImage from './images/profile-40x40.webp';
 import Thumbnail from './Thumbnail';
 
-const StyledStack = styled(Stack)`
+const CONTAINER_NAME = 'blog-list-item-container';
+
+const StyledContainerStack = styled(Stack)`
+  container: ${CONTAINER_NAME} / inline-size;
+
   cursor: pointer;
   transition: background 150ms ease-out, border 150ms ease-out,
     transform 150ms ease-out;
 
   :hover {
     transform: translate3d(0, -3px, 0);
+  }
+`;
+
+const StyledThumbnailBox = styled(Box)`
+  @container ${CONTAINER_NAME} (max-width: 500px) {
+    display: none;
   }
 `;
 
@@ -59,7 +69,11 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
 }) => {
   return (
     <Link href={href}>
-      <StyledStack direction="row" justifyContent="space-between" gap={2}>
+      <StyledContainerStack
+        direction="row"
+        justifyContent="space-between"
+        gap={2}
+      >
         <Stack flexGrow={1} justifyContent="center" overflow="hidden" pr={1}>
           <Stack direction="row" alignItems="center" gap={0.5} mb={0.75}>
             <Image
@@ -100,10 +114,10 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
             <Chip label={tag} size="small" />
           </Stack>
         </Stack>
-        <Box display="flex" alignItems="center">
+        <StyledThumbnailBox display="flex" alignItems="center">
           <Thumbnail type={thumbnail} />
-        </Box>
-      </StyledStack>
+        </StyledThumbnailBox>
+      </StyledContainerStack>
     </Link>
   );
 };
