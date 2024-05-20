@@ -20,6 +20,9 @@ import React from 'react';
 import { convertMonthsToYearsAndMonths } from 'utils/date';
 
 const Page = () => {
+  /** archive된 resume는 production build시 포함시키지 않는다. dev에서만 보인다. */
+  if (process.env.NODE_ENV === 'production') return null;
+
   const elice = CAREERS.find(career => career.company === 'elice') as Career;
   const gymt = CAREERS.find(career => career.company === 'gymt') as Career;
   const iportfolio = CAREERS.find(
