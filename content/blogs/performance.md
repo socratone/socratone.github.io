@@ -88,6 +88,63 @@ https://pagespeed.web.dev
 
 ## 속도 개선 방법
 
+### Text Content 압축
+
+- network 탭에서 big requests row로 설정하면 size 칼럼에 압축된 사이즈와 원본 사이즈를 비교할 수 있다.
+- 동일한 경우 압축이 안 된 것이고 헤더 속성 중 Content-Encoding이 설정되지 않은 경우에도 그렇다.
+  - Content-Encoding은 `gzip`, `deflate`, `br` 중 하나로 지정되어 있어야 한다.\
+    https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Encoding#Directives
+- 이미지에는 잘 적용되지 않는다.
+- 적용 방법 예제
+
+```javascript
+const fs = require('fs');
+const compression = require('compression');
+
+app.use(compression());
+app.use(express.static('build'));
+```
+
+### 이미지 크기 조절
+
+- 빌드할 때에 자동으로 리사이즈 되도록
+- srcset을 이용해서 뷰포트나 기기에 맞는 이미지를 불러올 수 있도록
+- 요청 시 이미지 크기를 동적으로 조정할 수 있는 이미지 CDN 사용
+- 프로그램을 이용한 이미지 최적화
+
+https://developer.chrome.com/docs/devtools/lighthouse?hl=en#images
+
+### 렌더링 차단 리소스 제거
+
+- 브라우저가 페이지를 렌더링하기 위해서 필요한 js와 css 파일을 최소한으로 해야한다.
+- 이를 위해서 페이지 로드시 실행할 필요가 없는 코드를 줄인다.
+
+  - 라이트하우스에서 **Eliminate render-blocking resources** 항목을 참고한다.
+  - `cmd + shift + p` 를 눌러 show coverage를 선택한다.\
+    → coverage tab이 나타난다.
+  - reload를 하면 사용하고 있지 않은 코드가 몇 퍼센트인지, 어떤 코드인지를 확인할 수 있다.
+
+- 제거해도 상관없는지 확인하는 방법
+  - `cmd + shift + p` 를 눌러 show Network request blocking을 선택한다.\
+    → Network request blocking 탭이 나타난다.
+  - \+ 버튼을 클릭해서 차단할 리소스의 패턴을 입력한다.
+  - 리로드하면 network 탭에서 status가 `blocked:devtools` 가 된 것을 볼 수 있다.
+  - 이 상태에서 페이지 로딩에 문제가 없다면 지워도 상관없다는 의미다. 또는 lazy loading으로 처리
+
+https://developer.chrome.com/docs/devtools/lighthouse?hl=en#render
+
+### 메인 스레드의 작업을 줄이기
+
+- 성능 탭의 톱니바퀴 아이콘에서 아래와 같이 설정하여 성능이 느린 모바일을 흉내낸다.
+  - CPU: 6x slowdown
+  - Network: Slow 3G
+- reload 버튼 클릭
+  - network row와 main row를 보면서 어떤 부분에 문제가 있는지 파악한다.
+
+https://developer.chrome.com/docs/devtools/lighthouse?hl=en#main
+
+## 코어 웹바이탈별 속도 개선 방법
+
 ### 1. LCP
 
 거대한 resource를 최대한 빨리 받는 게 관건이다.
@@ -103,7 +160,7 @@ https://pagespeed.web.dev
 - 바로 보이는 이미지가 아닌 경우 `<img loading="lazy">`를 이용해서 첫 로딩 리소스를 줄일 수 있다.
 - `<script>`에 `async`나 `defer`를 붙여 blocking을 없앤다.
 
-### 2. FID
+### 2. FID (First Input Delay, 이전 core web vital)
 
 - 자바스크립트는 싱글 스레드이기 때문에 blocking이 생기지 않도록 태스크를 잘게 쪼개는 게 좋다.
   - 예를 들어 핵심 .js만 먼저 다운 받는다.
