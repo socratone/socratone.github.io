@@ -86,7 +86,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
               }}
             />
             <Typography variant="caption" fontWeight={600} color="text.primary">
-              Socratone
+              Kiwon Kim
             </Typography>
           </Stack>
           <EllipsisTypography

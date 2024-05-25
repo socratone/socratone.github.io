@@ -159,7 +159,7 @@ const HomePage = () => {
           }}
         >
           <Image
-            alt="Socratone"
+            alt="Kiwon Kim"
             src="https://avatars.githubusercontent.com/u/59814215"
             fill
             priority
