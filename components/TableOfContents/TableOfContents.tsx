@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { HEADER_HEIGHT } from 'components/Header/constants';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { convertHeadingContentToId } from 'utils/html-code';
 import type { TableOfContent } from 'utils/markdown';
 
@@ -28,7 +28,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({
 
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const observe = () => {
+  const observe = useCallback(() => {
     const viewportHeight = window.innerHeight;
 
     /** HEADER_HEIGHT만큼 top offset이 필요하다. */
@@ -54,15 +54,15 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({
     headings.forEach(heading => {
       observerRef.current?.observe(heading);
     });
-  };
+  }, [selectors]);
 
-  const unobserve = () => {
+  const unobserve = useCallback(() => {
     const headings = document.querySelectorAll(selectors);
     headings.forEach(heading => {
       observerRef.current?.unobserve(heading);
     });
     observerRef.current = null;
-  };
+  }, [selectors]);
 
   useEffect(() => {
     /** Initialize */
@@ -84,7 +84,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({
       unobserve();
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [observe, unobserve]);
 
   const handleClick = (contentId: string) => {
     setSelectedContentId(contentId);
