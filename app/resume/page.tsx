@@ -26,7 +26,7 @@ const CustomH2: React.FC<ElementProps> = ({ children }) => {
 
 const CustomH3: React.FC<ElementProps> = ({ children }) => {
   return (
-    <Typography component="h3" variant="mh3">
+    <Typography component="h3" variant="mh3" sx={{ fontSize: '1rem' }}>
       {children}
     </Typography>
   );
