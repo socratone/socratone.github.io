@@ -46,4 +46,13 @@ export const typography: TypographyOptions = {
     padding: '3px 2px',
     margin: '1px 0',
   },
+  // markdown a
+  ma: {
+    color: '#73716e',
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'solid',
+    textDecorationThickness: '1px',
+    textDecorationColor: '#c6c6c4',
+    textUnderlineOffset: '0.25rem' /* 4px */,
+  },
 };

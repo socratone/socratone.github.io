@@ -1,7 +1,8 @@
 'use client';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import type { MDXComponents } from 'mdx/types';
+import { typography } from 'theme/typography';
 
 import Content from './content.mdx';
 
@@ -9,7 +10,7 @@ type ElementProps = { children?: React.ReactNode };
 
 const CustomH1: React.FC<ElementProps> = ({ children }) => {
   return (
-    <Typography component="h1" variant="mh1">
+    <Typography component="h1" variant="mh2" fontWeight={700}>
       {children}
     </Typography>
   );
@@ -17,7 +18,7 @@ const CustomH1: React.FC<ElementProps> = ({ children }) => {
 
 const CustomH2: React.FC<ElementProps> = ({ children }) => {
   return (
-    <Typography component="h2" variant="mh2">
+    <Typography component="h2" variant="mh3">
       {children}
     </Typography>
   );
@@ -41,7 +42,21 @@ const CustomP: React.FC<ElementProps> = ({ children }) => {
 
 const CustomUl: React.FC<ElementProps> = ({ children }) => {
   return (
-    <Box component="ul" pl="1.375rem" py="3px" my="1px">
+    <Box component="ul" pl="1.375rem" py="3px" my="1px" lineHeight={1.8}>
+      {children}
+    </Box>
+  );
+};
+
+const CustomHr = () => {
+  return (
+    <Divider sx={{ my: 2, borderColor: theme => theme.palette.grey[300] }} />
+  );
+};
+
+const CustomStrong: React.FC<ElementProps> = ({ children }) => {
+  return (
+    <Box component="strong" fontWeight={600}>
       {children}
     </Box>
   );
@@ -53,8 +68,14 @@ const overrideComponents: MDXComponents = {
   h3: CustomH3,
   p: CustomP,
   ul: CustomUl,
+  hr: CustomHr,
+  strong: CustomStrong,
 };
 
 export default function Page() {
-  return <Content components={overrideComponents} />;
+  return (
+    <Box sx={{ a: { ...typography.ma } }}>
+      <Content components={overrideComponents} />
+    </Box>
+  );
 }

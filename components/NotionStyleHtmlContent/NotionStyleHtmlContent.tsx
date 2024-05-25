@@ -74,12 +74,17 @@ const StyledBox = styled(Box)`
   }
 
   a {
-    color: #73716e;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-thickness: 1px;
-    text-decoration-color: #c6c6c4;
-    text-underline-offset: 0.25rem; /* 4px */
+    color: ${({ theme }) => theme.typography.ma.color};
+    text-decoration-line: ${({ theme }) =>
+      theme.typography.ma.textDecorationLine};
+    text-decoration-style: ${({ theme }) =>
+      theme.typography.ma.textDecorationStyle};
+    text-decoration-thickness: ${({ theme }) =>
+      theme.typography.ma.textDecorationThickness};
+    text-decoration-color: ${({ theme }) =>
+      theme.typography.ma.textDecorationColor};
+    text-underline-offset: ${({ theme }) =>
+      theme.typography.ma.textUnderlineOffset};
   }
 
   img {
