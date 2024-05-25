@@ -72,11 +72,11 @@ createdAt: '2023-12-14'
 크롬의 개발자 도구에서 간단하게 쓸 수 있다.\
 크롬 익스텐션 등을 빼고 테스트하기 위해 시크릿 모드에서 실행시키는 게 좋다.
 
-### 2. Chrome UX Report
-
-### 3. Pagespeed insights
+### 2. Pagespeed insights
 
 https://pagespeed.web.dev
+
+### 3. Chrome UX Report
 
 ### 4. Web Vitals JS
 
