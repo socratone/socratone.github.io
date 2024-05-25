@@ -15,7 +15,7 @@ createdAt: '2024-01-10'
 ```javascript
 const observer = new IntersectionObserver(
   (entries, observer) => {
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
       // viewport에 보일 때
       if (entry.isIntersecting) {
         // backgroundColor를 바꾼다.
@@ -40,8 +40,8 @@ https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API
 
 ```javascript
 // IntersectionObserver 등록
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
     // element가 viewport 안으로 들어오면 active 클래스 추가
     if (entry.intersectionRatio > 0) {
       entry.target.classList.add('active');
@@ -56,7 +56,7 @@ const observer = new IntersectionObserver((entries) => {
 // 관찰 대상 element
 const boxElements = document.querySelectorAll('.box');
 // 관찰 시작
-boxElements.forEach((element) => {
+boxElements.forEach(element => {
   observer.observe(element);
 });
 ```
@@ -75,3 +75,26 @@ observer.unobserve(document.getElementById('elementToObserve'));
 ```
 
 https://developer.mozilla.org/ko/docs/Web/API/IntersectionObserver/unobserve#%EC%98%88%EC%A0%9C
+
+## rootMargin
+
+- css margin과 유사한 스펙
+- 반드시 px이나 %를 단위로 사용
+- root에 아무런 설정을 하지 않아서 뷰포트가 root인 경우 뷰포트 보다 좁은 영역에서 observing이 이뤄지게 하려면 아래처럼 음수를 사용한다.
+
+```javascript
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      // ...
+    });
+  },
+  {
+    // 뷰포트의 top에서부터 50px까지의 영역은 제외된다.
+    // 순서대로 top, right, bottom, left
+    rootMargin: '-50px 0px 0px 0px',
+  }
+);
+```
+
+https://heropy.blog/2019/10/27/intersection-observer/
