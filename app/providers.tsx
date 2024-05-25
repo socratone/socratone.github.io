@@ -9,7 +9,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import Header from 'components/Header';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import logoImage from 'public/images/logo.png';
+import logoImage from 'public/images/logo-50x50.webp';
 import { useMemo } from 'react';
 import { breakpoints } from 'theme/breakpoints';
 import { components } from 'theme/components';
