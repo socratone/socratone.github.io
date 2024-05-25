@@ -14,6 +14,7 @@ declare module '@mui/material/styles' {
     mh2: React.CSSProperties;
     mh3: React.CSSProperties;
     mp: React.CSSProperties;
+    ma: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
@@ -22,6 +23,7 @@ declare module '@mui/material/styles' {
     mh2?: React.CSSProperties;
     mh3?: React.CSSProperties;
     mp?: React.CSSProperties;
+    ma?: React.CSSProperties;
   }
 }
 
@@ -32,5 +34,6 @@ declare module '@mui/material/Typography' {
     mh2: true;
     mh3: true;
     mp: true;
+    ma: true;
   }
 }
