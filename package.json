@@ -8,7 +8,7 @@
     "start": "npx serve@latest out",
     "lint": "next lint",
     "blogs-metadata": "ts-node --project tsconfig.node.json ./scripts/blogs-metadata.ts ./generated",
-    "resume-pdf": "env-cmd -f .env.resume next build && ts-node --project tsconfig.node.json ./scripts/resume-pdf.ts",
+    "resume-pdf": "env-cmd -f .env.resume next build && ts-node --project tsconfig.node.json ./scripts/resume-pdf.ts && open resume.pdf",
     "sitemap": "ts-node --project tsconfig.node.json ./scripts/sitemap.ts ./out",
     "test": "jest"
   },
