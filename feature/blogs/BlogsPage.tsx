@@ -9,22 +9,19 @@ import Typography from '@mui/material/Typography';
 import BlogListItem from 'components/BlogListItem';
 import { HEADER_HEIGHT } from 'components/Header/constants';
 import RouteChangeListener from 'components/RouteChangeListener';
-import type { BlogTag } from 'constants/blog';
 import dayjs from 'dayjs';
-import { convertBlogTagForLabel } from 'helpers/blog';
-import type { Metadata } from 'helpers/markdown';
+import {
+  convertBlogTagForLabel,
+  convertLifehackTagForLabel,
+} from 'helpers/blog';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
-type PageProps = {
-  blogs: (Metadata & {
-    fileName: string;
-  })[];
-  tags: BlogTag[];
-};
+import { isBlogTag } from './helpers';
+import type { BlogsPageProps, LifehacksPageProps } from './types';
 
 const CONTAINER_PADDING_TOP = 16;
 const CATEGORY_WIDTH = 240;
@@ -66,7 +63,8 @@ const rightGradientSx: SxProps = {
   },
 };
 
-const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
+const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
+  const { type, blogs, tags } = props;
   const router = useRouter();
 
   const [tagParam, setTagParam] = useState<string | null>(null);
@@ -87,7 +85,7 @@ const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
 
   const handlePageChange = (_: unknown, page: number) => {
     const tag = tagParam ? `tag=${tagParam}&` : '';
-    router.push(`/blogs?${tag}page=${page}`);
+    router.push(`/${type}?${tag}page=${page}`);
   };
 
   const handleRouteChange = useCallback(
@@ -134,10 +132,14 @@ const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
                 return (
                   <Link
                     key={tag}
-                    href={isSelected ? '/blogs' : `/blogs?tag=${tag}`}
+                    href={isSelected ? `/${type}` : `/${type}?tag=${tag}`}
                   >
                     <Chip
-                      label={convertBlogTagForLabel(tag)}
+                      label={
+                        isBlogTag(tag)
+                          ? convertBlogTagForLabel(tag)
+                          : convertLifehackTagForLabel(tag)
+                      }
                       color={isSelected ? 'primary' : 'default'}
                       sx={{
                         paddingY: 2,
@@ -160,7 +162,7 @@ const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
           display={{ xs: 'none', md: 'none', lg: 'block' }}
         >
           <Stack position="sticky" top={HEADER_HEIGHT + CONTAINER_PADDING_TOP}>
-            <Link href="/blogs">
+            <Link href={`/${type}`}>
               <Typography
                 color={tagParam ? 'text.secondary' : 'text.primary'}
                 fontWeight={tagParam ? undefined : 500}
@@ -172,12 +174,14 @@ const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
               const isSelected = tagParam === tag;
 
               return (
-                <Link key={tag} href={`/blogs?tag=${tag}`}>
+                <Link key={tag} href={`/${type}?tag=${tag}`}>
                   <Typography
                     color={isSelected ? 'text.primary' : 'text.secondary'}
                     fontWeight={isSelected ? 500 : undefined}
                   >
-                    {convertBlogTagForLabel(tag)}
+                    {isBlogTag(tag)
+                      ? convertBlogTagForLabel(tag)
+                      : convertLifehackTagForLabel(tag)}
                   </Typography>
                 </Link>
               );
@@ -202,8 +206,12 @@ const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
               description={blog.description}
               thumbnail={blog.thumbnail}
               createdAt={dayjs(blog.createdAt)}
-              href={`/blogs/${blog.fileName}`}
-              tag={convertBlogTagForLabel(blog.tag)}
+              href={`/${type}/${blog.fileName}`}
+              tag={
+                isBlogTag(blog.tag)
+                  ? convertBlogTagForLabel(blog.tag)
+                  : convertLifehackTagForLabel(blog.tag)
+              }
             />
           ))}
           {pageCount > 1 ? (

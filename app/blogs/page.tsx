@@ -6,7 +6,7 @@ import {
 } from 'constants/seo';
 import dayjs from 'dayjs';
 import BlogsPage from 'feature/blogs/BlogsPage';
-import { validateMarkdownMetadata } from 'helpers/markdown';
+import { validateBlogMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
@@ -35,7 +35,7 @@ const getBlogs = cache(async () => {
 
   const blogs = fileNamesWithoutExtension.map(fileName => {
     const { metadata } = parseMarkdownFile(`content/blogs/${fileName}.md`);
-    const validatedMetadata = validateMarkdownMetadata(metadata);
+    const validatedMetadata = validateBlogMarkdownMetadata(metadata);
 
     return {
       fileName,
@@ -59,7 +59,7 @@ const Page = async () => {
   const tags = [...new Set(blogs.map(blog => blog.tag))];
   tags.sort();
 
-  return <BlogsPage blogs={blogs} tags={tags} />;
+  return <BlogsPage type="blogs" blogs={blogs} tags={tags} />;
 };
 
 export default Page;

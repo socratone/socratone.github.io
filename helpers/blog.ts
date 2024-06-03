@@ -1,4 +1,4 @@
-import { BlogTag } from 'constants/blog';
+import { BlogTag, LifehackTag } from 'constants/blog';
 
 export const convertBlogTagForLabel = (tag: BlogTag) => {
   switch (tag) {
@@ -46,5 +46,12 @@ export const convertBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Typescript:
       return 'Typescript';
+  }
+};
+
+export const convertLifehackTagForLabel = (tag: LifehackTag) => {
+  switch (tag) {
+    case LifehackTag.Ai:
+      return 'AI';
   }
 };

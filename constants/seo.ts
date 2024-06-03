@@ -20,3 +20,9 @@ export const HOME_IMAGES = `${BASE_URL}/images/og.png`;
 export const BLOGS_TITLE = '김기원 개발 블로그';
 export const BLOGS_DESCRIPTION =
   '김기원 개발 블로그입니다. 다음에 참고하기 위해 사용했던 기술 스택을 정리합니다. 빠르게 찾아볼 수 있도록 쉽고 간결하게 작성하려고 노력합니다.';
+
+/** Lifehacks page */
+
+export const LIFEHACKS_TITLE = '김기원 생활팁';
+export const LIFEHACKS_DESCRIPTION =
+  '생활에 유용한 정보들을 기록하고 공유합니다.';
