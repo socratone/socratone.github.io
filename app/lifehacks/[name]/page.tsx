@@ -40,7 +40,7 @@ export async function generateMetadata({
       images: HOME_IMAGES,
     },
     alternates: {
-      canonical: `${BASE_URL}/blogs/${name}`,
+      canonical: `${BASE_URL}/lifehacks/${name}`,
     },
   };
 }
