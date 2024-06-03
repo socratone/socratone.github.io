@@ -22,7 +22,7 @@ type ProvidersProps = {
 };
 
 const NONE_GLOBAL_HEADER_PATHNAMES = ['/resume'];
-const NONE_CONTAINER_PATHNAME_PATTERNS = ['^/$', '^/blogs/.+'];
+const NONE_CONTAINER_PATHNAME_PATTERNS = ['^/$', '^/(blogs|lifehacks)/.+'];
 
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
   const pathname = usePathname();
