@@ -5,7 +5,7 @@
 import 'highlight.js/styles/atom-one-light.css';
 
 import { BASE_URL, HOME_IMAGES } from 'constants/seo';
-import { validateMarkdownMetadata } from 'helpers/markdown';
+import { validateBlogMarkdownMetadata } from 'helpers/markdown';
 import { getBlogPaths } from 'helpers/path';
 import type { Metadata } from 'next';
 import { cache } from 'react';
@@ -61,7 +61,7 @@ const getMarkdownData = cache(async (name: string) => {
   const contentWithLinkedHeading = addHashLinkToHeading(htmlContent);
   const coloredHtmlContent = addColorToCode(contentWithLinkedHeading);
   const codeWithButton = addCopyButtonToCode(coloredHtmlContent);
-  const validatedMetadata = validateMarkdownMetadata(metadata);
+  const validatedMetadata = validateBlogMarkdownMetadata(metadata);
 
   return {
     metadata: validatedMetadata,
