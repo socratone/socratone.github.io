@@ -10,8 +10,8 @@ const getFilesInFolder = (folderPath: string) => {
   return fs.readdirSync(folderPath);
 };
 
-const getBlogUrls = () => {
-  const folderPath = '/content/blogs';
+const getBlogUrls = (folderName: string) => {
+  const folderPath = `/content/${folderName}`;
   const fullPath = path.join(process.cwd(), folderPath);
 
   const fileNames = getFilesInFolder(fullPath);
@@ -19,7 +19,7 @@ const getBlogUrls = () => {
     fileName.substring(0, fileName.length - 3)
   );
   const urls = fileNamesWithoutExtension.map(
-    fileName => BASE_URL + '/blogs/' + fileName
+    fileName => `${BASE_URL}/${folderName}/${fileName}`
   );
   return urls;
 };
@@ -70,12 +70,16 @@ const createSiteMapXml = (urls: string[], outPath: string) => {
 };
 
 const getAdditionalUrls = () => {
-  const additionalPathnames = ['', '/blogs'];
+  const additionalPathnames = ['', '/blogs', '/lifehacks'];
   return additionalPathnames.map(pathname => BASE_URL + pathname);
 };
 
 const main = () => {
-  const urls = [...getBlogUrls(), ...getAdditionalUrls()];
+  const urls = [
+    ...getBlogUrls('blogs'),
+    ...getBlogUrls('lifehacks'),
+    ...getAdditionalUrls(),
+  ];
 
   const outPath = getFirstArgumentInNodeCli();
   createSiteMapXml(urls, outPath);
