@@ -6,7 +6,7 @@ import { getFirstArgumentInNodeCli } from '../utils/node';
 
 const main = async () => {
   const data: any = [];
-  const blogPaths = await getBlogPaths();
+  const blogPaths = await getBlogPaths('blogs');
   blogPaths.forEach(blogPath => {
     const { metadata } = parseMarkdownFile(`content/blogs/${blogPath.name}.md`);
     data.push({
