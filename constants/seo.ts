@@ -23,6 +23,6 @@ export const BLOGS_DESCRIPTION =
 
 /** Lifehacks page */
 
-export const LIFEHACKS_TITLE = '김기원 생활팁';
+export const LIFEHACKS_TITLE = '개발자의 생존법';
 export const LIFEHACKS_DESCRIPTION =
   '생활에 유용한 정보들을 기록하고 공유합니다.';

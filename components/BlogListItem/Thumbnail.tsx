@@ -1,11 +1,12 @@
 import { Typography } from '@mui/material';
-import { BlogThumbnail } from 'constants/blog';
+import { BlogThumbnail, LifehackThumbnail } from 'constants/blog';
 
 import apacheImage from './images/apache.webp';
 import awsImage from './images/aws.webp';
 import chromeImage from './images/chrome.webp';
 import dockerImage from './images/docker.webp';
 import gitImage from './images/git.webp';
+import lifehacksImage from './images/lifehacks/chat-gpt.webp';
 import linuxImage from './images/linux.webp';
 import mysqlImage from './images/mysql.webp';
 import npmImage from './images/npm.webp';
@@ -17,11 +18,13 @@ import ThumbnailContainer from './ThumbnailContainer';
 import ThumbnailImage from './ThumbnailImage';
 
 type ThumbnailProps = {
-  type: BlogThumbnail;
+  type: BlogThumbnail | LifehackThumbnail;
 };
 
 const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
   switch (type) {
+    /** Blogs */
+
     case BlogThumbnail.Regex:
       return (
         <ThumbnailContainer>
@@ -118,6 +121,15 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type }) => {
       return (
         <ThumbnailContainer>
           <ThumbnailImage src={typescriptImage} width={300} height={300} />
+        </ThumbnailContainer>
+      );
+
+    /** Lifehacks */
+
+    case LifehackThumbnail.Ai:
+      return (
+        <ThumbnailContainer>
+          <ThumbnailImage src={lifehacksImage} width={300} height={300} />
         </ThumbnailContainer>
       );
   }
