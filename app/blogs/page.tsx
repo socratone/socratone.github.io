@@ -5,13 +5,12 @@ import {
   HOME_IMAGES,
 } from 'constants/seo';
 import dayjs from 'dayjs';
+import BlogsPage from 'feature/blogs/BlogsPage';
 import { validateMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
-
-import BlogsPage from './blogs-page';
 
 export const metadata: Metadata = {
   title: BLOGS_TITLE,
