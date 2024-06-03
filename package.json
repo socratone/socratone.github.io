@@ -55,7 +55,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "puppeteer": "^21.3.6",
     "ts-node": "^10.9.2",
-    "typescript": "5.0.4",
+    "typescript": "^5.4.5",
     "xmlbuilder": "^15.1.1"
   }
 }
