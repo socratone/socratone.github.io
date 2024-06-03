@@ -21,7 +21,7 @@ import { useCallback, useState } from 'react';
 
 type PageProps = {
   blogs: (Metadata & {
-    name: string;
+    fileName: string;
   })[];
   tags: BlogTag[];
 };
@@ -197,12 +197,12 @@ const BlogsPage: NextPage<PageProps> = ({ blogs, tags }) => {
         >
           {pagedBlogs.map(blog => (
             <BlogListItem
-              key={blog.name}
+              key={blog.fileName}
               title={blog.title}
               description={blog.description}
               thumbnail={blog.thumbnail}
               createdAt={dayjs(blog.createdAt)}
-              href={`/blogs/${blog.name}`}
+              href={`/blogs/${blog.fileName}`}
               tag={convertBlogTagForLabel(blog.tag)}
             />
           ))}

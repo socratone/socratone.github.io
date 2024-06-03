@@ -33,12 +33,12 @@ const getBlogs = cache(async () => {
     return fileName.substring(0, fileName.length - 3);
   });
 
-  const blogs = fileNamesWithoutExtension.map(name => {
-    const { metadata } = parseMarkdownFile(`content/blogs/${name}.md`);
+  const blogs = fileNamesWithoutExtension.map(fileName => {
+    const { metadata } = parseMarkdownFile(`content/blogs/${fileName}.md`);
     const validatedMetadata = validateMarkdownMetadata(metadata);
 
     return {
-      name,
+      fileName,
       ...validatedMetadata,
     };
   });
