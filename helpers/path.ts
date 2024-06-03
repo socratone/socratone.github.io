@@ -1,7 +1,7 @@
 import { getFileNames } from '../utils/file';
 
-export const getBlogPaths = async () => {
-  const fileNames = getFileNames('content/blogs');
+export const getBlogPaths = async (folderName: string) => {
+  const fileNames = getFileNames(`content/${folderName}`);
   const fileNamesWithoutExtension = fileNames.map(fileName => {
     return fileName.substring(0, fileName.length - 3);
   });

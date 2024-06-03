@@ -4,7 +4,7 @@ import type { OverridableComponent } from '@mui/material/OverridableComponent';
 import Stack from '@mui/material/Stack';
 import type { TypographyTypeMap } from '@mui/material/Typography';
 import Typography from '@mui/material/Typography';
-import type { BlogThumbnail } from 'constants/blog';
+import type { BlogThumbnail, LifehackThumbnail } from 'constants/blog';
 import type { Dayjs } from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -53,7 +53,7 @@ const EllipsisLineTypography = styled<
 type BlogListItemProps = {
   title: string;
   description: string;
-  thumbnail: BlogThumbnail;
+  thumbnail: BlogThumbnail | LifehackThumbnail;
   createdAt: Dayjs;
   href: string;
   tag: string;

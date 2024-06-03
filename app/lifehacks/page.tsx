@@ -1,41 +1,41 @@
 import {
   BASE_URL,
-  BLOGS_DESCRIPTION,
-  BLOGS_TITLE,
   HOME_IMAGES,
+  LIFEHACKS_DESCRIPTION,
+  LIFEHACKS_TITLE,
 } from 'constants/seo';
 import dayjs from 'dayjs';
 import BlogsPage from 'feature/blogs/BlogsPage';
-import { validateBlogMarkdownMetadata } from 'helpers/markdown';
+import { validateLifehackMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
 
 export const metadata: Metadata = {
-  title: BLOGS_TITLE,
-  description: BLOGS_DESCRIPTION,
+  title: LIFEHACKS_TITLE,
+  description: LIFEHACKS_DESCRIPTION,
   openGraph: {
-    title: BLOGS_TITLE,
-    description: BLOGS_DESCRIPTION,
+    title: LIFEHACKS_TITLE,
+    description: LIFEHACKS_DESCRIPTION,
     type: 'website',
     siteName: 'Socratone',
     images: HOME_IMAGES,
   },
   alternates: {
-    canonical: `${BASE_URL}/blogs`,
+    canonical: `${BASE_URL}/lifehacks`,
   },
 };
 
-const getBlogs = cache(async () => {
-  const fileNames = getFileNames('content/blogs');
+const getLifehacks = cache(async () => {
+  const fileNames = getFileNames('content/lifehacks');
   const fileNamesWithoutExtension = fileNames.map(fileName => {
     return fileName.substring(0, fileName.length - 3);
   });
 
   const blogs = fileNamesWithoutExtension.map(fileName => {
-    const { metadata } = parseMarkdownFile(`content/blogs/${fileName}.md`);
-    const validatedMetadata = validateBlogMarkdownMetadata(metadata);
+    const { metadata } = parseMarkdownFile(`content/lifehacks/${fileName}.md`);
+    const validatedMetadata = validateLifehackMarkdownMetadata(metadata);
 
     return {
       fileName,
@@ -55,11 +55,11 @@ const getBlogs = cache(async () => {
 });
 
 const Page = async () => {
-  const blogs = await getBlogs();
-  const tags = [...new Set(blogs.map(blog => blog.tag))];
+  const lifehacks = await getLifehacks();
+  const tags = [...new Set(lifehacks.map(lifehack => lifehack.tag))];
   tags.sort();
 
-  return <BlogsPage type="blogs" blogs={blogs} tags={tags} />;
+  return <BlogsPage type="lifehacks" blogs={lifehacks} tags={tags} />;
 };
 
 export default Page;

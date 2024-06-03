@@ -32,3 +32,11 @@ export enum BlogTag {
   Git = 'git',
   Typescript = 'typescript',
 }
+
+export enum LifehackThumbnail {
+  Ai = 'ai',
+}
+
+export enum LifehackTag {
+  Ai = 'ai',
+}
