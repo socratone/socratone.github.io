@@ -5,6 +5,7 @@
 import 'highlight.js/styles/atom-one-light.css';
 
 import { BASE_URL, HOME_IMAGES } from 'constants/seo';
+import BlogPage from 'feature/blogs/BlogPage';
 import { validateBlogMarkdownMetadata } from 'helpers/markdown';
 import { getBlogPaths } from 'helpers/path';
 import type { Metadata } from 'next';
@@ -16,8 +17,6 @@ import {
   parseMarkdownFile,
   parseMarkdownToHtml,
 } from 'utils/markdown';
-
-import BlogPage from './blog-page';
 
 type PageProps = {
   params: {
@@ -47,7 +46,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return getBlogPaths();
+  return getBlogPaths('blogs');
 }
 
 const getMarkdownData = cache(async (name: string) => {
