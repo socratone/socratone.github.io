@@ -59,8 +59,16 @@ const SearchDialog: React.FC<SearchDialogProps> = ({ open, onClose }) => {
         sx: {
           borderRadius: 3,
           border: theme => `1px solid ${theme.palette.divider}`,
+          /** 모바일을 뷰포트를 위해 Dialog를 위쪽으로 이동 */
+          mt: 11,
         },
         elevation: 1,
+      }}
+      sx={{
+        /** 모바일을 뷰포트를 위해 Dialog를 위쪽으로 이동 */
+        '.MuiDialog-container': {
+          alignItems: 'flex-start',
+        },
       }}
     >
       <DialogContent sx={{ padding: 0, minHeight: 265 }}>

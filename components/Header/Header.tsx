@@ -13,7 +13,7 @@ import useIsScrollTop from './hooks/useIsScrollTop';
 import useOpenShortcutListener from './hooks/useOpenShortcutListener';
 import SearchButton from './SearchDialog/SearchButton';
 
-const SearchDialog = lazy(() => import('./SearchDialog/SearchDialog'));
+const SearchDialog = lazy(() => import('./SearchDialog'));
 
 type HeaderProps = {
   logo?: React.ReactNode;
