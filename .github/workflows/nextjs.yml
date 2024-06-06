@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'yarn'
-      - name: Restore cache
+      - name: Restore dependencies cache
         uses: actions/cache@v3
         with:
           path: |
@@ -59,7 +59,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'yarn'
-      - name: Restore cache
+      - name: Restore dependencies cache
         uses: actions/cache@v3
         with:
           path: |
@@ -107,7 +107,7 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
-      - name: Restore cache
+      - name: Restore next cache
         uses: actions/cache@v3
         with:
           path: |
@@ -117,6 +117,13 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+      - name: Restore dependencies cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+          # Generate a new cache whenever packages files change.
+          key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Generate Blogs metadata
