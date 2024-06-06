@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /node_modules
+            node_modules
           # Generate a new cache whenever packages files change.
           key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
@@ -63,7 +63,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            /node_modules
+            node_modules
           # Generate a new cache whenever packages files change.
           key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
