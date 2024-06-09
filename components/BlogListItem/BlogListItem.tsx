@@ -4,13 +4,11 @@ import type { OverridableComponent } from '@mui/material/OverridableComponent';
 import Stack from '@mui/material/Stack';
 import type { TypographyTypeMap } from '@mui/material/Typography';
 import Typography from '@mui/material/Typography';
-import type { BlogThumbnail, LifehackThumbnail } from 'constants/blog';
 import type { Dayjs } from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import profileImage from './images/profile-40x40.webp';
-import Thumbnail from './Thumbnail';
 
 const CONTAINER_NAME = 'blog-list-item-container';
 
@@ -53,7 +51,7 @@ const EllipsisLineTypography = styled<
 type BlogListItemProps = {
   title: string;
   description: string;
-  thumbnail: BlogThumbnail | LifehackThumbnail;
+  thumbnail: React.ReactNode;
   createdAt: Dayjs;
   href: string;
   tag: string;
@@ -115,7 +113,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
           </Stack>
         </Stack>
         <StyledThumbnailBox display="flex" alignItems="center">
-          <Thumbnail type={thumbnail} />
+          {thumbnail}
         </StyledThumbnailBox>
       </StyledContainerStack>
     </Link>
