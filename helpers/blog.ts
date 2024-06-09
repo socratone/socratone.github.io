@@ -46,6 +46,9 @@ export const convertBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Typescript:
       return 'Typescript';
+
+    case BlogTag.Hacking:
+      return 'Hacking';
   }
 };
 
