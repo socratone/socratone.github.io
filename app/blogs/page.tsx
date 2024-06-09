@@ -59,7 +59,7 @@ const Page = async () => {
   const tags = [...new Set(blogs.map(blog => blog.tag))];
   tags.sort();
 
-  return <BlogsPage type="blogs" blogs={blogs} tags={tags} />;
+  return <BlogsPage type="blog" blogs={blogs} tags={tags} />;
 };
 
 export default Page;

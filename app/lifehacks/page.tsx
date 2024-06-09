@@ -59,7 +59,7 @@ const Page = async () => {
   const tags = [...new Set(lifehacks.map(lifehack => lifehack.tag))];
   tags.sort();
 
-  return <BlogsPage type="lifehacks" blogs={lifehacks} tags={tags} />;
+  return <BlogsPage type="lifehack" blogs={lifehacks} tags={tags} />;
 };
 
 export default Page;

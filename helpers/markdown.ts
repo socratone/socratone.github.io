@@ -6,10 +6,10 @@ import {
 } from 'constants/blog';
 import { isStringInEnum } from 'socratone-utils';
 
-type ThumbnailFor<T> = T extends 'blogs' ? BlogThumbnail : LifehackThumbnail;
-type TagFor<T> = T extends 'blogs' ? BlogTag : LifehackTag;
+type ThumbnailFor<T> = T extends 'blog' ? BlogThumbnail : LifehackThumbnail;
+type TagFor<T> = T extends 'blog' ? BlogTag : LifehackTag;
 
-export type Metadata<T extends 'blogs' | 'lifehacks'> = {
+export type Metadata<T extends 'blog' | 'lifehack'> = {
   title: string;
   description: string;
   thumbnail: ThumbnailFor<T>;
@@ -41,7 +41,7 @@ export const validateBlogMarkdownMetadata = (metadata: any) => {
     throw new Error('Invalid tag.');
   }
 
-  return metadata as Metadata<'blogs'>;
+  return metadata as Metadata<'blog'>;
 };
 
 export const validateLifehackMarkdownMetadata = (metadata: any) => {
@@ -68,5 +68,5 @@ export const validateLifehackMarkdownMetadata = (metadata: any) => {
     throw new Error('Invalid tag.');
   }
 
-  return metadata as Metadata<'lifehacks'>;
+  return metadata as Metadata<'lifehack'>;
 };

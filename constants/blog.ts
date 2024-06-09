@@ -13,6 +13,7 @@ export enum BlogThumbnail {
   Aws = 'aws',
   Git = 'git',
   Typescript = 'typescript',
+  Hacking = 'hacking',
 }
 
 export enum BlogTag {
@@ -31,6 +32,7 @@ export enum BlogTag {
   Aws = 'aws',
   Git = 'git',
   Typescript = 'typescript',
+  Hacking = 'hacking',
 }
 
 export enum LifehackThumbnail {
