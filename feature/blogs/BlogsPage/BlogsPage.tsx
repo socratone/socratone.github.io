@@ -21,6 +21,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
 import { isBlogTag } from './helpers';
+import Thumbnail from './Thumbnail';
 import type { BlogsPageProps, LifehacksPageProps } from './types';
 
 const CONTAINER_PADDING_TOP = 16;
@@ -204,7 +205,7 @@ const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
               key={blog.fileName}
               title={blog.title}
               description={blog.description}
-              thumbnail={blog.thumbnail}
+              thumbnail={<Thumbnail type={type} name={blog.thumbnail} />}
               createdAt={dayjs(blog.createdAt)}
               href={`/${type}/${blog.fileName}`}
               tag={
