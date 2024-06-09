@@ -6,7 +6,7 @@ import type { BlogsPageProps, LifehacksPageProps } from './types';
 export const isBlogsPage = (
   props: BlogsPageProps | LifehacksPageProps
 ): props is BlogsPageProps => {
-  return props.type === 'blogs';
+  return props.type === 'blog';
 };
 
 export const isBlogTag = (tag: BlogTag | LifehackTag): tag is BlogTag => {

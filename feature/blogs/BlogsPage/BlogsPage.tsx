@@ -67,6 +67,7 @@ const rightGradientSx: SxProps = {
 const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
   const { type, blogs, tags } = props;
   const router = useRouter();
+  const parentSlug = `${type}s`;
 
   const [tagParam, setTagParam] = useState<string | null>(null);
   const [pageParam, setPageParam] = useState<string | null>(null);
@@ -86,7 +87,7 @@ const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
 
   const handlePageChange = (_: unknown, page: number) => {
     const tag = tagParam ? `tag=${tagParam}&` : '';
-    router.push(`/${type}?${tag}page=${page}`);
+    router.push(`/${parentSlug}?${tag}page=${page}`);
   };
 
   const handleRouteChange = useCallback(
@@ -133,7 +134,11 @@ const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
                 return (
                   <Link
                     key={tag}
-                    href={isSelected ? `/${type}` : `/${type}?tag=${tag}`}
+                    href={
+                      isSelected
+                        ? `/${parentSlug}`
+                        : `/${parentSlug}?tag=${tag}`
+                    }
                   >
                     <Chip
                       label={
@@ -163,7 +168,7 @@ const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
           display={{ xs: 'none', md: 'none', lg: 'block' }}
         >
           <Stack position="sticky" top={HEADER_HEIGHT + CONTAINER_PADDING_TOP}>
-            <Link href={`/${type}`}>
+            <Link href={`/${parentSlug}`}>
               <Typography
                 color={tagParam ? 'text.secondary' : 'text.primary'}
                 fontWeight={tagParam ? undefined : 500}
@@ -175,7 +180,7 @@ const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
               const isSelected = tagParam === tag;
 
               return (
-                <Link key={tag} href={`/${type}?tag=${tag}`}>
+                <Link key={tag} href={`/${parentSlug}?tag=${tag}`}>
                   <Typography
                     color={isSelected ? 'text.primary' : 'text.secondary'}
                     fontWeight={isSelected ? 500 : undefined}
@@ -207,7 +212,7 @@ const BlogsPage: NextPage<BlogsPageProps | LifehacksPageProps> = props => {
               description={blog.description}
               thumbnail={<Thumbnail type={type} name={blog.thumbnail} />}
               createdAt={dayjs(blog.createdAt)}
-              href={`/${type}/${blog.fileName}`}
+              href={`/${parentSlug}/${blog.fileName}`}
               tag={
                 isBlogTag(blog.tag)
                   ? convertBlogTagForLabel(blog.tag)

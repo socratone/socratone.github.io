@@ -2,13 +2,13 @@
 import type { BlogThumbnail, LifehackThumbnail } from 'constants/blog';
 
 type ThumbnailProps = {
-  type: 'blogs' | 'lifehacks';
+  type: 'blog' | 'lifehack';
   name: BlogThumbnail | LifehackThumbnail;
 };
 
 const Thumbnail: React.FC<ThumbnailProps> = ({ type, name }) => {
   switch (type) {
-    case 'blogs':
+    case 'blog':
       return (
         <img
           srcSet={`/images/blog/thumbnail/${name}-96w.webp, /images/blog/thumbnail/${name}-192w.webp 2x`}
@@ -17,7 +17,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ type, name }) => {
         />
       );
 
-    case 'lifehacks':
+    case 'lifehack':
       return (
         <img
           srcSet={`/images/lifehack/thumbnail/${name}-96w.webp, /images/lifehack/thumbnail/${name}-192w.webp 2x`}
