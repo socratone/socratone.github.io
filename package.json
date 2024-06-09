@@ -10,7 +10,9 @@
     "blogs-metadata": "ts-node --project tsconfig.node.json ./scripts/blogs-metadata.ts ./generated",
     "resume-pdf": "env-cmd -f .env.resume next build && ts-node --project tsconfig.node.json ./scripts/resume-pdf.ts && open resume.pdf",
     "sitemap": "ts-node --project tsconfig.node.json ./scripts/sitemap.ts ./out",
-    "optimize-blogs-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./components/BlogListItem/images ./public/images/blog/thumbnail --width 96 --width 192",
+    "optimize-thumbnail-image": "yarn optimize-blog-thumbnail-image && yarn optimize-lifehack-thumbnail-image",
+    "optimize-blog-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./components/BlogListItem/images/blogs ./public/images/blog/thumbnail --width 96 --width 192",
+    "optimize-lifehack-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./components/BlogListItem/images/lifehacks ./public/images/lifehack/thumbnail --width 96 --width 192",
     "test": "jest"
   },
   "dependencies": {
