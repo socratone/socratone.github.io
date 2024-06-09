@@ -15,7 +15,8 @@ const filterImageFileNames = (fileNames: string[]) => {
 };
 
 const main = async () => {
-  const [, , inputFolderPath, outputFolderPath, widthParam] = process.argv;
+  // 첫 두 개의 인수는 node와 스크립트 경로임
+  const [, , inputFolderPath, outputFolderPath, ...widthFlags] = process.argv;
 
   if (!inputFolderPath) {
     throw new Error('inputFolderPath is not defined.');
@@ -25,28 +26,31 @@ const main = async () => {
     throw new Error('outputFolderPath is not defined.');
   }
 
-  if (!widthParam) {
-    throw new Error('widthParam is not defined.');
+  const widths: number[] = [];
+  for (let i = 0; i < widthFlags.length; i++) {
+    if (widthFlags[i] === '--width' && !isNaN(Number(widthFlags[i + 1]))) {
+      widths.push(Number(widthFlags[i + 1]));
+      i++;
+    }
   }
 
-  const width = Number(widthParam);
-  if (isNaN(width) || width <= 0) {
-    throw new Error(
-      'Invalid width value. Please provide a valid number greater than 0.'
-    );
+  if (widths.length === 0) {
+    throw new Error('At least one width must be specified using --width.');
   }
 
   const fullPath = path.join(process.cwd(), inputFolderPath);
   const fileNames = getFilesInFolder(fullPath);
   const imageFileNames = filterImageFileNames(fileNames);
 
-  imageFileNames.forEach(imageFileName =>
-    resizeAndConvertImage({
-      inputFilePath: path.join(fullPath, imageFileName),
-      outputFolderPath,
-      width,
-    })
-  );
+  imageFileNames.forEach(imageFileName => {
+    widths.forEach(width => {
+      resizeAndConvertImage({
+        inputFilePath: path.join(fullPath, imageFileName),
+        outputFolderPath,
+        width,
+      });
+    });
+  });
 };
 
 main();
