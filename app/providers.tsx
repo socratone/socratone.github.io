@@ -69,6 +69,7 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
             items={[
               { label: 'Blogs', href: '/blogs' },
               { label: 'Lifehacks', href: '/lifehacks' },
+              { label: 'YouTube Loop', href: '/youtube-loop' },
             ]}
             borderBottom
           />
