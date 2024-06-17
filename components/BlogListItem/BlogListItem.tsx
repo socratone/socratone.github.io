@@ -12,9 +12,11 @@ import profileImage from './images/profile-40x40.webp';
 
 const CONTAINER_NAME = 'blog-list-item-container';
 
-const StyledContainerStack = styled(Stack)`
+const StyledLink = styled(Link)`
   container: ${CONTAINER_NAME} / inline-size;
+`;
 
+const StyledContainerStack = styled(Stack)`
   cursor: pointer;
   transition: background 150ms ease-out, border 150ms ease-out,
     transform 150ms ease-out;
@@ -22,11 +24,15 @@ const StyledContainerStack = styled(Stack)`
   :hover {
     transform: translate3d(0, -3px, 0);
   }
+
+  @container ${CONTAINER_NAME} (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledThumbnailBox = styled(Box)`
-  @container ${CONTAINER_NAME} (max-width: 500px) {
-    display: none;
+  @container ${CONTAINER_NAME} (max-width: 400px) {
+    justify-content: center;
   }
 `;
 
@@ -66,7 +72,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
   tag,
 }) => {
   return (
-    <Link href={href}>
+    <StyledLink href={href}>
       <StyledContainerStack
         direction="row"
         justifyContent="space-between"
@@ -116,7 +122,7 @@ const BlogListItem: React.FC<BlogListItemProps> = ({
           {thumbnail}
         </StyledThumbnailBox>
       </StyledContainerStack>
-    </Link>
+    </StyledLink>
   );
 };
 
