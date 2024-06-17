@@ -18,7 +18,7 @@ import SearchButton from './SearchDialog/SearchButton';
 const SearchDialog = lazy(() => import('./SearchDialog'));
 
 type HeaderProps = {
-  logo?: React.ReactNode;
+  logo: React.ReactNode;
   items: {
     href: string;
     label: string;
@@ -85,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
           }}
         >
           <Stack direction="row" height="100%">
-            {logo ? <StyledLink href="/">{logo}</StyledLink> : null}
+            <StyledLink href="/">{logo}</StyledLink>
             <Stack
               direction="row"
               height="100%"
@@ -117,7 +117,12 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
         </Container>
       </Box>
 
-      <MenuDrawer items={items} open={menuOpen} onClose={handleMenuClose} />
+      <MenuDrawer
+        logo={logo}
+        items={items}
+        open={menuOpen}
+        onClose={handleMenuClose}
+      />
     </>
   );
 };

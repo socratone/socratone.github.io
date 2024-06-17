@@ -55,17 +55,7 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
         <CssBaseline />
         {isHeader ? (
           <Header
-            logo={
-              <Box
-                px={1}
-                ml={-1}
-                height="100%"
-                display="flex"
-                alignItems="center"
-              >
-                <Image src={logoImage} alt="s" width={25} height={25} />
-              </Box>
-            }
+            logo={<Image src={logoImage} alt="s" width={25} height={25} />}
             items={[
               { label: 'Blogs', href: '/blogs' },
               { label: 'Lifehacks', href: '/lifehacks' },
