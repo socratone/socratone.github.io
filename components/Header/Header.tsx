@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
-import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Drawer } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
@@ -14,6 +12,7 @@ import { HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
 import useIsScrollTop from './hooks/useIsScrollTop';
 import useOpenShortcutListener from './hooks/useOpenShortcutListener';
+import MenuDrawer from './MenuDrawer';
 import SearchButton from './SearchDialog/SearchButton';
 
 const SearchDialog = lazy(() => import('./SearchDialog'));
@@ -118,46 +117,7 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
         </Container>
       </Box>
 
-      <Drawer
-        anchor="right"
-        open={menuOpen}
-        onClose={handleMenuClose}
-        PaperProps={{
-          sx: {
-            maxWidth: 250,
-            width: '100%',
-          },
-        }}
-      >
-        <Container
-          sx={{
-            height: HEADER_HEIGHT,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-          }}
-        >
-          <IconButton
-            onClick={handleMenuClose}
-            sx={{ mr: -1, display: { xs: 'flex', md: 'flex', lg: 'none' } }}
-          >
-            <CloseIcon sx={{ color: theme => theme.palette.text.primary }} />
-          </IconButton>
-        </Container>
-        <Stack px={1}>
-          <Box height={40}>
-            {items.map(item => (
-              <HeaderLink
-                key={item.href}
-                href={item.href}
-                onClick={handleMenuClose}
-              >
-                {item.label}
-              </HeaderLink>
-            ))}
-          </Box>
-        </Stack>
-      </Drawer>
+      <MenuDrawer items={items} open={menuOpen} onClose={handleMenuClose} />
     </>
   );
 };
