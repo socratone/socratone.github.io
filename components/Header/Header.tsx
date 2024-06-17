@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
@@ -11,6 +12,7 @@ import { HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
 import useIsScrollTop from './hooks/useIsScrollTop';
 import useOpenShortcutListener from './hooks/useOpenShortcutListener';
+import MenuDrawer from './MenuDrawer';
 import SearchButton from './SearchDialog/SearchButton';
 
 const SearchDialog = lazy(() => import('./SearchDialog'));
@@ -32,6 +34,7 @@ const StyledLink = styled(Link)`
 const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
   const isScrollTop = useIsScrollTop();
 
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchDialogOpen, setSearchDialogOpen] = useState(false);
 
   const handleOpenShortcut = useCallback(() => {
@@ -49,6 +52,14 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
     setSearchDialogOpen(false);
   }, []);
 
+  const handleMenuOpen = () => {
+    setMenuOpen(true);
+  };
+
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <>
       <SearchDialog open={searchDialogOpen} onClose={handleSearchClose} />
@@ -64,12 +75,22 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
           backdropFilter: 'saturate(180%) blur(5px)',
           borderBottom: borderBottom && !isScrollTop ? 1 : 0,
           borderColor: theme => theme.palette.divider,
+          height: HEADER_HEIGHT,
         }}
       >
-        <Container component="nav">
-          <Stack direction="row">
+        <Container
+          component="nav"
+          sx={{
+            height: '100%',
+          }}
+        >
+          <Stack direction="row" height="100%">
             {logo ? <StyledLink href="/">{logo}</StyledLink> : null}
-            <Stack direction="row" gap={2} height={HEADER_HEIGHT}>
+            <Stack
+              direction="row"
+              height="100%"
+              display={{ xs: 'none', md: 'none', lg: 'flex' }}
+            >
               {items.map(item => (
                 <HeaderLink key={item.href} href={item.href}>
                   {item.label}
@@ -85,10 +106,18 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
                   />
                 </IconButton>
               </Link>
+              <IconButton
+                onClick={handleMenuOpen}
+                sx={{ mr: -1, display: { xs: 'flex', md: 'flex', lg: 'none' } }}
+              >
+                <MenuIcon sx={{ color: theme => theme.palette.text.primary }} />
+              </IconButton>
             </Stack>
           </Stack>
         </Container>
       </Box>
+
+      <MenuDrawer items={items} open={menuOpen} onClose={handleMenuClose} />
     </>
   );
 };
