@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const udemyCourses: { thumbnail: string }[] = [
   {
@@ -114,6 +115,36 @@ const udemyCourses: { thumbnail: string }[] = [
   },
 ];
 
+const moshCourses: { thumbnail: string }[] = [
+  {
+    thumbnail: '/images/home/mosh/sql.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/html-css.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/docker.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/react-native.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/nodejs.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/redux.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/react.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/javascript-part-2.webp',
+  },
+  {
+    thumbnail: '/images/home/mosh/javascript-part-1.webp',
+  },
+];
+
 const HomePage = () => {
   return (
     <>
@@ -191,7 +222,7 @@ const HomePage = () => {
           mb={4}
           sx={{ wordBreak: 'keep-all' }}
         >
-          🎓 Enrolled Udemy Course
+          🎓 Enrolled Udemy Courses
         </Typography>
 
         <Stack direction="row" flexWrap="wrap" justifyContent="center">
@@ -202,6 +233,42 @@ const HomePage = () => {
               alt="Udemy course"
               width={240}
               height={135}
+            />
+          ))}
+        </Stack>
+      </Box>
+
+      {/* Mosh section */}
+
+      <Box component="section" sx={{ px: 3, py: 8 }}>
+        <Typography
+          component="h2"
+          color="text.primary"
+          fontSize="1.8rem"
+          fontWeight={600}
+          textAlign="center"
+          mb={4}
+          sx={{ wordBreak: 'keep-all' }}
+        >
+          📚 Enrolled Mosh Courses
+        </Typography>
+
+        <Stack
+          component={Link}
+          href="https://codewithmosh.com/courses"
+          target="_blank"
+          direction="row"
+          flexWrap="wrap"
+          justifyContent="center"
+        >
+          {moshCourses.map(course => (
+            <Image
+              key={course.thumbnail}
+              src={course.thumbnail}
+              alt="Mosh course"
+              width={240}
+              height={135}
+              style={{ objectFit: 'cover' }}
             />
           ))}
         </Stack>
