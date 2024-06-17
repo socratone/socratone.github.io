@@ -8,97 +8,109 @@ import Image from 'next/image';
 
 const udemyCourses: { thumbnail: string }[] = [
   {
+    thumbnail: 'https://img-b.udemycdn.com/course/240x135/4174580_dd1c.jpg',
+  },
+  {
+    thumbnail: 'https://img-b.udemycdn.com/course/240x135/2165246_3286_6.jpg',
+  },
+  {
+    thumbnail: 'https://img-b.udemycdn.com/course/240x135/5581394_9340_4.jpg',
+  },
+  {
+    thumbnail: 'https://img-b.udemycdn.com/course/240x135/5162418_c4c5.jpg',
+  },
+  {
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1187016_51b3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/5399658_d5e0_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/5399658_d5e0_3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/2796030_d9a1_2.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/2796030_d9a1_2.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/5558682_5626.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/5558682_5626.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4389576_a7d6_9.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4389576_a7d6_9.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/5244170_67ac_4.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/5244170_67ac_4.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4475008_753d.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4475008_753d.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/950390_270f_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/950390_270f_3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4482278_b6cc_4.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4482278_b6cc_4.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/2251868_d99e_2.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/2251868_d99e_2.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/3387966_7b82_2.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/3387966_7b82_2.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4542868_3581_4.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4542868_3581_4.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/580876_a07a_2.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/580876_a07a_2.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4490252_2de7_2.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4490252_2de7_2.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4621354_fe7c_6.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4621354_fe7c_6.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4482288_58fb_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4482288_58fb_3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/1109926_7f97_2.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/1109926_7f97_2.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/535562_6390_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/535562_6390_3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/3227583_5e75_6.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/3227583_5e75_6.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4398694_beea_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4398694_beea_3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4367336_0573_7.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4367336_0573_7.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/1906852_93c6_2.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/1906852_93c6_2.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/3780436_e8b4_6.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/3780436_e8b4_6.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/1934362_ca3c.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/1934362_ca3c.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4305113_68d5_4.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4305113_68d5_4.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/3791660_372c_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/3791660_372c_3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/3873464_403c.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/3873464_403c.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/4234852_7089_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/4234852_7089_3.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/1436092_2024_4.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/1436092_2024_4.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/3866984_c714.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/3866984_c714.jpg',
   },
   {
-    thumbnail: 'https://img-c.udemycdn.com/course/480x270/1908196_f5b8_3.jpg',
+    thumbnail: 'https://img-c.udemycdn.com/course/240x135/1908196_f5b8_3.jpg',
   },
 ];
 
