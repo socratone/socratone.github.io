@@ -219,10 +219,30 @@ const HomePage = () => {
           fontSize="1.8rem"
           fontWeight={600}
           textAlign="center"
-          mb={4}
+          mb={2}
           sx={{ wordBreak: 'keep-all' }}
         >
           🎓 Enrolled Udemy Courses
+        </Typography>
+        <Typography
+          component="div"
+          variant="body1"
+          color="text.secondary"
+          textAlign="center"
+          mb={4}
+          lineHeight={1.8}
+          sx={{ textWrap: 'balance' }}
+        >
+          <Typography>
+            개발 덕후라서 취미 생활을 하듯 틈틈히 새로운 기술들을 익힙니다.
+          </Typography>
+          <Typography>
+            Udemy 강의로 빠르게 익히고 부족한 부분은 공식 문서를 꼼꼼히 읽어
+            학습하는 편입니다.
+          </Typography>
+          <Typography>
+            새로운 기술을 배울 때마다 새로운 장난감이 생기는 기분이랄까요.
+          </Typography>
         </Typography>
 
         <Stack direction="row" flexWrap="wrap" justifyContent="center">
@@ -247,10 +267,28 @@ const HomePage = () => {
           fontSize="1.8rem"
           fontWeight={600}
           textAlign="center"
-          mb={4}
+          mb={2}
           sx={{ wordBreak: 'keep-all' }}
         >
           📚 Enrolled Mosh Courses
+        </Typography>
+        <Typography
+          component="div"
+          variant="body1"
+          color="text.secondary"
+          textAlign="center"
+          mb={4}
+          lineHeight={1.8}
+          sx={{ textWrap: 'balance' }}
+        >
+          <Typography>
+            처음 웹 개발을 배울 때 생활코딩과 더불어 Mosh님의 영상이 많은 도움을
+            줬습니다.
+          </Typography>
+          <Typography>
+            프로토타입 체이닝과 같은 어려운 개념들을 쉽게 가르쳐주셨던 게 기억에
+            남습니다.
+          </Typography>
         </Typography>
 
         <Stack
