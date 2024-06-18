@@ -251,7 +251,7 @@ const HomePage = () => {
           sx={{ textWrap: 'balance' }}
         >
           <Typography>
-            개발 덕후라서 취미 생활을 하듯 틈틈히 새로운 기술들을 익힙니다.
+            개발 덕후라서 취미 생활을 하듯 틈틈히 새로운 기술들을 공부합니다.
           </Typography>
           <Typography>
             Udemy 강의로 빠르게 익히고 부족한 부분은 공식 문서를 꼼꼼히 읽어
@@ -321,6 +321,53 @@ const HomePage = () => {
               imageSrc={course.thumbnail}
             />
           ))}
+        </Stack>
+      </Box>
+
+      {/* Dream section */}
+
+      <Box component="section" sx={{ px: 3, py: 8 }}>
+        <Typography
+          component="h2"
+          color="text.primary"
+          fontSize="1.8rem"
+          fontWeight={600}
+          textAlign="center"
+          mb={2}
+          sx={{ wordBreak: 'keep-all' }}
+        >
+          ⭐️ Dream
+        </Typography>
+        <Typography
+          component="div"
+          variant="body1"
+          color="text.secondary"
+          textAlign="center"
+          mb={4}
+          lineHeight={1.8}
+          sx={{ textWrap: 'balance' }}
+        >
+          <Typography>
+            제가 배운 기술들이 어떻게 쓰일지 모르니 지금 주어진 일에 최선을
+            다하려고 합니다.
+          </Typography>
+        </Typography>
+        <Stack direction="row" justifyContent="center">
+          <Box
+            maxWidth={400}
+            width="100%"
+            position="relative"
+            sx={{
+              aspectRatio: '400 / 279',
+            }}
+          >
+            <Image
+              alt="Dream"
+              src="/images/home/dream/house-with-balloon.webp"
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          </Box>
         </Stack>
       </Box>
     </>
