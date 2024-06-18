@@ -4,23 +4,33 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import CourseItem from 'components/CourseItem';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const udemyCourses: { thumbnail: string }[] = [
+type Course = {
+  title?: string;
+  thumbnail: string;
+};
+
+const udemyCourses: Course[] = [
   {
+    title: 'NestJS',
     thumbnail: 'https://img-b.udemycdn.com/course/240x135/4174580_dd1c.jpg',
   },
   {
+    title: 'Data Structures',
     thumbnail: 'https://img-b.udemycdn.com/course/240x135/2165246_3286_6.jpg',
   },
   {
+    title: 'Performance',
     thumbnail: 'https://img-b.udemycdn.com/course/240x135/5581394_9340_4.jpg',
   },
   {
     thumbnail: 'https://img-b.udemycdn.com/course/240x135/5162418_c4c5.jpg',
   },
   {
+    title: 'SQL',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1187016_51b3.jpg',
   },
   {
@@ -33,15 +43,18 @@ const udemyCourses: { thumbnail: string }[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/5558682_5626.jpg',
   },
   {
+    title: 'AWS',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4389576_a7d6_9.jpg',
   },
   {
+    title: 'Hacking',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/5244170_67ac_4.jpg',
   },
   {
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4475008_753d.jpg',
   },
   {
+    title: 'Machine Learning',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/950390_270f_3.jpg',
   },
   {
@@ -54,12 +67,15 @@ const udemyCourses: { thumbnail: string }[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/3387966_7b82_2.jpg',
   },
   {
+    title: 'Architecture',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4542868_3581_4.jpg',
   },
   {
+    title: 'Networks',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/580876_a07a_2.jpg',
   },
   {
+    title: 'Linux',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4490252_2de7_2.jpg',
   },
   {
@@ -78,6 +94,7 @@ const udemyCourses: { thumbnail: string }[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/3227583_5e75_6.jpg',
   },
   {
+    title: 'Kotlin',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4398694_beea_3.jpg',
   },
   {
@@ -87,6 +104,7 @@ const udemyCourses: { thumbnail: string }[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1906852_93c6_2.jpg',
   },
   {
+    title: 'Test',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/3780436_e8b4_6.jpg',
   },
   {
@@ -108,6 +126,7 @@ const udemyCourses: { thumbnail: string }[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1436092_2024_4.jpg',
   },
   {
+    title: 'SVG',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/3866984_c714.jpg',
   },
   {
@@ -115,8 +134,9 @@ const udemyCourses: { thumbnail: string }[] = [
   },
 ];
 
-const moshCourses: { thumbnail: string }[] = [
+const moshCourses: Course[] = [
   {
+    title: 'SQL',
     thumbnail: '/images/home/mosh/sql.webp',
   },
   {
@@ -136,9 +156,6 @@ const moshCourses: { thumbnail: string }[] = [
   },
   {
     thumbnail: '/images/home/mosh/react.webp',
-  },
-  {
-    thumbnail: '/images/home/mosh/javascript-part-2.webp',
   },
   {
     thumbnail: '/images/home/mosh/javascript-part-1.webp',
@@ -247,12 +264,10 @@ const HomePage = () => {
 
         <Stack direction="row" flexWrap="wrap" justifyContent="center">
           {udemyCourses.map(course => (
-            <Image
+            <CourseItem
               key={course.thumbnail}
-              src={course.thumbnail}
-              alt="Udemy course"
-              width={240}
-              height={135}
+              title={course.title}
+              imageSrc={course.thumbnail}
             />
           ))}
         </Stack>
@@ -300,13 +315,10 @@ const HomePage = () => {
           justifyContent="center"
         >
           {moshCourses.map(course => (
-            <Image
+            <CourseItem
               key={course.thumbnail}
-              src={course.thumbnail}
-              alt="Mosh course"
-              width={240}
-              height={135}
-              style={{ objectFit: 'cover' }}
+              title={course.title}
+              imageSrc={course.thumbnail}
             />
           ))}
         </Stack>
