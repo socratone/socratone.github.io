@@ -40,10 +40,12 @@ const udemyCourses: Course[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1187016_51b3.jpg',
   },
   {
+    title: 'LangChain',
     enrollmentTime: '2023-11-17T13:22:36Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/5399658_d5e0_3.jpg',
   },
   {
+    title: 'Three.js',
     enrollmentTime: '2023-11-17T13:19:54Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/2796030_d9a1_2.jpg',
   },
@@ -108,10 +110,12 @@ const udemyCourses: Course[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4621354_fe7c_6.jpg',
   },
   {
+    title: 'Docker',
     enrollmentTime: '2022-07-16T06:04:52Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4482288_58fb_3.jpg',
   },
   {
+    title: 'GraphQL',
     enrollmentTime: '2022-06-14T14:55:47Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1109926_7f97_2.jpg',
   },
@@ -130,6 +134,7 @@ const udemyCourses: Course[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4398694_beea_3.jpg',
   },
   {
+    title: 'Python',
     enrollmentTime: '2022-03-27T15:21:03Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4367336_0573_7.jpg',
   },
@@ -147,10 +152,12 @@ const udemyCourses: Course[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1934362_ca3c.jpg',
   },
   {
+    title: 'Data Structures',
     enrollmentTime: '2021-11-26T16:42:26Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4305113_68d5_4.jpg',
   },
   {
+    title: 'Serverless Functions',
     enrollmentTime: '2021-11-26T11:18:04Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/3791660_372c_3.jpg',
   },
@@ -163,10 +170,12 @@ const udemyCourses: Course[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4234852_7089_3.jpg',
   },
   {
+    title: 'React Native',
     enrollmentTime: '2021-11-11T12:33:55Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/1436092_2024_4.jpg',
   },
   {
+    title: 'React',
     enrollmentTime: '2021-11-08T00:05:35Z',
     thumbnail: 'https://img-b.udemycdn.com/course/240x135/4298905_17e3_2.jpg',
   },
