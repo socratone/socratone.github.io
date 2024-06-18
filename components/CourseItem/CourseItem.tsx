@@ -48,7 +48,7 @@ const CourseItem: React.FC<CourseItemProps> = ({
   };
 
   const enrollmentText = enrollmentTime
-    ? dayjs(enrollmentTime).format('YY.MM') + '~'
+    ? dayjs(enrollmentTime).format('YY.M') + '~'
     : '';
 
   const infoText = (() => {
