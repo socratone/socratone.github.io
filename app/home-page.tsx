@@ -77,6 +77,7 @@ const udemyCourses: Course[] = [
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/4482278_b6cc_4.jpg',
   },
   {
+    title: 'Design Patterns',
     enrollmentTime: '2022-11-21T12:49:45Z',
     thumbnail: 'https://img-c.udemycdn.com/course/240x135/2251868_d99e_2.jpg',
   },
