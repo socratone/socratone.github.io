@@ -1,12 +1,14 @@
 import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import dayjs from 'dayjs';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
 
 type CourseItemProps = {
   title?: string;
   imageSrc: ImageProps['src'];
+  enrollmentTime?: string;
   placement?: 'left-top' | 'right-top';
 };
 
@@ -27,6 +29,7 @@ const CourseItem: React.FC<CourseItemProps> = ({
   title,
   imageSrc,
   placement = 'left-top',
+  enrollmentTime,
 }) => {
   const getPositions = () => {
     switch (placement) {
@@ -44,27 +47,40 @@ const CourseItem: React.FC<CourseItemProps> = ({
     }
   };
 
+  const enrollmentText = enrollmentTime
+    ? dayjs(enrollmentTime).format('YY.MM') + '~'
+    : '';
+
+  const infoText = (() => {
+    if (title && enrollmentText) return `${title} | ${enrollmentText}`;
+    if (title) return title;
+    if (enrollmentText) return enrollmentText;
+    return null;
+  })();
+
   return (
     <Box
       position="relative"
       width={240}
       height={135}
-      sx={title ? darkBackground : undefined}
+      sx={infoText ? darkBackground : undefined}
     >
-      <Typography
-        {...getPositions()}
-        position="absolute"
-        fontSize={14}
-        fontWeight={600}
-        zIndex={2}
-        color={theme => theme.palette.background.default}
-        fontStyle="italic"
-        sx={{
-          opacity: 0.9,
-        }}
-      >
-        {title}
-      </Typography>
+      {infoText ? (
+        <Typography
+          {...getPositions()}
+          position="absolute"
+          fontSize={14}
+          fontWeight={600}
+          zIndex={2}
+          color={theme => theme.palette.background.default}
+          fontStyle="italic"
+          sx={{
+            opacity: 0.9,
+          }}
+        >
+          {infoText}
+        </Typography>
+      ) : null}
       <Image src={imageSrc} alt={title ?? 'Udemy course'} fill />
     </Box>
   );
