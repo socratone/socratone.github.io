@@ -348,8 +348,8 @@ const HomePage = () => {
           sx={{ textWrap: 'balance' }}
         >
           <Typography>
-            제가 배운 기술들이 어떻게 쓰일지 모르니 지금 주어진 일에 최선을
-            다하려고 합니다.
+            제가 배운 기술들이 어떻게 쓰일지 모르니 지금에 최선을 다하려고
+            합니다.
           </Typography>
         </Typography>
         <Stack direction="row" justifyContent="center">
