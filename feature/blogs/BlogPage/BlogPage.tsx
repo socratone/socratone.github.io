@@ -9,6 +9,7 @@ import 'highlight.js/styles/atom-one-light.css';
 import type { SxProps } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import type { Theme } from '@mui/system';
 import { HEADER_HEIGHT } from 'components/Header/constants';
 import NotionStyleHtmlContent from 'components/NotionStyleHtmlContent';
@@ -22,6 +23,8 @@ import {
   removeCopyButtonEvents,
 } from 'utils/html-code';
 import type { TableOfContent } from 'utils/markdown';
+
+import Comments from './Comments';
 
 type BlogPageProps = {
   htmlContent: string;
@@ -118,7 +121,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
               />
             </Box>
           </Box>
-          <Box py={VERTICAL_CONTENT_PADDING} sx={preventOverflowSx}>
+          <Stack gap={4} py={VERTICAL_CONTENT_PADDING} sx={preventOverflowSx}>
             <NotionStyleHtmlContent
               html={htmlContent}
               sx={{
@@ -128,7 +131,8 @@ const BlogPage: NextPage<BlogPageProps> = ({
                 ...headingScrollOffsetSx,
               }}
             />
-          </Box>
+            <Comments />
+          </Stack>
         </Box>
       </Container>
     </>
