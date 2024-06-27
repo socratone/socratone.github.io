@@ -116,8 +116,8 @@ const SearchResultList: React.FC<SearchResultListProps> = ({
 
   const handleEnterKey = useCallback(() => {
     if (selectedItemId) {
-      router.push(`/blogs/${selectedItemId}`);
       onClose();
+      router.push(`/blogs/${selectedItemId}`);
     }
   }, [router, onClose, selectedItemId]);
 
