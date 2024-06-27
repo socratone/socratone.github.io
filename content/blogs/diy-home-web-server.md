@@ -135,3 +135,55 @@ curl ifconfig.me
 외부 IP가 `123.123.123.123`, 외부로부터 들어오는 포트를 `3000`으로 설정하고, 내부 IP 주소는 `192.192.192.192`, 포트는 `5500`으로 설정했다면\
 핸드폰을 LTE로 연결하고 브라우저의 URL 인풋에 `http://123.123.123.123:3000`를 입력해서 접근할 수 있다.\
 물론 `localhost:5500`에 서버를 띄워 놓아야 한다.
+
+## Debian
+
+서버 컴퓨터의 운영체제를 골라야 하는데 무겁고 유료인 Windows 보다는 서버용으로 많이 쓴다는 Linux 계열의 Debian을 쓰는 것이 좋아 보인다.\
+집에 굴러다니는 조립 PC를 기준으로 진행한다.
+
+### Debian 설치 USB
+
+USB를 이용하면 debian을 손쉽게 설치할 수 있다.\
+8GB 이상의 적당히 큰 USB 하나를 준비한다.
+
+- 먼저 설치 파일 이미지가 필요하다.
+- 아래 링크에서 `debian-12.5.0-amd64-netinst.iso`를 다운받는다. (현재 12버전)\
+  https://www.debian.org/download.ko.html
+- rufus라는 앱을 이용해서 이 이미지를 debian 설치 USB로 바꾼다. (exe 파일이기 때문에 윈도우에서 작동)
+- 아래 링크에서 다운 받을 수 있다.\
+  https://rufus.ie/ko
+
+### USB로 부팅하기
+
+부팅하자마자 `Delete` 키나 `F2` 키 등을 눌러 BIOS에 들어가 USB로 부팅할 수 있도록 설정한다.
+
+### Debian 설치
+
+처음에 `Graphical install`을 선택했다.\
+그냥 `Install`과 아무런 차이가 없기 때문이다.\
+아래는 이후 기록해야할만한 선택사항들을 적어둔다.
+
+- `Korean` 선택
+- 호스트 이름 설정: `debian`
+- 각종 이름과 암호 설정
+- 디스크 파티션하기
+  - `수동으로` 선택
+  - 두 파티션으로 나눔
+    - EFI(Extensible Firmware Interface) 파티션
+      - 파티션의 용도: `EFI 시스템 파티션`
+      - 주파티션
+      - 250MB정도 할당
+    - debian을 설치할 파티션
+      - 파티션의 용도: `ext4 저널링 파일 시스템`\
+        https://www.debian.org/releases/stable/s390x/apcs03.ko.html
+  - 스왑 파티션
+    - 메모리가 부족할 때를 대비한 파티션
+    - 일단은 설정하지 않음
+- 소프트웨어 선택
+  - GUI 등은 필요 없기 때문에 `SSH server`만 체크 (🚧 TODO: 확인 필요)
+
+## Docker 설치
+
+## Frontend 서버 띄우기
+
+## Backend 서버 띄우기
