@@ -29,6 +29,7 @@ import Comments from './Comments';
 type BlogPageProps = {
   htmlContent: string;
   tableOfContents: TableOfContent[];
+  githubComments?: true;
 };
 
 const copyButtonSx: SxProps<Theme> = {
@@ -87,6 +88,7 @@ const VERTICAL_CONTENT_PADDING = 2;
 const BlogPage: NextPage<BlogPageProps> = ({
   htmlContent,
   tableOfContents,
+  githubComments,
 }) => {
   useEffect(() => {
     addCopyButtonEvents();
@@ -131,7 +133,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
                 ...headingScrollOffsetSx,
               }}
             />
-            <Comments />
+            {githubComments ? <Comments /> : null}
           </Stack>
         </Box>
       </Container>

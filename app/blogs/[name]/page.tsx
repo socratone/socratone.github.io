@@ -73,7 +73,11 @@ const Page = async ({ params: { name } }: PageProps) => {
   const { htmlContent, tableOfContents } = await getMarkdownData(name);
 
   return (
-    <BlogPage htmlContent={htmlContent} tableOfContents={tableOfContents} />
+    <BlogPage
+      htmlContent={htmlContent}
+      tableOfContents={tableOfContents}
+      githubComments
+    />
   );
 };
 
