@@ -10,6 +10,9 @@ const utterancesConfig = {
   crossorigin: 'anonymous',
 };
 
+/**
+ * https://github.com/utterance/utterances
+ */
 const Comments = () => {
   const hasInitializedCommentsRef = useRef(false);
   const commentsRef = useRef<HTMLDivElement>(null);
