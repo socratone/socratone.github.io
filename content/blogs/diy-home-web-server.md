@@ -143,13 +143,13 @@ curl ifconfig.me
 
 ### Debian 설치 USB
 
-USB를 이용하면 debian을 손쉽게 설치할 수 있다.\
+USB를 이용하면 Debian을 손쉽게 설치할 수 있다.\
 8GB 이상의 적당히 큰 USB 하나를 준비한다.
 
 - 먼저 설치 파일 이미지가 필요하다.
 - 아래 링크에서 `debian-12.5.0-amd64-netinst.iso`를 다운받는다. (현재 12버전)\
   https://www.debian.org/download.ko.html
-- rufus라는 앱을 이용해서 이 이미지를 debian 설치 USB로 바꾼다. (exe 파일이기 때문에 윈도우에서 작동)
+- rufus라는 앱을 이용해서 이 이미지를 Debian 설치 USB로 바꾼다. (exe 파일이기 때문에 윈도우에서 작동)
 - 아래 링크에서 다운 받을 수 있다.\
   https://rufus.ie/ko
 
@@ -173,7 +173,7 @@ USB를 이용하면 debian을 손쉽게 설치할 수 있다.\
       - 파티션의 용도: `EFI 시스템 파티션`
       - 주파티션
       - 250MB정도 할당
-    - debian을 설치할 파티션
+    - Debian을 설치할 파티션
       - 파티션의 용도: `ext4 저널링 파일 시스템`\
         https://www.debian.org/releases/stable/s390x/apcs03.ko.html
   - 스왑 파티션
@@ -187,3 +187,5 @@ USB를 이용하면 debian을 손쉽게 설치할 수 있다.\
 ## Frontend 서버 띄우기
 
 ## Backend 서버 띄우기
+
+## HTTPS 설정하기
