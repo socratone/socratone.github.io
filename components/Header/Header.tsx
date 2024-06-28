@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -97,10 +98,28 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
                 </HeaderLink>
               ))}
             </Stack>
-            <Stack direction="row" alignItems="center" ml="auto">
-              <SearchButton onClick={handleSearchButtonClick} />
-              <Link href="https://github.com/socratone" target="_blank">
-                <IconButton aria-label="Github" sx={{ mr: -1 }}>
+            <Stack direction="row" alignItems="center" ml="auto" mr={-0.5}>
+              <SearchButton
+                onClick={handleSearchButtonClick}
+                sx={{ mr: 0.5 }}
+              />
+              <Link
+                href="https://www.linkedin.com/in/기원-김-1b6854202/"
+                target="_blank"
+                rel="noopener noreferer"
+              >
+                <IconButton aria-label="LinkedIn" sx={{ px: 0.5 }}>
+                  <LinkedInIcon
+                    sx={{ color: theme => theme.palette.text.primary }}
+                  />
+                </IconButton>
+              </Link>
+              <Link
+                href="https://github.com/socratone"
+                target="_blank"
+                rel="noopener noreferer"
+              >
+                <IconButton aria-label="Github" sx={{ px: 0.5 }}>
                   <GitHubIcon
                     sx={{ color: theme => theme.palette.text.primary }}
                   />
@@ -108,7 +127,10 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
               </Link>
               <IconButton
                 onClick={handleMenuOpen}
-                sx={{ mr: -1, display: { xs: 'flex', md: 'flex', lg: 'none' } }}
+                sx={{
+                  px: 0.5,
+                  display: { xs: 'flex', md: 'flex', lg: 'none' },
+                }}
               >
                 <MenuIcon sx={{ color: theme => theme.palette.text.primary }} />
               </IconButton>

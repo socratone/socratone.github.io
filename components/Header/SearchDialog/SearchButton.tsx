@@ -1,11 +1,13 @@
+import type { SxProps } from '@mui/material';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
 type SearchButtonProps = {
   onClick: () => void;
+  sx?: SxProps;
 };
 
-const SearchButton: React.FC<SearchButtonProps> = ({ onClick }) => {
+const SearchButton: React.FC<SearchButtonProps> = ({ onClick, sx }) => {
   return (
     <ButtonBase
       disableRipple
@@ -17,6 +19,7 @@ const SearchButton: React.FC<SearchButtonProps> = ({ onClick }) => {
         px: 1,
         display: 'flex',
         gap: 1,
+        ...sx,
       }}
     >
       <Typography color="text.secondary" variant="body2">
