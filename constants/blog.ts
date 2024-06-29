@@ -14,6 +14,7 @@ export enum BlogThumbnail {
   Git = 'git',
   Typescript = 'typescript',
   Hacking = 'hacking',
+  Debian = 'debian',
 }
 
 export enum BlogTag {
