@@ -184,6 +184,55 @@ USB를 이용하면 Debian을 손쉽게 설치할 수 있다.\
 
 ## Docker 설치
 
+### 패키지 삭제
+
+충돌이 있을 수 있는 아래 패키지를 삭제한다.
+
+- `docker.io`
+- `docker-compose`
+- `docker-doc`
+- `podman-docker`
+- `containerd`
+- `runc`
+
+삭제 명령어는 다음과 같다.
+
+```
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+
+계정이 sudoers 파일에 없다는 오류 메시지가 나오면 `su` 명령어를 입력해서 root 계정으로 전환한다.
+
+### `apt` repository를 이용한 설치
+
+#### 1. apt repository 설정
+
+```
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+#### 2. docker 패키지 설치
+
+최신 버전의 docker를 설치한다.
+
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+https://docs.docker.com/engine/install/debian/
+
 ## Frontend 서버 띄우기
 
 ## Backend 서버 띄우기
