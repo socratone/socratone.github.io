@@ -1,8 +1,8 @@
 ---
 title: '홈 웹서버 구축하기'
 description: '집에 서버를 구축해서 앱 서비스를 배포해보자. 이를 위한 문제 해결 과정을 글로 써나가려고 한다.'
-thumbnail: 'browser'
-tag: 'browser'
+thumbnail: 'debian'
+tag: 'linux'
 createdAt: '2024-06-17'
 ---
 
