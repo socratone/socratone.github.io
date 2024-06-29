@@ -38,6 +38,14 @@ export const typography: TypographyOptions = {
     padding: '3px 2px',
     margin: '1px 0',
   },
+  // markdown h4
+  mh4: {
+    fontSize: '1.125rem', // 18px
+    lineHeight: 1.3,
+    fontWeight: 600,
+    padding: '3px 2px',
+    margin: '1px 0',
+  },
   // markdown p
   mp: {
     fontSize: '1rem', // 16px
