@@ -46,6 +46,16 @@ const StyledBox = styled(Box)`
     margin-top: 1rem; /* 16px */
   }
 
+  /* notion에 없는 스펙 */
+  h4 {
+    font-size: ${({ theme }) => theme.typography.mh4.fontSize};
+    line-height: ${({ theme }) => theme.typography.mh4.lineHeight};
+    font-weight: ${({ theme }) => theme.typography.mh4.fontWeight};
+    padding: ${({ theme }) => theme.typography.mh4.padding};
+    margin: ${({ theme }) => theme.typography.mh4.margin};
+    margin-top: 0.75rem; /* 12px */
+  }
+
   p {
     font-size: ${({ theme }) => theme.typography.mp.fontSize};
     line-height: ${({ theme }) => theme.typography.mp.lineHeight};

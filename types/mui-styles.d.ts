@@ -13,6 +13,7 @@ declare module '@mui/material/styles' {
     mh1: React.CSSProperties;
     mh2: React.CSSProperties;
     mh3: React.CSSProperties;
+    mh4: React.CSSProperties;
     mp: React.CSSProperties;
     ma: React.CSSProperties;
   }
@@ -22,6 +23,7 @@ declare module '@mui/material/styles' {
     mh1?: React.CSSProperties;
     mh2?: React.CSSProperties;
     mh3?: React.CSSProperties;
+    mh4?: React.CSSProperties;
     mp?: React.CSSProperties;
     ma?: React.CSSProperties;
   }
@@ -33,6 +35,7 @@ declare module '@mui/material/Typography' {
     mh1: true;
     mh2: true;
     mh3: true;
+    mh4: true;
     mp: true;
     ma: true;
   }
