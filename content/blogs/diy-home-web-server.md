@@ -138,13 +138,14 @@ curl ifconfig.me
 
 ## Debian
 
-서버 컴퓨터의 운영체제를 골라야 하는데 무겁고 유료인 Windows 보다는 서버용으로 많이 쓴다는 Linux 계열의 Debian을 쓰는 것이 좋아 보인다.\
-집에 굴러다니는 조립 PC를 기준으로 진행한다.
+이제 방법을 알았으니 실제로 서버를 설치해야한다.\
+집에 있는 컴퓨터 아무거나 쓸 생각이기 때문에 상세한 스팩은 넘어간다.\
+서버 컴퓨터의 운영체제를 골라야 하는데 무겁고 유료인 Windows 보다는 서버용으로 많이 쓴다는 Linux 계열의 Debian을 쓰는 것이 좋아 보인다.
 
 ### Debian 설치 USB
 
 USB를 이용하면 Debian을 손쉽게 설치할 수 있다.\
-8GB 이상의 적당히 큰 USB 하나를 준비한다.
+1GB 이상의 USB 하나를 준비한다.
 
 - 먼저 설치 파일 이미지가 필요하다.
 - 아래 링크에서 `debian-12.5.0-amd64-netinst.iso`를 다운받는다. (현재 12버전)\
@@ -182,7 +183,34 @@ USB를 이용하면 Debian을 손쉽게 설치할 수 있다.\
 - 소프트웨어 선택
   - GUI 등은 필요 없기 때문에 `SSH server`만 체크 (🚧 TODO: 확인 필요)
 
+## SSH 접속
+
+SSH가 제대로 작동하는지 확인하기 위해 debian에서 아래 명령어를 입력한다.
+
+```
+sudo systemctl status ssh
+```
+
+debian의 ip를 확인하려면 아래 명령어를 입력한다.
+
+```
+ip a
+```
+
+맥에서 any라는 사용자로 접속을 하고 싶다면 터미널에 다음과 같이 입력한다.
+
+```
+# <사용자이름>@<내부ip>
+ssh any@192.123.123.123
+```
+
+https://phoenixnap.com/kb/how-to-enable-ssh-on-debian
+
+이후부터는 SSH를 이용해서 설정하는 것이 편하다.
+
 ## Docker 설치
+
+모든 앱을 컨테이너로 관리하기 위해 docker를 설치한다.
 
 ### 패키지 삭제
 
@@ -233,8 +261,4 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 https://docs.docker.com/engine/install/debian/
 
-## Frontend 서버 띄우기
-
-## Backend 서버 띄우기
-
-## HTTPS 설정하기
+이제 서버를 띄운 다음 테스트 해보고 https를 적용하면 되겠다.
