@@ -1,5 +1,7 @@
 import Box from '@mui/material/Box';
-import { useEffect, useRef } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import Stack from '@mui/material/Stack';
+import { useEffect, useRef, useState } from 'react';
 
 const utterancesConfig = {
   src: 'https://utteranc.es/client.js',
@@ -14,6 +16,7 @@ const utterancesConfig = {
  * https://github.com/utterance/utterances
  */
 const Comments = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const hasInitializedCommentsRef = useRef(false);
   const commentsRef = useRef<HTMLDivElement>(null);
 
@@ -27,18 +30,23 @@ const Comments = () => {
       });
 
       commentsRef.current.appendChild(scriptElement);
+      setIsLoading(false);
     }
-  }, [commentsRef]);
+  }, []);
 
   return (
-    <Box
-      ref={commentsRef}
-      sx={{
-        '.utterances': {
-          marginLeft: 0,
-        },
-      }}
-    />
+    <Stack minHeight={269} justifyContent="center" alignItems="center">
+      {isLoading ? <CircularProgress /> : null}
+      <Box
+        ref={commentsRef}
+        width="100%"
+        sx={{
+          '.utterances': {
+            marginLeft: 0,
+          },
+        }}
+      />
+    </Stack>
   );
 };
 
