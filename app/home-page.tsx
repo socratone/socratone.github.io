@@ -16,6 +16,11 @@ type Course = {
 
 const udemyCourses: Course[] = [
   {
+    title: 'Tailwind',
+    enrollmentTime: '2024-07-03T13:09:36Z',
+    thumbnail: 'https://img-b.udemycdn.com/course/240x135/4699780_b487_2.jpg',
+  },
+  {
     title: 'NestJS',
     enrollmentTime: '2024-06-17T15:15:52Z',
     thumbnail: 'https://img-b.udemycdn.com/course/240x135/4174580_dd1c.jpg',
