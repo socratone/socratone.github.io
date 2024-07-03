@@ -49,6 +49,7 @@ const MenuDrawer: React.FC<MenuDrawerProps> = ({
         <Stack
           component={Link}
           href="/"
+          onClick={onClose}
           justifyContent="center"
           ml={-1}
           height="100%"
