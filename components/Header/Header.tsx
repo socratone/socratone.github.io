@@ -104,7 +104,7 @@ const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
                 sx={{ mr: 0.5 }}
               />
               <Link
-                href="https://www.linkedin.com/in/기원-김-1b6854202/"
+                href="https://www.linkedin.com/in/socratone"
                 target="_blank"
                 rel="noopener noreferer"
               >
