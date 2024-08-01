@@ -15,6 +15,7 @@ export enum BlogThumbnail {
   Typescript = 'typescript',
   Hacking = 'hacking',
   Debian = 'debian',
+  Tailwind = 'tailwind',
 }
 
 export enum BlogTag {
@@ -34,6 +35,7 @@ export enum BlogTag {
   Git = 'git',
   Typescript = 'typescript',
   Hacking = 'hacking',
+  Tailwind = 'tailwind',
 }
 
 export enum LifehackThumbnail {
