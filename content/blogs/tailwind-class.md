@@ -1,12 +1,12 @@
 ---
-title: 'Tailwind class 참고 문서'
+title: 'Tailwind Class 참고 문서'
 description: 'tailwind의 class는 CSS property와 닮아 있지만 익숙하지 않으면 매번 찾아야 하기 때문에 정리해 둔다.'
 thumbnail: 'tailwind'
 tag: 'tailwind'
 createdAt: '2024-08-01'
 ---
 
-# Tailwind class 참고 문서
+# Tailwind Class 참고 문서
 
 tailwind의 class는 CSS property와 닮아 있지만 익숙하지 않으면 매번 찾아야 하기 때문에 정리해 둔다.\
 자세한 내용은 아래 강의에서 확인할 수 있다.
@@ -1536,8 +1536,7 @@ https://www.udemy.com/course/tailwind-from-scratch
   bg-scroll	  background-attachment: scroll;
 -->
 
-<!--
-  Shadows
+<!-- Shadows
   shadow-sm	    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   shadow	      box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   shadow-md	    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
