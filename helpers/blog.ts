@@ -1,7 +1,9 @@
-import { BlogTag, LifehackTag } from 'constants/blog';
+import { BlogTag, DoctrineTag, LifehackTag } from 'constants/blog';
 
-export const convertBlogTagForLabel = (tag: BlogTag) => {
+export const convertTagToLabel = (tag: BlogTag | DoctrineTag | LifehackTag) => {
   switch (tag) {
+    /** BlogTag */
+
     case BlogTag.Linux:
       return 'Linux';
 
@@ -52,11 +54,14 @@ export const convertBlogTagForLabel = (tag: BlogTag) => {
 
     case BlogTag.Tailwind:
       return 'Tailwind';
-  }
-};
 
-export const convertLifehackTagForLabel = (tag: LifehackTag) => {
-  switch (tag) {
+    /** Doctrine Tag */
+
+    case DoctrineTag.Eschatology:
+      return '종말론';
+
+    /** Lifehack Tag */
+
     case LifehackTag.Ai:
       return 'AI';
   }

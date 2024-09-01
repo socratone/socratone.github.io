@@ -1,15 +1,29 @@
 import {
   BlogTag,
   BlogThumbnail,
+  DoctrineTag,
+  DoctrineThumbnail,
   LifehackTag,
   LifehackThumbnail,
 } from 'constants/blog';
 import { isStringInEnum } from 'socratone-utils';
 
-type ThumbnailFor<T> = T extends 'blog' ? BlogThumbnail : LifehackThumbnail;
-type TagFor<T> = T extends 'blog' ? BlogTag : LifehackTag;
+type ThumbnailMap = {
+  blog: BlogThumbnail;
+  lifehack: LifehackThumbnail;
+  doctrine: DoctrineThumbnail;
+};
 
-export type Metadata<T extends 'blog' | 'lifehack'> = {
+type TagMap = {
+  blog: BlogTag;
+  lifehack: LifehackTag;
+  doctrine: DoctrineTag;
+};
+
+type ThumbnailFor<T extends keyof ThumbnailMap> = ThumbnailMap[T];
+type TagFor<T extends keyof TagMap> = TagMap[T];
+
+export type Metadata<T extends 'blog' | 'doctrine' | 'lifehack'> = {
   title: string;
   description: string;
   thumbnail: ThumbnailFor<T>;
@@ -60,4 +74,18 @@ export const validateLifehackMarkdownMetadata = (metadata: any) => {
   }
 
   return metadata as Metadata<'lifehack'>;
+};
+
+export const validateDoctrineMarkdownMetadata = (metadata: any) => {
+  validateCommonMetadata(metadata);
+
+  if (!isStringInEnum(metadata.thumbnail, DoctrineThumbnail)) {
+    throw new Error('Invalid thumbnail.');
+  }
+
+  if (!isStringInEnum(metadata.tag, DoctrineTag)) {
+    throw new Error('Invalid tag.');
+  }
+
+  return metadata as Metadata<'doctrine'>;
 };

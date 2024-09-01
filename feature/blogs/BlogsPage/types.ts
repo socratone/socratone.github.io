@@ -1,4 +1,4 @@
-import type { BlogTag, LifehackTag } from 'constants/blog';
+import type { BlogTag, DoctrineTag, LifehackTag } from 'constants/blog';
 import type { Metadata } from 'helpers/markdown';
 
 export type BlogsPageProps = {
@@ -15,4 +15,12 @@ export type LifehacksPageProps = {
     fileName: string;
   })[];
   tags: LifehackTag[];
+};
+
+export type DoctrinesPageProps = {
+  type: 'doctrine';
+  blogs: (Metadata<'doctrine'> & {
+    fileName: string;
+  })[];
+  tags: DoctrineTag[];
 };
