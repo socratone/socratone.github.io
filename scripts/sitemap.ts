@@ -78,6 +78,7 @@ const main = () => {
   const urls = [
     ...getBlogUrls('blogs'),
     ...getBlogUrls('lifehacks'),
+    ...getBlogUrls('doctrines'),
     ...getAdditionalUrls(),
   ];
 
