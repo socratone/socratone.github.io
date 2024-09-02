@@ -26,3 +26,9 @@ export const BLOGS_DESCRIPTION =
 export const LIFEHACKS_TITLE = '개발자의 생존법';
 export const LIFEHACKS_DESCRIPTION =
   '생활에 유용한 정보들을 기록하고 공유합니다.';
+
+/** Doctrines page */
+
+export const DOCTRINES_TITLE = '하늘로 가는 나그네';
+export const DOCTRINES_DESCRIPTION =
+  '한 번 주어진 인생 어떻게 살아야 하는지에 대해서 나눕니다.';

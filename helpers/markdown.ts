@@ -1,15 +1,29 @@
 import {
   BlogTag,
   BlogThumbnail,
+  DoctrineTag,
+  DoctrineThumbnail,
   LifehackTag,
   LifehackThumbnail,
 } from 'constants/blog';
 import { isStringInEnum } from 'socratone-utils';
 
-type ThumbnailFor<T> = T extends 'blog' ? BlogThumbnail : LifehackThumbnail;
-type TagFor<T> = T extends 'blog' ? BlogTag : LifehackTag;
+type ThumbnailMap = {
+  blog: BlogThumbnail;
+  lifehack: LifehackThumbnail;
+  doctrine: DoctrineThumbnail;
+};
 
-export type Metadata<T extends 'blog' | 'lifehack'> = {
+type TagMap = {
+  blog: BlogTag;
+  lifehack: LifehackTag;
+  doctrine: DoctrineTag;
+};
+
+type ThumbnailFor<T extends keyof ThumbnailMap> = ThumbnailMap[T];
+type TagFor<T extends keyof TagMap> = TagMap[T];
+
+export type Metadata<T extends 'blog' | 'doctrine' | 'lifehack'> = {
   title: string;
   description: string;
   thumbnail: ThumbnailFor<T>;
@@ -17,7 +31,7 @@ export type Metadata<T extends 'blog' | 'lifehack'> = {
   createdAt: string;
 };
 
-export const validateBlogMarkdownMetadata = (metadata: any) => {
+const validateCommonMetadata = (metadata: any) => {
   if (typeof metadata.title !== 'string') {
     throw new Error('Invalid title.');
   }
@@ -32,6 +46,10 @@ export const validateBlogMarkdownMetadata = (metadata: any) => {
   ) {
     throw new Error('Invalid createdAt.');
   }
+};
+
+export const validateBlogMarkdownMetadata = (metadata: any) => {
+  validateCommonMetadata(metadata);
 
   if (!isStringInEnum(metadata.thumbnail, BlogThumbnail)) {
     throw new Error('Invalid thumbnail.');
@@ -45,20 +63,7 @@ export const validateBlogMarkdownMetadata = (metadata: any) => {
 };
 
 export const validateLifehackMarkdownMetadata = (metadata: any) => {
-  if (typeof metadata.title !== 'string') {
-    throw new Error('Invalid title.');
-  }
-
-  if (typeof metadata.description !== 'string') {
-    throw new Error('Invalid description.');
-  }
-
-  if (
-    typeof metadata.createdAt !== 'string' ||
-    new Date(metadata.createdAt).toString() === 'Invalid Date'
-  ) {
-    throw new Error('Invalid createdAt.');
-  }
+  validateCommonMetadata(metadata);
 
   if (!isStringInEnum(metadata.thumbnail, LifehackThumbnail)) {
     throw new Error('Invalid thumbnail.');
@@ -69,4 +74,18 @@ export const validateLifehackMarkdownMetadata = (metadata: any) => {
   }
 
   return metadata as Metadata<'lifehack'>;
+};
+
+export const validateDoctrineMarkdownMetadata = (metadata: any) => {
+  validateCommonMetadata(metadata);
+
+  if (!isStringInEnum(metadata.thumbnail, DoctrineThumbnail)) {
+    throw new Error('Invalid thumbnail.');
+  }
+
+  if (!isStringInEnum(metadata.tag, DoctrineTag)) {
+    throw new Error('Invalid tag.');
+  }
+
+  return metadata as Metadata<'doctrine'>;
 };

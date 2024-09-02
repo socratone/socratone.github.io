@@ -45,3 +45,13 @@ export enum LifehackThumbnail {
 export enum LifehackTag {
   Ai = 'ai',
 }
+
+export enum DoctrineThumbnail {
+  /** 종말론 */
+  Eschatology = 'eschatology',
+}
+
+export enum DoctrineTag {
+  /** 종말론 */
+  Eschatology = 'eschatology',
+}
