@@ -16,6 +16,16 @@ type Course = {
 
 const udemyCourses: Course[] = [
   {
+    title: 'GitLab CI/CD',
+    enrollmentTime: '2024-08-26T15:53:16Z',
+    thumbnail: 'https://img-b.udemycdn.com/course/240x135/2309602_ed2d_3.jpg',
+  },
+  {
+    title: 'Java Spring',
+    enrollmentTime: '2024-08-20T15:18:46Z',
+    thumbnail: 'https://img-b.udemycdn.com/course/240x135/5193986_b926_3.jpg',
+  },
+  {
     title: 'Tailwind',
     enrollmentTime: '2024-07-03T13:09:36Z',
     thumbnail: 'https://img-b.udemycdn.com/course/240x135/4699780_b487_2.jpg',
