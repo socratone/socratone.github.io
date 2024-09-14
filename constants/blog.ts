@@ -39,7 +39,7 @@ export enum BlogTag {
   Hacking = 'hacking',
   Tailwind = 'tailwind',
   Java = 'java',
-  Spring = 'spring',
+  SpringBoot = 'spring-boot',
 }
 
 export enum LifehackThumbnail {

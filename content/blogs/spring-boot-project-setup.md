@@ -2,7 +2,7 @@
 title: '스프링 부트 프로젝트 설정'
 description: '스프링 부트 프로젝트를 설정하는 방법에 대해서 다룬다.'
 thumbnail: 'spring'
-tag: 'spring'
+tag: 'spring-boot'
 createdAt: '2024-09-15'
 ---
 
