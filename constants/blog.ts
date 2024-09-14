@@ -17,6 +17,7 @@ export enum BlogThumbnail {
   Debian = 'debian',
   Tailwind = 'tailwind',
   Java = 'java',
+  Spring = 'spring',
 }
 
 export enum BlogTag {
@@ -38,6 +39,7 @@ export enum BlogTag {
   Hacking = 'hacking',
   Tailwind = 'tailwind',
   Java = 'java',
+  Spring = 'spring',
 }
 
 export enum LifehackThumbnail {
