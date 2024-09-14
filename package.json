@@ -11,9 +11,9 @@
     "resume-pdf": "env-cmd -f .env.resume next build && ts-node --project tsconfig.node.json ./scripts/resume-pdf.ts && open resume.pdf",
     "sitemap": "ts-node --project tsconfig.node.json ./scripts/sitemap.ts ./out",
     "optimize-thumbnail-image": "yarn optimize-blog-thumbnail-image && yarn optimize-doctrine-thumbnail-image && yarn optimize-lifehack-thumbnail-image",
-    "optimize-blog-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./components/BlogListItem/images/blogs ./public/images/blog/thumbnail --width 96 --width 192",
-    "optimize-doctrine-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./components/BlogListItem/images/doctrines ./public/images/doctrine/thumbnail --width 96 --width 192",
-    "optimize-lifehack-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./components/BlogListItem/images/lifehacks ./public/images/lifehack/thumbnail --width 96 --width 192",
+    "optimize-blog-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./feature/blogs/images/blogs ./public/images/blog/thumbnail --width 96 --width 192",
+    "optimize-doctrine-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./feature/blogs/images/doctrines ./public/images/doctrine/thumbnail --width 96 --width 192",
+    "optimize-lifehack-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./feature/blogs/images/lifehacks ./public/images/lifehack/thumbnail --width 96 --width 192",
     "test": "jest"
   },
   "dependencies": {
