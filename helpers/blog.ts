@@ -55,6 +55,9 @@ export const convertTagToLabel = (tag: BlogTag | DoctrineTag | LifehackTag) => {
     case BlogTag.Tailwind:
       return 'Tailwind';
 
+    case BlogTag.Java:
+      return 'Java';
+
     /** Doctrine Tag */
 
     case DoctrineTag.Eschatology:
