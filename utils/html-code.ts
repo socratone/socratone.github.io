@@ -1,4 +1,5 @@
 import hljs from 'highlight.js/lib/core';
+import java from 'highlight.js/lib/languages/java';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
 import python from 'highlight.js/lib/languages/python';
@@ -7,6 +8,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import yaml from 'highlight.js/lib/languages/yaml';
 
 type Language =
+  | 'language-java'
   | 'language-javascript'
   | 'language-json'
   | 'language-python'
@@ -66,6 +68,11 @@ const addColorTag = (code: string, language: Language) => {
   switch (language) {
     case 'language-javascript':
       hljs.registerLanguage(language, javascript);
+      editedCode = code.replaceAll('&lt;', `<`).replaceAll('&gt;', `>`);
+      break;
+
+    case 'language-java':
+      hljs.registerLanguage(language, java);
       editedCode = code.replaceAll('&lt;', `<`).replaceAll('&gt;', `>`);
       break;
 

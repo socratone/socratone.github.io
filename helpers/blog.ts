@@ -58,6 +58,9 @@ export const convertTagToLabel = (tag: BlogTag | DoctrineTag | LifehackTag) => {
     case BlogTag.Java:
       return 'Java';
 
+    case BlogTag.SpringBoot:
+      return 'Spring Boot';
+
     /** Doctrine Tag */
 
     case DoctrineTag.Eschatology:
