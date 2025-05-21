@@ -33,4 +33,6 @@ createdAt: '2024-10-16'
 
 ## 아이폰
 
-TODO:
+아래 링크로 대체
+
+[아이폰에서 모바일 웹(사파리) 개발자모드 실행 방법](https://always-hyeppy.tistory.com/entry/%EC%95%84%EC%9D%B4%ED%8F%B0%EC%97%90%EC%84%9C-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%9B%B9%EC%82%AC%ED%8C%8C%EB%A6%AC-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%AA%A8%EB%93%9C-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0#google_vignette)
