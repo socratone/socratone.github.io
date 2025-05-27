@@ -5,12 +5,17 @@ import dayjs from 'dayjs';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
 
-type CourseItemProps = {
+
+interface CourseItemProps {
+  /** 코스 제목 */
   title?: string;
+  /** 이미지 소스 */
   imageSrc: ImageProps['src'];
+  /** 등록 시간 */
   enrollmentTime?: string;
+  /** 배치 위치 */
   placement?: 'left-top' | 'right-top';
-};
+}
 
 const darkBackground: SxProps = {
   '::before': {
@@ -25,12 +30,13 @@ const darkBackground: SxProps = {
   },
 };
 
-const CourseItem: React.FC<CourseItemProps> = ({
+
+const CourseItem = ({
   title,
   imageSrc,
   placement = 'left-top',
   enrollmentTime,
-}) => {
+}: CourseItemProps) => {
   const getPositions = () => {
     switch (placement) {
       case 'left-top':

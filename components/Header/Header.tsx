@@ -18,21 +18,26 @@ import SearchButton from './SearchDialog/SearchButton';
 
 const SearchDialog = lazy(() => import('./SearchDialog'));
 
-type HeaderProps = {
+
+interface HeaderProps {
+  /** 헤더에 표시될 로고 */
   logo: React.ReactNode;
+  /** 헤더 링크 아이템 목록 */
   items: {
     href: string;
     label: string;
   }[];
+  /** 하단 테두리 표시 여부 */
   borderBottom?: true;
-};
+}
 
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
 `;
 
-const Header: React.FC<HeaderProps> = ({ logo, items, borderBottom }) => {
+
+const Header = ({ logo, items, borderBottom }: HeaderProps) => {
   const isScrollTop = useIsScrollTop();
 
   const [menuOpen, setMenuOpen] = useState(false);

@@ -5,12 +5,17 @@ import type { ElementType } from 'react';
 
 import { CODE_BACKGROUND_COLOR } from './constants';
 
-type NotionStyleHtmlContentProps = {
+
+interface NotionStyleHtmlContentProps {
+  /** HTML 콘텐츠 */
   html?: string;
+  /** 컴포넌트 요소 타입 */
   component?: ElementType;
+  /** 추가 스타일 속성 */
   sx?: SxProps<Theme>;
+  /** 자식 컴포넌트 */
   children?: React.ReactNode;
-};
+}
 
 const StyledBox = styled(Box)`
   display: flex;
@@ -143,12 +148,13 @@ const StyledBox = styled(Box)`
   }
 `;
 
-const NotionStyleHtmlContent: React.FC<NotionStyleHtmlContentProps> = ({
+
+const NotionStyleHtmlContent = ({
   html,
   component,
   sx,
   children,
-}) => {
+}: NotionStyleHtmlContentProps) => {
   return (
     <StyledBox
       component={component}

@@ -10,23 +10,30 @@ import useArrowKeyListener from './hooks/useArrowKeyListener';
 import useEnterKeyListener from './hooks/useEnterKeyListener';
 import type { BlogMetadata } from './types';
 
-type SearchResultListProps = {
+
+interface SearchResultListProps {
+  /** 컴포넌트 활성화 상태 */
   enabled: boolean;
+  /** 검색어 */
   searchValue: string;
+  /** 검색 결과 아이템 목록 */
   items?: BlogMetadata[];
+  /** 닫기 함수 */
   onClose: () => void;
+  /** 검색 진행 여부 */
   searched: boolean;
-};
+}
 
 const SEARCH_RESULT_ITEM_CLASS = 'search-result-item';
 
-const SearchResultList: React.FC<SearchResultListProps> = ({
+
+const SearchResultList = ({
   enabled,
   searchValue,
   items,
   onClose,
   searched,
-}) => {
+}: SearchResultListProps) => {
   const router = useRouter();
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
 
