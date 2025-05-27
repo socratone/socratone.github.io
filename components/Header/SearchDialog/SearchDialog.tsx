@@ -11,12 +11,16 @@ import useBlogsMetadata from './hooks/useBlogsMetadata';
 import SearchIcon from './SearchIcon';
 import SearchResultList from './SearchResultList';
 
-type SearchDialogProps = {
-  open: boolean;
-  onClose: () => void;
-};
 
-const SearchDialog: React.FC<SearchDialogProps> = ({ open, onClose }) => {
+interface SearchDialogProps {
+  /** 다이얼로그 열림 상태 */
+  open: boolean;
+  /** 다이얼로그 닫기 함수 */
+  onClose: () => void;
+}
+
+
+const SearchDialog = ({ open, onClose }: SearchDialogProps) => {
   const blogsMetadata = useBlogsMetadata(open);
 
   const initialResult = blogsMetadata?.slice(0, 5);

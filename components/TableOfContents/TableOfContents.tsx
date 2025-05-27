@@ -4,10 +4,13 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { convertHeadingContentToId } from 'utils/html-code';
 import type { TableOfContent } from 'utils/markdown';
 
-type TableOfContentsProps = {
+
+interface TableOfContentsProps {
+  /** 목차 콘텐츠 목록 */
   contents: TableOfContent[];
+  /** 선택자 문자열 */
   selectors: string;
-};
+}
 
 const LEVEL_OFFSET_RATIO = 1.8;
 const TEXT_LINE_HEIGHT = 10;
@@ -18,10 +21,11 @@ const textEllipsisSx = {
   whiteSpace: 'nowrap',
 };
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({
+
+const TableOfContents = ({
   contents,
   selectors,
-}) => {
+}: TableOfContentsProps) => {
   const [selectedContentId, setSelectedContentId] = useState<string | null>(
     null
   );

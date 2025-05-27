@@ -10,22 +10,28 @@ import React from 'react';
 import { HEADER_HEIGHT } from './constants';
 import HeaderLink from './HeaderLink';
 
-type MenuDrawerProps = {
+
+interface MenuDrawerProps {
+  /** 드로어에 표시될 로고 */
   logo: React.ReactNode;
+  /** 드로어 링크 아이템 목록 */
   items: {
     href: string;
     label: string;
   }[];
+  /** 드로어 열림 상태 */
   open: boolean;
+  /** 드로어 닫기 함수 */
   onClose: () => void;
-};
+}
 
-const MenuDrawer: React.FC<MenuDrawerProps> = ({
+
+const MenuDrawer = ({
   logo,
   items,
   open,
   onClose,
-}) => {
+}: MenuDrawerProps) => {
   return (
     <Drawer
       anchor="right"
