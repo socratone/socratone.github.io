@@ -58,6 +58,7 @@ const getMusics = cache(async () => {
 const Page = async () => {
   const musics = await getMusics();
   const tags = [...new Set(musics.map(music => music.tag))];
+  // TODO: sorting select
   tags.sort();
 
   return <Musics musics={musics} />;
