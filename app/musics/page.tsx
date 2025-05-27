@@ -11,7 +11,7 @@ import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
 
-import Musics from './Musics';
+import Musics from './components/Musics';
 
 export const metadata: Metadata = {
   title: MUSICS_TITLE,
