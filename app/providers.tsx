@@ -61,6 +61,7 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
             logo={<Image src={logoImage} alt="s" width={25} height={25} />}
             items={[
               { label: 'Blogs', href: '/blogs' },
+              { label: 'Musics', href: '/musics' },
               { label: 'Lifehacks', href: '/lifehacks' },
               { label: 'Utils', href: '/youtube-loop' },
             ]}

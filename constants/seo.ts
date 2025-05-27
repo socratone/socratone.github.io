@@ -32,3 +32,8 @@ export const LIFEHACKS_DESCRIPTION =
 export const DOCTRINES_TITLE = '하늘로 가는 나그네';
 export const DOCTRINES_DESCRIPTION =
   '한 번 주어진 인생 어떻게 살아야 하는지에 대해서 나눕니다.';
+
+/** Musics page */
+
+export const MUSICS_TITLE = '음악';
+export const MUSICS_DESCRIPTION = '좋아하는 음악을 모아 놓았습니다.';

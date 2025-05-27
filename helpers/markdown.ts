@@ -5,6 +5,7 @@ import {
   DoctrineThumbnail,
   LifehackTag,
   LifehackThumbnail,
+  MusicTag,
 } from 'constants/blog';
 import { isStringInEnum } from 'socratone-utils';
 
@@ -28,6 +29,16 @@ export type Metadata<T extends 'blog' | 'doctrine' | 'lifehack'> = {
   description: string;
   thumbnail: ThumbnailFor<T>;
   tag: TagFor<T>;
+  createdAt: string;
+};
+
+type MusicMetadata = {
+  title: string;
+  artist: string;
+  videoId: string;
+  startTime: string;
+  endTime: string;
+  tag: MusicTag;
   createdAt: string;
 };
 
@@ -88,4 +99,39 @@ export const validateDoctrineMarkdownMetadata = (metadata: any) => {
   }
 
   return metadata as Metadata<'doctrine'>;
+};
+
+export const validateMusicMarkdownMetadata = (metadata: any) => {
+  if (typeof metadata.title !== 'string') {
+    throw new Error('Invalid title.');
+  }
+
+  if (typeof metadata.artist !== 'string') {
+    throw new Error('Invalid artist.');
+  }
+
+  if (
+    typeof metadata.createdAt !== 'string' ||
+    new Date(metadata.createdAt).toString() === 'Invalid Date'
+  ) {
+    throw new Error('Invalid createdAt.');
+  }
+
+  if (!isStringInEnum(metadata.tag, MusicTag)) {
+    throw new Error('Invalid tag.');
+  }
+
+  if (typeof metadata.startTime !== 'string') {
+    throw new Error('Invalid startTime.');
+  }
+
+  if (typeof metadata.endTime !== 'string') {
+    throw new Error('Invalid endTime.');
+  }
+
+  if (typeof metadata.videoId !== 'string') {
+    throw new Error('Invalid videoId.');
+  }
+
+  return metadata as MusicMetadata;
 };
