@@ -59,3 +59,8 @@ export enum DoctrineTag {
   /** 종말론 */
   Eschatology = 'eschatology',
 }
+
+export enum MusicTag {
+  /** 메탈 */
+  Metal = 'metal',
+}

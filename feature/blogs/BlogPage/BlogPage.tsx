@@ -25,11 +25,13 @@ import {
 import type { TableOfContent } from 'utils/markdown';
 
 import Comments from './Comments';
+import YoutubeIframe from './YoutubeIframe';
 
 type BlogPageProps = {
   htmlContent: string;
   tableOfContents: TableOfContent[];
   githubComments?: true;
+  videoId?: string;
 };
 
 const copyButtonSx: SxProps<Theme> = {
@@ -89,6 +91,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
   htmlContent,
   tableOfContents,
   githubComments,
+  videoId,
 }) => {
   useEffect(() => {
     addCopyButtonEvents();
@@ -123,7 +126,12 @@ const BlogPage: NextPage<BlogPageProps> = ({
               />
             </Box>
           </Box>
-          <Stack gap={4} py={VERTICAL_CONTENT_PADDING} sx={preventOverflowSx}>
+          <Stack py={VERTICAL_CONTENT_PADDING} sx={preventOverflowSx}>
+            {videoId ? (
+              <Box mb={2}>
+                <YoutubeIframe videoId={videoId} />
+              </Box>
+            ) : null}
             <NotionStyleHtmlContent
               html={htmlContent}
               sx={{
@@ -133,7 +141,11 @@ const BlogPage: NextPage<BlogPageProps> = ({
                 ...headingScrollOffsetSx,
               }}
             />
-            {githubComments ? <Comments /> : null}
+            {githubComments ? (
+              <Box mt={4}>
+                <Comments />
+              </Box>
+            ) : null}
           </Stack>
         </Box>
       </Container>
