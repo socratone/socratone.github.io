@@ -24,8 +24,8 @@ type MusicItem = {
   videoId: string;
   tag: string;
   createdAt: string;
-  startTime: string;
-  endTime: string;
+  startTime?: string;
+  endTime?: string;
 };
 
 type MusicsProps = {
