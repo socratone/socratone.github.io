@@ -36,8 +36,8 @@ type MusicMetadata = {
   title: string;
   artist: string;
   videoId: string;
-  startTime: string;
-  endTime: string;
+  startTime?: string;
+  endTime?: string;
   tag: MusicTag;
   createdAt: string;
 };
@@ -119,14 +119,6 @@ export const validateMusicMarkdownMetadata = (metadata: any) => {
 
   if (!isStringInEnum(metadata.tag, MusicTag)) {
     throw new Error('Invalid tag.');
-  }
-
-  if (typeof metadata.startTime !== 'string') {
-    throw new Error('Invalid startTime.');
-  }
-
-  if (typeof metadata.endTime !== 'string') {
-    throw new Error('Invalid endTime.');
   }
 
   if (typeof metadata.videoId !== 'string') {
