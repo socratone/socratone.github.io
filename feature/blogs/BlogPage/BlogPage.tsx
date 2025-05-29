@@ -25,7 +25,7 @@ import {
 import type { TableOfContent } from 'utils/markdown';
 
 import Comments from './Comments';
-import YoutubeIframe from './YoutubeIframe';
+import YoutubePlayer from './YoutubePlayer';
 
 type BlogPageProps = {
   htmlContent: string;
@@ -129,7 +129,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
           <Stack py={VERTICAL_CONTENT_PADDING} sx={preventOverflowSx}>
             {videoId ? (
               <Box mb={2}>
-                <YoutubeIframe videoId={videoId} />
+                <YoutubePlayer autoplay videoId={videoId} />
               </Box>
             ) : null}
             <NotionStyleHtmlContent
