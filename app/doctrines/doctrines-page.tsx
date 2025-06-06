@@ -2,7 +2,7 @@
 
 import BlogListItem from 'components/BlogListItem';
 import dayjs from 'dayjs';
-import BlogsTemplate from 'feature/blogs/BlogsPage';
+import BlogsPage from 'feature/blogs/BlogsPage';
 import Thumbnail from 'feature/blogs/BlogsPage/Thumbnail';
 import type { Blog, Tag } from 'feature/blogs/BlogsPage/types';
 import { convertTagToLabel } from 'helpers/blog';
@@ -14,7 +14,7 @@ interface DoctrinesPageProps {
 
 const DoctrinesPage = ({ doctrines, tags }: DoctrinesPageProps) => {
   return (
-    <BlogsTemplate
+    <BlogsPage
       blogs={doctrines}
       tags={tags}
       renderItem={doctrine => (

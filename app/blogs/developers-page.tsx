@@ -2,19 +2,19 @@
 
 import BlogListItem from 'components/BlogListItem';
 import dayjs from 'dayjs';
-import BlogsTemplate from 'feature/blogs/BlogsPage';
+import BlogsPage from 'feature/blogs/BlogsPage';
 import Thumbnail from 'feature/blogs/BlogsPage/Thumbnail';
 import type { Blog, Tag } from 'feature/blogs/BlogsPage/types';
 import { convertTagToLabel } from 'helpers/blog';
 
-interface BlogsPageProps {
+interface DevelopersPageProps {
   blogs: Blog[];
   tags: Tag[];
 }
 
-const BlogsPage = ({ blogs, tags }: BlogsPageProps) => {
+const DevelopersPage = ({ blogs, tags }: DevelopersPageProps) => {
   return (
-    <BlogsTemplate
+    <BlogsPage
       blogs={blogs}
       tags={tags}
       renderItem={blog => (
@@ -32,4 +32,4 @@ const BlogsPage = ({ blogs, tags }: BlogsPageProps) => {
   );
 };
 
-export default BlogsPage;
+export default DevelopersPage;

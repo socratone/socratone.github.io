@@ -11,7 +11,7 @@ import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
 
-import BlogsPage from './blogs-page';
+import DevelopersPage from './developers-page';
 
 export const metadata: Metadata = {
   title: BLOGS_TITLE,
@@ -60,7 +60,7 @@ const Page = async () => {
   const tags = [...new Set(blogs.map(blog => blog.tag))];
   tags.sort();
 
-  return <BlogsPage blogs={blogs} tags={tags} />;
+  return <DevelopersPage blogs={blogs} tags={tags} />;
 };
 
 export default Page;
