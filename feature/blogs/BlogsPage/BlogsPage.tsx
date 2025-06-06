@@ -6,22 +6,15 @@ import Chip from '@mui/material/Chip';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import BlogListItem from 'components/BlogListItem';
 import { HEADER_HEIGHT } from 'components/Header/constants';
 import RouteChangeListener from 'components/RouteChangeListener';
-import dayjs from 'dayjs';
 import { convertTagToLabel } from 'helpers/blog';
 import Link from 'next/link';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
-import Thumbnail from './Thumbnail';
-import type {
-  BlogsPageProps,
-  DoctrinesPageProps,
-  LifehacksPageProps,
-} from './types';
+import type { BlogsPageProps } from './types';
 
 const CONTAINER_PADDING_TOP = 16;
 const CATEGORY_WIDTH = 240;
@@ -63,12 +56,8 @@ const rightGradientSx: SxProps = {
   },
 };
 
-const BlogsPage = (
-  props: BlogsPageProps | DoctrinesPageProps | LifehacksPageProps
-) => {
-  const { type, blogs, tags } = props;
+const BlogsPage = ({ blogs, tags, renderItem, parentSlug }: BlogsPageProps) => {
   const router = useRouter();
-  const parentSlug = `${type}s`;
 
   const [tagParam, setTagParam] = useState<string | null>(null);
   const [pageParam, setPageParam] = useState<string | null>(null);
@@ -200,17 +189,7 @@ const BlogsPage = (
             lg: `calc(100% - ${CATEGORY_WIDTH + GAP}px)`,
           }}
         >
-          {pagedBlogs.map(blog => (
-            <BlogListItem
-              key={blog.fileName}
-              title={blog.title}
-              description={blog.description}
-              thumbnail={<Thumbnail type={type} name={blog.thumbnail} />}
-              createdAt={dayjs(blog.createdAt)}
-              href={`/${parentSlug}/${blog.fileName}`}
-              tag={convertTagToLabel(blog.tag)}
-            />
-          ))}
+          {pagedBlogs.map(blog => renderItem(blog))}
           {pageCount > 1 ? (
             <Box display="flex" justifyContent="center">
               <Pagination

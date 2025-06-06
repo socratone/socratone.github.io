@@ -24,7 +24,7 @@ type TagMap = {
 type ThumbnailFor<T extends keyof ThumbnailMap> = ThumbnailMap[T];
 type TagFor<T extends keyof TagMap> = TagMap[T];
 
-export type Metadata<T extends 'blog' | 'doctrine' | 'lifehack'> = {
+type Metadata<T extends 'blog' | 'doctrine' | 'lifehack'> = {
   title: string;
   description: string;
   thumbnail: ThumbnailFor<T>;

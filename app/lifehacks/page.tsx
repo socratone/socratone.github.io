@@ -5,12 +5,13 @@ import {
   LIFEHACKS_TITLE,
 } from 'constants/seo';
 import dayjs from 'dayjs';
-import BlogsPage from 'feature/blogs/BlogsPage';
 import { validateLifehackMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
+
+import LifehacksPage from './lifehacks-page';
 
 export const metadata: Metadata = {
   title: LIFEHACKS_TITLE,
@@ -33,7 +34,7 @@ const getLifehacks = cache(async () => {
     return fileName.substring(0, fileName.length - 3);
   });
 
-  const blogs = fileNamesWithoutExtension.map(fileName => {
+  const lifehacks = fileNamesWithoutExtension.map(fileName => {
     const { metadata } = parseMarkdownFile(`content/lifehacks/${fileName}.md`);
     const validatedMetadata = validateLifehackMarkdownMetadata(metadata);
 
@@ -43,7 +44,7 @@ const getLifehacks = cache(async () => {
     };
   });
 
-  blogs.sort((a, b) => {
+  lifehacks.sort((a, b) => {
     const first = dayjs(a.createdAt);
     const second = dayjs(b.createdAt);
     if (first.isAfter(second)) return -1;
@@ -51,7 +52,7 @@ const getLifehacks = cache(async () => {
     return 0;
   });
 
-  return blogs;
+  return lifehacks;
 });
 
 const Page = async () => {
@@ -59,7 +60,7 @@ const Page = async () => {
   const tags = [...new Set(lifehacks.map(lifehack => lifehack.tag))];
   tags.sort();
 
-  return <BlogsPage type="lifehack" blogs={lifehacks} tags={tags} />;
+  return <LifehacksPage lifehacks={lifehacks} tags={tags} />;
 };
 
 export default Page;

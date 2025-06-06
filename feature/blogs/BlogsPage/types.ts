@@ -1,26 +1,27 @@
-import type { BlogTag, DoctrineTag, LifehackTag } from 'constants/blog';
-import type { Metadata } from 'helpers/markdown';
+import type {
+  BlogTag,
+  BlogThumbnail,
+  DoctrineTag,
+  DoctrineThumbnail,
+  LifehackTag,
+  LifehackThumbnail,
+} from 'constants/blog';
 
-export type BlogsPageProps = {
-  type: 'blog';
-  blogs: (Metadata<'blog'> & {
-    fileName: string;
-  })[];
-  tags: BlogTag[];
+export type Tag = BlogTag | DoctrineTag | LifehackTag;
+type Thumbnail = BlogThumbnail | DoctrineThumbnail | LifehackThumbnail;
+
+export type Blog = {
+  fileName: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  thumbnail: Thumbnail;
+  tag: Tag;
 };
 
-export type LifehacksPageProps = {
-  type: 'lifehack';
-  blogs: (Metadata<'lifehack'> & {
-    fileName: string;
-  })[];
-  tags: LifehackTag[];
-};
-
-export type DoctrinesPageProps = {
-  type: 'doctrine';
-  blogs: (Metadata<'doctrine'> & {
-    fileName: string;
-  })[];
-  tags: DoctrineTag[];
-};
+export interface BlogsPageProps {
+  parentSlug: string;
+  blogs: Blog[];
+  tags: Tag[];
+  renderItem: (blog: Blog) => React.ReactNode;
+}

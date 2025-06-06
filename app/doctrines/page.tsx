@@ -5,12 +5,13 @@ import {
   HOME_IMAGES,
 } from 'constants/seo';
 import dayjs from 'dayjs';
-import BlogsPage from 'feature/blogs/BlogsPage';
 import { validateDoctrineMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
+
+import DoctrinesPage from './doctrines-page';
 
 export const metadata: Metadata = {
   title: DOCTRINES_TITLE,
@@ -33,7 +34,7 @@ const getDoctrines = cache(async () => {
     return fileName.substring(0, fileName.length - 3);
   });
 
-  const blogs = fileNamesWithoutExtension.map(fileName => {
+  const doctrines = fileNamesWithoutExtension.map(fileName => {
     const { metadata } = parseMarkdownFile(`content/doctrines/${fileName}.md`);
     const validatedMetadata = validateDoctrineMarkdownMetadata(metadata);
 
@@ -43,7 +44,7 @@ const getDoctrines = cache(async () => {
     };
   });
 
-  blogs.sort((a, b) => {
+  doctrines.sort((a, b) => {
     const first = dayjs(a.createdAt);
     const second = dayjs(b.createdAt);
     if (first.isAfter(second)) return -1;
@@ -51,15 +52,15 @@ const getDoctrines = cache(async () => {
     return 0;
   });
 
-  return blogs;
+  return doctrines;
 });
 
 const Page = async () => {
   const doctrines = await getDoctrines();
-  const tags = [...new Set(doctrines.map(lifehack => lifehack.tag))];
+  const tags = [...new Set(doctrines.map(doctrine => doctrine.tag))];
   tags.sort();
 
-  return <BlogsPage type="doctrine" blogs={doctrines} tags={tags} />;
+  return <DoctrinesPage doctrines={doctrines} tags={tags} />;
 };
 
 export default Page;

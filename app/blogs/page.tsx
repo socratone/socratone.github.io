@@ -5,12 +5,13 @@ import {
   HOME_IMAGES,
 } from 'constants/seo';
 import dayjs from 'dayjs';
-import BlogsPage from 'feature/blogs/BlogsPage';
 import { validateBlogMarkdownMetadata } from 'helpers/markdown';
 import type { Metadata } from 'next';
 import { cache } from 'react';
 import { getFileNames } from 'utils/file';
 import { parseMarkdownFile } from 'utils/markdown';
+
+import BlogsPage from './blogs-page';
 
 export const metadata: Metadata = {
   title: BLOGS_TITLE,
@@ -59,7 +60,7 @@ const Page = async () => {
   const tags = [...new Set(blogs.map(blog => blog.tag))];
   tags.sort();
 
-  return <BlogsPage type="blog" blogs={blogs} tags={tags} />;
+  return <BlogsPage blogs={blogs} tags={tags} />;
 };
 
 export default Page;
