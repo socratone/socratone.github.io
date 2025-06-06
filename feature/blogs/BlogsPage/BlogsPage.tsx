@@ -11,7 +11,6 @@ import { HEADER_HEIGHT } from 'components/Header/constants';
 import RouteChangeListener from 'components/RouteChangeListener';
 import dayjs from 'dayjs';
 import { convertTagToLabel } from 'helpers/blog';
-import type { NextPage } from 'next';
 import Link from 'next/link';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
@@ -64,9 +63,9 @@ const rightGradientSx: SxProps = {
   },
 };
 
-const BlogsPage: NextPage<
-  BlogsPageProps | DoctrinesPageProps | LifehacksPageProps
-> = props => {
+const BlogsPage = (
+  props: BlogsPageProps | DoctrinesPageProps | LifehacksPageProps
+) => {
   const { type, blogs, tags } = props;
   const router = useRouter();
   const parentSlug = `${type}s`;
