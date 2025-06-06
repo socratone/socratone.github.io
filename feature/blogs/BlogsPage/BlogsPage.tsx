@@ -11,7 +11,7 @@ import RouteChangeListener from 'components/RouteChangeListener';
 import { convertTagToLabel } from 'helpers/blog';
 import Link from 'next/link';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
 import type { BlogsPageProps } from './types';
@@ -56,7 +56,8 @@ const rightGradientSx: SxProps = {
   },
 };
 
-const BlogsPage = ({ blogs, tags, renderItem, parentSlug }: BlogsPageProps) => {
+const BlogsPage = ({ blogs, tags, renderItem }: BlogsPageProps) => {
+  const pathname = usePathname();
   const router = useRouter();
 
   const [tagParam, setTagParam] = useState<string | null>(null);
@@ -76,8 +77,10 @@ const BlogsPage = ({ blogs, tags, renderItem, parentSlug }: BlogsPageProps) => {
   );
 
   const handlePageChange = (_: unknown, page: number) => {
-    const tag = tagParam ? `tag=${tagParam}&` : '';
-    router.push(`/${parentSlug}?${tag}page=${page}`);
+    const searchParams = new URLSearchParams();
+    if (tagParam) searchParams.set('tag', tagParam);
+    searchParams.set('page', page.toString());
+    router.push(`${pathname}?${searchParams.toString()}`);
   };
 
   const handleRouteChange = useCallback(
@@ -124,11 +127,7 @@ const BlogsPage = ({ blogs, tags, renderItem, parentSlug }: BlogsPageProps) => {
                 return (
                   <Link
                     key={tag}
-                    href={
-                      isSelected
-                        ? `/${parentSlug}`
-                        : `/${parentSlug}?tag=${tag}`
-                    }
+                    href={isSelected ? `${pathname}` : `${pathname}?tag=${tag}`}
                   >
                     <Chip
                       label={convertTagToLabel(tag)}
@@ -154,7 +153,7 @@ const BlogsPage = ({ blogs, tags, renderItem, parentSlug }: BlogsPageProps) => {
           display={{ xs: 'none', md: 'none', lg: 'block' }}
         >
           <Stack position="sticky" top={HEADER_HEIGHT + CONTAINER_PADDING_TOP}>
-            <Link href={`/${parentSlug}`}>
+            <Link href={pathname}>
               <Typography
                 color={tagParam ? 'text.secondary' : 'text.primary'}
                 fontWeight={tagParam ? undefined : 500}
@@ -166,7 +165,7 @@ const BlogsPage = ({ blogs, tags, renderItem, parentSlug }: BlogsPageProps) => {
               const isSelected = tagParam === tag;
 
               return (
-                <Link key={tag} href={`/${parentSlug}?tag=${tag}`}>
+                <Link key={tag} href={`${pathname}?tag=${tag}`}>
                   <Typography
                     color={isSelected ? 'text.primary' : 'text.secondary'}
                     fontWeight={isSelected ? 500 : undefined}

@@ -15,7 +15,6 @@ interface BlogsPageProps {
 const BlogsPage = ({ blogs, tags }: BlogsPageProps) => {
   return (
     <BlogsTemplate
-      parentSlug="blogs"
       blogs={blogs}
       tags={tags}
       renderItem={blog => (

@@ -15,7 +15,6 @@ interface DoctrinesPageProps {
 const DoctrinesPage = ({ doctrines, tags }: DoctrinesPageProps) => {
   return (
     <BlogsTemplate
-      parentSlug="doctrines"
       blogs={doctrines}
       tags={tags}
       renderItem={doctrine => (

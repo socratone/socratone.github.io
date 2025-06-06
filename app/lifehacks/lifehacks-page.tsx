@@ -15,7 +15,6 @@ interface LifehacksPageProps {
 const LifehacksPage = ({ lifehacks, tags }: LifehacksPageProps) => {
   return (
     <BlogsTemplate
-      parentSlug="lifehacks"
       blogs={lifehacks}
       tags={tags}
       renderItem={lifehack => (

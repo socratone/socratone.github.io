@@ -20,7 +20,6 @@ export type Blog = {
 };
 
 export interface BlogsPageProps {
-  parentSlug: string;
   blogs: Blog[];
   tags: Tag[];
   renderItem: (blog: Blog) => React.ReactNode;
