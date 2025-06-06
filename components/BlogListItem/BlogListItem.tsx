@@ -54,23 +54,23 @@ const EllipsisLineTypography = styled<
   -webkit-box-orient: vertical;
 `;
 
-type BlogListItemProps = {
+interface BlogListItemProps {
   title: string;
   description: string;
   thumbnail: React.ReactNode;
   createdAt: Dayjs;
   href: string;
   tag: string;
-};
+}
 
-const BlogListItem: React.FC<BlogListItemProps> = ({
+const BlogListItem = ({
   title,
   description,
   thumbnail,
   createdAt,
   href,
   tag,
-}) => {
+}: BlogListItemProps) => {
   return (
     <StyledLink href={href}>
       <StyledContainerStack
