@@ -1,7 +1,7 @@
 import Icon from './components/Icon';
 import Phone from './components/Phone';
  
-# 4년차 FRONTEND 개발자 김기원입니다 <Icon content="🤗" />
+# 6년차 FRONTEND 개발자 김기원입니다 <Icon content="🤗" />
 
 이메일: gim2origin@gmail.com | 전화번호: <Phone />\
 깃헙: [github.com/socratone](https://github.com/socratone) | 블로그: [socratone.github.io](https://socratone.github.io)
@@ -10,15 +10,15 @@ import Phone from './components/Phone';
 
 ## <Icon content="✏️" /> Professional Summary
 
-2년 이상의 Next.js 경험과 엘리스 내 11개의 Next.js 웹앱 Maintainer로서, SEO와 성능 개선 등의 문제들을 해결해왔고 Next.js를 주도적으로 학습 후 ISR 등의 신기술들을 도입하여 생산성을 높혔습니다. 엘리스의 코어 앱인 LXP의 GS인증 테스트를 리드했고 1등급을 획득했습니다. 사내 앱 비쥬얼을 주로 담당하는 개발자로서 UI/UX와 애니메이션에 관심이 많습니다. Udemy 강의를 즐겨 찾아보고 재미있게 개발하기 위해 끊임없이 공부합니다.
+4년 이상의 Next.js 실무 경험을 가진 프론트엔드 개발자로, 웰로에서 CSAP 보안 인증, SEO 최적화, 성능 개선 등 서비스 품질 전반에 기여했습니다. 보안 취약점 재점검 시 0%를 달성하는 꼼꼼함과, Next.js 미들웨어를 활용한 인증 아키텍처 설계 등 기술적 의사결정을 주도합니다. 이전 엘리스에서는 11개 Next.js 웹앱 Maintainer로서 SEO 검색 노출수 3배 달성, GS 인증 1등급 획득을 리드했습니다. UI/UX와 개발 생산성 개선에 관심이 많고 끊임없이 학습합니다.
 
 ---
 
 ## <Icon content="⚒️" /> Key Skills
 
-- **Languages & Frameworks:** JavaScript, Typescript, Next.js, React, Redux, TanStack Query, MUI, Node.js, HTML, CSS
-- **Tools & Platforms:** Vercel, Contentful, Airtable, Gitlab, Docker
-- **Other:** SEO Optimization, CI/CD, Monorepo Management
+- **Languages & Frameworks:** JavaScript, TypeScript, Next.js, React, Vue, Redux, TanStack Query, MUI, Node.js, HTML, CSS
+- **Tools & Platforms:** Vercel, Toss Payments, GTM, MSW, Jira, Gitlab, Docker
+- **Other:** SEO Optimization, CSAP Security Compliance, CI/CD, Design System, Performance Optimization
 
 ---
 
@@ -26,9 +26,39 @@ import Phone from './components/Phone';
 
 ### Frontend Maintain Developer
 
+_Wello_
+
+_2024.8 - 2026.3_
+
+- **CSAP 보안 인증 대응**
+  - Next.js 미들웨어를 활용한 인증 아키텍처를 설계하여 모든 API에 개별 인증 로직을 추가하는 비용을 제거하고, 2차 인증(2FA)을 프론트 서버 미들웨어에서 인가 및 쿠키 발급 방식으로 구현
+  - 프론트엔드 코드 취약점 해결을 위한 공통 유틸을 설계 및 적용 → 재취약점 점검 시 취약점 0% 달성
+- **SEO 최적화 및 SSR 안정화**
+  - Canonical URL 설정으로 파편화된 콘텐츠를 통합하고, useSearchParams Suspense 미적용 이슈를 수정하여 SEO 개선
+  - BAILOUT_TO_CLIENT_SIDE_RENDERING 이슈를 분석하여 Streaming HTML 동작 방식을 파악하고 SSR 미적용 페이지 수정
+  - 인사이드 블로그 에디터에 h1/h2/h3 구조를 설계하여 블로그 콘텐츠의 SEO 품질 향상
+- **성능 개선 및 기술 문제 해결**
+  - Next Image 오용을 파악하여 CDN 직접 호출로 전환, 불필요한 CSS import 제거 및 SVG를 Sprite Image로 교체하여 성능 최적화
+  - Polyfill 충돌로 인한 빈 화면 이슈와 인앱브라우저 호환성 문제를 해결하여 모바일 안정성 확보
+  - Query Key 불일치로 인한 Revalidation 실패를 리팩토링하여 데이터 정합성 개선
+- **고향사랑기부 PC 버전 개발**
+  - 디자이너 리소스 없이 모든 엣지 케이스를 커버하는 반응형 레이아웃을 설계하고, 정의되지 않은 디자인을 주도적으로 커뮤니케이션하며 개발
+  - 복잡한 기부 프로세스를 안정적으로 리팩토링하고, Bottom Drawer 등 디자인 시스템 컴포넌트를 협업하여 정의
+- **개발 생산성 향상**
+  - Jira 이슈 생성부터 MR까지 Claude Code를 활용한 자동화 워크플로우를 구축하고, AI 커밋 메시지 자동 제안 도입
+  - Admin 타입 자동 생성 스크립트 개발, 공통 컴포넌트 JSDoc 도입, Dev 환경 부재 시 MSW를 활용한 개발 환경 구성
+- **결제 시스템 및 서비스 기능 개발**
+  - Toss 결제 시스템 연동 및 GTM 이벤트 택소노미를 설계하여 데이터 수집 인프라 구축
+  - Vue 마이그레이션 과정에서 모달 영역만 React로 개발하는 점진적 전환 전략을 의사결정하고 인프라 구성
+  - 웰로비즈 반응형 홈페이지, 회원가입 프로세스 개선 및 업세일링, 검색 필터 UI/UX 개선을 주도적으로 개발
+
+---
+
+### Frontend Maintain Developer
+
 _Elice_
 
-_2022.6 - 현재_
+_2022.6 - 2024.7_
 
 - **GS 인증 1등급**
   - TTA 기관과 주도적으로 커뮤니케이션하며 엘리스의 코어 앱인 LXP를 시험용 버전으로 개발, 사용자 문서를 작성하여 GS 인증 1등급 획득
