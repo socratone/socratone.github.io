@@ -33,22 +33,20 @@ _2024.8 - 2026.3_
 - **CSAP 보안 인증 대응**
   - [Next.js 미들웨어를 활용한 인증 아키텍처](https://github.com/socratone/nextjs-app-router-examples/tree/main/src/app/access-with-token)를 설계하여 모든 API에 개별 인증 로직을 추가하는 비용을 제거하고, 2차 인증(2FA)을 프론트 서버 미들웨어에서 인가 및 쿠키 발급 방식으로 구현
   - 프론트엔드 코드 취약점 해결을 위한 공통 유틸을 설계 및 적용 → 재취약점 점검 시 취약점 0% 달성
-- **SEO 최적화 및 SSR 안정화**
-  - Canonical URL 설정으로 파편화된 콘텐츠를 통합하고, useSearchParams Suspense 미적용 이슈를 수정하여 SEO 개선
-  - BAILOUT_TO_CLIENT_SIDE_RENDERING 이슈를 분석하여 [Streaming HTML 동작 방식을 파악](https://github.com/socratone/nextjs-app-router-examples/tree/main/src/app/suspense-streaming)하고 SSR 미적용 페이지 수정
-  - 인사이드 블로그 에디터에 h1/h2/h3 구조를 설계하여 블로그 콘텐츠의 SEO 품질 향상
-  - Next.js Draft Mode를 활용하여 어드민에서 작성한 초벌 콘텐츠를 웰로 앱에서 미리 확인할 수 있는 프리뷰 시스템을 설계 및 구현
-- **성능 개선 및 기술 문제 해결**
-  - Next Image 오용을 파악하여 CDN 직접 호출로 전환하고, 이를 바탕으로 레이아웃 시프트 방지와 데스크톱 퀄리티 분기를 포함한 OptimizedImage 컴포넌트를 설계하여 모든 컴포넌트에 적용
-  - 불필요한 CSS import 제거 및 SVG를 Sprite Image로 교체하여 성능 최적화
-  - iOS 백화현상 발생 시 MacBook과 연결하여 디버깅, JavaScript 자체를 파싱하지 못하는 원인을 파악하고 Polyfill을 적용하여 해결
-  - eruda를 활용하여 모바일 앱 환경에서만 발생하는 에러를 추적할 수 있는 로깅 시스템을 구축
-  - Query Key 불일치로 인한 Revalidation 실패를 리팩토링하여 데이터 정합성 개선
 - **고향사랑기부 반응형 마이그레이션 및 PC 버전 개발**
   - 모바일 전용 레이아웃으로만 구성되어 있던 서비스를 3개월간 전체 페이지 데스크톱 반응형으로 전환 주도, ResponsiveDialog(모바일에서는 Bottom Sheet, 데스크톱에서는 모달로 자동 전환) 등 반응형 인프라 컴포넌트를 설계
   - 디자이너 리소스 없이 모든 엣지 케이스를 커버하는 반응형 레이아웃을 설계하고, 정의되지 않은 디자인을 주도적으로 커뮤니케이션하며 개발
   - 복잡한 기부 프로세스를 안정적으로 리팩토링하고, Bottom Drawer 등 디자인 시스템 컴포넌트를 협업하여 정의
   - 불필요한 HTML 렌더링 요소 제거, 페이지네이션 적용, 캐싱된 엘리먼트 재활용으로 초기 HTML 용량을 1/10로 축소하고 Lighthouse Performance 점수 20점 향상
+- **SEO 최적화 및 SSR 안정화**
+  - Canonical URL 설정으로 파편화된 인사이트 블로그 콘텐츠를 통합하여 높게 인덱싱된 페이지들의 검색엔진 랭킹이 통합되도록 개선
+  - useSearchParams Suspense 미적용 이슈와 BAILOUT_TO_CLIENT_SIDE_RENDERING 이슈를 분석하여 [Streaming HTML 동작 방식을 파악](https://github.com/socratone/nextjs-app-router-examples/tree/main/src/app/suspense-streaming)하고 SSR 미적용 페이지를 수정하여 SEO 개선
+  - 기존 블로그 에디터의 잘못된 헤딩 마크업 구조를 발견하고, 주도적으로 기획자와 소통하여 h1/h2/h3 마크업 구조가 올바르게 지켜지도록 개선하여 블로그 콘텐츠의 SEO 품질 향상
+  - Next.js Draft Mode를 활용하여 어드민에서 작성한 초벌 콘텐츠를 웰로 앱에서 미리 확인할 수 있는 프리뷰 시스템을 설계 및 구현
+- **성능 개선 및 기술 문제 해결**
+  - Next Image 오용을 파악하여 CDN 직접 호출로 전환하고, 이를 바탕으로 레이아웃 시프트 방지와 데스크톱 퀄리티 분기를 포함한 OptimizedImage 컴포넌트를 설계하여 모든 컴포넌트에 적용
+  - iOS 백화현상 발생 시 MacBook과 연결하여 디버깅, JavaScript 자체를 파싱하지 못하는 원인을 파악하고 Polyfill을 적용하여 해결
+  - eruda를 활용하여 모바일 앱 환경에서만 발생하는 에러를 추적할 수 있는 로깅 시스템을 구축
 - **개발 생산성 향상**
   - Claude Code 기반 자동화 도구를 직접 설계·개발하여, Jira 이슈 조회 → 코드 분석·수정 → 정적 검증(compile, lint) → Playwright 브라우저 검증 → 커밋·Push → GitLab MR 생성까지의 워크플로우를 자동화
   - Git 커밋 diff를 AI로 분석하여 날짜별 업무 보고서를 자동 생성하는 도구를 개발하여 팀원들이 활용할 수 있도록 공유
@@ -60,7 +58,7 @@ _2024.8 - 2026.3_
   - 회원가입 프로세스를 간소화하여 사용자 수 25% 증가
   - 무료회원에게 핵심 기능을 노출하되 blur/masking 래퍼 컴포넌트를 설계하여 기존 UI 수정 없이 업세일링을 적용, 유료 전환을 유도하면서 유지보수성 향상
   - 웰포인트 서비스(적립/출금/출석체크/친구초대)를 0→1로 신규 개발하고, 본인 인증 redirect 후 상태 복원 로직 및 카카오톡 공유 SDK 연동
-  - 지원/조달 사업 공고의 LLM 기반 AI 요약 기능을 구현하여 사용자가 공고 내용을 빠르게 파악할 수 있도록 개선
+  - 지원/조달 사업 공고의 LLM 기반 AI 요약 기능을 Streaming 방식으로 구현하여 사용자가 공고 내용을 빠르게 파악할 수 있도록 개선
 
 ---
 
