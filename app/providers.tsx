@@ -62,8 +62,9 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
             items={[
               { label: 'Blogs', href: '/blogs' },
               { label: 'Musics', href: '/musics' },
-              { label: 'Lifehacks', href: '/lifehacks' },
-              { label: 'Utils', href: '/youtube-loop' },
+              // TODO: 유의미한 콘텐츠가 생기면 추가
+              // { label: 'Lifehacks', href: '/lifehacks' },
+              // { label: 'Utils', href: '/youtube-loop' },
             ]}
             borderBottom
           />
