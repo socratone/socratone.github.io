@@ -127,7 +127,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Generate Blogs metadata
-        run: ${{ steps.detect-package-manager.outputs.runner }} blogs-metadata
+        run: mkdir -p generated && ${{ steps.detect-package-manager.outputs.runner }} blogs-metadata
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Generate sitemap.xml
