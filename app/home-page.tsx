@@ -141,22 +141,25 @@ const HomePage = () => {
             새로운 기술을 배울 때마다 새로운 장난감이 생기는 기분이랄까요.
           </Typography>
         </Typography>
-        <Stack direction="row" justifyContent="center">
+        <Stack alignItems="center">
           <Box
-            maxWidth={400}
+            maxWidth={600}
             width="100%"
             position="relative"
             sx={{
-              aspectRatio: '635 / 604',
+              aspectRatio: '1081 / 859',
             }}
           >
             <Image
-              alt="Dream"
-              src="/images/home/udemy/llm.webp"
+              alt="수강한 Udemy 강의들"
+              src="/images/home/udemy/courses.webp"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'contain' }}
             />
           </Box>
+          <Typography variant="body2" mt={2} color="text.secondary">
+            수강한 Udemy 강의들
+          </Typography>
         </Stack>
       </Box>
 
@@ -200,6 +203,9 @@ const HomePage = () => {
           direction="row"
           flexWrap="wrap"
           justifyContent="center"
+          maxWidth={600}
+          mx="auto"
+          gap={1}
         >
           {moshCourses.map(course => (
             <CourseItem
@@ -241,11 +247,11 @@ const HomePage = () => {
         </Typography>
         <Stack direction="row" justifyContent="center">
           <Box
-            maxWidth={400}
+            maxWidth={490}
             width="100%"
             position="relative"
             sx={{
-              aspectRatio: '400 / 279',
+              aspectRatio: '1 / 1',
             }}
           >
             <Image
