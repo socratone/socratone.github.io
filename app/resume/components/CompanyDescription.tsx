@@ -6,10 +6,7 @@ type CompanyDescriptionProps = {
 
 const CompanyDescription = ({ children }: CompanyDescriptionProps) => {
   return (
-    <Box
-      component="span"
-      sx={{ color: '#73716e', '& *': { color: 'inherit' } }}
-    >
+    <Box component="span" sx={{ fontStyle: 'italic' }}>
       {children}
     </Box>
   );
