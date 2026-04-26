@@ -1,9 +1,18 @@
+import { Box } from '@mui/material';
+
 type CompanyDescriptionProps = {
   children: React.ReactNode;
 };
 
 const CompanyDescription = ({ children }: CompanyDescriptionProps) => {
-  return <span style={{ color: '#73716e' }}>{children}</span>;
+  return (
+    <Box
+      component="span"
+      sx={{ color: '#73716e', '& *': { color: 'inherit' } }}
+    >
+      {children}
+    </Box>
+  );
 };
 
 export default CompanyDescription;
