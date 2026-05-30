@@ -18,7 +18,9 @@ const StyledLink = styled(Link)`
 
 const StyledContainerStack = styled(Stack)`
   cursor: pointer;
-  transition: background 150ms ease-out, border 150ms ease-out,
+  transition:
+    background 150ms ease-out,
+    border 150ms ease-out,
     transform 150ms ease-out;
 
   :hover {
@@ -37,7 +39,7 @@ const StyledThumbnailBox = styled(Box)`
 `;
 
 const EllipsisTypography: OverridableComponent<TypographyTypeMap> = styled(
-  Typography
+  Typography,
 )`
   white-space: nowrap;
   overflow: hidden;
@@ -67,7 +69,7 @@ const BlogListItem = ({
   title,
   description,
   thumbnail,
-  createdAt,
+  // createdAt,
   href,
   tag,
 }: BlogListItemProps) => {
@@ -112,9 +114,9 @@ const BlogListItem = ({
             {description}
           </EllipsisLineTypography>
           <Stack direction="row" alignItems="center" gap={1}>
-            <Typography variant="caption" color="text.secondary">
+            {/* <Typography variant="caption" color="text.secondary">
               {createdAt.format('YYYY.MM.DD')}
-            </Typography>
+            </Typography> */}
             <Chip label={tag} size="small" />
           </Stack>
         </Stack>
