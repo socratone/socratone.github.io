@@ -21,7 +21,7 @@ type ProvidersProps = {
   children: React.ReactNode;
 };
 
-const NONE_GLOBAL_HEADER_PATHNAMES = ['/resume'];
+const NONE_GLOBAL_HEADER_PATHNAMES = ['/resume', '/home'];
 const NONE_CONTAINER_PATHNAME_PATTERNS = [
   '^/$',
   '^/(blogs|lifehacks|doctrines|musics)/.+',
@@ -31,7 +31,7 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
   const pathname = usePathname();
 
   const isHeader = !NONE_GLOBAL_HEADER_PATHNAMES.some(
-    name => name === pathname
+    name => name === pathname,
   );
 
   const isContainer = !NONE_CONTAINER_PATHNAME_PATTERNS.some(pattern => {
@@ -48,7 +48,7 @@ const Providers: React.FC<ProvidersProps> = ({ children }) => {
         shadows,
         breakpoints,
       }),
-    []
+    [],
   );
 
   return (
