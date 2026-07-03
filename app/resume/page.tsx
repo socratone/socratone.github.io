@@ -8,9 +8,15 @@ import Content from './content.mdx';
 
 type ElementProps = { children?: React.ReactNode };
 
+const commonSx = { lineHeight: 1.3, padding: '3px 2px', margin: '1px 0' };
+
 const CustomH1: React.FC<ElementProps> = ({ children }) => {
   return (
-    <Typography component="h1" variant="mh2" fontWeight={700}>
+    <Typography
+      component="h1"
+      fontWeight={700}
+      sx={{ ...commonSx, fontSize: '2rem' }}
+    >
       {children}
     </Typography>
   );
@@ -18,7 +24,11 @@ const CustomH1: React.FC<ElementProps> = ({ children }) => {
 
 const CustomH2: React.FC<ElementProps> = ({ children }) => {
   return (
-    <Typography component="h2" variant="mh3">
+    <Typography
+      component="h2"
+      fontWeight={700}
+      sx={{ ...commonSx, fontSize: '1.75rem' }}
+    >
       {children}
     </Typography>
   );
@@ -26,7 +36,23 @@ const CustomH2: React.FC<ElementProps> = ({ children }) => {
 
 const CustomH3: React.FC<ElementProps> = ({ children }) => {
   return (
-    <Typography component="h3" variant="mh3" sx={{ fontSize: '1rem' }}>
+    <Typography
+      component="h3"
+      fontWeight={600}
+      sx={{ ...commonSx, fontSize: '1.25rem' }}
+    >
+      {children}
+    </Typography>
+  );
+};
+
+const CustomH4: React.FC<ElementProps> = ({ children }) => {
+  return (
+    <Typography
+      component="h4"
+      fontWeight={700}
+      sx={{ ...commonSx, fontSize: '1rem' }}
+    >
       {children}
     </Typography>
   );
@@ -66,6 +92,7 @@ const overrideComponents: MDXComponents = {
   h1: CustomH1,
   h2: CustomH2,
   h3: CustomH3,
+  h4: CustomH4,
   p: CustomP,
   ul: CustomUl,
   hr: CustomHr,

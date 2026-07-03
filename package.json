@@ -8,7 +8,7 @@
     "start": "npx serve@latest out",
     "lint": "next lint",
     "blogs-metadata": "ts-node --project tsconfig.node.json ./scripts/blogs-metadata.ts ./generated",
-    "resume-pdf": "env-cmd -f .env.resume next build && ts-node --project tsconfig.node.json ./scripts/resume-pdf.ts && open resume.pdf",
+    "resume-pdf": "ts-node --project tsconfig.node.json ./scripts/resume-pdf.ts && open resume.pdf",
     "sitemap": "ts-node --project tsconfig.node.json ./scripts/sitemap.ts ./out",
     "optimize-thumbnail-image": "yarn optimize-blog-thumbnail-image && yarn optimize-doctrine-thumbnail-image && yarn optimize-lifehack-thumbnail-image",
     "optimize-blog-thumbnail-image": "ts-node --project tsconfig.node.json ./scripts/optimize-image.ts ./feature/blogs/images/blogs ./public/images/blog/thumbnail --width 96 --width 192",
